@@ -33,35 +33,32 @@
       </div>
       <div class="column is-2"></div>
     </div>
-    <div>
-      <p id="support">Developed with the support of the World Bank and United Nations.</p>
-    </div>
   </div>
 </template>
 
 <style scoped>
-.callout-box {
-  border: 1px solid #8d8d8d;
-  margin: 2%;
-  padding: 0% 2% 1% 2%;
-  box-shadow: 1px 1px 3px #c6c6c6;
-  background-color: #dcdcdc;
-}
+  .callout-box {
+  	border: 1px solid #8d8d8d;
+  	margin: 2%;
+  	padding: 0% 2% 1% 2%;
+  	box-shadow: 1px 1px 3px #c6c6c6;
+  	background-color: #dcdcdc;
+  }
 
-p {
-  text-align: justify;
-}
-#topmost {
-  margin-top: 20px;
-}
-.buffer {
-  margin: 20px;
-}
+  p {
+  	text-align: justify;
+  }
+  #topmost {
+  	margin-top: 5%;
+  }
+  .buffer {
+  	margin: 20px;
+  }
 
-#support {
-  text-align: center;
-  margin: 2%;
-  font-size: 11px;
-  color: gray;
-}
+  #support {
+  	text-align: center;
+  	margin: 2%;
+  	font-size: 11px;
+  	color: gray;
+  }
 </style>
