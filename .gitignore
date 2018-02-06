@@ -1,0 +1,17 @@
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# env
+*.env
+
+# jerks
+haters
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
