@@ -5,9 +5,6 @@
       <home-text></home-text>
     </div>
     <div class="column">
-      <div>
-        <p id="support">Developed with the support of the World Bank and United Nations.</p>
-      </div>
     </div>
   </div>
 </template>
@@ -24,12 +21,6 @@ export default {
 </script>
 
 <style scoped>
-.disclaimer-text {
-  margin-left: 2%;
-  font-style: italic;
-  font-size: 12px;
-  color: gray;
-}
 #topmost {
   margin-top: 25px;
 }
@@ -38,11 +29,5 @@ export default {
 }
 .field {
   margin: 1%;
-}
-#support {
-  text-align: center;
-  margin: 2%;
-  font-size: 11px;
-  color: gray;
 }
 </style>

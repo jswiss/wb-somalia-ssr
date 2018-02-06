@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+<nav class="navbar has-shadow is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <nuxt-link class="navbar-item" to="/">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Coat_of_arms_of_Somalia.svg/200px-Coat_of_arms_of_Somalia.svg.png" alt="Somalia Aid Flows">
@@ -56,30 +56,31 @@
   </nav> -->
 </template>
 <script type="text/javascript">
-export default {
-  name: 'NavBar',
-};
+  export default {
+  	name: 'NavBar',
+  };
 </script>
 
 <style scoped>
-.is-tab {
-  text-indent: 10px;
-}
+  .is-tab {
+  	text-indent: 10px;
+  }
 
-.is-brand {
-  font-weight: bold;
-}
+  .is-brand {
+  	font-weight: bold;
+  	text-indent: -10px;
+  }
 
-.nav {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1030;
-  margin-bottom: 40px;
-}
+  .nav {
+  	position: fixed !important;
+  	top: 0;
+  	left: 0;
+  	right: 0;
+  	z-index: 1030;
+  	margin-bottom: 40px;
+  }
 
-.report {
-  font-weight: bold;
-}
+  .report {
+  	font-weight: bold;
+  }
 </style>
