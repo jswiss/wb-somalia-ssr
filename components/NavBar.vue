@@ -1,24 +1,24 @@
-<template lang="html">
+<template>
   <nav class="nav has-shadow" >
     <div class="nav-left">
-      <router-link class="nav-item" to="/">
+      <nuxt-link class="nav-item" to="/">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Coat_of_arms_of_Somalia.svg/200px-Coat_of_arms_of_Somalia.svg.png" alt="FGS Emblem">
-      </router-link>
-      <router-link class="nav-item is-brand" to="/">
+      </nuxt-link>
+      <nuxt-link class="nav-item is-brand" to="/">
         Somalia Aid Flows
-      </router-link>
-      <router-link class="nav-item is-tab" to="/locations">
+      </nuxt-link>
+      <nuxt-link class="nav-item is-tab" to="/locations">
         <i class="fa fa-dashboard"></i>Locations
-      </router-link>
-      <router-link class="nav-item is-tab" to="/sectors">
+      </nuxt-link>
+      <nuxt-link class="nav-item is-tab" to="/sectors">
         <i class="fa fa-list-alt"></i>Sectors
-      </router-link>
-      <router-link class="nav-item is-tab" to="/documents">
+      </nuxt-link>
+      <nuxt-link class="nav-item is-tab" to="/documents">
         <i class="fa fa-info-circle"></i>Documents
-      </router-link>
-      <router-link class="nav-item is-tab" to="/about">
+      </nuxt-link>
+      <nuxt-link class="nav-item is-tab" to="/about">
         <i class="fa fa-info-circle"></i>About
-      </router-link>
+      </nuxt-link>
     </div>
     <div class="nav-right">
       <a class="nav-item is-tab report" href="https://s3.eu-west-2.amazonaws.com/somaliaaidflows.so/assets/Aid+Flows+Booklet+FINAL.pdf">Download the Report</a>
