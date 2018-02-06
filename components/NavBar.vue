@@ -15,7 +15,8 @@
     </button>
   <div class="navbar-menu">
     <nuxt-link class="navbar-item is-tab" to="/locations">
-      <i class="icon"><img src="https://icon.now.sh/map" alt=""></i>Locations
+      <!-- <i class="icon"><img src="https://icon.now.sh/map" alt=""></i>Locations -->
+      <i class="icon"><img src="../static/icons/somalia-outline-black.svg" alt=""></i>Locations
     </nuxt-link>
     <nuxt-link class="navbar-item is-tab" to="/sectors">
       <i class="icon"><img src="https://icon.now.sh/developer_board" alt=""></i>Sectors

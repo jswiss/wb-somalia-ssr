@@ -1,11 +1,24 @@
 <template>
   <div id="documents">
-    <form action="">
-      <input type="text" name="query" placeholder="filter documents" v-model="searchQuery">
-    </form>
-    <ul id="doc-list">
-      <li v-for="link in filteredDocs" :key="link.id"><a href="link.url">{{ link.text }}</a></li>
-    </ul>
+    <div class="columns is-gapless is-mobile">
+    <div class="column is-2"></div>
+     <div class="column is-5"> 
+      <div class="field">
+        <label for="query" class="label">Search Documents</label>
+        <input type="text" name="query" class="input" v-model="searchQuery">
+      </div>
+     </div> 
+      <div class="column is-5"></div>
+    </div>
+    <div class="columns is-gapless is-mobile">
+      <div class="column is-2"></div>
+      <div class="column is-6">
+        <ul id="doc-list">
+          <li v-for="link in filteredDocs" :key="link.id"><a href="link.url">{{ link.text }}</a></li>
+        </ul>
+      </div>
+      <div class="column is-4"></div>
+    </div>
   </div>
 </template>
 
