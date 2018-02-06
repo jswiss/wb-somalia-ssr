@@ -13,7 +13,7 @@ module.exports = {
         content: 'tracking aid in Somalia',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/icons/favicon.ico' }],
   },
   /*
   ** Customize the progress bar color

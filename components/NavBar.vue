@@ -15,16 +15,16 @@
     </button>
   <div class="navbar-menu">
     <nuxt-link class="navbar-item is-tab" to="/locations">
-      <i class="fa fa-dashboard"></i>Locations
+      <i class="icon"><img src="https://icon.now.sh/map" alt=""></i>Locations
     </nuxt-link>
     <nuxt-link class="navbar-item is-tab" to="/sectors">
-      <i class="fa fa-list-alt"></i>Sectors
+      <i class="icon"><img src="https://icon.now.sh/developer_board" alt=""></i>Sectors
     </nuxt-link>
     <nuxt-link class="navbar-item is-tab" to="/documents">
-      <i class="fa fa-info-circle"></i>Documents
+      <i class="icon"><img src="https://icon.now.sh/library_books" alt=""></i>Documents
     </nuxt-link>
     <nuxt-link class="navbar-item is-tab" to="/about">
-      <i class="fa fa-info-circle"></i>About
+      <i class="icon"><img src="https://icon.now.sh/info_outline" alt=""></i>About
     </nuxt-link>
   </div>
   </div>
