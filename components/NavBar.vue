@@ -16,7 +16,7 @@
   <div class="navbar-menu">
     <nuxt-link class="navbar-item is-tab" to="/locations">
       <!-- <i class="icon"><img src="https://icon.now.sh/map" alt=""></i>Locations -->
-      <i class="icon"><img   src="../static/icons/somalia-outline-black.svg" alt=""></i>Locations
+      <i class="icon"><img src="../static/icons/somalia-outline-black.svg" alt=""></i>Locations
     </nuxt-link>
     <nuxt-link class="navbar-item is-tab" to="/sectors">
       <i class="icon"><img class="image-icon"  src="https://icon.now.sh/developer_board" alt=""></i>Sectors
@@ -30,31 +30,7 @@
   </div>
   </div>
 </nav>
-  <!-- <nav class="nav has-shadow" >
-    <div class="nav-left">
-      <nuxt-link class="nav-item" to="/">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Coat_of_arms_of_Somalia.svg/200px-Coat_of_arms_of_Somalia.svg.png" alt="FGS Emblem">
-      </nuxt-link>
-      <nuxt-link class="nav-item is-brand" to="/">
-        Somalia Aid Flows
-      </nuxt-link>
-      <nuxt-link class="nav-item is-tab" to="/locations">
-        <i class="fa fa-dashboard"></i>Locations
-      </nuxt-link>
-      <nuxt-link class="nav-item is-tab" to="/sectors">
-        <i class="fa fa-list-alt"></i>Sectors
-      </nuxt-link>
-      <nuxt-link class="nav-item is-tab" to="/documents">
-        <i class="fa fa-info-circle"></i>Documents
-      </nuxt-link>
-      <nuxt-link class="nav-item is-tab" to="/about">
-        <i class="fa fa-info-circle"></i>About
-      </nuxt-link>
-    </div>
-    <div class="nav-right">
-      <a class="nav-item is-tab report" href="https://s3.eu-west-2.amazonaws.com/somaliaaidflows.so/assets/Aid+Flows+Booklet+FINAL.pdf">Download the Report</a>
-    </div>
-  </nav> -->
+
 </template>
 <script type="text/javascript">
   export default {
@@ -65,7 +41,8 @@
 <style scoped>
   .image-icon {
   	width: auto;
-  	height: 105%;
+  	height: 103%;
+  	margin-right: 20%;
   }
   .is-tab {
   	text-indent: 10px;
