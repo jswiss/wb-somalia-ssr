@@ -5,29 +5,38 @@
       <home-text></home-text>
     </div>
     <div class="column">
+      <pre>{{projects}}</pre>
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
-import HomeText from '~/components/HomeText';
+  import { mapState, mapMutations, mapActions } from 'vuex';
+  import { getPooledData, getProjectData, getEnvelopeData } from './helpers';
+  import HomeText from '~/components/HomeText';
 
-export default {
-  name: 'home',
-  components: {
-    HomeText,
-  },
-};
+  export default {
+  	name: 'home',
+  	fetch: getProjectData,
+  	components: {
+  		HomeText,
+  	},
+  	computed: {
+  		...mapState({
+  			projects: state => state.projectsTable,
+  		}),
+  	},
+  };
 </script>
 
 <style scoped>
-#topmost {
-  margin-top: 25px;
-}
-.control {
-  margin-left: 20px;
-}
-.field {
-  margin: 1%;
-}
+  #topmost {
+  	margin-top: 25px;
+  }
+  .control {
+  	margin-left: 20px;
+  }
+  .field {
+  	margin: 1%;
+  }
 </style>
