@@ -1,8 +1,18 @@
 <template>
   <div id="puntland">
-    location puntland page
+    <locations-menu></locations-menu>
+    puntland
   </div>
 </template>
+
+<script>
+  import LocationsMenu from '~/components/LocationsMenu';
+  export default {
+  	components: {
+  		LocationsMenu,
+  	},
+  };
+</script>
 
 <style scoped>
   #puntland {

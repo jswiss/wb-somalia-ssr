@@ -1,8 +1,18 @@
 <template>
   <div id="unattributed">
-    location unattributed page
+    <locations-menu></locations-menu>
+    unattributed
   </div>
 </template>
+
+<script>
+  import LocationsMenu from '~/components/LocationsMenu';
+  export default {
+  	components: {
+  		LocationsMenu,
+  	},
+  };
+</script>
 
 <style scoped>
   #unattributed {

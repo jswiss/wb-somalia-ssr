@@ -1,8 +1,17 @@
 <template>
   <div id="location">
-    location index page
+    <locations-menu></locations-menu>
   </div>
 </template>
+
+<script>
+  import LocationsMenu from '~/components/LocationsMenu';
+  export default {
+  	components: {
+  		LocationsMenu,
+  	},
+  };
+</script>
 
 <style scoped>
   #location {

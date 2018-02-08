@@ -1,8 +1,18 @@
 <template>
   <div id="hiirshabelle">
-    location hiirshabelle page
+    <locations-menu></locations-menu>
+    hiirshabelle
   </div>
 </template>
+
+<script>
+  import LocationsMenu from '~/components/LocationsMenu';
+  export default {
+  	components: {
+  		LocationsMenu,
+  	},
+  };
+</script>
 
 <style scoped>
   #hiirshabelle {

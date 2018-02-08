@@ -1,8 +1,18 @@
 <template>
   <div id="southwest">
-    location southwest page
+    <locations-menu></locations-menu>
+    southwest
   </div>
 </template>
+
+<script>
+  import LocationsMenu from '~/components/LocationsMenu';
+  export default {
+  	components: {
+  		LocationsMenu,
+  	},
+  };
+</script>
 
 <style scoped>
   #southwest {
