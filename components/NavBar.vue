@@ -21,6 +21,9 @@
     <nuxt-link class="navbar-item is-tab" to="/sectors">
       <i class="icon"><img class="image-icon"  src="https://icon.now.sh/developer_board" alt=""></i>Sectors
     </nuxt-link>
+    <nuxt-link class="navbar-item is-tab" to="/tables">
+      <i class="icon"><img class="image-icon"  src="https://icon.now.sh/grid_on" alt=""></i>Tables
+    </nuxt-link>
     <nuxt-link class="navbar-item is-tab" to="/documents">
       <i class="icon"><img class="image-icon"  src="https://icon.now.sh/library_books" alt=""></i>Documents
     </nuxt-link>

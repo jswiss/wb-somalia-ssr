@@ -11,20 +11,12 @@
 </template>
 
 <script type="text/javascript">
-  import { mapState, mapMutations, mapActions } from 'vuex';
-  import { getPooledData, getProjectData, getEnvelopeData } from './helpers';
   import HomeText from '~/components/HomeText';
 
   export default {
   	name: 'home',
-  	fetch: getProjectData,
   	components: {
   		HomeText,
-  	},
-  	computed: {
-  		...mapState({
-  			projects: state => state.projectsTable,
-  		}),
   	},
   };
 </script>
