@@ -16,16 +16,16 @@
   <div class="navbar-menu">
     <nuxt-link class="navbar-item is-tab" to="/locations">
       <!-- <i class="icon"><img src="https://icon.now.sh/map" alt=""></i>Locations -->
-      <i class="icon"><img src="../static/icons/somalia-outline-black.svg" alt=""></i>Locations
+      <i class="icon"><img   src="../static/icons/somalia-outline-black.svg" alt=""></i>Locations
     </nuxt-link>
     <nuxt-link class="navbar-item is-tab" to="/sectors">
-      <i class="icon"><img src="https://icon.now.sh/developer_board" alt=""></i>Sectors
+      <i class="icon"><img class="image-icon"  src="https://icon.now.sh/developer_board" alt=""></i>Sectors
     </nuxt-link>
     <nuxt-link class="navbar-item is-tab" to="/documents">
-      <i class="icon"><img src="https://icon.now.sh/library_books" alt=""></i>Documents
+      <i class="icon"><img class="image-icon"  src="https://icon.now.sh/library_books" alt=""></i>Documents
     </nuxt-link>
     <nuxt-link class="navbar-item is-tab" to="/about">
-      <i class="icon"><img src="https://icon.now.sh/info_outline" alt=""></i>About
+      <i class="icon"><img  class="image-icon" src="https://icon.now.sh/info_outline" alt=""></i>About
     </nuxt-link>
   </div>
   </div>
@@ -63,6 +63,10 @@
 </script>
 
 <style scoped>
+  .image-icon {
+  	width: auto;
+  	height: 105%;
+  }
   .is-tab {
   	text-indent: 10px;
   }
