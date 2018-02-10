@@ -1,29 +1,19 @@
-<template>
-  <div id="tables">
-    <div class="section">
-			<div class="container">
-				Dummy table text goes here explaining each table
-			</div>
+<template lang="html">
+  <div id="topmost" class="container is-fluid">
+    <table-tabs></table-tabs>
+    <div id="table-text">
+			Dummy text here (add columns dummy)
 		</div>
   </div>
 </template>
 
 <script>
-	import {
-		getPooledData,
-		getEnvelopeData,
-		getProjectData,
-		getLocationData,
-	} from '../helpers';
-	import { mapState, mapMutations, mapActions } from 'vuex';
+	import TableTabs from '~/components/TableTabs';
 
 	export default {
 		name: 'tables',
-		fetch: getProjectData,
-		computed: {
-			...mapState({
-				projects: state => state.projectsTable,
-			}),
+		components: {
+			TableTabs,
 		},
 	};
 </script>

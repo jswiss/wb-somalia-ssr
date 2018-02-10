@@ -18,6 +18,9 @@ export const mutations = {
   getEnvelopeData(state, envs) {
     state.envelopeTable = envs;
   },
+  getLocationData(state, locs) {
+    state.locationTable = locs;
+  },
 };
 
 export const actions = {};

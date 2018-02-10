@@ -45,3 +45,19 @@ export async function getEnvelopeData({ store, redirect, client }) {
     console.log(err);
   }
 }
+
+export async function getLocationData({ store, redirect, client }) {
+  if (client) return;
+
+  try {
+    const res = await axios.get(
+      'https://somalia-aid-flows.herokuapp.com/location/2016'
+    );
+    store.commit('getLocationData', res.data);
+  } catch (err) {
+    // store.commit('init', []);
+    // error({ statusCode: 500, message: 'Oops! Try again!' });
+    // redirect('/err');
+    console.log(err);
+  }
+}
