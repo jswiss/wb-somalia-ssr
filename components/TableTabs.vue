@@ -36,5 +36,9 @@
 <style scoped>
   .nav-item {
   	margin: 6px 30px 6px 30px;
+  	font-size: 14px;
+  }
+  #tables {
+  	margin-top: 6%;
   }
 </style>

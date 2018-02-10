@@ -2,7 +2,7 @@
     <div id="projects">
       <table-tabs></table-tabs>
       <div id="table">
-        <!-- {{ projects }} -->
+        {{ projects }}
       </div>
     </div>
   </template>

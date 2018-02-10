@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const state = () => ({
-  locationTable: [],
+  locationsTable: [],
   locationYear: '',
   envelopeTable: [],
   pooledTable: [],
@@ -19,7 +19,7 @@ export const mutations = {
     state.envelopeTable = envs;
   },
   getLocationData(state, locs) {
-    state.locationTable = locs;
+    state.locationsTable = locs;
   },
 };
 
