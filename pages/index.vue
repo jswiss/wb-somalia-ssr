@@ -5,7 +5,6 @@
       <home-text></home-text>
     </div>
     <div class="column">
-      <pre>{{projects}}</pre>
     </div>
   </div>
 </template>
