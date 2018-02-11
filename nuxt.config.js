@@ -30,9 +30,11 @@ module.exports = {
     ** Run ESLint on save
     */
     postcss: {
-      plugins: {
-        'postcss-custom-properties': false,
-      },
+      plugins: [
+        // 'postcss-custom-properties',
+        '~plugins/vue-bulma-tables-2.js',
+      ],
+      vendor: ['axios', 'vue-bulma-tables-2'],
     },
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {

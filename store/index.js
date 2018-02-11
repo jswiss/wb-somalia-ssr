@@ -6,6 +6,7 @@ export const state = () => ({
   envelopeTable: [],
   pooledTable: [],
   projectsTable: [],
+  locationsTableColumns: ['location', 'value', 'total'],
 });
 
 export const mutations = {
