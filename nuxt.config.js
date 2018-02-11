@@ -3,7 +3,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'Somalia Aid Flows',
+    title: 'wb-somalia-ssr',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -13,7 +13,7 @@ module.exports = {
         content: 'tracking aid in Somalia',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/icons/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }],
   },
   /*
   ** Customize the progress bar color
@@ -22,6 +22,8 @@ module.exports = {
   modules: ['@nuxtjs/bulma', '@nuxtjs/axios'],
   // css
   css: ['bulma/bulma.sass', '@/assets/css/main.css'],
+  plugins: [{ src: '~/plugins/vue-bulma-tables-2', ssr: false }],
+  vendor: ['vue-bulma-tables-2'],
   /*
   ** Build configuration
   */
@@ -30,11 +32,9 @@ module.exports = {
     ** Run ESLint on save
     */
     postcss: {
-      plugins: [
-        // 'postcss-custom-properties',
-        '~plugins/vue-bulma-tables-2.js',
-      ],
-      vendor: ['axios', 'vue-bulma-tables-2'],
+      plugins: {
+        'postcss-custom-properties': false,
+      },
     },
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
