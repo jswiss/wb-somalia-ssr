@@ -2,7 +2,7 @@
   <div id="locations" class="container is-fluid">
     <table-tabs></table-tabs>
     <div id="table">
-      <no-ssr placeholder="...Loading...">
+      <no-ssr placeholder="Loading...">
         <v-client-table
           :data="locationTable"
           :columns="columns"
@@ -14,12 +14,13 @@
     </div>
   </div>
 </template>
-  
+
 <script>
   import { mapState, mapMutations, mapActions } from 'vuex';
+  import axios from 'axios';
   import { getLocationData } from '../helpers';
   import TableTabs from '~/components/TableTabs';
-  import VClientTable from 'vue-bulma-tables-2';
+  // import VClientTable from 'vue-bulma-tables-2';
 
   export default {
   	name: 'locations',
@@ -44,4 +45,3 @@
   	},
   };
 </script>
-  

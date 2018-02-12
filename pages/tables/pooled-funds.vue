@@ -6,21 +6,21 @@
       </div>
     </div>
   </template>
-  
+
   <script>
   import { mapState, mapMutations, mapActions } from 'vuex';
   import { getPooledData } from '../helpers';
   import TableTabs from '~/components/TableTabs';
 
   export default {
-  	name: 'locations',
+  	name: 'pooled',
   	components: {
   		TableTabs,
   	},
-  	fetch: getPooledData,
   	computed: {
   		...mapState({
   			pools: state => state.pooledTable,
+  			columns: state => state.pooledTableColumns,
   		}),
   	},
   };

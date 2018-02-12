@@ -6,7 +6,7 @@
       </div>
     </div>
   </template>
-  
+
   <script>
   import { mapState, mapMutations, mapActions } from 'vuex';
   import { getEnvelopeData } from '../helpers';
@@ -17,10 +17,10 @@
   	components: {
   		TableTabs,
   	},
-  	fetch: getEnvelopeData,
   	computed: {
   		...mapState({
   			envelopes: state => state.envelopeTable,
+  			columns: state => state.envTableColumns,
   		}),
   	},
   };

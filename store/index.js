@@ -6,17 +6,17 @@ export const state = () => ({
   envelopeTable: [],
   pooledTable: [],
   projectsTable: [],
-  locationsTableColumns: ['location', 'value', 'total'],
+  locationsTableColumns: ['location', 'total', 'count'],
 });
 
 export const mutations = {
-  getPooledData(state, pools) {
+  SET_POOLED_TABLE(state, pools) {
     state.pooledTable = pools;
   },
   getProjectData(state, projects) {
     state.projectsTable = projects;
   },
-  getEnvelopeData(state, envs) {
+  SET_ENV_TABLE(state, envs) {
     state.envelopeTable = envs;
   },
   getLocationData(state, locs) {
