@@ -12,6 +12,17 @@ export default {
   data() {
     return {
       resilienceData: [
+        ["Donor Agency", 18738364],
+        ["Government", 20570204],
+        ["IFI", 500000],
+        ["Intergovernmental Organization", 13296978],
+        ["Mix of implementers - involving government", 731665744],
+        ["NGOs", 265460791],
+        ["Other", 105031],
+        ["Private Sector", 15600000],
+        ["Regional Actors", 4164600],
+        ["UN", 77620689],
+        ["Unclear / TBD", 28888889]
       ],
     };
   },
