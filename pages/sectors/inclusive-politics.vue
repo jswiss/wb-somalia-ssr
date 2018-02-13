@@ -40,7 +40,7 @@ export default {
 
       chart.animation(true);
 
-      chart.title("Inclusive Politics, 2016 spend ($)");
+      chart.title("Inclusive Politics, 2016-8 spend ($)");
 
       chart.yScale().minimum(0);
 
