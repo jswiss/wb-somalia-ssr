@@ -25,15 +25,30 @@
   	// 		});
   	// },
   	async asyncData({ query, error, store }) {
-  		let [envRes, pooledRes, loc2016Res] = await Promise.all([
+  		let [
+  			envRes,
+  			pooledRes,
+  			loc2016Res,
+  			loc2017Res,
+  			loc2018Res,
+  		] = await Promise.all([
   			axios.get('https://somalia-aid.herokuapp.com/envelopes'),
   			axios.get('http://somalia-aid.herokuapp.com/pooled'),
+  			axios.get('https://somalia-aid-flows.herokuapp.com/location/2016'),
+  			axios.get('https://somalia-aid-flows.herokuapp.com/location/2017'),
+  			axios.get('https://somalia-aid-flows.herokuapp.com/location/2018'),
   		]);
   		store.commit('SET_ENV_TABLE', envRes.data);
   		store.commit('SET_POOLED_TABLE', pooledRes.data);
+  		store.commit('SET_2016_LOCATION_TABLE', loc2016Res.data);
+  		store.commit('SET_2017_LOCATION_TABLE', loc2017Res.data);
+  		store.commit('SET_2018_LOCATION_TABLE', loc2018Res.data);
   		return {
   			envs: envRes.data,
   			pools: pooledRes.data,
+  			loc2016: loc2016Res.data,
+  			loc2017: loc2017Res.data,
+  			loc2018: loc2018Res.data,
   		};
   	},
   };
