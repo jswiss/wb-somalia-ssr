@@ -25,9 +25,9 @@
   	// 		});
   	// },
   	async asyncData({ query, error, store }) {
-  		let [envRes, pooledRes] = await Promise.all([
-  			axios.get('http://somalia-aid-flows.herokuapp.com/envelopes'),
-  			axios.get('http://somalia-aid-flows.herokuapp.com/pooled'),
+  		let [envRes, pooledRes, loc2016Res] = await Promise.all([
+  			axios.get('https://somalia-aid.herokuapp.com/envelopes'),
+  			axios.get('http://somalia-aid.herokuapp.com/pooled'),
   		]);
   		store.commit('SET_ENV_TABLE', envRes.data);
   		store.commit('SET_POOLED_TABLE', pooledRes.data);
