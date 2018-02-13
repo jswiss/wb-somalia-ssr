@@ -5,19 +5,6 @@
   </div>
 </template>
 
-Academic / Research Institutions	 3,733,435
-Donor Agency	 16,527,778
-Government	 11,718,557
-IFI	 799,565
-Intergovernmental Organization	 194,500
-Mix of implementers - involving government	 186,777,138
-Mix of implementers - no government	 7,961,733
-NGOs	 219,302,287
-Other	 2,022,044
-Private Sector	 19,542,741
-UN	 64,232,464
-Unclear / TBD	 10,374,238
-
 <script>
 export default {
   name: 'social-and-human-development',
@@ -25,6 +12,18 @@ export default {
   data() {
     return {
       socialHumanDevelopmentData: [
+        ["Academic / Research Institutions", 3733435],
+        ["Donor Agency", 16527778],
+        ["Government", 11718557],
+        ["IFI", 799,565],
+        ["Intergovernmental Organization", 194500],
+        ["Mix of implementers - involving government", 186777138],
+        ["Mix of implementers - no government", 7961733],
+        ["NGOs", 219302287],
+        ["Other", 2022044],
+        ["Private Sector", 19542741],
+        ["UN", 64232464],
+        ["Unclear / TBD", 10,374,238]
       ],
     };
   },
