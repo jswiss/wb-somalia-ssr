@@ -22,8 +22,11 @@ module.exports = {
   modules: ['@nuxtjs/bulma', '@nuxtjs/axios'],
   // css
   css: ['bulma/bulma.sass', '@/assets/css/main.css'],
-  plugins: [{ src: '~/plugins/vue-bulma-tables-2', ssr: false }],
-  vendor: ['vue-bulma-tables-2'],
+  plugins: [
+    { src: '~/plugins/vue-bulma-tables-2', ssr: false },
+    { src: '~/plugins/anychart', ssr: false },
+  ],
+  vendor: ['vue-bulma-tables-2', 'anychart'],
   /*
   ** Build configuration
   */
