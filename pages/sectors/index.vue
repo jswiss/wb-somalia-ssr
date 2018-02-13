@@ -1,14 +1,21 @@
 <template lang="html">
-  <div id="topmost" class="container is-fluid">
-    <div id="container">
-			Sectors dummy
+  <div id="sectors" class="container is-fluid">
+    <sectors-menu></sectors-menu>
+    <div class="columns">
+      <div class="column">
+        <div id="container"></div>
+      </div>
 		</div>
   </div>
 </template>
 
 <script>
+  import SectorsMenu from '~/components/SectorsMenu';
   export default {
   	name: 'sectors',
+  	components: {
+  		SectorsMenu,
+  	},
   	data() {
   		return {
   			testData: [
@@ -90,6 +97,9 @@
 
 <style scoped>
   /* make sure div#id has a size defined, otherwise nothing will render */
+  #sectors {
+  	margin-top: 5%;
+  }
   #container {
   	width: 100%;
   	height: 100%;

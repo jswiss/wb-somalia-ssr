@@ -1,7 +1,11 @@
 <template>
   <div id="jubaland">
     <locations-menu></locations-menu>
-    jubaland
+    <div class="columns">
+      <div class="column">
+        Jubaland
+      </div>
+    </div>
   </div>
 </template>
 

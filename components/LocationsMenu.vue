@@ -90,35 +90,12 @@
           </nuxt-link>
         </div>
       </div>
-      <div class="columns">
-        <div class="outline">
-          <nuxt-link class="nav-item" to="/locations/Unattributed" >
-            <div id="chart-selector-9" class="column">
-              <img src="../static/icons/Unattributed.svg" alt="" class="location-icon">
-              <h4 class="sidebar-title">
-                Unattributed
-              </h4>
-            </div>
-          </nuxt-link>
-        </div>
-      </div>
-        <div class="outline-white">
-          <nuxt-link class="nav-item" to="/locations/Unattributed" >
-            <div id="chart-selector-10" class="column">
-              <img src="" alt="" class="location-icon">
-            </div>
-          </nuxt-link>
-        </div>
-    </div>  
+    </div>
 </template>
 
 <style scoped>
   .outline {
   	border: 1px solid #0f0f0f;
-  	margin: 1px;
-  }
-  .outline-white {
-  	border: 1px solid #fff;
   	margin: 1px;
   }
 
@@ -127,7 +104,7 @@
   }
 
   #location-menu {
-  	margin: 1% 0 0 0;
+  	margin: 1% 0 0 1%;
   }
 
   .location-icon {
