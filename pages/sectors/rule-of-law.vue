@@ -19,6 +19,17 @@
       renderChart() {
         const chart = anychart.cartesian();
         const dataSet = anychart.data.set(this.ruleOfLawData);
+
+        const seriesData = dataSet.mapAs({x: 0, value: 1});
+
+        const column = chart.column(seriesData);
+        column
+        .labels()
+        .enabled(true)
+        .format('${%Value}');
+
+        chart.animation(true)
+        chart.title("Rule of Law, 2016-2018 spend ($) ")
       }
     }
   };
