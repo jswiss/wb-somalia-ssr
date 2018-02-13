@@ -40,7 +40,7 @@ export default {
 
       chart.animation(true);
 
-      chart.title("Efficetive, Efficient Institutions, 2016-2018 spend ($) ");
+      chart.title("Effective, Efficient Institutions, 2016-2018 spend ($) ");
 
       chart.yScale().minimum(0);
 
