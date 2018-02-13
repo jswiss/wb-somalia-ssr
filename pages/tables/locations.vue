@@ -1,6 +1,24 @@
 <template>
   <div id="locations" class="container is-fluid">
     <table-tabs></table-tabs>
+      <div class="field-body">
+        <div class="field is-narrow">
+          <div class="control">
+            <label class="radio">
+              <input type="radio" value="2016" name="2016" @click="toggle2016">
+              XAF
+            </label>
+            <label class="radio">
+              <input type="radio" value="2017" name="2017" @click="toggle2017">
+              EUR
+            </label>
+            <label class="radio">
+              <input type="radio" value="2018" name="2018" @click="toggle2018">
+              USD
+            </label>
+          </div>
+        </div>
+      </div>
     <div id="table">
       <no-ssr placeholder="Loading...">
         <v-client-table
@@ -45,3 +63,11 @@
   	},
   };
 </script>
+
+<style scoped>
+  label.label,
+  div.control {
+  	text-align: left;
+  }
+</style>
+
