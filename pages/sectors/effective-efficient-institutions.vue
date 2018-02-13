@@ -5,7 +5,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   name: 'institutions',
@@ -13,7 +12,16 @@ export default {
   data() {
     return {
       institutionsData: [
-
+        ["Academic / Research Institutions", 420722 ],
+        ["Donor Agency", 4920635 ],
+        ["Government", 171206377 ],
+        ["IFI", 12862328 ],
+        ["Mix of implementers - involving government", 3036189 ],
+        ["NGOs", 19830111 ],
+        ["Other", 1222222],
+        ["Private Sector", 104214427],
+        ["UN", 79737620 ],
+        ["Unclear / TBD", 1353615]
       ],
     };
   },
