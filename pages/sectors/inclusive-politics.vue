@@ -27,16 +27,16 @@ export default {
   },
   methods: {
     renderChart() {
-      const chart = anychart.cartesian()
-      const dataSet = anychart.data.set(this.inclusivePoliticsData)
+      const chart = anychart.cartesian();
+      const dataSet = anychart.data.set(this.inclusivePoliticsData);
 
       const seriesData = dataSet.mapAs({ x: 0, value: 1 });
 
-      const column = chart.column(seriesData)
+      const column = chart.column(seriesData);
       column
       .labels()
       .enabled(true)
-      .format('${%Value} ')
+      .format('${%Value} ');
 
       chart.animation(true);
 
@@ -54,7 +54,7 @@ export default {
         } mln \n Fact: $${this.points[0].value} `;
       });
 
-      chart.interactivity().hoverMode('by-x')
+      chart.interactivity().hoverMode('by-x');
 
       chart
       .yAxis()
@@ -65,7 +65,7 @@ export default {
 
       chart.container('container');
 
-      chart.draw()
+      chart.draw();
     }
   },
   mounted() {

@@ -34,7 +34,6 @@
   			const dataSet = anychart.data.set(this.testData);
 
   			// Assign series (only necessary if using multiple series!)
-  			const seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
   			const seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
 
   			// assign first series to column and format
@@ -97,4 +96,3 @@
   	padding: 0;
   }
 </style>
-

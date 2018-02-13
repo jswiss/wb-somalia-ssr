@@ -8,6 +8,19 @@
   export default {
   	name: 'rule-of-law',
   	layout: 'sectors',
+    data() {
+      return {
+        ruleOfLawData: [
+
+        ],
+      };
+    },
+    methods: {
+      renderChart() {
+        const chart = anychart.cartesian();
+        const dataSet = anychart.data.set(this.ruleOfLawData);
+      }
+    }
   };
 </script>
 
@@ -21,4 +34,3 @@
   	padding: 0;
   }
 </style>
-
