@@ -5,7 +5,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   name: 'infrastructure',
@@ -13,7 +12,15 @@ export default {
   data() {
     return {
       infrastructureData: [
-
+        ["Donor Agency", 6138444],
+        ["Government", 26602499],
+        ["IFI", 889142],
+        ["Mix of implementers - involving government", 18076515],
+        ["Mix of implementers - no government", 0],
+        ["NGOs", 12502249],
+        ["Private Sector", 16468854],
+        ["UN", 31369634],
+        ["Unclear / TBD", 2944444]
       ],
     };
   },

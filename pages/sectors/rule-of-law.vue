@@ -13,13 +13,13 @@ export default {
   data() {
     return {
       ruleOfLawData: [
-        ["Government", 4884026 ],
-        ["Military", 4525200 ],
-        ["Mix of implementers - involving government", 4123420 ],
-        ["Mix of implementers - no government", 4717214 ],
-        ["NGOs", 8419492 ],
-        ["Private Sector", 6182000 ],
-        ["UN", 79498786 ],
+        ["Government", 4884026],
+        ["Military", 4525200],
+        ["Mix of implementers - involving government", 4123420],
+        ["Mix of implementers - no government", 4717214],
+        ["NGOs", 8419492],
+        ["Private Sector", 6182000],
+        ["UN", 79498786],
         ["Unclear / TBD", 6186113]
       ],
     };
