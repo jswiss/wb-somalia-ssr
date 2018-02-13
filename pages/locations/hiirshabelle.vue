@@ -1,6 +1,5 @@
 <template>
   <div id="hiirshabelle">
-    <locations-menu></locations-menu>
     hiirshabelle
   </div>
 </template>
@@ -8,9 +7,7 @@
 <script>
   import LocationsMenu from '~/components/LocationsMenu';
   export default {
-  	components: {
-  		LocationsMenu,
-  	},
+  	layout: 'locations',
   };
 </script>
 

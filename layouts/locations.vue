@@ -1,7 +1,14 @@
 <template>
   <div>
     <nav-bar/>
-    <nuxt/>
+    <div class="columns">
+      <div class="column is-2">
+        <locations-menu/>
+      </div>
+      <div class="column is-10 buffer">
+        <nuxt/>
+      </div>
+    </div>
     <footer-menu/>
   </div>
 </template>
@@ -9,10 +16,12 @@
 <script>
   import NavBar from '~/components/NavBar';
   import FooterMenu from '~/components/FooterMenu';
+  import LocationsMenu from '~/components/LocationsMenu';
   export default {
   	components: {
   		NavBar,
   		FooterMenu,
+  		LocationsMenu,
   	},
   };
 </script>
@@ -35,5 +44,8 @@
   *:after {
   	box-sizing: border-box;
   	margin: 0;
+  }
+  .columns {
+  	margin: 3% 0 0 0;
   }
 </style>

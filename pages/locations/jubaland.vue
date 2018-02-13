@@ -1,20 +1,13 @@
 <template>
   <div id="jubaland">
-    <locations-menu></locations-menu>
-    <div class="columns">
-      <div class="column">
-        Jubaland
-      </div>
-    </div>
+    Jubaland
   </div>
 </template>
 
 <script>
   import LocationsMenu from '~/components/LocationsMenu';
   export default {
-  	components: {
-  		LocationsMenu,
-  	},
+  	layout: 'locations',
   };
 </script>
 

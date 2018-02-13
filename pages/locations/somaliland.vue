@@ -1,6 +1,5 @@
 <template>
   <div id="somaliland">
-    <locations-menu></locations-menu>
     somaliland
   </div>
 </template>
@@ -8,9 +7,7 @@
 <script>
   import LocationsMenu from '~/components/LocationsMenu';
   export default {
-  	components: {
-  		LocationsMenu,
-  	},
+  	layout: 'locations',
   };
 </script>
 
