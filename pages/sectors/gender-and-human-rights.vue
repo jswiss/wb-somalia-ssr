@@ -12,7 +12,10 @@ export default {
   data() {
     return {
       genderHumanRightsData: [
-
+        ["Government", 172342],
+        ["Mix of implementers - involving government", 3700000],
+        ["NGOs", 31539718],
+        ["Private Sector", 695274]
       ],
     };
   },
