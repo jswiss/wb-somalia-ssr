@@ -5,16 +5,6 @@
   </div>
 </template>
 
-Donor Agency	 8,391,376
-Government	 8,228,265
-IFI	 3,013,949
-Mix of implementers - involving government	 19,444,243
-Mix of implementers - no government	 433,000
-NGOs	 38,335,938
-Private Sector	 56,512,142
-Regional Actors	 1,077,778
-UN	 40,336,126
-Unclear / TBD	 -
 
 <script>
 export default {
@@ -23,6 +13,16 @@ export default {
   data() {
     return {
       economicGrowthData: [
+        ["Donor Agency", 8391376],
+        ["Government", 8228265],
+        ["IFI", 3013949],
+        ["Mix of implementers - involving government", 19444243],
+        ["Mix of implementers - no government", 433000],
+        ["NGOs", 38335938],
+        ["Private Sector", 56512142],
+        ["Regional Actors", 1077778],
+        ["UN", 40336126],
+        ["Unclear / TBD", 0]
       ],
     };
   },
