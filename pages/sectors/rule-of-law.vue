@@ -1,6 +1,7 @@
 <template lang="html">
   <div id="sectors" class="container is-fluid">
     Rule of Law
+    <div id="container"></div>
   </div>
 </template>
 
@@ -28,9 +29,38 @@
         .enabled(true)
         .format('${%Value}');
 
-        chart.animation(true)
-        chart.title("Rule of Law, 2016-2018 spend ($) ")
+        chart.animation(true);
+
+        chart.title("Rule of Law, 2016-2018 spend ($) ");
+
+        chart.yScale().minimum(0);
+
+        chart
+        .tooltip()
+        .displayMode('union')
+        .position('point')
+        .unionFormat(function(){
+          return `Plain: $${
+            this.points[1].value
+          } mln \n Fact: $${this.points[0].value} `;
+        });
+
+        chart.interactivity().hoverMode('by-x');
+
+        chart
+        .yAxis()
+        .labels()
+        .format('${%Value} mln');
+
+        chart.xAxis(true);
+
+        chart.container('container');
+
+        chart.draw();
       }
+    },
+    mounted() {
+      this.renderChart();
     }
   };
 </script>
