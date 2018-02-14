@@ -44,7 +44,7 @@ export default {
       .position('point')
       .unionFormat(function(){
         return `Plain: $${
-          this.points[1].value
+          this.points[0].value
         } mln \n Fact: $${this.points[0].value} `;
       });
 

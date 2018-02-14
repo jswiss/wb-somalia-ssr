@@ -2,8 +2,13 @@
   <div id="sectors" class="container is-fluid">
     Inclusive Politics
     <div id="container"></div>
+    <div id="pie-chart"></div>
   </div>
 </template>
+
+["2016", 96124800],
+["2017", 65736375],
+["2018, 28332975]
 
 <script>
 export default {
@@ -23,12 +28,23 @@ export default {
         ["UN", 57038475],
         ["Unclear / TBD", 3787340]
       ],
+      inclusivePoliticsChart: [
+        ["2016", 96124800],
+        ["2017", 65736375],
+        ["2018", 28332975]
+      ],
+      inclusivePoliticsPie: [
+        {x: "NGOs", value: 81895424},
+        {x: "UN", value: 57038475},
+        {x: "NGOs", value: 36028311},
+        {x: "NGOs", value: 15231941},
+      ]
     };
   },
   methods: {
     renderChart() {
       const chart = anychart.cartesian();
-      const dataSet = anychart.data.set(this.inclusivePoliticsData);
+      const dataSet = anychart.data.set(this.inclusivePoliticsChart);
 
       const seriesData = dataSet.mapAs({ x: 0, value: 1 });
 
@@ -40,7 +56,7 @@ export default {
 
       chart.animation(true);
 
-      chart.title("Inclusive Politics, 2016-8 spend ($)");
+      chart.title("Inclusive Politics spend ($)");
 
       chart.yScale().minimum(0);
 
@@ -50,7 +66,7 @@ export default {
       .positionMode('point')
       .unionFormat(function(){
         return `Plain: $${
-          this.points[1].value
+          this.points[0].value
         } mln \n Fact: $${this.points[0].value} `;
       });
 
@@ -66,12 +82,20 @@ export default {
       chart.container('container');
 
       chart.draw();
+    },
+    renderPie() {
+      const pieChart = anychart.pie(this.inclusivePoliticsPie);
+
+      pieChart.container("pie-chart");
+
+      pieChart.draw();
     }
   },
   mounted() {
     this.renderChart();
+    this.renderPie();
   }
-};
+}
 </script>
 
 <style scoped>
