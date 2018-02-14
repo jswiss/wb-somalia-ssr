@@ -25,6 +25,7 @@ module.exports = {
   plugins: [
     { src: '~/plugins/vue-bulma-tables-2', ssr: false },
     { src: '~/plugins/anychart', ssr: false },
+    { src: '~/plugins/filters' },
   ],
   vendor: ['vue-bulma-tables-2', 'anychart'],
   /*
