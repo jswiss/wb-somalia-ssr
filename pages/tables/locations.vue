@@ -5,7 +5,7 @@
       <div class="column is-4 buffer">
         <h1 class="title">2016</h1>
         <h2 class="subtitle">Count and Value of Projects by Location</h2>
-        <table class="table">
+        <table class="table is-bordered is-striped is-narrow is-hoverable">
           <thead>
             <tr>
               <th>Location</th>
@@ -23,7 +23,7 @@
       <div class="column is-4 buffer">
         <h1 class="title">2017</h1>
         <h2 class="subtitle">Count and Value of Projects by Location</h2>
-        <table class="table">
+        <table class="table is-bordered is-striped is-narrow is-hoverable">
           <thead>
             <tr>
               <th>Location</th>
@@ -41,7 +41,7 @@
       <div class="column is-4 buffer">
         <h1 class="title">2018</h1>
         <h2 class="subtitle">Count and Value of Projects by Location</h2>
-        <table class="table">
+        <table class="table is-bordered is-striped is-narrow is-hoverable">
           <thead>
             <tr>
               <th>Location</th>
