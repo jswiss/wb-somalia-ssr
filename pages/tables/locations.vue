@@ -5,41 +5,56 @@
       <div class="column is-4 buffer">
         <h1 class="title">2016</h1>
         <h2 class="subtitle">Count and Value of Projects by Location</h2>
-        <no-ssr placeholder="Loading...">
-          <v-client-table
-            name="location-table-2016"
-            :data="location2016Table"
-            :columns="columns"
-            :options="options"
-          >
-          </v-client-table>
-        </no-ssr>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Count of Projects</th>
+              <th>Total Value of Projects</th>
+            </tr>
+          </thead>
+          <tbody v-for="item in location2016Table" :key="item.location">
+            <td>{{ item.location }}</td>
+            <td>{{ item.count }}</td>
+            <td>{{ item.total }}</td>
+          </tbody>
+        </table>
       </div>
       <div class="column is-4 buffer">
         <h1 class="title">2017</h1>
         <h2 class="subtitle">Count and Value of Projects by Location</h2>
-        <no-ssr>
-          <v-client-table
-            name="location-table-2017"
-            :data="location2017Table"
-            :columns="columns"
-            :options="options"
-          >
-          </v-client-table>
-        </no-ssr>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Count of Projects</th>
+              <th>Total Value of Projects</th>
+            </tr>
+          </thead>
+          <tbody v-for="item in location2017Table" :key="item.location">
+            <td>{{ item.location }}</td>
+            <td>{{ item.count }}</td>
+            <td>{{ item.total }}</td>
+          </tbody>
+        </table>
       </div>
       <div class="column is-4 buffer">
         <h1 class="title">2018</h1>
         <h2 class="subtitle">Count and Value of Projects by Location</h2>
-        <no-ssr>
-          <v-client-table
-            name="location-table-2018"
-            :data="location2018Table"
-            :columns="columns"
-            :options="options"
-          >
-          </v-client-table>
-        </no-ssr>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Count of Projects</th>
+              <th>Total Value of Projects</th>
+            </tr>
+          </thead>
+          <tbody v-for="item in location2018Table" :key="item.location">
+            <td>{{ item.location }}</td>
+            <td>{{ item.count }}</td>
+            <td>{{ item.total }}</td>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -80,6 +95,9 @@
   label.label,
   div.control {
   	text-align: left;
+  }
+  #table {
+  	margin-top: 2%;
   }
 </style>
 
