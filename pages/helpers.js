@@ -61,3 +61,18 @@ export async function getLocationData({ store, redirect, client }) {
     console.log(err);
   }
 }
+
+export async function getAllProjects({ store, client }) {
+  if (client) return;
+
+  try {
+    const res = await axios.get(
+      'http://somalia-aid-flows.herokuapp.com/master'
+    );
+    store.commit('SET_MASTER', res.data);
+  } catch (err) {
+    console.log('====================================');
+    console.log(err);
+    console.log('====================================');
+  }
+}

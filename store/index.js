@@ -19,7 +19,7 @@ export const mutations = {
   SET_POOLED_TABLE(state, data) {
     state.pooledTable = data;
   },
-  getProjectData(state, data) {
+  SET_MASTER(state, data) {
     state.projectsTable = data;
   },
   SET_ENV_TABLE(state, data) {

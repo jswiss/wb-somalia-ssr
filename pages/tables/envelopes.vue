@@ -13,7 +13,7 @@
   import TableTabs from '~/components/TableTabs';
 
   export default {
-  	name: 'locations',
+  	name: 'envelopes',
   	components: {
   		TableTabs,
   	},
