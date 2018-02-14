@@ -61,7 +61,7 @@
 </template>
 
 <script>
-  import { mapState, mapMutations, mapActions } from 'vuex';
+  import { mapState } from 'vuex';
   import axios from 'axios';
   import TableTabs from '~/components/TableTabs';
 

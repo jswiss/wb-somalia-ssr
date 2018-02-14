@@ -5,7 +5,7 @@
       <home-text></home-text>
     </div>
     <div class="column">
-      {{ projects }}
+
     </div>
   </div>
 </template>
