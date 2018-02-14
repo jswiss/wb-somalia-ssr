@@ -1,14 +1,40 @@
 <template lang="html">
   <div id="sectors" class="container is-fluid">
     Inclusive Politics
-    <div id="container"></div>
-    <div id="pie-chart"></div>
+    <div class="columns is-multiline">
+
+      <div class="column is-half">
+        <div id="pie-chart" class="column"></div>
+        <div class="column">
+
+          <table id="table" class="table">
+            <tr>
+              <th>Name</th>
+              <th>Thing</th>
+              <th>Other thing</th>
+            </tr>
+            <tr>
+              <td>James</td>
+              <td>Sectors</td>
+              <td>Test1</td>
+            </tr>
+            <tr>
+              <td>Josh</td>
+              <td>Everything else</td>
+              <td>Test2</td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+
+      <div class="column is-half">
+        <div id="container" class="column"></div>
+      </div>
+
+    </div>
   </div>
 </template>
-
-["2016", 96124800],
-["2017", 65736375],
-["2018, 28332975]
 
 <script>
 export default {
@@ -56,7 +82,7 @@ export default {
 
       chart.animation(true);
 
-      chart.title("Inclusive Politics spend ($)");
+      chart.title("Inclusive Politics: Project Disbursements Reported in 2017");
 
       chart.yScale().minimum(0);
 
@@ -86,6 +112,8 @@ export default {
     renderPie() {
       const pieChart = anychart.pie(this.inclusivePoliticsPie);
 
+      pieChart.title("Inclusive Politics: Key Implementers");
+
       pieChart.container("pie-chart");
 
       pieChart.draw();
@@ -101,8 +129,19 @@ export default {
 <style scoped>
 #container {
   width: 100%;
-  height: 500px;
+  height: 100%;
   margin: 0;
   padding: 0;
+}
+
+#pie-chart {
+  width: 100%;
+  height: 370px;
+  margin: 0;
+  padding: 0;
+}
+
+#table {
+  margin-top: 50px;
 }
 </style>
