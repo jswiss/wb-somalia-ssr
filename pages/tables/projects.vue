@@ -8,9 +8,9 @@
             :columns="columns"
             :options="options"
           >
-            <template slot="Project title" slot-scope="props">
+            <template slot="Project Title" slot-scope="props">
               <div>
-                <a :href="`localhost:3000/projects/${props.row['Project title']}`" target="_blank">{{ props.row['Project title'] }}</a>
+                <a :href="`localhost:3000/projects/${props.row['Project Title']}`" target="_blank">{{ props.row['Project Title'] }}</a>
               </div>
             </template>
             <template slot="Start Date" slot-scope="props">
@@ -59,7 +59,7 @@
   		return {
   			// projectTable: this.projects,
   			columns: [
-  				'Project title',
+  				'Project Title',
   				'Start Date',
   				'End Date',
   				'NDP Pillar',
@@ -74,6 +74,7 @@
   				highlightMatches: true,
   				storage: 'local',
   				dateColumns: ['Start Date', 'End Date'],
+  				filterable: ['Project Title', 'NDP Pillar', 'Primary Sector'],
   			},
   		};
   	},
