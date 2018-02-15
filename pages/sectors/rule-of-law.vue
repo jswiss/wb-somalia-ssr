@@ -2,6 +2,7 @@
   <div id="sectors" class="container is-fluid">
     Rule of Law
     <div id="container"></div>
+    <div id="pie-chart"></div>
   </div>
 </template>
 
@@ -27,9 +28,13 @@ export default {
         ["2017", 48282515],
         ["2018", 4709043]
       ],
-    };
+      ruleOfLawDataPie: [
+        {x: "UN", value: 79498786},
+        {x: "NGOs", value: 8419492},
+        {x: "Other", value: 30617973}
+      ]
+    }
   },
-
   methods: {
     renderChart() {
       const chart = anychart.cartesian();
@@ -71,21 +76,29 @@ export default {
       chart.container('container');
 
       chart.draw();
+    },
+    renderPie() {
+      const pieChart = anychart.pie(this.ruleOfLawDataPie);
+
+      pieChart.title("Inclusive Politics: Key Implementers");
+      pieChart.container("pie-chart");
+      pieChart.draw();
     }
   },
   mounted() {
     this.renderChart();
+    this.renderPie();
   }
 };
 </script>
 
 <style scoped>
-/* make sure div#id has a size defined, otherwise nothing will render */
+  /* make sure div#id has a size defined, otherwise nothing will render */
 
-#container {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+  #container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 </style>
