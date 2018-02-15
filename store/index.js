@@ -15,6 +15,17 @@ export const state = () => ({
   location2017Table: [],
   location2018Table: [],
   locationsTableColumns: ['location', 'total', 'count'],
+  envTableColumns: [
+    'Agency',
+    'Agency Category',
+    'Aid Flow Category',
+    '2016',
+    '2017',
+    '2018',
+    '2019',
+    '2020',
+    'Total 2016-18',
+  ],
 });
 
 export const mutations = {
@@ -43,7 +54,19 @@ export const mutations = {
     });
   },
   SET_ENV_TABLE(state, data) {
-    state.envelopeTable = data;
+    state.envelopeTable = data.map(k => {
+      return {
+        Agency: k['Agency'],
+        'Agency Category': k['Agency Category'],
+        'Aid Flow Category': k['Aid Flow Category'],
+        '2016': k['2016, USD'],
+        '2017': k['2017, USD'],
+        '2018': k['2018, USD'],
+        '2019': k['2019, USD'],
+        '2020': k['2020, USD'],
+        'Total 2016-18': k['Total, 2016-18 (USD)'],
+      };
+    });
   },
   SET_2016_LOCATION_TABLE(state, data) {
     state.location2016Table = data;
