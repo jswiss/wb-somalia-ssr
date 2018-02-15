@@ -34,9 +34,9 @@
   		] = await Promise.all([
   			axios.get('https://somalia-aid.herokuapp.com/envelopes'),
   			axios.get('http://somalia-aid.herokuapp.com/pooled'),
-  			axios.get('https://somalia-aid.herokuapp.com/2016'),
-  			axios.get('https://somalia-aid.herokuapp.com/2017'),
-  			axios.get('https://somalia-aid.herokuapp.com/2018'),
+  			axios.get('https://somalia-aid.herokuapp.com/location/2016'),
+  			axios.get('https://somalia-aid.herokuapp.com/location/2017'),
+  			axios.get('https://somalia-aid.herokuapp.com/location/2018'),
   		]);
   		store.commit('SET_ENV_TABLE', envRes.data);
   		store.commit('SET_POOLED_TABLE', pooledRes.data);
