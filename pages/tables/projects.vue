@@ -13,6 +13,36 @@
                 <a :href="`localhost:3000/projects/${props.row['Project title']}`" target="_blank">{{ props.row['Project title'] }}</a>
               </div>
             </template>
+            <template slot="Start Date" slot-scope="props">
+              <div>
+                {{ props.row['Start Date'] }}
+              </div>
+            </template>
+            <template slot="End Date" slot-scope="props">
+              <div>
+                {{ props.row['End Date'] }}
+              </div>
+            </template>
+            <template slot="2016 Disbursements" slot-scope="props">
+              <div>
+                $ {{ props.row['2016 Disbursements'] | currency }}
+              </div>
+            </template>
+            <template slot="2017 Disbursements" slot-scope="props">
+              <div>
+                $ {{ props.row['2017 Disbursements'] | currency }}
+              </div>
+            </template>
+            <template slot="2018 Disbursements" slot-scope="props">
+              <div>
+                $ {{ props.row['2018 Disbursements'] | currency }}
+              </div>
+            </template>
+            <template slot="Total Project Value" slot-scope="props">
+              <div>
+                $ {{ props.row['Total Project Value'] | currency }}
+              </div>
+            </template>
           </v-client-table>
         </no-ssr>
       </div>
@@ -34,10 +64,10 @@
   				'End Date',
   				'NDP Pillar',
   				'Primary Sector',
-  				'2016 Disbursements (USD)',
-  				'2017 Disbursements (USD)',
-  				'2018 Disbursements (USD)',
-  				'Project Value - (2016-18)',
+  				'2016 Disbursements',
+  				'2017 Disbursements',
+  				'2018 Disbursements',
+  				'Total Project Value',
   			],
   			options: {
   				saveState: true,
