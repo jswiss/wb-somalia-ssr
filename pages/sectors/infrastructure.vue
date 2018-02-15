@@ -2,6 +2,8 @@
   <div id="sectors" class="container is-fluid">
     Infrastructure
     <div id="container"></div>
+    <div id="stack-chart"></div>
+    <div id="pie-chart"></div>
   </div>
 </template>
 
@@ -21,6 +23,11 @@ export default {
         ["Private Sector", 16468854],
         ["UN", 31369634],
         ["Unclear / TBD", 2944444]
+      ],
+      infrastructureDataStack: [
+        ["2016", 11.1, 9.7, 13.0, 5.3],
+        ["2017", 12.7, 14.0, 13.6, 10.7],
+        ["2018", 8.1, 3.5, 5.7, 7.7]
       ],
     };
   },
@@ -65,10 +72,45 @@ export default {
       chart.container('container');
 
       chart.draw();
-    }
+    },
+    renderStack() {
+
+      var stackChart = anychart.column();
+
+      const dataSet = anychart.data.set(this.infrastructureDataStack);
+
+      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
+      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
+      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
+      var seriesData_4 = dataSet.mapAs({x: 0, value: 4});
+
+      // create a chart
+      var stackChart = anychart.column();
+
+      /* enable the value stacking mode
+      on the default primary value scale*/
+      stackChart.yScale().stackMode("value");
+
+      // create column series
+      stackChart.column(seriesData_1);
+      stackChart.column(seriesData_2);
+      stackChart.column(seriesData_3);
+      stackChart.column(seriesData_4);
+
+      // set the chart title
+      stackChart.title("Infrastructure: Project Disbursements by Sector");
+
+      // set the container id
+      stackChart.container("stack-chart");
+
+      // initiate drawing the chart
+      stackChart.draw();
+    },
+
   },
   mounted() {
     this.renderChart();
+    this.renderStack();
   }
 };
 </script>

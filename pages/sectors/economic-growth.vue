@@ -40,7 +40,6 @@ export default {
         {x: "Government", value: 8228265},
         {x: "Other", value: 4524727}
       ]
-
     };
   },
 
@@ -95,9 +94,6 @@ export default {
 
       var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
       var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
-
-      //sd_1 = "Private Sector Development"
-      //sd_2 = "Productive Sectors (Agriculture, Fisheries, Livestock)"
 
       // create a chart
       var stackChart = anychart.column();
