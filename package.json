@@ -19,6 +19,7 @@
     "@nuxtjs/dotenv": "^1.1.0",
     "accounting": "^0.4.1",
     "anychart": "^8.1.0",
+    "anychart-nodejs": "^1.3.8",
     "babel-preset-es2015": "^6.24.1",
     "bulma": "^0.6.2",
     "nuxt": "^1.0.0",

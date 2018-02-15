@@ -37,6 +37,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'inclusive-politics',
   layout: 'sectors',
@@ -113,9 +114,7 @@ export default {
       const pieChart = anychart.pie(this.inclusivePoliticsPie);
 
       pieChart.title("Inclusive Politics: Key Implementers");
-
       pieChart.container("pie-chart");
-
       pieChart.draw();
     }
   },
@@ -124,6 +123,7 @@ export default {
     this.renderPie();
   }
 }
+
 </script>
 
 <style scoped>
