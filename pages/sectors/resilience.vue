@@ -2,6 +2,8 @@
   <div id="sectors" class="container is-fluid">
     Resilience
     <div id="container"></div>
+    <div id="stack-chart"></div>
+    <div id="pie-chart">Figure 29, wrong Pie is shown</div>
   </div>
 </template>
 
@@ -24,6 +26,12 @@ export default {
         ["UN", 77620689],
         ["Unclear / TBD", 28888889]
       ],
+      resilienceDataStack: [
+        ["2016", 37.5, 20.4, 41.7, 5.5, 38.5, 21.3],
+        ["2017", 43.5, 74.4, 400.3, 5.0, 49.0, 66.0],
+        ["2018", 15.7, 13.2, 298.4, 3.0, 22.0, 20.4]
+      ],
+
     };
   },
   methods: {
@@ -67,10 +75,49 @@ export default {
       chart.container('container');
 
       chart.draw();
-    }
+    },
+    renderStack() {
+
+      var stackChart = anychart.column();
+
+      const dataSet = anychart.data.set(this.resilienceDataStack);
+
+      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
+      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
+      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
+      var seriesData_4 = dataSet.mapAs({x: 0, value: 4});
+      var seriesData_5 = dataSet.mapAs({x: 0, value: 5});
+      var seriesData_6 = dataSet.mapAs({x: 0, value: 6});
+
+      // create a chart
+      var stackChart = anychart.column();
+
+      /* enable the value stacking mode
+      on the default primary value scale*/
+      stackChart.yScale().stackMode("value");
+
+      // create column series
+      stackChart.column(seriesData_1);
+      stackChart.column(seriesData_2);
+      stackChart.column(seriesData_3);
+      stackChart.column(seriesData_4);
+      stackChart.column(seriesData_5);
+      stackChart.column(seriesData_6);
+
+      // set the chart title
+      stackChart.title("Resilience: Project Disbursements by Sector");
+
+      // set the container id
+      stackChart.container("stack-chart");
+
+      // initiate drawing the chart
+      stackChart.draw();
+    },
+
   },
   mounted() {
     this.renderChart();
+    this.renderStack();
   }
 };
 </script>
