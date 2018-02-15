@@ -2,6 +2,8 @@
   <div id="sectors" class="container is-fluid">
     Effective, Efficient Institutions
     <div id="container"></div>
+    <div id="stack-chart"></div>
+    <div id="pie-chart"></div>
   </div>
 </template>
 
@@ -22,6 +24,21 @@
   				['Private Sector', 104214427],
   				['UN', 79737620],
   				['Unclear / TBD', 1353615],
+  			],
+  			institutionsDataStack: [
+  				['2016', 63.5, 63.9, 9.9, 17.9],
+  				['2017', 45.2, 86.8, 14.1, 20.7],
+  				['2018', 1.1, 52.1, 13.2, 10.4],
+  			],
+  			institutionsDataPie: [
+  				{ x: 'UN', value: 79498786 },
+  				{ x: 'NGOs', value: 8419492 },
+  				{ x: 'Unclear/TBD', value: 6186133 },
+  				{ x: 'Private Sector', value: 6182000 },
+  				{ x: 'Government', value: 4884026 },
+  				{ x: 'Mix of implementers - no government', value: 4717214 },
+  				{ x: 'Military', value: 4525200 },
+  				{ x: 'Mix of implementers - government', value: 4123420 },
   			],
   		};
   	},
@@ -50,7 +67,7 @@
   				.position('point')
   				.unionFormat(function() {
   					return `Plain: $${
-  						this.points[1].value
+  						this.points[0].value
   					} mln \n Fact: $${this.points[0].value} `;
   				});
 
@@ -67,9 +84,54 @@
 
   			chart.draw();
   		},
+  		renderStack() {
+  			var stackChart = anychart.column();
+
+  			const dataSet = anychart.data.set(this.institutionsDataStack);
+
+  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
+  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
+  			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
+  			var seriesData_4 = dataSet.mapAs({ x: 0, value: 4 });
+
+  			// create a chart
+  			var stackChart = anychart.column();
+
+  			/* enable the value stacking mode
+        on the default primary value scale*/
+  			stackChart.yScale().stackMode('value');
+
+  			// create column series
+  			stackChart.column(seriesData_1);
+  			stackChart.column(seriesData_2);
+  			stackChart.column(seriesData_3);
+  			stackChart.column(seriesData_4);
+
+  			// set the chart title
+  			stackChart.title(
+  				'Effective, Efficient Institutions: Project Disbursements by Sector'
+  			);
+
+  			// set the container id
+  			stackChart.container('stack-chart');
+
+  			// initiate drawing the chart
+  			stackChart.draw();
+  		},
+  		renderPie() {
+  			const pieChart = anychart.pie(this.institutionsDataPie);
+
+  			pieChart.title(
+  				'Key Implementers of Effective, Efficient Institutions Projects'
+  			);
+  			pieChart.container('pie-chart');
+  			pieChart.draw();
+  		},
   	},
   	mounted() {
   		this.renderChart();
+  		this.renderStack();
+  		this.renderPie();
   	},
   };
 </script>
@@ -80,6 +142,13 @@
   #container {
   	width: 100%;
   	height: 100%;
+  	margin: 0;
+  	padding: 0;
+  }
+
+  #stack-chart {
+  	width: 50%;
+  	height: 400px;
   	margin: 0;
   	padding: 0;
   }

@@ -2,6 +2,8 @@
   <div id="sectors" class="container is-fluid">
     Economic Growth
     <div id="container"></div>
+    <div id="stack-chart"></div>
+    <div id="pie-chart"></div>
   </div>
 </template>
 
@@ -24,8 +26,23 @@
   				['UN', 40336126],
   				['Unclear / TBD', 0],
   			],
+  			economicGrowthDataStack: [
+  				['2016', 18.0, 57.0],
+  				['2017', 22.7, 41.7],
+  				['2018', 8.3, 28.1],
+  			],
+  			economicGrowthDataPie: [
+  				{ x: 'Private Sector', value: 56512142 },
+  				{ x: 'UN', value: 40336126 },
+  				{ x: 'NGOs', value: 38335938 },
+  				{ x: 'Mix of implementers - no government', value: 19444243 },
+  				{ x: 'Donor Agencies', value: 8391376 },
+  				{ x: 'Government', value: 8228265 },
+  				{ x: 'Other', value: 4524727 },
+  			],
   		};
   	},
+
   	methods: {
   		renderChart() {
   			const chart = anychart.cartesian();
@@ -51,7 +68,7 @@
   				.position('point')
   				.unionFormat(function() {
   					return `Plain: $${
-  						this.points[1].value
+  						this.points[0].value
   					} mln \n Fact: $${this.points[0].value} `;
   				});
 
@@ -68,9 +85,46 @@
 
   			chart.draw();
   		},
+  		renderStack() {
+  			var stackChart = anychart.column();
+
+  			const dataSet = anychart.data.set(this.economicGrowthDataStack);
+
+  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
+  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
+
+  			// create a chart
+  			var stackChart = anychart.column();
+
+  			/* enable the value stacking mode
+        on the default primary value scale*/
+  			stackChart.yScale().stackMode('value');
+
+  			// create column series
+  			stackChart.column(seriesData_1);
+  			stackChart.column(seriesData_2);
+
+  			// set the chart title
+  			stackChart.title('Economic Growth: Project Disbursements by Sector');
+
+  			// set the container id
+  			stackChart.container('stack-chart');
+
+  			// initiate drawing the chart
+  			stackChart.draw();
+  		},
+  		renderPie() {
+  			const pieChart = anychart.pie(this.economicGrowthDataStack);
+
+  			pieChart.title('Inclusive Politics: Key Implementers');
+  			pieChart.container('pie-chart');
+  			pieChart.draw();
+  		},
   	},
   	mounted() {
   		this.renderChart();
+  		this.renderStack();
+  		this.renderPie();
   	},
   };
 </script>

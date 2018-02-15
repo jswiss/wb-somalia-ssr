@@ -2,6 +2,8 @@
   <div id="sectors" class="container is-fluid">
     Infrastructure
     <div id="container"></div>
+    <div id="stack-chart"></div>
+    <div id="pie-chart"></div>
   </div>
 </template>
 
@@ -21,6 +23,20 @@
   				['Private Sector', 16468854],
   				['UN', 31369634],
   				['Unclear / TBD', 2944444],
+  			],
+  			infrastructureDataStack: [
+  				['2016', 11.1, 9.7, 13.0, 5.3],
+  				['2017', 12.7, 14.0, 13.6, 10.7],
+  				['2018', 8.1, 3.5, 5.7, 7.7],
+  			],
+  			infrastructureDataPie: [
+  				{ x: 'UN', value: 31369634 },
+  				{ x: 'Government', value: 26602499 },
+  				{ x: 'Mix of implementers - involving government', value: 18076515 },
+  				{ x: 'Private Sector', value: 16468854 },
+  				{ x: 'NGOs', value: 12502249 },
+  				{ x: 'Donor Agencies', value: 6138444 },
+  				{ x: 'Other', value: 3833586 },
   			],
   		};
   	},
@@ -49,7 +65,7 @@
   				.position('point')
   				.unionFormat(function() {
   					return `Plain: $${
-  						this.points[1].value
+  						this.points[0].value
   					} mln \n Fact: $${this.points[0].value} `;
   				});
 
@@ -66,9 +82,50 @@
 
   			chart.draw();
   		},
+  		renderStack() {
+  			var stackChart = anychart.column();
+
+  			const dataSet = anychart.data.set(this.infrastructureDataStack);
+
+  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
+  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
+  			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
+  			var seriesData_4 = dataSet.mapAs({ x: 0, value: 4 });
+
+  			// create a chart
+  			var stackChart = anychart.column();
+
+  			/* enable the value stacking mode
+        on the default primary value scale*/
+  			stackChart.yScale().stackMode('value');
+
+  			// create column series
+  			stackChart.column(seriesData_1);
+  			stackChart.column(seriesData_2);
+  			stackChart.column(seriesData_3);
+  			stackChart.column(seriesData_4);
+
+  			// set the chart title
+  			stackChart.title('Infrastructure: Project Disbursements by Sector');
+
+  			// set the container id
+  			stackChart.container('stack-chart');
+
+  			// initiate drawing the chart
+  			stackChart.draw();
+  		},
+  		renderPie() {
+  			const pieChart = anychart.pie(this.infrastructureDataPie);
+
+  			pieChart.title('Key Implementers of Infrastructure Projects');
+  			pieChart.container('pie-chart');
+  			pieChart.draw();
+  		},
   	},
   	mounted() {
   		this.renderChart();
+  		this.renderStack();
+  		this.renderPie();
   	},
   };
 </script>
