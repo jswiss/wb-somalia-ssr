@@ -3,6 +3,7 @@
     Social and Human Development
     <div id="container"></div>
     <div id="stack-chart"></div>
+    <div id="pie-chart"></div>
   </div>
 </template>
 
@@ -31,6 +32,15 @@ export default {
         ["2017", 23.9, 176.3, 53.3],
         ["2018", 0.5, 84.1, 9.4]
       ],
+      socialHumanDevelopmentDataPie: [
+        {x: "NGOs", value: 219302286.6},
+        {x: "Mix of implementers - involving government", value: 186777137.6},
+        {x: "UN", value: 64232464.15},
+        {x: "Private Sector", value: 19542741.02},
+        {x: "Donor Agency", value: 16527777.78},
+        {x: "Government", value: 11718557},
+        {x: "Other", value: 25085515.16},
+      ]
     };
   },
   methods: {
@@ -104,11 +114,20 @@ export default {
 
       // initiate drawing the chart
       stackChart.draw();
+    },
+    renderPie() {
+      const pieChart = anychart.pie(this.socialHumanDevelopmentDataPie);
+
+      pieChart.title("Key Implementers of Social & Human Development Projects");
+      pieChart.container("pie-chart");
+      pieChart.draw();
     }
+
   },
   mounted() {
     this.renderChart();
     this.renderStack();
+    this.renderPie();
   }
 
 };
