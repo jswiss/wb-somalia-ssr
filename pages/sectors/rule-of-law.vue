@@ -22,12 +22,18 @@ export default {
         ["UN", 79498786],
         ["Unclear / TBD", 6186113]
       ],
+      ruleOfLawChart: [
+        ["2016", 65544693],
+        ["2017", 48282515],
+        ["2018", 4709043]
+      ],
     };
   },
+
   methods: {
     renderChart() {
       const chart = anychart.cartesian();
-      const dataSet = anychart.data.set(this.ruleOfLawData);
+      const dataSet = anychart.data.set(this.ruleOfLawChart);
 
       const seriesData = dataSet.mapAs({x: 0, value: 1});
 
@@ -39,7 +45,7 @@ export default {
 
       chart.animation(true);
 
-      chart.title("Rule of Law, 2016-2018 spend ($) ");
+      chart.title("Rule of Law: Project Disbursements");
 
       chart.yScale().minimum(0);
 
