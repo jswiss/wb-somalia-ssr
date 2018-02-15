@@ -31,7 +31,12 @@ export default {
       ruleOfLawDataPie: [
         {x: "UN", value: 79498786},
         {x: "NGOs", value: 8419492},
-        {x: "Other", value: 30617973}
+        {x: "Unclear/TBD", value: 6186133},
+        {x: "Private Sector", value: 6182000},
+        {x: "Government", value: 4884026},
+        {x: "Mix of implementers - no government", value: 4717214},
+        {x: "Military", value: 4525200},
+        {x: "Mix of implementers - government", value: 4123420}
       ]
     }
   },

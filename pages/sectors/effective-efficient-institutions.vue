@@ -98,7 +98,7 @@ export default {
       stackChart.column(seriesData_4);
 
       // set the chart title
-      stackChart.title("Effective & Efficient Institutions spend ($)");
+      stackChart.title("Effective, Efficient Institutions: Project Disbursements by Sector");
 
       // set the container id
       stackChart.container("stack-chart");
