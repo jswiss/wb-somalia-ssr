@@ -2,6 +2,7 @@
   <div id="sectors" class="container is-fluid">
     Social and Human Development
     <div id="container"></div>
+    <div id="stack-chart"></div>
   </div>
 </template>
 
@@ -24,6 +25,11 @@ export default {
         ["Private Sector", 19542741],
         ["UN", 64232464],
         ["Unclear / TBD", 10,374,238]
+      ],
+      socialHumanDevelopmentDataStack: [
+        ["2016", 1.8, 138.5, 55.4],
+        ["2017", 23.9, 176.3, 53.3],
+        ["2018", 0.5, 84.1, 9.4]
       ],
     };
   },
@@ -68,11 +74,43 @@ export default {
       chart.container('container');
 
       chart.draw();
+    },
+    renderStack() {
+      var stackChart = anychart.column();
+
+      const dataSet = anychart.data.set(this.socialHumanDevelopmentDataStack);
+
+      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
+      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
+      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
+
+      // create a chart
+      var stackChart = anychart.column();
+
+      /* enable the value stacking mode
+      on the default primary value scale*/
+      stackChart.yScale().stackMode("value");
+
+      // create column series
+      stackChart.column(seriesData_1);
+      stackChart.column(seriesData_2);
+      stackChart.column(seriesData_3);
+
+      // set the chart title
+      stackChart.title("Social & Human Development: Project Disbursements by Sector");
+
+      // set the container id
+      stackChart.container("stack-chart");
+
+      // initiate drawing the chart
+      stackChart.draw();
     }
   },
   mounted() {
     this.renderChart();
+    this.renderStack();
   }
+
 };
 </script>
 

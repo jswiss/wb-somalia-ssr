@@ -32,7 +32,7 @@ export default {
       infrastructureDataPie: [
         {x: "UN", value: 31369634},
         {x: "Government", value: 26602499},
-        {x: "Mix of implementers - no government", value: 18076515},
+        {x: "Mix of implementers - involving government", value: 18076515},
         {x: "Private Sector", value: 16468854},
         {x: "NGOs", value: 12502249},
         {x: "Donor Agencies", value: 6138444},
