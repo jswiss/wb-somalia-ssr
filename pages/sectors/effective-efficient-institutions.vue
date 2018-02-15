@@ -3,6 +3,7 @@
     Effective, Efficient Institutions
     <div id="container"></div>
     <div id="stack-chart"></div>
+    <div id="pie-chart"></div>
   </div>
 </template>
 
@@ -28,6 +29,16 @@ export default {
         ["2016", 63.5, 63.9, 9.9, 17.9],
         ["2017", 45.2, 86.8, 14.1, 20.7],
         ["2018", 1.1, 52.1, 13.2, 10.4]
+      ],
+      institutionsDataPie: [
+        {x: "UN", value: 79498786},
+        {x: "NGOs", value: 8419492},
+        {x: "Unclear/TBD", value: 6186133},
+        {x: "Private Sector", value: 6182000},
+        {x: "Government", value: 4884026},
+        {x: "Mix of implementers - no government", value: 4717214},
+        {x: "Military", value: 4525200},
+        {x: "Mix of implementers - government", value: 4123420}
       ]
     };
   },
@@ -105,29 +116,37 @@ export default {
 
       // initiate drawing the chart
       stackChart.draw();
+    },
+    renderPie() {
+      const pieChart = anychart.pie(this.institutionsDataPie);
+
+      pieChart.title("Key Implementers of Effective, Efficient Institutions Projects");
+      pieChart.container("pie-chart");
+      pieChart.draw();
     }
   },
   mounted() {
     this.renderChart();
     this.renderStack();
+    this.renderPie();
   }
 };
 </script>
 
 <style scoped>
-/* make sure div#id has a size defined, otherwise nothing will render */
+  /* make sure div#id has a size defined, otherwise nothing will render */
 
-#container {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+  #container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
-#stack-chart {
-  width: 50%;
-  height: 400px;
-  margin: 0;
-  padding: 0;
-}
+  #stack-chart {
+    width: 50%;
+    height: 400px;
+    margin: 0;
+    padding: 0;
+  }
 </style>
