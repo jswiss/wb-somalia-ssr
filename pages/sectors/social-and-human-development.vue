@@ -2,6 +2,8 @@
   <div id="sectors" class="container is-fluid">
     Social and Human Development
     <div id="container"></div>
+    <div id="stack-chart"></div>
+    <div id="pie-chart"></div>
   </div>
 </template>
 
@@ -24,6 +26,20 @@
   				['Private Sector', 19542741],
   				['UN', 64232464],
   				['Unclear / TBD', 10, 374, 238],
+  			],
+  			socialHumanDevelopmentDataStack: [
+  				['2016', 1.8, 138.5, 55.4],
+  				['2017', 23.9, 176.3, 53.3],
+  				['2018', 0.5, 84.1, 9.4],
+  			],
+  			socialHumanDevelopmentDataPie: [
+  				{ x: 'NGOs', value: 219302286.6 },
+  				{ x: 'Mix of implementers - involving government', value: 186777137.6 },
+  				{ x: 'UN', value: 64232464.15 },
+  				{ x: 'Private Sector', value: 19542741.02 },
+  				{ x: 'Donor Agency', value: 16527777.78 },
+  				{ x: 'Government', value: 11718557 },
+  				{ x: 'Other', value: 25085515.16 },
   			],
   		};
   	},
@@ -52,7 +68,7 @@
   				.position('point')
   				.unionFormat(function() {
   					return `Plain: $${
-  						this.points[1].value
+  						this.points[0].value
   					} mln \n Fact: $${this.points[0].value} `;
   				});
 
@@ -69,9 +85,50 @@
 
   			chart.draw();
   		},
+  		renderStack() {
+  			var stackChart = anychart.column();
+
+  			const dataSet = anychart.data.set(this.socialHumanDevelopmentDataStack);
+
+  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
+  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
+  			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
+
+  			// create a chart
+  			var stackChart = anychart.column();
+
+  			/* enable the value stacking mode
+        on the default primary value scale*/
+  			stackChart.yScale().stackMode('value');
+
+  			// create column series
+  			stackChart.column(seriesData_1);
+  			stackChart.column(seriesData_2);
+  			stackChart.column(seriesData_3);
+
+  			// set the chart title
+  			stackChart.title(
+  				'Social & Human Development: Project Disbursements by Sector'
+  			);
+
+  			// set the container id
+  			stackChart.container('stack-chart');
+
+  			// initiate drawing the chart
+  			stackChart.draw();
+  		},
+  		renderPie() {
+  			const pieChart = anychart.pie(this.socialHumanDevelopmentDataPie);
+
+  			pieChart.title('Key Implementers of Social & Human Development Projects');
+  			pieChart.container('pie-chart');
+  			pieChart.draw();
+  		},
   	},
   	mounted() {
   		this.renderChart();
+  		this.renderStack();
+  		this.renderPie();
   	},
   };
 </script>

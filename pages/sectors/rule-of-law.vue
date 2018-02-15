@@ -2,6 +2,7 @@
   <div id="sectors" class="container is-fluid">
     Rule of Law
     <div id="container"></div>
+    <div id="pie-chart"></div>
   </div>
 </template>
 
@@ -22,12 +23,27 @@
   				['UN', 79498786],
   				['Unclear / TBD', 6186113],
   			],
+  			ruleOfLawChart: [
+  				['2016', 65544693],
+  				['2017', 48282515],
+  				['2018', 4709043],
+  			],
+  			ruleOfLawDataPie: [
+  				{ x: 'UN', value: 79498786 },
+  				{ x: 'NGOs', value: 8419492 },
+  				{ x: 'Unclear/TBD', value: 6186133 },
+  				{ x: 'Private Sector', value: 6182000 },
+  				{ x: 'Government', value: 4884026 },
+  				{ x: 'Mix of implementers - no government', value: 4717214 },
+  				{ x: 'Military', value: 4525200 },
+  				{ x: 'Mix of implementers - government', value: 4123420 },
+  			],
   		};
   	},
   	methods: {
   		renderChart() {
   			const chart = anychart.cartesian();
-  			const dataSet = anychart.data.set(this.ruleOfLawData);
+  			const dataSet = anychart.data.set(this.ruleOfLawChart);
 
   			const seriesData = dataSet.mapAs({ x: 0, value: 1 });
 
@@ -39,7 +55,7 @@
 
   			chart.animation(true);
 
-  			chart.title('Rule of Law, 2016-2018 spend ($) ');
+  			chart.title('Rule of Law: Project Disbursements');
 
   			chart.yScale().minimum(0);
 
@@ -49,7 +65,7 @@
   				.position('point')
   				.unionFormat(function() {
   					return `Plain: $${
-  						this.points[1].value
+  						this.points[0].value
   					} mln \n Fact: $${this.points[0].value} `;
   				});
 
@@ -66,9 +82,17 @@
 
   			chart.draw();
   		},
+  		renderPie() {
+  			const pieChart = anychart.pie(this.ruleOfLawDataPie);
+
+  			pieChart.title('Inclusive Politics: Key Implementers');
+  			pieChart.container('pie-chart');
+  			pieChart.draw();
+  		},
   	},
   	mounted() {
   		this.renderChart();
+  		this.renderPie();
   	},
   };
 </script>
