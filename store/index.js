@@ -26,11 +26,28 @@ export const state = () => ({
     '2020',
     'Total 2016-18',
   ],
+  poolTableColumns: [
+    'Agency',
+    'Contributions to MDTFs',
+    'Category',
+    '2015',
+    '2016',
+    '2017',
+    '2018',
+  ],
 });
 
 export const mutations = {
   SET_POOLED_TABLE(state, data) {
     state.pooledTable = data;
+    state.pooledTable.forEach(k => {
+      k['Contributions to MDTFs'] =
+        k['Contributions to Multi Donor Trust Funds (MDTFs)'];
+      k['2015'] = k['2015, US$'];
+      k['2016'] = k['2016, US$'];
+      k['2017'] = k['2017, US$'];
+      k['2018'] = k['2018, US$'];
+    });
   },
   SET_MASTER(state, data) {
     state.projectsTable = data;
