@@ -29,6 +29,15 @@ export default {
         ["2017", 12.7, 14.0, 13.6, 10.7],
         ["2018", 8.1, 3.5, 5.7, 7.7]
       ],
+      infrastructureDataPie: [
+        {x: "UN", value: 31369634},
+        {x: "Government", value: 26602499},
+        {x: "Mix of implementers - no government", value: 18076515},
+        {x: "Private Sector", value: 16468854},
+        {x: "NGOs", value: 12502249},
+        {x: "Donor Agencies", value: 6138444},
+        {x: "Other", value: 3833586}
+      ]
     };
   },
   methods: {
@@ -106,11 +115,18 @@ export default {
       // initiate drawing the chart
       stackChart.draw();
     },
+    renderPie() {
+      const pieChart = anychart.pie(this.infrastructureDataPie);
 
+      pieChart.title("Key Implementers of Infrastructure Projects");
+      pieChart.container("pie-chart");
+      pieChart.draw();
+    }
   },
   mounted() {
     this.renderChart();
     this.renderStack();
+    this.renderPie();
   }
 };
 </script>

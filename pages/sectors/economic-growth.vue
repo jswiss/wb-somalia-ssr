@@ -122,7 +122,6 @@ export default {
       pieChart.container("pie-chart");
       pieChart.draw();
     }
-
   },
   mounted() {
     this.renderChart();
