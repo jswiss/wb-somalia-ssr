@@ -4,8 +4,19 @@
     <div id="container"></div>
     <div id="stack-chart"></div>
     <div id="pie-chart"></div>
+    <div id="country-stack"></div>
   </div>
 </template>
+<!--
+["FGS", ],
+["Benadir", ],
+["Galmudug", ],
+["Hiirshabelle", ],
+["Jubaland", ],
+["Puntland", ],
+["South West", ],
+["Somaliland", ],
+["Unattributed", ] -->
 
 <script>
 export default {
@@ -39,6 +50,17 @@ export default {
         {x: "Mix of implementers - no government", value: 4717214},
         {x: "Military", value: 4525200},
         {x: "Mix of implementers - government", value: 4123420}
+      ],
+      institutionsLocationStack: [
+        ["FGS", 10.5, 146.1, 9.8, 19.9],
+        ["Benadir", 3.5, 0.0, 3.0, 2.6],
+        ["Galmudug", 11.9, 3.6, 0.5, 0.8],
+        ["Hiirshabelle", 2.9, 3.5, 0.5, 0.7],
+        ["Jubaland", 14.7, 7.9, 5.4, 1.3],
+        ["Puntland", 17.5, 15.9, 1.2, 5.2],
+        ["South West", 21.1, 4.9, 3.1, 6.8],
+        ["Somaliland", 18.3, 12.8, 1.5, 5.9],
+        ["Unattributed", 9.4, 8.3, 12.1, 5.7]
       ]
     };
   },
@@ -123,30 +145,67 @@ export default {
       pieChart.title("Key Implementers of Effective, Efficient Institutions Projects");
       pieChart.container("pie-chart");
       pieChart.draw();
-    }
+    },
+    renderCountryStack() {
+
+      var stackChart = anychart.column();
+
+      const dataSet = anychart.data.set(this.institutionsLocationStack);
+
+      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
+      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
+      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
+      var seriesData_4 = dataSet.mapAs({x: 0, value: 3});
+
+      // create a chart
+      var stackChart = anychart.column();
+
+      /* enable the value stacking mode
+      on the default primary value scale*/
+      stackChart.yScale().stackMode("value");
+
+      // create column series
+      stackChart.column(seriesData_1);
+      stackChart.column(seriesData_2);
+      stackChart.column(seriesData_3);
+      stackChart.column(seriesData_4);
+
+
+      // set the chart title
+      stackChart.title("Effective, Efficient Institutions: Project Disbursements by Location");
+
+      // set the container id
+      stackChart.container('country-stack');
+
+      // initiate drawing the chart
+      stackChart.draw();
+    },
+
+
   },
   mounted() {
     this.renderChart();
     this.renderStack();
     this.renderPie();
+    this.renderCountryStack();
   }
 };
 </script>
 
 <style scoped>
-  /* make sure div#id has a size defined, otherwise nothing will render */
+/* make sure div#id has a size defined, otherwise nothing will render */
 
-  #container {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+#container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-  #stack-chart {
-    width: 50%;
-    height: 400px;
-    margin: 0;
-    padding: 0;
-  }
+#stack-chart {
+  width: 50%;
+  height: 400px;
+  margin: 0;
+  padding: 0;
+}
 </style>
