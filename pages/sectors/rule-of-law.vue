@@ -5,7 +5,7 @@
     <div id="pie-chart"></div>
     <div id="country-stack"></div>
 
-    <table class="table is-striped is-hoverable">
+    <table class="table is-striped is-hoverable is-bordered">
       <thead>
         <tr>
           <th>

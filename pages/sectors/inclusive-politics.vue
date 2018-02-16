@@ -14,7 +14,7 @@
       <div id="container" class="column"></div>
     </div>
 
-    <table id="table" class="table is-striped is-hoverable">
+    <table id="table" class="table is-striped is-hoverable is-bordered">
       <thead>
         <tr>
           <th>

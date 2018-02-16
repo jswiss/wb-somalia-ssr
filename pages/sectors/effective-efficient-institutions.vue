@@ -5,6 +5,92 @@
     <div id="stack-chart"></div>
     <div id="pie-chart"></div>
     <div id="country-stack"></div>
+
+    <table class="table is-striped is-hoverable is-bordered">
+      <thead>
+        <tr>
+          <th></th>
+          <th>FGS</th>
+          <th>Benadir</th>
+          <th>Galmudug</th>
+          <th>Hiirshabelle</th>
+          <th>Jubaland</th>
+          <th>Puntland</th>
+          <th>South West</th>
+          <th>Somaliland</th>
+          <th>Unattributed</th>
+          <th>Pillar Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Civil Service Reform / Public Administration</td>
+          <td>19.9</td>
+          <td>2.6</td>
+          <td>0.8</td>
+          <td>0.7</td>
+          <td>1.3</td>
+          <td>5.2</td>
+          <td>6.8</td>
+          <td>5.9</td>
+          <td>5.7</td>
+          <td>48.9</td>
+        </tr>
+        <tr>
+          <td>Planning, M and E and Statistics</td>
+          <td>9.8</td>
+          <td>3.0</td>
+          <td>0.5</td>
+          <td>0.5</td>
+          <td>5.4</td>
+          <td>1.2</td>
+          <td>3.1</td>
+          <td>1.5</td>
+          <td>12.1</td>
+          <td>37.2</td>
+        </tr>
+        <tr>
+          <td>Public Financial Management</td>
+          <td>146.1</td>
+          <td>0.0</td>
+          <td>3.6</td>
+          <td>3.5</td>
+          <td>7.9</td>
+          <td>15.9</td>
+          <td>4.9</td>
+          <td>12.8</td>
+          <td>8.3</td>
+          <td>202.8</td>
+        </tr>
+        <tr>
+          <td>State and Local Governance</td>
+          <td>10.5</td>
+          <td>3.5</td>
+          <td>11.9</td>
+          <td>2.9</td>
+          <td>14.7</td>
+          <td>17.5</td>
+          <td>21.1</td>
+          <td>18.3</td>
+          <td>9.4</td>
+          <td>109.8</td>
+        </tr>
+        <tr>
+          <td>Total:</td>
+          <td>186.4</td>
+          <td>9.2</td>
+          <td>16.7</td>
+          <td>7.6</td>
+          <td>29.3</td>
+          <td>39.8</td>
+          <td>36.0</td>
+          <td>38.5</td>
+          <td>35.4</td>
+          <td>398.8</td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
 </template>
 <!--
@@ -193,19 +279,19 @@ export default {
 </script>
 
 <style scoped>
-/* make sure div#id has a size defined, otherwise nothing will render */
+  /* make sure div#id has a size defined, otherwise nothing will render */
 
-#container {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+  #container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
-#stack-chart {
-  width: 50%;
-  height: 400px;
-  margin: 0;
-  padding: 0;
-}
+  #stack-chart {
+    width: 50%;
+    height: 400px;
+    margin: 0;
+    padding: 0;
+  }
 </style>
