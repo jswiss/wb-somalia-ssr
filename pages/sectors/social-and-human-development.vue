@@ -4,8 +4,83 @@
     <div id="container"></div>
     <div id="stack-chart"></div>
     <div id="pie-chart"></div>
+    <div id="country-stack"></div>
+
+    <table class="table is-striped is-hoverable is-bordered">
+      <thead>
+        <tr>
+          <th></th>
+          <th>FGS</th>
+          <th>Benadir</th>
+          <th>Galmudug</th>
+          <th>Hiirshabelle</th>
+          <th>Jubaland</th>
+          <th>Puntland</th>
+          <th>South West</th>
+          <th>Somaliland</th>
+          <th>Unattributed</th>
+          <th>Pillar Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Education</td>
+          <td>9.3</td>
+          <td>5.4</td>
+          <td>9.0</td>
+          <td>12.0</td>
+          <td>9.7</td>
+          <td>15.3</td>
+          <td>9.3</td>
+          <td>24.1</td>
+          <td>24.0</td>
+          <td>118.1</td>
+        </tr>
+        <tr>
+          <td>Health</td>
+          <td>10.4</td>
+          <td>53.0</td>
+          <td>32.2</td>
+          <td>38.3</td>
+          <td>40.1</td>
+          <td>58.4</td>
+          <td>32.8</td>
+          <td>65.6</td>
+          <td>67.9</td>
+          <td>398.9</td>
+        </tr>
+        <tr>
+          <td>WASH</td>
+          <td>&nbsp;</td>
+          <td>5.0</td>
+          <td>2.5</td>
+          <td>2.5</td>
+          <td>2.6</td>
+          <td>5.9</td>
+          <td>2.5</td>
+          <td>5.0</td>
+          <td>&nbsp;</td>
+          <td>26.2</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td>19.6</td>
+          <td>63.5</td>
+          <td>43.7</td>
+          <td>52.8</td>
+          <td>52.5</td>
+          <td>79.6</td>
+          <td>44.6</td>
+          <td>94.8</td>
+          <td>92.0</td>
+          <td>543.2</td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
 </template>
+
 
 <script>
 export default {
@@ -40,6 +115,17 @@ export default {
         {x: "Donor Agency", value: 16527777.78},
         {x: "Government", value: 11718557},
         {x: "Other", value: 25085515.16},
+      ],
+      socialHumanDevelopmentLocationData: [
+        ["FGS", 9.3, 10.4, 0],
+        ["Benadir", 5.4, 53, 5],
+        ["Galmudug", 9, 32.2, 2.5],
+        ["Hiirshabelle", 12, 38.3, 2.5],
+        ["Jubaland", 9.7, 40.1, 2.6],
+        ["Puntland", 15.3, 58.4, 5.9],
+        ["South West", 9.3, 32.8, 2.5],
+        ["Somaliland", 24.1, 65.6, 5],
+        ["Unattributed", 24, 67.9, 0]
       ]
     };
   },
@@ -121,13 +207,45 @@ export default {
       pieChart.title("Key Implementers of Social & Human Development Projects");
       pieChart.container("pie-chart");
       pieChart.draw();
-    }
+    },
+
+    renderCountryStack() {
+
+      var stackChart = anychart.column();
+
+      const dataSet = anychart.data.set(this.socialHumanDevelopmentLocationData);
+
+      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
+      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
+      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
+
+      /* enable the value stacking mode
+      on the default primary value scale*/
+      stackChart.yScale().stackMode("value");
+
+      // create column series
+      stackChart.column(seriesData_1);
+      stackChart.column(seriesData_2);
+      stackChart.column(seriesData_3);
+
+
+      // set the chart title
+      stackChart.title("Social & Human Development: Project Disbursements by Location");
+
+      // set the container id
+      stackChart.container('country-stack');
+
+      // initiate drawing the chart
+      stackChart.draw();
+    },
+
 
   },
   mounted() {
     this.renderChart();
     this.renderStack();
     this.renderPie();
+    this.renderCountryStack();
   }
 
 };
