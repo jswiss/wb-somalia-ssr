@@ -119,8 +119,8 @@ export default {
       inclusivePoliticsPie: [
         {x: "NGOs", value: 81895424},
         {x: "UN", value: 57038475},
-        {x: "NGOs", value: 36028311},
-        {x: "NGOs", value: 15231941}
+        {x: "Private Sector", value: 36028311},
+        {x: "Other", value: 15231941}
       ],
       inclusivePoliticsLocationStack: [
         ["FGS", 4.0, 12.8, 17.6],
