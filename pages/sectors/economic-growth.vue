@@ -5,6 +5,65 @@
     <div id="stack-chart"></div>
     <div id="pie-chart"></div>
     <div id="country-chart"></div>
+
+    <table class="table is-striped is-hoverable is-bordered">
+      <thead>
+        <tr>
+          <th></th>
+          <th>FGS</th>
+          <th>Benadir</th>
+          <th>Galmudug</th>
+          <th>Hiirshabelle</th>
+          <th>Jubaland</th>
+          <th>Puntland</th>
+          <th>South West</th>
+          <th>Somaliland</th>
+          <th>Unattributed</th>
+          <th>Pillar Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Private Sector Development</td>
+          <td>8.5</td>
+          <td>10.9</td>
+          <td>4.8</td>
+          <td>11.8</td>
+          <td>13.9</td>
+          <td>15.4</td>
+          <td>10.5</td>
+          <td>42.6</td>
+          <td>8.4</td>
+          <td>126.8</td>
+        </tr>
+        <tr>
+          <td>Productive Sectors </td>
+          <td>5.4</td>
+          <td>0.6</td>
+          <td>0.6</td>
+          <td>3.1</td>
+          <td>4.3</td>
+          <td>4.3</td>
+          <td>5.6</td>
+          <td>16.9</td>
+          <td>8.1</td>
+          <td>49</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td>13.9</td>
+          <td>11.5</td>
+          <td>5.4</td>
+          <td>14.9</td>
+          <td>18.2</td>
+          <td>19.7</td>
+          <td>16.2</td>
+          <td>59.5</td>
+          <td>16.5</td>
+          <td>175.8</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -177,12 +236,12 @@ export default {
 </script>
 
 <style scoped>
-/* make sure div#id has a size defined, otherwise nothing will render */
+  /* make sure div#id has a size defined, otherwise nothing will render */
 
-#container {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+  #container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 </style>
