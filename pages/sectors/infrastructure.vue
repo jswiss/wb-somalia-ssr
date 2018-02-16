@@ -4,8 +4,100 @@
     <div id="container"></div>
     <div id="stack-chart"></div>
     <div id="pie-chart"></div>
+    <div id="country-stack"></div>
+
+
+    <table class="table is-striped is-hoverable is-bordered">
+      <thead>
+        <tr>
+          <th></th>
+          <th>FGS</th>
+          <th>Benadir</th>
+          <th>Galmudug</th>
+          <th>Hiirshabelle</th>
+          <th>Jubaland</th>
+          <th>Puntland</th>
+          <th>South West</th>
+          <th>Somaliland</th>
+          <th>Unattributed</th>
+          <th>Pillar Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Energy and ICT</td>
+          <td>5.4</td>
+          <td>0.4</td>
+          <td>0.5</td>
+          <td>1.4</td>
+          <td>0.5</td>
+          <td>1.2</td>
+          <td>0.5</td>
+          <td>11</td>
+          <td>2.8</td>
+          <td>23.7</td>
+        </tr>
+        <tr>
+          <td>Mixed Infrastructure</td>
+          <td>5.9</td>
+          <td>1.4</td>
+          <td>1.1</td>
+          <td>1.6</td>
+          <td>2.6</td>
+          <td>8.1</td>
+          <td>6.1</td>
+          <td>5.5</td>
+          <td>&nbsp;</td>
+          <td>32.3</td>
+        </tr>
+        <tr>
+          <td>Transport: Roads, Ports, Airports</td>
+          <td>0.5</td>
+          <td>3.2</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>1.1</td>
+          <td>6.4</td>
+          <td>&nbsp;</td>
+          <td>15.7</td>
+          <td>0.2</td>
+          <td>27.1</td>
+        </tr>
+        <tr>
+          <td>Water and Sanitation (Urban)</td>
+          <td>0.7</td>
+          <td>0.4</td>
+          <td>1.7</td>
+          <td>1</td>
+          <td>1.7</td>
+          <td>4.6</td>
+          <td>1.7</td>
+          <td>20.2</td>
+          <td>&nbsp;</td>
+          <td>31.9</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td>12.5</td>
+          <td>5.4</td>
+          <td>3.3</td>
+          <td>4</td>
+          <td>5.8</td>
+          <td>20.4</td>
+          <td>8.3</td>
+          <td>52.4</td>
+          <td>2.9</td>
+          <td>115</td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
 </template>
+
+
+
+
 
 <script>
 export default {
@@ -37,6 +129,17 @@ export default {
         {x: "NGOs", value: 12502249},
         {x: "Donor Agencies", value: 6138444},
         {x: "Other", value: 3833586}
+      ],
+      infrastructureLocationStack: [
+        ["FGS", 5.4, 5.9, 0.5, 0.7],
+        ["Benadir", 0.4, 1.4, 3.2, 0.4],
+        ["Galmudug", 0.5, 1.1, 0, 1.7],
+        ["Hiirshabelle", 1.4, 1.6, 0, 1],
+        ["Jubaland", 0.5, 2.6, 1.1, 1.7],
+        ["Puntland", 1.2, 8.1, 6.4, 4.6],
+        ["South West", 0.5, 6.1, 0, 1.7],
+        ["Somaliland", 11, 5.5, 15.7, 20.2],
+        ["Unattributed", 2.8, 0, 0.2, 0]
       ]
     };
   },
@@ -121,23 +224,56 @@ export default {
       pieChart.title("Key Implementers of Infrastructure Projects");
       pieChart.container("pie-chart");
       pieChart.draw();
-    }
+    },
+    renderCountryStack() {
+
+      var stackChart = anychart.column();
+
+      const dataSet = anychart.data.set(this.infrastructureLocationStack);
+
+      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
+      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
+      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
+      var seriesData_4 = dataSet.mapAs({x: 0, value: 3});
+
+      /* enable the value stacking mode
+      on the default primary value scale*/
+      stackChart.yScale().stackMode("value");
+
+      // create column series
+      stackChart.column(seriesData_1);
+      stackChart.column(seriesData_2);
+      stackChart.column(seriesData_3);
+      stackChart.column(seriesData_4);
+
+
+      // set the chart title
+      stackChart.title("Infrastructure: Project Disbursements by Location");
+
+      // set the container id
+      stackChart.container('country-stack');
+
+      // initiate drawing the chart
+      stackChart.draw();
+    },
+
   },
   mounted() {
     this.renderChart();
     this.renderStack();
     this.renderPie();
+    this.renderCountryStack();
   }
 };
 </script>
 
 <style scoped>
-/* make sure div#id has a size defined, otherwise nothing will render */
+  /* make sure div#id has a size defined, otherwise nothing will render */
 
-#container {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+  #container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 </style>
