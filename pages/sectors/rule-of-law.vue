@@ -170,7 +170,7 @@ export default {
     renderPie() {
       const pieChart = anychart.pie(this.ruleOfLawDataPie);
 
-      pieChart.title("Inclusive Politics: Key Implementers");
+      pieChart.title("Rule of Law: Key Implementers");
       pieChart.container("pie-chart");
       pieChart.draw();
     },

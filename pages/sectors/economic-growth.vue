@@ -189,7 +189,7 @@ export default {
     renderPie() {
       const pieChart = anychart.pie(this.economicGrowthDataStack);
 
-      pieChart.title("Inclusive Politics: Key Implementers");
+      pieChart.title("Economic Growth: Key Implementers");
       pieChart.container("pie-chart");
       pieChart.draw();
     },
