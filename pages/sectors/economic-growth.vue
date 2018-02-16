@@ -4,6 +4,7 @@
     <div id="container"></div>
     <div id="stack-chart"></div>
     <div id="pie-chart"></div>
+    <div id="country-chart"></div>
   </div>
 </template>
 
@@ -39,6 +40,17 @@ export default {
         {x: "Donor Agencies", value: 8391376},
         {x: "Government", value: 8228265},
         {x: "Other", value: 4524727}
+      ],
+      economicLocationStack: [
+        ["FGS", 8.5, 5.4, 13.9],
+        ["Benadir", 10.9, 0.6, 11.5],
+        ["Galmudug", 4.8, 0.6, 5.4],
+        ["Hiirshabelle", 11.8, 3.1, 14.9],
+        ["Jubaland", 13.9, 4.3, 18.2],
+        ["Puntland", 15.4, 4.3, 19.7],
+        ["South West", 10.5, 5.6, 16.2],
+        ["Somaliland", 42.6, 16.9, 59.5],
+        ["Unattributed", 8.4, 8.1, 16.5]
       ]
     };
   },
@@ -121,12 +133,45 @@ export default {
       pieChart.title("Inclusive Politics: Key Implementers");
       pieChart.container("pie-chart");
       pieChart.draw();
-    }
+    },
+    renderLocationStack() {
+
+      var locationStackChart = anychart.column();
+
+      const dataSet = anychart.data.set(this.economicLocationStack);
+
+      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
+      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
+      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
+
+      // create a chart
+      var locationStackChart = anychart.column();
+
+      /* enable the value stacking mode
+      on the default primary value scale*/
+      locationStackChart.yScale().stackMode("value");
+
+      // create column series
+      locationStackChart.column(seriesData_1);
+      locationStackChart.column(seriesData_2);
+      locationStackChart.column(seriesData_3);
+
+      // set the chart title
+      locationStackChart.title("Economic Growth: Project Disbursements by Location");
+
+      // set the container id
+      locationStackChart.container("country-chart");
+
+      // initiate drawing the chart
+      locationStackChart.draw();
+    },
+
   },
   mounted() {
     this.renderChart();
     this.renderStack();
     this.renderPie();
+    this.renderLocationStack();
   }
 };
 </script>
