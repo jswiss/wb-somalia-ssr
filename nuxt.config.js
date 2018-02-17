@@ -24,10 +24,11 @@ module.exports = {
   css: ['bulma/bulma.sass', '@/assets/css/main.css'],
   plugins: [
     { src: '~/plugins/vue-bulma-tables-2', ssr: false },
+    { src: '~/plugins/vuexPersistedState', ssr: false },
     { src: '~/plugins/anychart', ssr: false },
     { src: '~/plugins/filters' },
   ],
-  vendor: ['vue-bulma-tables-2', 'anychart'],
+  vendor: ['vue-bulma-tables-2', 'anychart', 'createPersistedState'],
   /*
   ** Build configuration
   */
