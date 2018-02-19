@@ -1,50 +1,56 @@
 	<template>
     <div id="projects">
       <table-tabs></table-tabs>
-      <div id="table">
-        <no-ssr>
-          <v-client-table
-            :data="projects"
-            :columns="columns"
-            :options="options"
-          >
-            <template slot="Project Title" slot-scope="props">
-              <div>
-                <a :href="`localhost:3000/projects/${props.row['Project Title']}`" target="_blank">{{ props.row['Project Title'] }}</a>
-              </div>
-            </template>
-            <template slot="Start Date" slot-scope="props">
-              <div>
-                {{ props.row['Start Date'] }}
-              </div>
-            </template>
-            <template slot="End Date" slot-scope="props">
-              <div>
-                {{ props.row['End Date'] }}
-              </div>
-            </template>
-            <template slot="2016 Disbursements" slot-scope="props">
-              <div>
-                $ {{ props.row['2016 Disbursements'] | currency }}
-              </div>
-            </template>
-            <template slot="2017 Disbursements" slot-scope="props">
-              <div>
-                $ {{ props.row['2017 Disbursements'] | currency }}
-              </div>
-            </template>
-            <template slot="2018 Disbursements" slot-scope="props">
-              <div>
-                $ {{ props.row['2018 Disbursements'] | currency }}
-              </div>
-            </template>
-            <template slot="Total Project Value" slot-scope="props">
-              <div>
-                $ {{ props.row['Total Project Value'] | currency }}
-              </div>
-            </template>
-          </v-client-table>
-        </no-ssr>
+      <div class="columns">
+        <div class="column is-1"></div>
+        <div class="column is-10">
+          <div id="table">
+            <no-ssr>
+              <v-client-table
+                :data="projects"
+                :columns="columns"
+                :options="options"
+              >
+                <template slot="Project Title" slot-scope="props">
+                  <div>
+                    <a :href="`localhost:3000/projects/${props.row['Project Title']}`" target="_blank">{{ props.row['Project Title'] }}</a>
+                  </div>
+                </template>
+                <template slot="Start Date" slot-scope="props">
+                  <div>
+                    {{ props.row['Start Date'] }}
+                  </div>
+                </template>
+                <template slot="End Date" slot-scope="props">
+                  <div>
+                    {{ props.row['End Date'] }}
+                  </div>
+                </template>
+                <template slot="2016 Disbursements" slot-scope="props">
+                  <div>
+                    $ {{ props.row['2016 Disbursements'] | currency }}
+                  </div>
+                </template>
+                <template slot="2017 Disbursements" slot-scope="props">
+                  <div>
+                    $ {{ props.row['2017 Disbursements'] | currency }}
+                  </div>
+                </template>
+                <template slot="2018 Disbursements" slot-scope="props">
+                  <div>
+                    $ {{ props.row['2018 Disbursements'] | currency }}
+                  </div>
+                </template>
+                <template slot="Total Project Value" slot-scope="props">
+                  <div>
+                    $ {{ props.row['Total Project Value'] | currency }}
+                  </div>
+                </template>
+              </v-client-table>
+            </no-ssr>
+          </div>
+        </div>
+        <div class="column is-1"></div>
       </div>
     </div>
   </template>
