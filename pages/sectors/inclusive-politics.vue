@@ -1,39 +1,95 @@
 <template lang="html">
   <div id="sectors" class="container is-fluid">
     Inclusive Politics
+    <div id="country-stack"></div>
     <div class="columns is-multiline">
 
       <div class="column is-half">
         <div id="pie-chart" class="column"></div>
-        <div class="column">
-
-          <table id="table" class="table">
-            <tr>
-              <th>Name</th>
-              <th>Thing</th>
-              <th>Other thing</th>
-            </tr>
-            <tr>
-              <td>James</td>
-              <td>Sectors</td>
-              <td>Test1</td>
-            </tr>
-            <tr>
-              <td>Josh</td>
-              <td>Everything else</td>
-              <td>Test2</td>
-            </tr>
-          </table>
-
-        </div>
+        <div class="column"></div>
       </div>
 
-      <div class="column is-half">
-        <div id="container" class="column"></div>
-      </div>
 
+    <div class="column is-half">
+      <div id="container" class="column"></div>
     </div>
+
+    <table id="table" class="table is-striped is-hoverable is-bordered">
+      <thead>
+        <tr>
+          <th>
+          </th>
+          <th>FGS</th>
+          <th>Benadir</th>
+          <th>Galmudug</th>
+          <th>Hiirshabelle</th>
+          <th>Jubaland</th>
+          <th>Puntland</th>
+          <th>South West</th>
+          <th>Somaliland</th>
+          <th>Unattributed</th>
+          <th>Pillar Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2016</td>
+          <td>17.6</td>
+          <td>6.2</td>
+          <td>8.3</td>
+          <td>6.5</td>
+          <td>15.9</td>
+          <td>6.7</td>
+          <td>7</td>
+          <td>18</td>
+          <td>9.9</td>
+          <td>96.1</td>
+        </tr>
+        <tr>
+          <td>2017</td>
+          <td>12.8</td>
+          <td>3.3</td>
+          <td>2.1</td>
+          <td>2.8</td>
+          <td>9.4</td>
+          <td>4</td>
+          <td>9.7</td>
+          <td>9.7</td>
+          <td>11.9</td>
+          <td>65.7</td>
+        </tr>
+        <tr>
+          <td>2018</td>
+          <td>4</td>
+          <td>1</td>
+          <td>0.4</td>
+          <td>1.1</td>
+          <td>4.6</td>
+          <td>1.8</td>
+          <td>4.7</td>
+          <td>4</td>
+          <td>6.7</td>
+          <td>28.3</td>
+        </tr>
+        <tr>
+          <td>Total:</td>
+          <td>34.4</td>
+          <td>10.6</td>
+          <td>10.8</td>
+          <td>10.4</td>
+          <td>29.9</td>
+          <td>12.5</td>
+          <td>21.4</td>
+          <td>31.7</td>
+          <td>28.4</td>
+          <td>190.2</td>
+        </tr>
+      </tbody>
+    </table>
+
+
   </div>
+</div>
 </template>
 
 <script>
@@ -62,8 +118,19 @@
   			inclusivePoliticsPie: [
   				{ x: 'NGOs', value: 81895424 },
   				{ x: 'UN', value: 57038475 },
-  				{ x: 'NGOs', value: 36028311 },
-  				{ x: 'NGOs', value: 15231941 },
+  				{ x: 'Private Sector', value: 36028311 },
+  				{ x: 'Other', value: 15231941 },
+  			],
+  			inclusivePoliticsLocationStack: [
+  				['FGS', 4.0, 12.8, 17.6],
+  				['Benadir', 1.0, 3.3, 6.2],
+  				['Galmudug', 0.4, 2.1, 8.3],
+  				['Hiirshabelle', 1.1, 2.8, 6.5],
+  				['Jubaland', 4.6, 9.4, 15.9],
+  				['Puntland', 1.8, 4.0, 6.7],
+  				['South West', 4.7, 9.7, 7.0],
+  				['Somaliland', 4.0, 9.7, 18.0],
+  				['Unattributed', 6.7, 11.9, 9.9],
   			],
   		};
   	},
@@ -116,22 +183,46 @@
   			pieChart.container('pie-chart');
   			pieChart.draw();
   		},
+  		renderCountryStack() {
+  			var stackChart = anychart.column();
+
+  			const dataSet = anychart.data.set(this.inclusivePoliticsLocationStack);
+
+  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
+  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
+  			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
+
+  			// create a chart
+  			var stackChart = anychart.column();
+
+  			/* enable the value stacking mode
+          on the default primary value scale*/
+  			stackChart.yScale().stackMode('value');
+
+  			// create column series
+  			stackChart.column(seriesData_1);
+  			stackChart.column(seriesData_2);
+  			stackChart.column(seriesData_3);
+
+  			// set the chart title
+  			stackChart.title('Inclusive Politics: Project Disbursements by Location');
+
+  			// set the container id
+  			stackChart.container('country-stack');
+
+  			// initiate drawing the chart
+  			stackChart.draw();
+  		},
   	},
   	mounted() {
   		this.renderChart();
   		this.renderPie();
+  		this.renderCountryStack();
   	},
   };
 </script>
 
 <style scoped>
-  #container {
-  	width: 100%;
-  	height: 100%;
-  	margin: 0;
-  	padding: 0;
-  }
-
   #pie-chart {
   	width: 100%;
   	height: 370px;
