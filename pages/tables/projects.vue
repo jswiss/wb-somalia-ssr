@@ -3,7 +3,7 @@
       <table-tabs></table-tabs>
       <div class="columns">
         <div class="column is-1"></div>
-        <div class="column is-10">
+        <div class="column is-10"></div>
           <div id="table">
             <no-ssr>
               <v-client-table
