@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   /*
@@ -25,7 +26,7 @@ module.exports = {
   loading: { color: '#3B8070' },
   modules: ['@nuxtjs/bulma', '@nuxtjs/axios'],
   // css
-  css: ['bulma/bulma.sass', '@/assets/css/main.css'],
+  css: ['bulma/bulma.sass'],
   plugins: [
     { src: '~/plugins/vue-bulma-tables-2', ssr: false },
     { src: '~/plugins/vuexPersistedState', ssr: false },
@@ -47,6 +48,15 @@ module.exports = {
       new webpack.IgnorePlugin(/^\.\/locales$/, /anychart$/),
       new webpack.IgnorePlugin(/^\.\/themes$/, /anychart$/),
       new BundleAnalyzerPlugin(),
+      new CompressionPlugin({
+        asset: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: /\.js$|\.css$|\.html$|\.js.map$/,
+        include: /\.js$|\.css$|\.html$|\.js.map$/,
+        threshold: 1000,
+        minRatio: 0.8,
+        // deleteOriginalAssets: true,
+      }),
     ],
     postcss: {
       plugins: {
