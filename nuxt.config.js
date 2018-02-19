@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
   /*
   ** Headers of the page
@@ -36,6 +38,13 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
+    plugins: [
+      // ignore the locale directory in moment, to free up space
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      new webpack.IgnorePlugin(/^\.\/geodata$/, /anychart$/),
+      new webpack.IgnorePlugin(/^\.\/locales$/, /anychart$/),
+      new webpack.IgnorePlugin(/^\.\/themes$/, /anychart$/),
+    ],
     postcss: {
       plugins: {
         'postcss-custom-properties': false,
