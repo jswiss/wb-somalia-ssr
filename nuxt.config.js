@@ -48,15 +48,15 @@ module.exports = {
       new webpack.IgnorePlugin(/^\.\/locales$/, /anychart$/),
       new webpack.IgnorePlugin(/^\.\/themes$/, /anychart$/),
       new BundleAnalyzerPlugin(),
-      new CompressionPlugin({
-        asset: '[path].gz[query]',
-        algorithm: 'gzip',
-        test: /\.js$|\.css$|\.html$|\.js.map$/,
-        include: /\.js$|\.css$|\.html$|\.js.map$/,
-        threshold: 1000,
-        minRatio: 0.8,
-        // deleteOriginalAssets: true,
-      }),
+      // new CompressionPlugin({
+      //   asset: '[path].gz[query]',
+      //   algorithm: 'gzip',
+      //   test: /\.js$|\.css$|\.html$|\.js.map$/,
+      //   include: /\.js$|\.css$|\.html$|\.js.map$/,
+      //   threshold: 1000,
+      //   minRatio: 0.8,
+      //   // deleteOriginalAssets: true,
+      // }),
     ],
     postcss: {
       plugins: {
