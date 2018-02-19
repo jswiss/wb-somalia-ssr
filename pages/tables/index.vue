@@ -33,7 +33,7 @@
   			loc2018Res,
   		] = await Promise.all([
   			axios.get('https://somalia-aid.herokuapp.com/envelopes'),
-  			axios.get('http://somalia-aid.herokuapp.com/pooled'),
+  			axios.get('https://somalia-aid.herokuapp.com/pooled'),
   			axios.get('https://somalia-aid-flows.herokuapp.com/location/2016'),
   			axios.get('https://somalia-aid-flows.herokuapp.com/location/2017'),
   			axios.get('https://somalia-aid-flows.herokuapp.com/location/2018'),
