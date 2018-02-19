@@ -2,7 +2,7 @@
 <nav class="navbar has-shadow is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <nuxt-link class="navbar-item" to="/">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Coat_of_arms_of_Somalia.svg/200px-Coat_of_arms_of_Somalia.svg.png" alt="Somalia Aid Flows">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Coat_of_arms_of_Somalia.svg/50px-Coat_of_arms_of_Somalia.svg" alt="Somalia Aid Flows">
     </nuxt-link>
     <nuxt-link class="navbar-item is-brand" to="/">
       Somalia Aid Flows
