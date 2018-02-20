@@ -103,14 +103,22 @@ export default {
         ["2018", 4709043]
       ],
       ruleOfLawDataPie: [
-        {x: "UN", value: 79498786},
-        {x: "NGOs", value: 8419492},
-        {x: "Unclear/TBD", value: 6186133},
-        {x: "Private Sector", value: 6182000},
-        {x: "Government", value: 4884026},
-        {x: "Mix of implementers - no government", value: 4717214},
-        {x: "Military", value: 4525200},
-        {x: "Mix of implementers - government", value: 4123420}
+        {x: "UN", value: 79498786,
+        normal: {fill: this.$store.state.color.blue}},
+        {x: "NGOs", value: 8419492,
+      normal: {fill: this.$store.state.color.green}},
+        {x: "Unclear/TBD", value: 6186133,
+      normal: {fill: this.$store.state.color.yellow}},
+        {x: "Private Sector", value: 6182000,
+      normal: {fill: this.$store.state.color.tan}},
+        {x: "Government", value: 4884026,
+      normal: {fill: this.$store.state.color.violet}},
+        {x: "Mix of implementers - no government", value: 4717214,
+      normal: {fill: this.$store.state.color.brown}},
+        {x: "Military", value: 4525200,
+      normal: {fill: this.$store.state.color.blue}},
+        {x: "Mix of implementers - government", value: 4123420,
+      normal: {fill: this.$store.state.color.green}}
       ],
       ruleOfLawLocationStack: [
         ["FGS", 0.2, 17.5, 25.2],
