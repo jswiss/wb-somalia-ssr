@@ -10,6 +10,14 @@ export const state = () => ({
   locationTree2017: [],
   locationTree2018: [],
   locationsTableColumns: ['location', 'total', 'count'],
+  color: {
+    blue: '#4587EA',
+    violet: '#262261',
+    tan: '#716558',
+    brown: '#594A41',
+    yellow: '#F6EB32',
+    green: '#81D8C2'
+  },
 });
 
 export const mutations = {
@@ -30,7 +38,7 @@ export const mutations = {
   },
   SET_2018_LOC_TREE(state, locs) {
     state.locationTree2018 = locs;
-  },
+  }
 };
 
 export const actions = {};
