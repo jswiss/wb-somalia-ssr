@@ -5,9 +5,7 @@
     </div>-->
       <div id="print-area">
         <div id="title">
-
-            <h1 id="project-title" class="title is-1"> {{ project['Project Title'] }}</h1>
-
+          <h1 id="project-title" class="title is-1"> {{ project['Project Title'] }}</h1>
         </div>
         <div class="info-box">
           <div class="info-title">
@@ -15,24 +13,24 @@
           </div>
           <div id="basic-info" class="info-box">
             <div id="dates" class="columns is-mobile">
-              <div class="column is-5" id="start-date">
+              <div class="column is-4" id="start-date">
                 <h4 class="title is-4 is-bold">Start Date:</h4>
                 <p class="date-text">{{ project['Start Date'] || 'n/a' }}</p>
               </div>
-              <div class="column is-2"></div>
-              <div class="column is-5" id="end-date">
+              <div class="column is-4"></div>
+              <div class="column is-4" id="end-date">
                 <h4 class="title is-4">End Date:</h4>
                 <p class="date-text">{{ project['End Date'] }}</p>
               </div>
             </div>
-            <div id="dates" class="columns is-mobile">
-              <div class="column is-4">
+            <div id="pillars" class="columns is-mobile">
+              <div class="column is-3">
                 <h4 class="title is-4 is-bold"><span class="ndp">NDP Pillar:</span></h4>
                 <p class="pillar">{{ project['NDP Pillar'] }}</p>
               </div>
-              <div class="column is-4">
-                <h4 class="title is-4 is-bold"><span class="ndp">Primary Sector:</span></h4>
-                <p class="pillar">{{ project['Primary Sector'] }}</p>
+              <div class="column is-5" id="description">
+                <h4 class="title is-4 is-bold">Description:</h4>
+                <p class="desc-text">{{ project['Project objectives'] || 'n/a' }}</p>
               </div>
               <div class="column is-4">
                 <h4 class="title is-4 is-bold"><span class="ndp">Related Sectors:</span></h4>
@@ -40,11 +38,11 @@
               </div>
             </div>
             <div id="desc" class="columns is-mobile">
-              <div class="column is-5" id="description">
-                <h4 class="title is-4 is-bold">Description:</h4>
-                <p class="desc-text">{{ project['Project objectives'] || 'n/a' }}</p>
+              <div class="column is-4">
+                <h4 class="title is-4 is-bold"><span class="ndp">Primary Sector:</span></h4>
+                <p class="pillar">{{ project['Primary Sector'] }}</p>
               </div>
-              <div class="column is-2"></div>
+              <div class="column is-4"></div>
               <div class="column is-4" id="project-website">
                 <h4 class="title is-4">Project Website:</h4>
                 <a v-bind:href="project['Links to project webpages or documents']"><p class="url">{{ project['Links to project webpages or documents'] || 'n/a'}}</p></a>
@@ -341,6 +339,9 @@
   #title-link {
   	color: black;
   	text-decoration: none;
+  }
+  .desc-text {
+  	text-align: justify;
   }
 </style>
 
