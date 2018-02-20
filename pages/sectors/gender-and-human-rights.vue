@@ -119,6 +119,7 @@ export default {
 
       const column = chart.column(seriesData);
       column
+      .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
       .format('${%Value}');
@@ -160,6 +161,7 @@ export default {
 
       const column = chart.column(seriesData);
       column
+      .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
       .format('${%Value}');
@@ -209,9 +211,9 @@ export default {
       stackChart.yScale().stackMode("value");
 
       // create column series
-      stackChart.column(seriesData_1);
-      stackChart.column(seriesData_2);
-      stackChart.column(seriesData_3);
+      stackChart.column(seriesData_1).color(this.$store.state.color.blue);
+      stackChart.column(seriesData_2).color(this.$store.state.color.green);
+      stackChart.column(seriesData_3).color(this.$store.state.color.yellow);
 
       // set the chart title
       stackChart.title("Gender & Human Rights: Project Disbursements by Location");
