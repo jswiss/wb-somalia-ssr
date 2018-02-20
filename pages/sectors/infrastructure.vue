@@ -122,13 +122,20 @@ export default {
         ["2018", 8.1, 3.5, 5.7, 7.7]
       ],
       infrastructureDataPie: [
-        {x: "UN", value: 31369634},
-        {x: "Government", value: 26602499},
-        {x: "Mix of implementers - involving government", value: 18076515},
-        {x: "Private Sector", value: 16468854},
-        {x: "NGOs", value: 12502249},
-        {x: "Donor Agencies", value: 6138444},
-        {x: "Other", value: 3833586}
+        {x: "UN", value: 31369634,
+      normal: {fill: this.$store.state.color.blue}},
+        {x: "Government", value: 26602499,
+      normal: {fill: this.$store.state.color.green}},
+        {x: "Mix of implementers - involving government", value: 18076515,
+      normal: {fill: this.$store.state.color.yellow}},
+        {x: "Private Sector", value: 16468854,
+      normal: {fill: this.$store.state.color.tan}},
+        {x: "NGOs", value: 12502249,
+      normal: {fill: this.$store.state.color.violet}},
+        {x: "Donor Agencies", value: 6138444,
+      normal: {fill: this.$store.state.color.brown}},
+        {x: "Other", value: 3833586,
+      normal: {fill: this.$store.state.color.pink}}
       ],
       infrastructureLocationStack: [
         ["FGS", 5.4, 5.9, 0.5, 0.7],
@@ -152,6 +159,7 @@ export default {
 
       const column = chart.column(seriesData);
       column
+      .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
       .format('${%Value}');
@@ -204,10 +212,10 @@ export default {
       stackChart.yScale().stackMode("value");
 
       // create column series
-      stackChart.column(seriesData_1);
-      stackChart.column(seriesData_2);
-      stackChart.column(seriesData_3);
-      stackChart.column(seriesData_4);
+      stackChart.column(seriesData_1).color(this.$store.state.color.blue);
+      stackChart.column(seriesData_2).color(this.$store.state.color.green);
+      stackChart.column(seriesData_3).color(this.$store.state.color.yellow);
+      stackChart.column(seriesData_4).color(this.$store.state.color.tan);
 
       // set the chart title
       stackChart.title("Infrastructure: Project Disbursements by Sector");
@@ -241,10 +249,10 @@ export default {
       stackChart.yScale().stackMode("value");
 
       // create column series
-      stackChart.column(seriesData_1);
-      stackChart.column(seriesData_2);
-      stackChart.column(seriesData_3);
-      stackChart.column(seriesData_4);
+      stackChart.column(seriesData_1).color(this.$store.state.color.blue);
+      stackChart.column(seriesData_2).color(this.$store.state.color.green);
+      stackChart.column(seriesData_3).color(this.$store.state.color.yellow);
+      stackChart.column(seriesData_4).color(this.$store.state.color.tan);
 
 
       // set the chart title
