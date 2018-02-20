@@ -13,7 +13,7 @@
               >
                 <template slot="Project Title" slot-scope="props">
                   <div>
-                    <a :href="`localhost:3000/projects/${props.row['Project Title']}`" target="_blank">{{ props.row['Project Title'] }}</a>
+                    <a :href="`/projects/${props.row.id}`" target="_blank">{{ props.row['Project Title'] }}</a>
                   </div>
                 </template>
                 <template slot="Start Date" slot-scope="props">

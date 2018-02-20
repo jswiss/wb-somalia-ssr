@@ -103,6 +103,18 @@ export const mutations = {
   SET_2018_LOC_TREE(state, data) {
     state.locationTree2018 = data;
   },
+  SET_PROJECT(state, data) {
+    state.project = data;
+  },
 };
 
-export const actions = {};
+export const actions = {
+  getId({ commit }, project) {
+    const projectId = this.$route.params.id;
+    function findProject(project) {
+      return project.id === projectId;
+    }
+    const result = project.find(findProject);
+    commit('SET_PROJECT', result);
+  },
+};

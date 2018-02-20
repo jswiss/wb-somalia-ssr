@@ -50,7 +50,7 @@
   </template>
 
   <script>
-  import { mapState, mapMutations, mapActions } from 'vuex';
+  import { mapState } from 'vuex';
   import { getEnvelopeData } from '../helpers';
   import TableTabs from '~/components/TableTabs';
 
