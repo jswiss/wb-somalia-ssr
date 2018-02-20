@@ -255,7 +255,6 @@ export default {
       var seriesData_5 = dataSet.mapAs({x: 0, value: 5});
       var seriesData_6 = dataSet.mapAs({x: 0, value: 6});
 
-
       /* enable the value stacking mode
       on the default primary value scale*/
       stackChart.yScale().stackMode("value");
@@ -268,8 +267,6 @@ export default {
       stackChart.column(seriesData_5).color(this.$store.state.color.violet);
       stackChart.column(seriesData_6).color(this.$store.state.color.brown);
 
-
-
       // set the chart title
       stackChart.title("Resilience: Project Disbursements by Location");
 
@@ -280,11 +277,11 @@ export default {
       stackChart.draw();
     },
 
-
   },
   mounted() {
     this.renderChart();
     this.renderStack();
+    this.renderCountryStack();
   }
 };
 </script>
