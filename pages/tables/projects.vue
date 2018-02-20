@@ -13,7 +13,7 @@
               >
                 <template slot="Project Title" slot-scope="props">
                   <div>
-                    <a :href="`/projects/${props.row.id}`" target="_blank">{{ props.row['Project Title'] }}</a>
+                    <nuxt-link :to="`/project/${props.row.id}`" target="_blank">{{ props.row['Project Title'] }}</nuxt-link>
                   </div>
                 </template>
                 <template slot="Start Date" slot-scope="props">
