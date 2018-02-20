@@ -116,9 +116,9 @@ export default {
         {x: "Mix of implementers - no government", value: 4717214,
       normal: {fill: this.$store.state.color.brown}},
         {x: "Military", value: 4525200,
-      normal: {fill: this.$store.state.color.blue}},
+      normal: {fill: this.$store.state.color.pink}},
         {x: "Mix of implementers - government", value: 4123420,
-      normal: {fill: this.$store.state.color.green}}
+      normal: {fill: this.$store.state.color.lightblue}}
       ],
       ruleOfLawLocationStack: [
         ["FGS", 0.2, 17.5, 25.2],
@@ -142,6 +142,7 @@ export default {
 
       const column = chart.column(seriesData);
       column
+      .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
       .format('${%Value}');
@@ -200,9 +201,9 @@ export default {
       stackChart.yScale().stackMode("value");
 
       // create column series
-      stackChart.column(seriesData_1);
-      stackChart.column(seriesData_2);
-      stackChart.column(seriesData_3);
+      stackChart.column(seriesData_1).color(this.$store.state.color.blue);
+      stackChart.column(seriesData_2).color(this.$store.state.color.green);
+      stackChart.column(seriesData_3).color(this.$store.state.color.yellow);
 
       // set the chart title
       stackChart.title("Rule of Law: Project Disbursements by Location");

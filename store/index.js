@@ -16,7 +16,9 @@ export const state = () => ({
     tan: '#716558',
     brown: '#594A41',
     yellow: '#F6EB32',
-    green: '#81D8C2'
+    green: '#81D8C2',
+    pink: '#EA4587',
+    lightblue: '#45DAEA'
   },
 });
 
