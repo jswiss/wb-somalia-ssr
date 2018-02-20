@@ -5,7 +5,9 @@
       <home-text></home-text>
     </div>
     <div class="column">
-
+      <pooled-funds/>
+      <on-treasury/>
+      <flows-overview/>
     </div>
   </div>
 </template>
@@ -13,12 +15,18 @@
 <script type="text/javascript">
   import { mapState } from 'vuex';
   import HomeText from '~/components/HomeText';
+  import PooledFunds from '~/components/PooledFunds';
+  import OnTreasury from '~/components/OnTreasury';
+  import FlowsOverview from '~/components/FlowsOverview';
   import { getAllProjects } from './helpers';
 
   export default {
   	name: 'home',
   	components: {
   		HomeText,
+  		PooledFunds,
+  		OnTreasury,
+  		FlowsOverview,
   	},
   	fetch: getAllProjects,
   	computed: {

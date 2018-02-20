@@ -4,14 +4,13 @@
     <div id="table-text">
 			Dummy text here (add columns dummy)
 		</div>
-    <nuxt-child></nuxt-child>
   </div>
 </template>
 
 <script>
-  import TableTabs from '~/components/TableTabs';
-  import axios from 'axios';
   import { mapState, mapMutations, mapActions } from 'vuex';
+  import axios from 'axios';
+  import TableTabs from '~/components/TableTabs';
 
   export default {
   	name: 'tables',
