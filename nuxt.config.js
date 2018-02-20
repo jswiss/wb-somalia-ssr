@@ -23,7 +23,7 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#4189DD', height: '10px' },
   modules: ['@nuxtjs/bulma', '@nuxtjs/axios'],
   // css
   css: ['bulma/bulma.sass'],

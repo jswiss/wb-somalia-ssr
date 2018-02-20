@@ -13,7 +13,7 @@
               >
                 <template slot="Project Title" slot-scope="props">
                   <div>
-                    <nuxt-link :to="`/tables/project/${props.row.id}`" target="_blank">{{ props.row['Project Title'] }}</nuxt-link>
+                    <nuxt-link :to="`/tables/project/${props.row.id}`">{{ props.row['Project Title'] }}</nuxt-link>
                   </div>
                 </template>
                 <template slot="Start Date" slot-scope="props">
@@ -63,7 +63,6 @@
   	name: 'projects',
   	data() {
   		return {
-  			projectId: 409141606,
   			columns: [
   				'Project Title',
   				'Start Date',
@@ -91,9 +90,6 @@
   		...mapState({
   			projects: state => state.projectsTable,
   		}),
-  		project() {
-  			return this.projects.filter(project => project.id == this.projectId);
-  		},
   	},
   };
 </script>

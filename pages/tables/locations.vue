@@ -13,10 +13,10 @@
               <th>Total Value of Projects</th>
             </tr>
           </thead>
-          <tbody v-for="item in location2016Table" :key="item.location">
-            <td>{{ item.location }}</td>
-            <td class="center">{{ item.count }}</td>
-            <td>$ {{ item.total | currency }}</td>
+          <tbody v-for="item in location2016Table" :key="item['Location:']">
+            <td>{{ item['Location:'] }}</td>
+            <td class="center">{{ item.Count }}</td>
+            <td>$ {{ item['Total:'] | currency }}</td>
           </tbody>
         </table>
       </div>
@@ -31,10 +31,10 @@
               <th>Total Value of Projects</th>
             </tr>
           </thead>
-          <tbody v-for="item in location2017Table" :key="item.location">
-            <td>{{ item.location }}</td>
-            <td class="center">{{ item.count }}</td>
-            <td>$ {{ item.total | currency }}</td>
+          <tbody v-for="item in location2017Table" :key="item['Location:']">
+            <td>{{ item['Location:'] }}</td>
+            <td class="center">{{ item.Count }}</td>
+            <td>$ {{ item['Total:'] | currency }}</td>
           </tbody>
         </table>
       </div>
@@ -49,10 +49,10 @@
               <th>Total Value of Projects</th>
             </tr>
           </thead>
-          <tbody v-for="item in location2018Table" :key="item.location">
-            <td>{{ item.location }}</td>
-            <td class="center">{{ item.count }}</td>
-            <td>$ {{ item.total | currency }}</td>
+          <tbody v-for="item in location2018Table" :key="item['Location:']">
+            <td>{{ item['Location:'] }}</td>
+            <td class="center">{{ item.Count }}</td>
+            <td>$ {{ item['Total:'] | currency }}</td>
           </tbody>
         </table>
       </div>
@@ -67,16 +67,6 @@
 
   export default {
   	name: 'locations',
-  	data() {
-  		return {
-  			options: {
-  				saveState: true,
-  				storage: 'local',
-  				highlightMatches: true,
-  				pagination: false,
-  			},
-  		};
-  	},
   	components: {
   		TableTabs,
   	},
