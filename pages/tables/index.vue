@@ -4,6 +4,7 @@
     <div id="table-text">
 			Dummy text here (add columns dummy)
 		</div>
+    <nuxt-child></nuxt-child>
   </div>
 </template>
 
