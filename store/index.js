@@ -3,6 +3,7 @@ import moment from 'moment';
 import { excelToJsDate } from '../pages/helpers';
 
 export const state = () => ({
+  project: null,
   locationsTable: [],
   locationYear: '',
   envelopeTable: [],
