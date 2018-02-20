@@ -108,13 +108,20 @@ export default {
         ["2018", 0.5, 84.1, 9.4]
       ],
       socialHumanDevelopmentDataPie: [
-        {x: "NGOs", value: 219302286.6},
-        {x: "Mix of implementers - involving government", value: 186777137.6},
-        {x: "UN", value: 64232464.15},
-        {x: "Private Sector", value: 19542741.02},
-        {x: "Donor Agency", value: 16527777.78},
-        {x: "Government", value: 11718557},
-        {x: "Other", value: 25085515.16},
+        {x: "NGOs", value: 219302286.6,
+      normal: {fill: this.$store.state.color.blue}},
+        {x: "Mix of implementers - involving government", value: 186777137.6,
+      normal: {fill: this.$store.state.color.green}},
+        {x: "UN", value: 64232464.15,
+      normal: {fill: this.$store.state.color.yellow}},
+        {x: "Private Sector", value: 19542741.02,
+      normal: {fill: this.$store.state.color.tan}},
+        {x: "Donor Agency", value: 16527777.78,
+      normal: {fill: this.$store.state.color.violet}},
+        {x: "Government", value: 11718557,
+      normal: {fill: this.$store.state.color.brown}},
+        {x: "Other", value: 25085515.16,
+      normal: {fill: this.$store.state.color.pink}},
       ],
       socialHumanDevelopmentLocationData: [
         ["FGS", 9.3, 10.4, 0],
@@ -138,6 +145,7 @@ export default {
 
       const column = chart.column(seriesData);
       column
+      .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
       .format('${%Value}');
@@ -188,9 +196,9 @@ export default {
       stackChart.yScale().stackMode("value");
 
       // create column series
-      stackChart.column(seriesData_1);
-      stackChart.column(seriesData_2);
-      stackChart.column(seriesData_3);
+      stackChart.column(seriesData_1).color(this.$store.state.color.blue);
+      stackChart.column(seriesData_2).color(this.$store.state.color.green);
+      stackChart.column(seriesData_3).color(this.$store.state.color.yellow);
 
       // set the chart title
       stackChart.title("Social & Human Development: Project Disbursements by Sector");
@@ -224,9 +232,9 @@ export default {
       stackChart.yScale().stackMode("value");
 
       // create column series
-      stackChart.column(seriesData_1);
-      stackChart.column(seriesData_2);
-      stackChart.column(seriesData_3);
+      stackChart.column(seriesData_1).color(this.$store.state.color.blue);
+      stackChart.column(seriesData_2).color(this.$store.state.color.green);
+      stackChart.column(seriesData_3).color(this.$store.state.color.yellow);
 
 
       // set the chart title
