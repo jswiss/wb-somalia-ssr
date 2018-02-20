@@ -93,16 +93,6 @@
 
   </div>
 </template>
-<!--
-["FGS", ],
-["Benadir", ],
-["Galmudug", ],
-["Hiirshabelle", ],
-["Jubaland", ],
-["Puntland", ],
-["South West", ],
-["Somaliland", ],
-["Unattributed", ] -->
 
 <script>
 export default {
@@ -128,14 +118,22 @@ export default {
         ["2018", 1.1, 52.1, 13.2, 10.4]
       ],
       institutionsDataPie: [
-        {x: "UN", value: 79498786},
-        {x: "NGOs", value: 8419492},
-        {x: "Unclear/TBD", value: 6186133},
-        {x: "Private Sector", value: 6182000},
-        {x: "Government", value: 4884026},
-        {x: "Mix of implementers - no government", value: 4717214},
-        {x: "Military", value: 4525200},
-        {x: "Mix of implementers - government", value: 4123420}
+        {x: "UN", value: 79498786,
+      normal: {fill: this.$store.state.color.blue}},
+        {x: "NGOs", value: 8419492,
+      normal: {fill: this.$store.state.color.green}},
+        {x: "Unclear/TBD", value: 6186133,
+      normal: {fill: this.$store.state.color.yellow}},
+        {x: "Private Sector", value: 6182000,
+      normal: {fill: this.$store.state.color.tan}},
+        {x: "Government", value: 4884026,
+      normal: {fill: this.$store.state.color.violet}},
+        {x: "Mix of implementers - no government", value: 4717214,
+      normal: {fill: this.$store.state.color.brown}},
+        {x: "Military", value: 4525200,
+      normal: {fill: this.$store.state.color.pink}},
+        {x: "Mix of implementers - government", value: 4123420,
+      normal: {fill: this.$store.state.color.lightblue}}
       ],
       institutionsLocationStack: [
         ["FGS", 10.5, 146.1, 9.8, 19.9],
@@ -159,6 +157,7 @@ export default {
 
       const column = chart.column(seriesData);
       column
+      .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
       .format('${%Value}');
@@ -211,10 +210,10 @@ export default {
       stackChart.yScale().stackMode("value");
 
       // create column series
-      stackChart.column(seriesData_1);
-      stackChart.column(seriesData_2);
-      stackChart.column(seriesData_3);
-      stackChart.column(seriesData_4);
+      stackChart.column(seriesData_1).color(this.$store.state.color.blue);
+      stackChart.column(seriesData_2).color(this.$store.state.color.green);
+      stackChart.column(seriesData_3).color(this.$store.state.color.yellow);
+      stackChart.column(seriesData_4).color(this.$store.state.color.tan);
 
       // set the chart title
       stackChart.title("Effective, Efficient Institutions: Project Disbursements by Sector");
@@ -251,10 +250,10 @@ export default {
       stackChart.yScale().stackMode("value");
 
       // create column series
-      stackChart.column(seriesData_1);
-      stackChart.column(seriesData_2);
-      stackChart.column(seriesData_3);
-      stackChart.column(seriesData_4);
+      stackChart.column(seriesData_1).color(this.$store.state.color.blue);
+      stackChart.column(seriesData_2).color(this.$store.state.color.green);
+      stackChart.column(seriesData_3).color(this.$store.state.color.yellow);
+      stackChart.column(seriesData_4).color(this.$store.state.color.tan);
 
 
       // set the chart title
