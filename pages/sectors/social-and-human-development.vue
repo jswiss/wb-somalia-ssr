@@ -247,7 +247,6 @@ export default {
       stackChart.draw();
     },
 
-
   },
   mounted() {
     this.renderChart();

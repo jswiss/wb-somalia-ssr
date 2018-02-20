@@ -261,12 +261,12 @@ export default {
       stackChart.yScale().stackMode("value");
 
       // create column series
-      stackChart.column(seriesData_1);
-      stackChart.column(seriesData_2);
-      stackChart.column(seriesData_3);
-      stackChart.column(seriesData_4);
-      stackChart.column(seriesData_5);
-      stackChart.column(seriesData_6);
+      stackChart.column(seriesData_1).color(this.$store.state.color.blue);
+      stackChart.column(seriesData_2).color(this.$store.state.color.green);
+      stackChart.column(seriesData_3).color(this.$store.state.color.yellow);
+      stackChart.column(seriesData_4).color(this.$store.state.color.tan);
+      stackChart.column(seriesData_5).color(this.$store.state.color.violet);
+      stackChart.column(seriesData_6).color(this.$store.state.color.brown);
 
 
 
