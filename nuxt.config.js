@@ -20,6 +20,10 @@ module.exports = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+  env: {
+    CHART_KEY: process.env.CHART_KEY,
+    baseUrl: process.env.BASE_URL,
+  },
   /*
   ** Customize the progress bar color
   */
