@@ -92,13 +92,20 @@ export default {
         ["2018", 8.3, 28.1]
       ],
       economicGrowthDataPie: [
-        {x: "Private Sector", value: 56512142},
-        {x: "UN", value: 40336126},
-        {x: "NGOs", value: 38335938},
-        {x: "Mix of implementers - no government", value: 19444243},
-        {x: "Donor Agencies", value: 8391376},
-        {x: "Government", value: 8228265},
-        {x: "Other", value: 4524727}
+        {x: "Private Sector", value: 56512142,
+      normal: {fill: this.$store.state.color.blue}},
+        {x: "UN", value: 40336126,
+      normal: {fill: this.$store.state.color.green}},
+        {x: "NGOs", value: 38335938,
+      normal: {fill: this.$store.state.color.yellow}},
+        {x: "Mix of implementers - no government", value: 19444243,
+      normal: {fill: this.$store.state.color.tan}},
+        {x: "Donor Agencies", value: 8391376,
+      normal: {fill: this.$store.state.color.violet}},
+        {x: "Government", value: 8228265,
+      normal: {fill: this.$store.state.color.brown}},
+        {x: "Other", value: 4524727,
+      normal: {fill: this.$store.state.color.pink}}
       ],
       economicLocationStack: [
         ["FGS", 8.5, 5.4, 13.9],
@@ -124,6 +131,7 @@ export default {
 
       const column = chart.column(seriesData);
       column
+      .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
       .format('${%Value}');
@@ -174,8 +182,8 @@ export default {
       stackChart.yScale().stackMode("value");
 
       // create column series
-      stackChart.column(seriesData_1);
-      stackChart.column(seriesData_2);
+      stackChart.column(seriesData_1).color(this.$store.state.color.blue);
+      stackChart.column(seriesData_2).color(this.$store.state.color.green);
 
       // set the chart title
       stackChart.title("Economic Growth: Project Disbursements by Sector");
@@ -187,7 +195,7 @@ export default {
       stackChart.draw();
     },
     renderPie() {
-      const pieChart = anychart.pie(this.economicGrowthDataStack);
+      const pieChart = anychart.pie(this.economicGrowthDataPie);
 
       pieChart.title("Economic Growth: Key Implementers");
       pieChart.container("pie-chart");
@@ -211,9 +219,9 @@ export default {
       locationStackChart.yScale().stackMode("value");
 
       // create column series
-      locationStackChart.column(seriesData_1);
-      locationStackChart.column(seriesData_2);
-      locationStackChart.column(seriesData_3);
+      locationStackChart.column(seriesData_1).color(this.$store.state.color.blue);
+      locationStackChart.column(seriesData_2).color(this.$store.state.color.green);
+      locationStackChart.column(seriesData_3).color(this.$store.state.color.yellow);
 
       // set the chart title
       locationStackChart.title("Economic Growth: Project Disbursements by Location");
