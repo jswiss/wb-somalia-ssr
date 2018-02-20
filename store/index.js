@@ -3,7 +3,7 @@ import moment from 'moment';
 import { excelToJsDate } from '../pages/helpers';
 
 export const state = () => ({
-  project: null,
+  project: {},
   locationsTable: [],
   locationYear: '',
   envelopeTable: [],
@@ -53,6 +53,7 @@ export const mutations = {
   SET_MASTER(state, data) {
     state.projectsTable = data;
     state.projectsTable.forEach(k => {
+      k.id = k.id;
       k['Project Title'] = k['Project title'];
       k['2016 Disbursements'] = k['2016 Disbursements (USD)'];
       k['2017 Disbursements'] = k['2017 Disbursements (USD)'];

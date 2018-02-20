@@ -5,9 +5,9 @@
     </div>-->
     <div id="print-area">
       <div id="title">
-        <a id="title-link" v-bind:href="project['Links to project webpages or documents']">
-          <h1 id="project-title" class="title is-1"> {{ project['Project title'] }}</h1>
-        </a>
+
+          <h1 id="project-title" class="title is-1"> {{ project['Project Title'] }}</h1>
+
       </div>
       <div class="info-box">
         <div class="info-title">
@@ -200,33 +200,56 @@
   import { mapState, mapActions } from 'vuex';
   export default {
   	name: 'Project',
-  	validate({ params }) {
-  		console.log(params);
-  		return !isNaN(+params.id);
+  	data() {
+  		return {
+  			projectId: this.$route.params.id,
+  			// projects: this.$store.state.projectsTable,
+  			// project: this.$store.state.projectsTable.filter(
+  			// 	project => project.id == projectId
+  			// ),
+  		};
   	},
+  	// async asyncData({ store, params, error }) {
+  	// 	if (error) console.log('ERR: ', error);
+  	// 	const projectId = params.id;
+  	// 	const item = await store.state.projectsTable.filter(
+  	// 		item => item.id == projectId
+  	// 	);
+  	// 	const cleanItem = item[0];
+  	// 	console.log(cleanItem);
+  	// 	console.log(params.id);
+  	// 	return { project: cleanItem };
+  	// },
   	computed: {
   		...mapState({
-  			project: state => state.project,
+  			projects: state => state.projectsTable,
   		}),
-  		...mapActions(['getId']),
+  		project() {
+  			const item = this.projects.filter(
+  				project => project.id == this.projectId
+  			);
+  			const project = item[0];
+  			return project;
+  		},
+  		// ...mapActions(['getId']),
   	},
   	methods: {
-  		fetchData() {
-  			const projectName = this.$route.params.projectName;
-  			function findProject(project) {
-  				return project['Project title'] === projectName;
-  			}
-  			this.project = projects.find(findProject);
-  			console.log(this.project);
-  		},
   		printPage(el) {
   			window.print();
+  		},
+  		getProject() {
+  			this.project = this.projects.filter(
+  				project => project.id == this.projectId
+  			);
   		},
   	},
   };
 </script>
 
 <style scoped>
+  #project-title {
+  	margin-top: 4%;
+  }
   #title {
   	margin-top: 20px;
   }
