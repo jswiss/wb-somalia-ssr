@@ -180,15 +180,17 @@ export default {
       chart.draw();
     },
     renderPie() {
-      const pieChart = anychart.pie(this.inclusivePoliticsPie);
+      const chart = anychart.pie(this.inclusivePoliticsPie);
 
-      pieChart.title("Inclusive Politics: Key Implementers");
-      pieChart.container("pie-chart");
-      pieChart
+      chart.title("Inclusive Politics: Key Implementers");
+      chart.container("pie-chart");
+      chart
       .tooltip()
       .format('${%Value} mln');
 
-      pieChart.draw();
+      chart.animation(true)
+
+      chart.draw();
     },
     renderCountryStack() {
 
@@ -243,6 +245,7 @@ export default {
       labels.enabled(true);
 
       chart.yAxis().labels().format("${%value} mln");
+      chart.animation(true)
 
       // initiate drawing the chart
       chart.draw();
