@@ -200,17 +200,24 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
-      .name("2018");
+      .name("2018")
+      .tooltip()
+      .format('2018: ${%Value} mln');
 
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
       .name("2017")
+      .tooltip()
+      .format('2017: ${%Value} mln');
 
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
-      .name("2016");
+      .name("2016")
+      .tooltip()
+      .format('2016: ${%Value} mln');
+
       // set the chart title
       chart.title("Social & Human Development: Project Disbursements by Sector");
 
@@ -252,17 +259,23 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
-      .name("2018");
+      .name("2018")
+      .tooltip()
+      .format('2018: ${%Value} mln');
 
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
       .name("2017")
+      .tooltip()
+      .format('2017: ${%Value} mln');
 
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
-      .name("2016");
+      .name("2016")
+      .tooltip()
+      .format('2016: ${%Value} mln');
 
       // set the chart title
       chart.title("Social & Human Development: Project Disbursements by Location");
