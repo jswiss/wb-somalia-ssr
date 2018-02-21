@@ -3,7 +3,7 @@
     Gender and Human Rights
     <div id="container"></div>
     <div id="stack-chart"></div>
-    <div id="pie-chart">Figure 32, wrong Pie is shown</div>
+    <div id="pie-chart"></div>
     <div id="year-stack"></div>
     <table class="table is-striped is-hoverable is-bordered">
       <thead>
@@ -107,7 +107,17 @@ export default {
         ["South West", 0.7, 1.6, 1.8],
         ["Somaliland", 1.1, 2.9, 3.9],
         ["Unattributed", 0.2, 0.3, 1.7]
-      ]
+      ],
+      genderDataPie: [
+        {x: "NGOs", value: 31539718,
+        normal: {fill: this.$store.state.color.blue}},
+        {x: "Mix of implementers - involving government", value: 3700000,
+        normal: {fill: this.$store.state.color.green}},
+        {x: "Private Sector", value: 695274,
+        normal: {fill: this.$store.state.color.yellow}},
+        {x: "Government", value: 172342,
+        normal: {fill: this.$store.state.color.tan}},
+      ],
     };
   },
   methods: {
@@ -252,12 +262,21 @@ export default {
       // initiate drawing the chart
       chart.draw();
     },
+    renderPie() {
+
+      const chart = anychart.pie(this.genderDataPie);
+
+      chart.title("Key Implementers of Gender & Human Rights Projects");
+      chart.container("pie-chart");
+      chart.draw();
+    },
 
   },
   mounted() {
     this.renderChart();
     this.renderYearChart();
     this.renderYearStack();
+    this.renderPie();
   }
 };
 </script>

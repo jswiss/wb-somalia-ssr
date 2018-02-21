@@ -159,7 +159,6 @@ export default {
         ["Somaliland", 5.5, 36.2, 0.4, 13.5, 86.6, 0],
         ["Unattributed", 3.2, 3.4, 1.1, 11.1, 328.5, 0]
       ],
-
       resilienceDataPie: [
         {x: "Mix of implementers - involving government", value: 731665744,
         normal: {fill: this.$store.state.color.blue}},
@@ -170,7 +169,6 @@ export default {
         {x: "Other", value: 101864066,
         normal: {fill: this.$store.state.color.tan}},
       ],
-
     };
   },
   methods: {
@@ -380,8 +378,6 @@ export default {
       chart.container("pie-chart");
       chart.draw();
     },
-
-
   },
   mounted() {
     this.renderChart();
