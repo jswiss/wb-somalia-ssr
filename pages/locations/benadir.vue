@@ -8,7 +8,7 @@
     <div id="economic-growth"></div>
     <div id="infrastructure"></div>
     <div id="social-human"></div>
-    <div id="reslience"></div>
+    <div id="resiliance"></div>
   </div>
 </template>
 
@@ -121,6 +121,8 @@ export default {
 
       chart.container(container);
 
+      chart.yAxis().labels().format("${%value} mln");
+
       chart.draw();
     },
   },
@@ -137,7 +139,7 @@ export default {
 
     this.renderClusterChart(this.benadirSocialHumanDevClusterData, "Benadir: Social & Human Development", 'social-human');
 
-    this.renderClusterChart(this.benadirResilienceClusterData, "Benadir: Resilience", 'reslience');
+    this.renderClusterChart(this.benadirResilienceClusterData, "Benadir: Resilience", 'resilience');
 
   }
 };

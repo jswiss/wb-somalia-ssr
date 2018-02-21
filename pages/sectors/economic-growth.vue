@@ -172,21 +172,33 @@ export default {
       const dataSet = anychart.data.set(this.economicGrowthDataStack);
 
       var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
+
       var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
 
       // create a chart
       var chart = anychart.column();
+
+      chart.legend(true);
 
       /* enable the value stacking mode
       on the default primary value scale*/
       chart.yScale().stackMode("value");
 
       // create column series
-      chart.column(seriesData_1).color(this.$store.state.color.blue);
-      chart.column(seriesData_2).color(this.$store.state.color.green);
+      chart
+      .column(seriesData_1)
+      .color(this.$store.state.color.blue)
+      .name("Productive Sectors (Agriculture, Fisheries, Livestock)");
+
+      chart
+      .column(seriesData_2)
+      .color(this.$store.state.color.green)
+      .name("Private Sector Development");
 
       // set the chart title
       chart.title("Economic Growth: Project Disbursements by Sector");
+
+      chart.xAxis(true);
 
       // set the container id
       chart.container("stack-chart");
@@ -218,7 +230,6 @@ export default {
 
       // create a chart
       var chart = anychart.column();
-
 
       /* enable the value stacking mode
       on the default primary value scale*/

@@ -207,10 +207,28 @@ export default {
       chart.yScale().stackMode("value");
 
       // create column series
-      chart.column(seriesData_1).color(this.$store.state.color.blue);
-      chart.column(seriesData_2).color(this.$store.state.color.green);
-      chart.column(seriesData_3).color(this.$store.state.color.yellow);
-      chart.column(seriesData_4).color(this.$store.state.color.tan);
+
+      chart.legend(true)
+
+      chart.
+      column(seriesData_1)
+      .color(this.$store.state.color.blue)
+      .name("State and Local Governance");
+
+      chart
+      .column(seriesData_2)
+      .color(this.$store.state.color.green)
+      .name("Public Financial Management");
+
+      chart
+      .column(seriesData_3)
+      .color(this.$store.state.color.yellow)
+      .name("Planning, M&E and Statistics");
+
+      chart
+      .column(seriesData_4)
+      .color(this.$store.state.color.tan)
+      .name("Civil Service Reform/Public Administration")
 
       // set the chart title
       chart.title("Effective, Efficient Institutions: Project Disbursements by Sector");
@@ -251,11 +269,27 @@ export default {
       on the default primary value scale*/
       chart.yScale().stackMode("value");
 
+chart.legend(true);
       // create column series
-      chart.column(seriesData_1).color(this.$store.state.color.blue);
-      chart.column(seriesData_2).color(this.$store.state.color.green);
-      chart.column(seriesData_3).color(this.$store.state.color.yellow);
-      chart.column(seriesData_4).color(this.$store.state.color.tan);
+      chart.
+      column(seriesData_1)
+      .color(this.$store.state.color.blue)
+      .name("State and Local Governance");
+
+      chart
+      .column(seriesData_2)
+      .color(this.$store.state.color.green)
+      .name("Public Financial Management");
+
+      chart
+      .column(seriesData_3)
+      .color(this.$store.state.color.yellow)
+      .name("Planning, M&E and Statistics");
+
+      chart
+      .column(seriesData_4)
+      .color(this.$store.state.color.tan)
+      .name("Civil Service Reform/Public Administration")
 
 
       // set the chart title
