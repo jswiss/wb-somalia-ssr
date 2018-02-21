@@ -24,7 +24,7 @@ export const state = () => ({
     violet: '#262261',
     brown: '#594A41',
     pink: '#EA4587',
-    lightblue: '#45DAEA'
+    lightblue: '#45DAEA',
   },
 });
 
@@ -84,7 +84,6 @@ export const mutations = {
   SET_2017_LOCATION_TABLE(state, data) {
     state.location2017Table = data;
   },
-<<<<<<< HEAD
   SET_2018_LOCATION_TABLE(state, data) {
     state.location2018Table = data;
   },
@@ -100,11 +99,6 @@ export const mutations = {
   SET_PROJECT(state, data) {
     state.project = data;
   },
-=======
-  SET_2018_LOC_TREE(state, locs) {
-    state.locationTree2018 = locs;
-  }
->>>>>>> feature/sector-charts
 };
 
 export const actions = {
