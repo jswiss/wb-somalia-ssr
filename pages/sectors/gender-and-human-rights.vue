@@ -193,12 +193,17 @@ export default {
 
       chart.container('stack-chart');
 
+      var labels = chart.xAxis().labels();
+      labels.enabled(false);
+
+      chart.yAxis().labels().format("${%value} mln");
+
       chart.draw();
     },
 
     renderYearStack() {
 
-      var stackChart = anychart.column();
+      var chart = anychart.column();
 
       const dataSet = anychart.data.set(this.genderYearStackData);
 
@@ -208,21 +213,26 @@ export default {
 
       /* enable the value stacking mode
       on the default primary value scale*/
-      stackChart.yScale().stackMode("value");
+      chart.yScale().stackMode("value");
 
       // create column series
-      stackChart.column(seriesData_1).color(this.$store.state.color.blue);
-      stackChart.column(seriesData_2).color(this.$store.state.color.green);
-      stackChart.column(seriesData_3).color(this.$store.state.color.yellow);
+      chart.column(seriesData_1).color(this.$store.state.color.blue);
+      chart.column(seriesData_2).color(this.$store.state.color.green);
+      chart.column(seriesData_3).color(this.$store.state.color.yellow);
 
       // set the chart title
-      stackChart.title("Gender & Human Rights: Project Disbursements by Location");
+      chart.title("Gender & Human Rights: Project Disbursements by Location");
 
       // set the container id
-      stackChart.container('year-stack');
+      chart.container('year-stack');
+
+      var labels = chart.xAxis().labels();
+      labels.enabled(false);
+
+      chart.yAxis().labels().format("${%value} mln");
 
       // initiate drawing the chart
-      stackChart.draw();
+      chart.draw();
     },
 
   },
