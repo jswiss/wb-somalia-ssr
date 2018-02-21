@@ -229,32 +229,44 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
-      .name("Cross-cutting resilience");
+      .name("Cross-cutting resilience")
+      .tooltip()
+      .format('Cross-cutting resilience: ${%Value} mln');
 
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
-      .name("Lifesaving humanitarian - cross-cutting");
+      .name("Lifesaving humanitarian - cross-cutting")
+      .tooltip()
+      .format('Lifesaving humanitarian - cross-cutting: ${%Value} mln');
 
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
-      .name("Food Security");
+      .name("Food Security")
+      .tooltip()
+      .format('Food Security: ${%Value} mln');
 
       chart
       .column(seriesData_4)
       .color(this.$store.state.color.tan)
       .name("Social Protection")
+      .tooltip()
+      .format('Sociak Protection: ${%Value} mln');
 
       chart
       .column(seriesData_5)
       .color(this.$store.state.color.violet)
-      .name("Natural Resources Management");
+      .name("Natural Resources Management")
+      .tooltip()
+      .format('Natural Resources Management: ${%Value} mln');
 
       chart
       .column(seriesData_6)
       .color(this.$store.state.color.brown)
-      .name("Migration, Displacement, Refugees and Durable Solutions");
+      .name("Migration, Displacement, Refugees and Durable Solutions")
+      .tooltip()
+      .format('Migration, Displacement, Refugees and Durable Solutions: ${%Value} mln');
 
       // set the chart title
       chart.title("Resilience: Project Disbursements by Sector");
@@ -294,32 +306,45 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
-      .name("Cross-cutting resilience");
+      .name("Cross-cutting resilience")
+      .tooltip()
+      .format('Cross-cutting resilience: ${%Value} mln');
 
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
-      .name("Lifesaving humanitarian - cross-cutting");
+      .name("Lifesaving humanitarian - cross-cutting")
+      .tooltip()
+      .format('Lifesaving humanitarian - cross-cutting: ${%Value} mln');
 
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
-      .name("Food Security");
+      .name("Food Security")
+      .tooltip()
+      .format('Food Security: ${%Value} mln');
 
       chart
       .column(seriesData_4)
       .color(this.$store.state.color.tan)
       .name("Social Protection")
+      .tooltip()
+      .format('Sociak Protection: ${%Value} mln');
 
       chart
       .column(seriesData_5)
       .color(this.$store.state.color.violet)
-      .name("Natural Resources Management");
+      .name("Natural Resources Management")
+      .tooltip()
+      .format('Natural Resources Management: ${%Value} mln');
 
       chart
       .column(seriesData_6)
       .color(this.$store.state.color.brown)
-      .name("Migration, Displacement, Refugees and Durable Solutions");
+      .name("Migration, Displacement, Refugees and Durable Solutions")
+      .tooltip()
+      .format('Migration, Displacement, Refugees and Durable Solutions: ${%Value} mln');
+
 
       // set the chart title
       chart.title("Resilience: Project Disbursements by Location");
