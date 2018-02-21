@@ -36,8 +36,9 @@ module.exports = {
     { src: '~/plugins/vuexPersistedState', ssr: false },
     { src: '~/plugins/anychart', ssr: false },
     { src: '~/plugins/filters' },
+    { src: '~/plugins/vuetrend' },
   ],
-  vendor: ['vue-bulma-tables-2', 'anychart', 'createPersistedState'],
+  vendor: ['vue-bulma-tables-2', 'anychart', 'createPersistedState', 'Trend'],
   /*
   ** Build configuration
   */
