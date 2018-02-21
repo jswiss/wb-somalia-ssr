@@ -195,11 +195,22 @@ export default {
       on the default primary value scale*/
       chart.yScale().stackMode("value");
 
+      chart.legend(true);
       // create column series
-      chart.column(seriesData_1).color(this.$store.state.color.blue);
-      chart.column(seriesData_2).color(this.$store.state.color.green);
-      chart.column(seriesData_3).color(this.$store.state.color.yellow);
+      chart
+      .column(seriesData_1)
+      .color(this.$store.state.color.blue)
+      .name("2018");
 
+      chart
+      .column(seriesData_2)
+      .color(this.$store.state.color.green)
+      .name("2017")
+
+      chart
+      .column(seriesData_3)
+      .color(this.$store.state.color.yellow)
+      .name("2016");
       // set the chart title
       chart.title("Social & Human Development: Project Disbursements by Sector");
 
@@ -236,11 +247,22 @@ export default {
       on the default primary value scale*/
       chart.yScale().stackMode("value");
 
+      chart.legend(true);
       // create column series
-      chart.column(seriesData_1).color(this.$store.state.color.blue);
-      chart.column(seriesData_2).color(this.$store.state.color.green);
-      chart.column(seriesData_3).color(this.$store.state.color.yellow);
+      chart
+      .column(seriesData_1)
+      .color(this.$store.state.color.blue)
+      .name("2018");
 
+      chart
+      .column(seriesData_2)
+      .color(this.$store.state.color.green)
+      .name("2017")
+
+      chart
+      .column(seriesData_3)
+      .color(this.$store.state.color.yellow)
+      .name("2016");
 
       // set the chart title
       chart.title("Social & Human Development: Project Disbursements by Location");
