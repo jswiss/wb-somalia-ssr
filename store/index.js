@@ -16,26 +16,6 @@ export const state = () => ({
   location2017Table: [],
   location2018Table: [],
   locationsTableColumns: ['location', 'total', 'count'],
-  envTableColumns: [
-    'Agency',
-    'Agency Category',
-    'Aid Flow Category',
-    '2016',
-    '2017',
-    '2018',
-    '2019',
-    '2020',
-    'Total 2016-18',
-  ],
-  poolTableColumns: [
-    'Agency',
-    'Contributions to MDTFs',
-    'Category',
-    '2015',
-    '2016',
-    '2017',
-    '2018',
-  ],
 });
 
 export const mutations = {
@@ -84,6 +64,7 @@ export const mutations = {
         '2019': k['2019, USD'],
         '2020': k['2020, USD'],
         'Total 2016-18': k['Total, 2016-18 (USD)'],
+        Trends: k['Agency'],
       };
     });
   },
