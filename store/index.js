@@ -12,11 +12,11 @@ export const state = () => ({
   locationsTableColumns: ['location', 'total', 'count'],
   color: {
     blue: '#4587EA',
-    violet: '#262261',
-    tan: '#716558',
-    brown: '#594A41',
-    yellow: '#F6EB32',
     green: '#81D8C2',
+    yellow: '#F6EB32',
+    tan: '#716558',
+    violet: '#262261',
+    brown: '#594A41',
     pink: '#EA4587',
     lightblue: '#45DAEA'
   },
