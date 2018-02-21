@@ -220,10 +220,6 @@ export default {
       // create a chart
       var chart = anychart.column();
 
-      var labels = chart.xAxis().labels();
-      labels.enabled(false);
-
-      chart.yAxis().labels().format("${%value} mln");
 
       /* enable the value stacking mode
       on the default primary value scale*/
@@ -240,6 +236,10 @@ export default {
       // set the container id
       chart.container("country-chart");
 
+      var labels = chart.xAxis().labels();
+      labels.enabled(false);
+
+      chart.yAxis().labels().format("${%value} mln");
       // initiate drawing the chart
       chart.draw();
     },
