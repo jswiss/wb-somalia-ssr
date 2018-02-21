@@ -3,7 +3,7 @@
     Resilience
     <div id="container"></div>
     <div id="stack-chart"></div>
-    <div id="pie-chart">Figure 29, wrong Pie is shown</div>
+    <div id="pie-chart"></div>
     <div id="country-stack"></div>
 
     <table class="table is-striped is-hoverable is-bordered">
@@ -158,7 +158,19 @@ export default {
         ["South West", 16.5, 9.9, 0, 21.6, 59.3, 1.7],
         ["Somaliland", 5.5, 36.2, 0.4, 13.5, 86.6, 0],
         ["Unattributed", 3.2, 3.4, 1.1, 11.1, 328.5, 0]
-      ]
+      ],
+
+      resilienceDataPie: [
+        {x: "Mix of implementers - involving government", value: 731665744,
+        normal: {fill: this.$store.state.color.blue}},
+        {x: "NGOs", value: 265460791,
+        normal: {fill: this.$store.state.color.green}},
+        {x: "UN", value: 77620689,
+        normal: {fill: this.$store.state.color.yellow}},
+        {x: "Other", value: 101864066,
+        normal: {fill: this.$store.state.color.tan}},
+      ],
+
     };
   },
   methods: {
@@ -361,11 +373,21 @@ export default {
       chart.draw();
     },
 
+    renderPie() {
+      const chart = anychart.pie(this.resilienceDataPie);
+
+      chart.title("Key Implementers of Reslience Projects");
+      chart.container("pie-chart");
+      chart.draw();
+    },
+
+
   },
   mounted() {
     this.renderChart();
     this.renderStack();
     this.renderCountryStack();
+    this.renderPie();
   }
 };
 </script>
