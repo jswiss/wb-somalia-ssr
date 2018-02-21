@@ -224,13 +224,37 @@ export default {
       on the default primary value scale*/
       chart.yScale().stackMode("value");
 
+      chart.legend(true);
       // create column series
-      chart.column(seriesData_1).color(this.$store.state.color.blue);
-      chart.column(seriesData_2).color(this.$store.state.color.green);
-      chart.column(seriesData_3).color(this.$store.state.color.yellow);
-      chart.column(seriesData_4).color(this.$store.state.color.tan);
-      chart.column(seriesData_5).color(this.$store.state.color.violet);
-      chart.column(seriesData_6).color(this.$store.state.color.brown);
+      chart
+      .column(seriesData_1)
+      .color(this.$store.state.color.blue)
+      .name("Cross-cutting resilience");
+
+      chart
+      .column(seriesData_2)
+      .color(this.$store.state.color.green)
+      .name("Lifesaving humanitarian - cross-cutting");
+
+      chart
+      .column(seriesData_3)
+      .color(this.$store.state.color.yellow)
+      .name("Food Security");
+
+      chart
+      .column(seriesData_4)
+      .color(this.$store.state.color.tan)
+      .name("Social Protection")
+
+      chart
+      .column(seriesData_5)
+      .color(this.$store.state.color.violet)
+      .name("Natural Resources Management");
+
+      chart
+      .column(seriesData_6)
+      .color(this.$store.state.color.brown)
+      .name("Migration, Displacement, Refugees and Durable Solutions");
 
       // set the chart title
       chart.title("Resilience: Project Disbursements by Sector");
@@ -265,12 +289,37 @@ export default {
       chart.yScale().stackMode("value");
 
       // create column series
-      chart.column(seriesData_1).color(this.$store.state.color.blue);
-      chart.column(seriesData_2).color(this.$store.state.color.green);
-      chart.column(seriesData_3).color(this.$store.state.color.yellow);
-      chart.column(seriesData_4).color(this.$store.state.color.tan);
-      chart.column(seriesData_5).color(this.$store.state.color.violet);
-      chart.column(seriesData_6).color(this.$store.state.color.brown);
+      chart.legend(true);
+      // create column series
+      chart
+      .column(seriesData_1)
+      .color(this.$store.state.color.blue)
+      .name("Cross-cutting resilience");
+
+      chart
+      .column(seriesData_2)
+      .color(this.$store.state.color.green)
+      .name("Lifesaving humanitarian - cross-cutting");
+
+      chart
+      .column(seriesData_3)
+      .color(this.$store.state.color.yellow)
+      .name("Food Security");
+
+      chart
+      .column(seriesData_4)
+      .color(this.$store.state.color.tan)
+      .name("Social Protection")
+
+      chart
+      .column(seriesData_5)
+      .color(this.$store.state.color.violet)
+      .name("Natural Resources Management");
+
+      chart
+      .column(seriesData_6)
+      .color(this.$store.state.color.brown)
+      .name("Migration, Displacement, Refugees and Durable Solutions");
 
       // set the chart title
       chart.title("Resilience: Project Disbursements by Location");
