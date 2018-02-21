@@ -193,7 +193,7 @@ export default {
     },
     renderStack() {
 
-      var stackChart = anychart.column();
+      var chart = anychart.column();
 
       const dataSet = anychart.data.set(this.institutionsDataStack);
 
@@ -202,27 +202,29 @@ export default {
       var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
       var seriesData_4 = dataSet.mapAs({x: 0, value: 4});
 
-      // create a chart
-      var stackChart = anychart.column();
-
       /* enable the value stacking mode
       on the default primary value scale*/
-      stackChart.yScale().stackMode("value");
+      chart.yScale().stackMode("value");
 
       // create column series
-      stackChart.column(seriesData_1).color(this.$store.state.color.blue);
-      stackChart.column(seriesData_2).color(this.$store.state.color.green);
-      stackChart.column(seriesData_3).color(this.$store.state.color.yellow);
-      stackChart.column(seriesData_4).color(this.$store.state.color.tan);
+      chart.column(seriesData_1).color(this.$store.state.color.blue);
+      chart.column(seriesData_2).color(this.$store.state.color.green);
+      chart.column(seriesData_3).color(this.$store.state.color.yellow);
+      chart.column(seriesData_4).color(this.$store.state.color.tan);
 
       // set the chart title
-      stackChart.title("Effective, Efficient Institutions: Project Disbursements by Sector");
+      chart.title("Effective, Efficient Institutions: Project Disbursements by Sector");
 
       // set the container id
-      stackChart.container("stack-chart");
+      chart.container("stack-chart");
+
+      var labels = chart.xAxis().labels();
+      labels.enabled(false);
+
+      chart.yAxis().labels().format("${%value} mln");
 
       // initiate drawing the chart
-      stackChart.draw();
+      chart.draw();
     },
     renderPie() {
       const pieChart = anychart.pie(this.institutionsDataPie);
@@ -233,7 +235,7 @@ export default {
     },
     renderCountryStack() {
 
-      var stackChart = anychart.column();
+      var chart = anychart.column();
 
       const dataSet = anychart.data.set(this.institutionsLocationStack);
 
@@ -243,27 +245,33 @@ export default {
       var seriesData_4 = dataSet.mapAs({x: 0, value: 3});
 
       // create a chart
-      var stackChart = anychart.column();
+      var chart = anychart.column();
 
       /* enable the value stacking mode
       on the default primary value scale*/
-      stackChart.yScale().stackMode("value");
+      chart.yScale().stackMode("value");
 
       // create column series
-      stackChart.column(seriesData_1).color(this.$store.state.color.blue);
-      stackChart.column(seriesData_2).color(this.$store.state.color.green);
-      stackChart.column(seriesData_3).color(this.$store.state.color.yellow);
-      stackChart.column(seriesData_4).color(this.$store.state.color.tan);
+      chart.column(seriesData_1).color(this.$store.state.color.blue);
+      chart.column(seriesData_2).color(this.$store.state.color.green);
+      chart.column(seriesData_3).color(this.$store.state.color.yellow);
+      chart.column(seriesData_4).color(this.$store.state.color.tan);
 
 
       // set the chart title
-      stackChart.title("Effective, Efficient Institutions: Project Disbursements by Location");
+      chart.title("Effective, Efficient Institutions: Project Disbursements by Location");
 
       // set the container id
-      stackChart.container('country-stack');
+      chart.container('country-stack');
+
+      var labels = chart.xAxis().labels();
+      labels.enabled(false);
+
+      chart.yAxis().labels().format("${%value} mln");
+
 
       // initiate drawing the chart
-      stackChart.draw();
+      chart.draw();
     },
 
 
