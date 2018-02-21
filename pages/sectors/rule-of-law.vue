@@ -82,6 +82,7 @@
 
 
 <script>
+<<<<<<< HEAD
   export default {
   	name: 'rule-of-law',
   	layout: 'sectors',
@@ -211,6 +212,175 @@
   		this.renderCountryStack();
   	},
   };
+=======
+export default {
+  name: 'rule-of-law',
+  layout: 'sectors',
+  data() {
+    return {
+      ruleOfLawData: [
+        ["Government", 4884026],
+        ["Military", 4525200],
+        ["Mix of implementers - involving government", 4123420],
+        ["Mix of implementers - no government", 4717214],
+        ["NGOs", 8419492],
+        ["Private Sector", 6182000],
+        ["UN", 79498786],
+        ["Unclear / TBD", 6186113]
+      ],
+      ruleOfLawChart: [
+        ["2016", 65544693],
+        ["2017", 48282515],
+        ["2018", 4709043]
+      ],
+      ruleOfLawDataPie: [
+        {x: "UN", value: 79498786,
+        normal: {fill: this.$store.state.color.blue}},
+        {x: "NGOs", value: 8419492,
+      normal: {fill: this.$store.state.color.green}},
+        {x: "Unclear/TBD", value: 6186133,
+      normal: {fill: this.$store.state.color.yellow}},
+        {x: "Private Sector", value: 6182000,
+      normal: {fill: this.$store.state.color.tan}},
+        {x: "Government", value: 4884026,
+      normal: {fill: this.$store.state.color.violet}},
+        {x: "Mix of implementers - no government", value: 4717214,
+      normal: {fill: this.$store.state.color.brown}},
+        {x: "Military", value: 4525200,
+      normal: {fill: this.$store.state.color.pink}},
+        {x: "Mix of implementers - government", value: 4123420,
+      normal: {fill: this.$store.state.color.lightblue}}
+      ],
+      ruleOfLawLocationStack: [
+        ["FGS", 0.2, 17.5, 25.2],
+        ["Benadir", 0.9, 3.5, 5.6],
+        ["Galmudug", 0.6, 0.6, 0.1],
+        ["Hiirshabelle", 0.6, 4.4, 3.2],
+        ["Jubaland", 0.7, 4.4, 4.2],
+        ["Puntland", 0.1, 3.3, 7.8],
+        ["South West", 0.7, 4.5, 4.0],
+        ["Somaliland", 0.4, 3.3, 9.0],
+        ["Unattributed", 0.5, 6.7, 6.3]
+      ]
+    }
+  },
+  methods: {
+    renderChart() {
+      const chart = anychart.cartesian();
+      const dataSet = anychart.data.set(this.ruleOfLawChart);
+
+      const seriesData = dataSet.mapAs({x: 0, value: 1});
+
+      const column = chart.column(seriesData);
+      column
+      .fill(this.$store.state.color.blue)
+      .labels()
+      .enabled(true)
+      .format('${%Value}');
+
+      chart.animation(true);
+
+      chart.title("Rule of Law: Project Disbursements");
+
+      chart.yScale().minimum(0);
+
+      chart
+      .tooltip()
+      .displayMode('union')
+      .position('point')
+      .unionFormat(function(){
+        return `Plain: $${
+          this.points[0].value
+        } mln \n Fact: $${this.points[0].value} `;
+      });
+
+      chart.interactivity().hoverMode('by-x');
+
+      chart
+      .yAxis()
+      .labels()
+      .format('${%Value} mln');
+
+      chart.xAxis(true);
+
+      chart.container('container');
+
+      chart.draw();
+    },
+    renderPie() {
+      const chart = anychart.pie(this.ruleOfLawDataPie);
+
+      chart.title("Rule of Law: Key Implementers");
+      chart.container("pie-chart");
+      chart.animation(true)
+
+      chart.draw();
+    },
+    renderCountryStack() {
+
+      var chart = anychart.column();
+
+      const dataSet = anychart.data.set(this.ruleOfLawLocationStack);
+
+      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
+      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
+      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
+
+      // create a chart
+      var chart = anychart.column();
+
+      /* enable the value stacking mode
+      on the default primary value scale*/
+      chart.yScale().stackMode("value");
+
+      chart.legend(true);
+      // create column series
+      chart
+      .column(seriesData_1)
+      .color(this.$store.state.color.blue)
+      .name("2018")
+      .tooltip()
+      .format('2018: ${%Value} mln');
+
+
+      chart
+      .column(seriesData_2)
+      .color(this.$store.state.color.green)
+      .name("2017")
+      .tooltip()
+      .format('2017: ${%Value} mln');
+
+
+      chart
+      .column(seriesData_3)
+      .color(this.$store.state.color.yellow)
+      .name("2016")
+      .tooltip()
+      .format('2016: ${%Value} mln');
+
+      // set the chart title
+      chart.title("Rule of Law: Project Disbursements by Location");
+
+      // set the container id
+      chart.container('country-stack');
+
+      var labels = chart.xAxis().labels();
+      labels.enabled(true);
+
+      chart.yAxis().labels().format("${%value} mln");
+      // initiate drawing the chart
+      chart.draw();
+    },
+
+
+  },
+  mounted() {
+    this.renderChart();
+    this.renderPie();
+    this.renderCountryStack();
+  }
+};
+>>>>>>> feature/sector-charts
 </script>
 
 <style scoped>

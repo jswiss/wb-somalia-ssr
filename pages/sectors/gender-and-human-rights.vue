@@ -3,7 +3,7 @@
     Gender and Human Rights
     <div id="container"></div>
     <div id="stack-chart"></div>
-    <div id="pie-chart">Figure 32, wrong Pie is shown</div>
+    <div id="pie-chart"></div>
     <div id="year-stack"></div>
     <table class="table is-striped is-hoverable is-bordered">
       <thead>
@@ -108,6 +108,28 @@
   				['Somaliland', 1.1, 2.9, 3.9],
   				['Unattributed', 0.2, 0.3, 1.7],
   			],
+  			genderDataPie: [
+  				{
+  					x: 'NGOs',
+  					value: 31539718,
+  					normal: { fill: this.$store.state.color.blue },
+  				},
+  				{
+  					x: 'Mix of implementers - involving government',
+  					value: 3700000,
+  					normal: { fill: this.$store.state.color.green },
+  				},
+  				{
+  					x: 'Private Sector',
+  					value: 695274,
+  					normal: { fill: this.$store.state.color.yellow },
+  				},
+  				{
+  					x: 'Government',
+  					value: 172342,
+  					normal: { fill: this.$store.state.color.tan },
+  				},
+  			],
   		};
   	},
   	methods: {
@@ -119,6 +141,7 @@
 
   			const column = chart.column(seriesData);
   			column
+  				.fill(this.$store.state.color.blue)
   				.labels()
   				.enabled(true)
   				.format('${%Value}');
@@ -160,6 +183,7 @@
 
   			const column = chart.column(seriesData);
   			column
+  				.fill(this.$store.state.color.blue)
   				.labels()
   				.enabled(true)
   				.format('${%Value}');
@@ -191,26 +215,19 @@
 
   			chart.container('stack-chart');
 
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
+
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
+
   			chart.draw();
   		},
 
   		renderYearStack() {
-  			var stackChart = anychart.column();
-
-  			const dataSet = anychart.data.set(this.genderYearStackData);
-
-  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
-  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
-  			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
-
-  			/* enable the value stacking mode
-        on the default primary value scale*/
-  			stackChart.yScale().stackMode('value');
-
-  			// create column series
-  			stackChart.column(seriesData_1);
-  			stackChart.column(seriesData_2);
-  			stackChart.column(seriesData_3);
+  			var chart = anychart.column();
 
   			// set the chart title
   			stackChart.title(
@@ -220,14 +237,65 @@
   			// set the container id
   			stackChart.container('year-stack');
 
+  			/* enable the value stacking mode
+        on the default primary value scale*/
+  			chart.yScale().stackMode('value');
+
+  			chart.legend(true);
+  			// create column series
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.name('2018')
+  				.tooltip()
+  				.format('2018: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.name('2017')
+  				.tooltip()
+  				.format('2017: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_3)
+  				.color(this.$store.state.color.yellow)
+  				.name('2016')
+  				.tooltip()
+  				.format('2016: ${%Value} mln');
+
+  			// set the chart title
+  			chart.title('Gender & Human Rights: Project Disbursements by Location');
+
+  			// set the container id
+  			chart.container('year-stack');
+
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
+
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
+
   			// initiate drawing the chart
-  			stackChart.draw();
+  			chart.draw();
+  		},
+  		renderPie() {
+  			const chart = anychart.pie(this.genderDataPie);
+
+  			chart.title('Key Implementers of Gender & Human Rights Projects');
+  			chart.container('pie-chart');
+  			chart.animation(true);
+
+  			chart.draw();
   		},
   	},
   	mounted() {
   		this.renderChart();
   		this.renderYearChart();
   		this.renderYearStack();
+  		this.renderPie();
   	},
   };
 </script>

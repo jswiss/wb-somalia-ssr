@@ -8,7 +8,7 @@
     <div id="economic-growth"></div>
     <div id="infrastructure"></div>
     <div id="social-human"></div>
-    <div id="reslience"></div>
+    <div id="resiliance"></div>
   </div>
 </template>
 
@@ -69,9 +69,18 @@ export default {
       var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
       var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
 
-      var series1 = chart.column(seriesData_1);
-      var series2 = chart.column(seriesData_2);
-      var series3 = chart.column(seriesData_3);
+      var series1 = chart.column(seriesData_1).color(this.$store.state.color.blue);
+      series1.name("2016");
+      var series2 = chart.column(seriesData_2).color(this.$store.state.color.green);
+      series2.name("2017");
+      var series3 = chart.column(seriesData_3).color(this.$store.state.color.yellow);
+      series3.name("2018");
+
+      chart.legend(true);
+
+      var tooltip1 = series1.tooltip();
+      var tooltip2 = series2.tooltip();
+      var tooltip3 = series3.tooltip();
 
       // set the padding between columns
       chart.barsPadding(0);
@@ -112,6 +121,8 @@ export default {
 
       chart.container(container);
 
+      chart.yAxis().labels().format("${%value} mln");
+
       chart.draw();
     },
   },
@@ -128,7 +139,7 @@ export default {
 
     this.renderClusterChart(this.benadirSocialHumanDevClusterData, "Benadir: Social & Human Development", 'social-human');
 
-    this.renderClusterChart(this.benadirResilienceClusterData, "Benadir: Resilience", 'reslience');
+    this.renderClusterChart(this.benadirResilienceClusterData, "Benadir: Resilience", 'resilience');
 
   }
 };

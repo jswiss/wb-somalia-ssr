@@ -16,6 +16,16 @@ export const state = () => ({
   location2017Table: [],
   location2018Table: [],
   locationsTableColumns: ['location', 'total', 'count'],
+  color: {
+    blue: '#4587EA',
+    green: '#81D8C2',
+    yellow: '#F6EB32',
+    tan: '#716558',
+    violet: '#262261',
+    brown: '#594A41',
+    pink: '#EA4587',
+    lightblue: '#45DAEA'
+  },
 });
 
 export const mutations = {
@@ -74,6 +84,7 @@ export const mutations = {
   SET_2017_LOCATION_TABLE(state, data) {
     state.location2017Table = data;
   },
+<<<<<<< HEAD
   SET_2018_LOCATION_TABLE(state, data) {
     state.location2018Table = data;
   },
@@ -89,6 +100,11 @@ export const mutations = {
   SET_PROJECT(state, data) {
     state.project = data;
   },
+=======
+  SET_2018_LOC_TREE(state, locs) {
+    state.locationTree2018 = locs;
+  }
+>>>>>>> feature/sector-charts
 };
 
 export const actions = {
