@@ -4,7 +4,7 @@
       <div class="columns">
         <div class="column is-3"></div>
         <div id="table" class="column is-6">
-          <no-ssr>
+          <no-ssr placeholder="loading">
             <v-client-table
               :data="pools"
               :columns="columns"
