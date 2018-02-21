@@ -188,12 +188,17 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
-      .name("Productive Sectors (Agriculture, Fisheries, Livestock)");
+      .name("Productive Sectors (Agriculture, Fisheries, Livestock)")
+      .tooltip()
+      .format('Productive Sectors (Agriculture, Fisheries, Livestock): ${%Value} mln');
+
 
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
-      .name("Private Sector Development");
+      .name("Private Sector Development")
+      .tooltip()
+      .format('Private Sector Development: ${%Value} mln');      
 
       // set the chart title
       chart.title("Economic Growth: Project Disbursements by Sector");
@@ -238,9 +243,24 @@ export default {
       chart.yScale().stackMode("value");
 
       // create column series
-      chart.column(seriesData_1).color(this.$store.state.color.blue);
-      chart.column(seriesData_2).color(this.$store.state.color.green);
-      chart.column(seriesData_3).color(this.$store.state.color.yellow);
+      chart
+      .column(seriesData_1)
+      .color(this.$store.state.color.blue)
+      .tooltip()
+      .format('2018: ${%Value} mln');
+
+      chart
+      .column(seriesData_2)
+      .color(this.$store.state.color.green)
+      .tooltip()
+      .format('2017: ${%Value} mln');
+
+      chart
+      .column(seriesData_3)
+      .color(this.$store.state.color.yellow)
+      .tooltip()
+      .format('2016: ${%Value} mln');
+
 
       // set the chart title
       chart.title("Economic Growth: Project Disbursements by Location");
