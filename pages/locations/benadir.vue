@@ -76,6 +76,8 @@ export default {
       var series3 = chart.column(seriesData_3).color(this.$store.state.color.yellow);
       series3.name("2018");
 
+      chart.legend(true);
+
 
       // set the padding between columns
       chart.barsPadding(0);
@@ -104,8 +106,6 @@ export default {
           this.points[0].value
         } mln \n Fact: $${this.points[0].value} `;
       });
-
-      chart.legend(true);
 
       chart.interactivity().hoverMode('by-x');
 
