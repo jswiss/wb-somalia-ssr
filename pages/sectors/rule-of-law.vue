@@ -193,7 +193,6 @@ export default {
       var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
       var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
 
-
       // create a chart
       var chart = anychart.column();
 
@@ -206,17 +205,26 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
-      .name("2018");
+      .name("2018")
+      .tooltip()
+      .format('2018: ${%Value} mln');
+
 
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
       .name("2017")
+      .tooltip()
+      .format('2017: ${%Value} mln');
+
 
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
-      .name("2016");
+      .name("2016")
+      .tooltip()
+      .format('2016: ${%Value} mln');
+
       // set the chart title
       chart.title("Rule of Law: Project Disbursements by Location");
 
