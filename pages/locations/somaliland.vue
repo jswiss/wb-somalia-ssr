@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       somalilandDisbursementClusterData: [
-        ["Peace, Inclusive Politics, Security & Rule of Law", 12.3, 21.2, 7.7]
+        ["Peace, Inclusive Politics, Security & Rule of Law", 12.3, 21.2, 7.7],
         ["Effective, Efficient Institutions", 19.8, 12.7, 3.5],
         ["Economic Growth", 6.9, 5.8, 3.4],
         ["Infrastructure", 1, 4.6, 2.7],

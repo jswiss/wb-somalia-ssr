@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       puntlandDisbursementClusterData: [
-        ["Peace, Inclusive Politics, Security & Rule of Law", 15.3, 8.5, 3.2]
+        ["Peace, Inclusive Politics, Security & Rule of Law", 15.3, 8.5, 3.2],
         ["Effective, Efficient Institutions", 15.9, 16.6, 7.3],
         ["Economic Growth", 8.7, 5.8, 5.2],
         ["Infrastructure", 7.9, 8.3, 4.2],

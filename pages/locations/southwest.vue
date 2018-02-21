@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       southWestDisbursementClusterData: [
-        ["Peace, Inclusive Politics, Security & Rule of Law", 27.3, 13.3, 4.7]
+        ["Peace, Inclusive Politics, Security & Rule of Law", 27.3, 13.3, 4.7],
         ["Effective, Efficient Institutions", 14.8, 16, 7.7],
         ["Economic Growth", 25.8, 23.4, 10.4],
         ["Infrastructure", 22.5, 22.3, 7.6],
@@ -78,12 +78,6 @@ export default {
 
       // set the padding between column groups
       chart.barGroupsPadding(2);
-
-      // const column = chart.column(seriesData);
-      // column
-      // .labels()
-      // .enabled(true)
-      // .format('${%Value}');
 
       chart.animation(true);
 
