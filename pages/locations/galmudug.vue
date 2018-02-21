@@ -77,7 +77,7 @@ export default {
       series3.name("2018");
 
       chart.legend(true);
-      
+
       // set the padding between columns
       chart.barsPadding(0);
 
