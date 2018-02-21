@@ -69,9 +69,9 @@ export default {
       var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
       var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
 
-      var series1 = chart.column(seriesData_1);
-      var series2 = chart.column(seriesData_2);
-      var series3 = chart.column(seriesData_3);
+      var series1 = chart.column(seriesData_1).color(this.$store.state.color.blue);
+      var series2 = chart.column(seriesData_2).color(this.$store.state.color.green);
+      var series3 = chart.column(seriesData_3).color(this.$store.state.color.yellow);
 
       // set the padding between columns
       chart.barsPadding(0);
