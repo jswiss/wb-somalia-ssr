@@ -263,11 +263,12 @@ export default {
       chart.draw();
     },
     renderPie() {
-
       const chart = anychart.pie(this.genderDataPie);
 
       chart.title("Key Implementers of Gender & Human Rights Projects");
       chart.container("pie-chart");
+      chart.animation(true)
+
       chart.draw();
     },
 

@@ -233,11 +233,13 @@ export default {
       chart.draw();
     },
     renderPie() {
-      const pieChart = anychart.pie(this.socialHumanDevelopmentDataPie);
+      const chart = anychart.pie(this.socialHumanDevelopmentDataPie);
 
-      pieChart.title("Key Implementers of Social & Human Development Projects");
-      pieChart.container("pie-chart");
-      pieChart.draw();
+      chart.title("Key Implementers of Social & Human Development Projects");
+      chart.container("pie-chart");
+      chart.animation(true)
+
+      chart.draw();
     },
 
     renderCountryStack() {

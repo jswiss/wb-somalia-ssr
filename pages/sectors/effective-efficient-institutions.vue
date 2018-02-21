@@ -254,11 +254,13 @@ export default {
       chart.draw();
     },
     renderPie() {
-      const pieChart = anychart.pie(this.institutionsDataPie);
+      const chart = anychart.pie(this.institutionsDataPie);
 
-      pieChart.title("Key Implementers of Effective, Efficient Institutions Projects");
-      pieChart.container("pie-chart");
-      pieChart.draw();
+      chart.title("Key Implementers of Effective, Efficient Institutions Projects");
+      chart.container("pie-chart");
+      chart.animation(true)
+
+      chart.draw();
     },
     renderCountryStack() {
 

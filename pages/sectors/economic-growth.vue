@@ -198,7 +198,7 @@ export default {
       .color(this.$store.state.color.green)
       .name("Private Sector Development")
       .tooltip()
-      .format('Private Sector Development: ${%Value} mln');      
+      .format('Private Sector Development: ${%Value} mln');
 
       // set the chart title
       chart.title("Economic Growth: Project Disbursements by Sector");
@@ -219,11 +219,13 @@ export default {
       chart.draw();
     },
     renderPie() {
-      const pieChart = anychart.pie(this.economicGrowthDataPie);
+      const chart = anychart.pie(this.economicGrowthDataPie);
 
-      pieChart.title("Economic Growth: Key Implementers");
-      pieChart.container("pie-chart");
-      pieChart.draw();
+      chart.title("Economic Growth: Key Implementers");
+      chart.container("pie-chart");
+      chart.animation(true)
+
+      chart.draw();
     },
     renderLocationStack() {
 

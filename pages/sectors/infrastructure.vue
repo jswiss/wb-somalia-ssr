@@ -256,11 +256,13 @@ export default {
       chart.draw();
     },
     renderPie() {
-      const pieChart = anychart.pie(this.infrastructureDataPie);
+      const chart = anychart.pie(this.infrastructureDataPie);
 
-      pieChart.title("Key Implementers of Infrastructure Projects");
-      pieChart.container("pie-chart");
-      pieChart.draw();
+      chart.title("Key Implementers of Infrastructure Projects");
+      chart.container("pie-chart");
+      chart.animation(true)
+
+      chart.draw();
     },
     renderCountryStack() {
 

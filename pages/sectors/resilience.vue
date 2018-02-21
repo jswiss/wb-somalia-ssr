@@ -376,6 +376,8 @@ export default {
 
       chart.title("Key Implementers of Reslience Projects");
       chart.container("pie-chart");
+      chart.animation(true)
+
       chart.draw();
     },
   },

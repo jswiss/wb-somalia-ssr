@@ -177,11 +177,13 @@ export default {
       chart.draw();
     },
     renderPie() {
-      const pieChart = anychart.pie(this.ruleOfLawDataPie);
+      const chart = anychart.pie(this.ruleOfLawDataPie);
 
-      pieChart.title("Rule of Law: Key Implementers");
-      pieChart.container("pie-chart");
-      pieChart.draw();
+      chart.title("Rule of Law: Key Implementers");
+      chart.container("pie-chart");
+      chart.animation(true)
+
+      chart.draw();
     },
     renderCountryStack() {
 
