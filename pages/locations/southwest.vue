@@ -76,8 +76,15 @@ export default {
       var series3 = chart.column(seriesData_3).color(this.$store.state.color.yellow);
       series3.name("2018");
 
+      var tooltip = chart.tooltip();
+      tooltip.positionMode("point");
+
+      var tooltip1 = series1.tooltip();
+      var tooltip2 = series2.tooltip();
+      var tooltip3 = series3.tooltip();
+
       chart.legend(true);
-      
+
       // set the padding between columns
       chart.barsPadding(0);
 
@@ -90,15 +97,15 @@ export default {
 
       chart.yScale().minimum(0);
 
-      chart
-      .tooltip()
-      .displayMode('union')
-      .position('point')
-      .unionFormat(function(){
-        return `Plain: $${
-          this.points[0].value
-        } mln \n Fact: $${this.points[0].value} `;
-      });
+      // chart
+      // .tooltip()
+      // .displayMode('union')
+      // .position('point')
+      // .unionFormat(function(){
+      //   return `Plain: $${
+      //     this.points[0].value
+      //   } mln \n Fact: $${this.points[0].value} `;
+      // });
 
       chart.interactivity().hoverMode('by-x');
 

@@ -77,7 +77,11 @@ export default {
       series3.name("2018");
 
       chart.legend(true);
-      
+
+      var tooltip1 = series1.tooltip();
+      var tooltip2 = series2.tooltip();
+      var tooltip3 = series3.tooltip();
+
       // set the padding between columns
       chart.barsPadding(0);
 
