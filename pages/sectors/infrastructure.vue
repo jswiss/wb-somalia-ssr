@@ -216,22 +216,30 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
-      .name("Water and Sanitation");
+      .name("Water and Sanitation")
+      .tooltip()
+      .format('Water and Sanitation: ${%Value} mln');
 
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
-      .name("Transport: Roads, Ports and Airports");
+      .name("Transport: Roads, Ports and Airports")
+      .tooltip()
+      .format('Transport: Roads, Ports and Airports: ${%Value} mln');
 
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
-      .name("Mixed Infrastructure");
+      .name("Mixed Infrastructure")
+      .tooltip()
+      .format('Mixed Infrastructure: ${%Value} mln');
 
       chart
       .column(seriesData_4)
       .color(this.$store.state.color.tan)
-      .name("Energy and ICT");
+      .name("Energy and ICT")
+      .tooltip()
+      .format('Energy and ICT: ${%Value} mln');
 
       // set the chart title
       chart.title("Infrastructure: Project Disbursements by Sector");
@@ -274,23 +282,30 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
-      .name("Water and Sanitation");
+      .name("Water and Sanitation")
+      .tooltip()
+      .format('Water and Sanitation: ${%Value} mln');
 
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
-      .name("Transport: Roads, Ports and Airports");
+      .name("Transport: Roads, Ports and Airports")
+      .tooltip()
+      .format('Transport: Roads, Ports and Airports: ${%Value} mln');
 
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
-      .name("Mixed Infrastructure");
+      .name("Mixed Infrastructure")
+      .tooltip()
+      .format('Mixed Infrastructure: ${%Value} mln');
 
       chart
       .column(seriesData_4)
       .color(this.$store.state.color.tan)
-      .name("Energy and ICT");
-
+      .name("Energy and ICT")
+      .tooltip()
+      .format('Energy and ICT: ${%Value} mln');
       // set the chart title
       chart.title("Infrastructure: Project Disbursements by Location");
 
