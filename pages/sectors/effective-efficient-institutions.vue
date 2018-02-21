@@ -119,21 +119,21 @@ export default {
       ],
       institutionsDataPie: [
         {x: "UN", value: 79498786,
-      normal: {fill: this.$store.state.color.blue}},
+        normal: {fill: this.$store.state.color.blue}},
         {x: "NGOs", value: 8419492,
-      normal: {fill: this.$store.state.color.green}},
+        normal: {fill: this.$store.state.color.green}},
         {x: "Unclear/TBD", value: 6186133,
-      normal: {fill: this.$store.state.color.yellow}},
+        normal: {fill: this.$store.state.color.yellow}},
         {x: "Private Sector", value: 6182000,
-      normal: {fill: this.$store.state.color.tan}},
+        normal: {fill: this.$store.state.color.tan}},
         {x: "Government", value: 4884026,
-      normal: {fill: this.$store.state.color.violet}},
+        normal: {fill: this.$store.state.color.violet}},
         {x: "Mix of implementers - no government", value: 4717214,
-      normal: {fill: this.$store.state.color.brown}},
+        normal: {fill: this.$store.state.color.brown}},
         {x: "Military", value: 4525200,
-      normal: {fill: this.$store.state.color.pink}},
+        normal: {fill: this.$store.state.color.pink}},
         {x: "Mix of implementers - government", value: 4123420,
-      normal: {fill: this.$store.state.color.lightblue}}
+        normal: {fill: this.$store.state.color.lightblue}}
       ],
       institutionsLocationStack: [
         ["FGS", 10.5, 146.1, 9.8, 19.9],
@@ -269,7 +269,7 @@ export default {
       on the default primary value scale*/
       chart.yScale().stackMode("value");
 
-chart.legend(true);
+      chart.legend(true);
       // create column series
       chart.
       column(seriesData_1)
@@ -320,19 +320,19 @@ chart.legend(true);
 </script>
 
 <style scoped>
-  /* make sure div#id has a size defined, otherwise nothing will render */
+/* make sure div#id has a size defined, otherwise nothing will render */
 
-  #container {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+#container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-  #stack-chart {
-    width: 50%;
-    height: 400px;
-    margin: 0;
-    padding: 0;
-  }
+#stack-chart {
+  width: 50%;
+  height: 400px;
+  margin: 0;
+  padding: 0;
+}
 </style>
