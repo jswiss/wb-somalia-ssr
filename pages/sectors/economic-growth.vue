@@ -196,7 +196,6 @@ export default {
 
       chart.yAxis().labels().format("${%value} mln");
 
-
       // initiate drawing the chart
       chart.draw();
     },
