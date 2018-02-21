@@ -198,13 +198,15 @@ export default {
       // set the chart title
       chart.title("Economic Growth: Project Disbursements by Sector");
 
-      chart.xAxis(true);
+      // chart.xAxis(true);
+      var labels = chart.xAxis().labels();
+      labels.enabled(true);
 
       // set the container id
       chart.container("stack-chart");
 
       var labels = chart.xAxis().labels();
-      labels.enabled(false);
+      labels.enabled(true);
 
       chart.yAxis().labels().format("${%value} mln");
 
@@ -247,7 +249,7 @@ export default {
       chart.container("country-chart");
 
       var labels = chart.xAxis().labels();
-      labels.enabled(false);
+      labels.enabled(true);
 
       chart.yAxis().labels().format("${%value} mln");
       // initiate drawing the chart

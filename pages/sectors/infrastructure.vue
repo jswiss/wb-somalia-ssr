@@ -240,7 +240,7 @@ export default {
       chart.container("stack-chart");
 
       var labels = chart.xAxis().labels();
-      labels.enabled(false);
+      labels.enabled(true);
 
       chart.yAxis().labels().format("${%value} mln");
 
@@ -290,7 +290,7 @@ export default {
       .column(seriesData_4)
       .color(this.$store.state.color.tan)
       .name("Energy and ICT");
-      
+
       // set the chart title
       chart.title("Infrastructure: Project Disbursements by Location");
 
@@ -298,7 +298,7 @@ export default {
       chart.container('country-stack');
 
       var labels = chart.xAxis().labels();
-      labels.enabled(false);
+      labels.enabled(true);
 
       chart.yAxis().labels().format("${%value} mln");
 

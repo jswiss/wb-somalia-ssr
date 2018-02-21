@@ -194,7 +194,7 @@ export default {
       chart.container('stack-chart');
 
       var labels = chart.xAxis().labels();
-      labels.enabled(false);
+      labels.enabled(true);
 
       chart.yAxis().labels().format("${%value} mln");
 
@@ -239,7 +239,7 @@ export default {
       chart.container('year-stack');
 
       var labels = chart.xAxis().labels();
-      labels.enabled(false);
+      labels.enabled(true);
 
       chart.yAxis().labels().format("${%value} mln");
 
