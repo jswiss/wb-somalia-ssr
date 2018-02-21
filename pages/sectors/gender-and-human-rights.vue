@@ -228,19 +228,13 @@
 
   		renderYearStack() {
   			var chart = anychart.column();
-
-  			// set the chart title
-  			stackChart.title(
-  				'Gender & Human Rights: Project Disbursements by Location'
-  			);
-
-  			// set the container id
-  			stackChart.container('year-stack');
-
+  			const dataSet = anychart.data.set(this.genderYearStackData);
+  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
+  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
+  			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
   			/* enable the value stacking mode
         on the default primary value scale*/
   			chart.yScale().stackMode('value');
-
   			chart.legend(true);
   			// create column series
   			chart
@@ -249,35 +243,28 @@
   				.name('2018')
   				.tooltip()
   				.format('2018: ${%Value} mln');
-
   			chart
   				.column(seriesData_2)
   				.color(this.$store.state.color.green)
   				.name('2017')
   				.tooltip()
   				.format('2017: ${%Value} mln');
-
   			chart
   				.column(seriesData_3)
   				.color(this.$store.state.color.yellow)
   				.name('2016')
   				.tooltip()
   				.format('2016: ${%Value} mln');
-
   			// set the chart title
   			chart.title('Gender & Human Rights: Project Disbursements by Location');
-
   			// set the container id
   			chart.container('year-stack');
-
   			var labels = chart.xAxis().labels();
   			labels.enabled(true);
-
   			chart
   				.yAxis()
   				.labels()
   				.format('${%value} mln');
-
   			// initiate drawing the chart
   			chart.draw();
   		},
