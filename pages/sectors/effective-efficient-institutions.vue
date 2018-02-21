@@ -213,22 +213,31 @@ export default {
       chart.
       column(seriesData_1)
       .color(this.$store.state.color.blue)
-      .name("State and Local Governance");
+      .name("State and Local Governance")
+      .tooltip()
+      .format('State and Local Governance: ${%Value} mln');
 
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
-      .name("Public Financial Management");
+      .name("Public Financial Management")
+      .tooltip()
+      .format('Public Financial Management: ${%Value} mln');
 
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
-      .name("Planning, M&E and Statistics");
+      .name("Planning, M&E and Statistics")
+      .tooltip()
+      .format('Planning, M&E and Statistics: ${%Value} mln');
 
       chart
       .column(seriesData_4)
       .color(this.$store.state.color.tan)
       .name("Civil Service Reform/Public Administration")
+      .tooltip()
+      .format('Civil Service Reform/Public Administration: ${%Value} mln');
+
 
       // set the chart title
       chart.title("Effective, Efficient Institutions: Project Disbursements by Sector");
@@ -274,24 +283,30 @@ export default {
       chart.
       column(seriesData_1)
       .color(this.$store.state.color.blue)
-      .name("State and Local Governance");
+      .name("State and Local Governance")
+      .tooltip()
+      .format('State and Local Governance: ${%Value} mln');
 
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
-      .name("Public Financial Management");
+      .name("Public Financial Management")
+      .tooltip()
+      .format('Public Financial Management: ${%Value} mln');
 
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
-      .name("Planning, M&E and Statistics");
+      .name("Planning, M&E and Statistics")
+      .tooltip()
+      .format('Planning, M&E and Statistics: ${%Value} mln');
 
       chart
       .column(seriesData_4)
       .color(this.$store.state.color.tan)
       .name("Civil Service Reform/Public Administration")
-
-
+      .tooltip()
+      .format('Civil Service Reform/Public Administration: ${%Value} mln');
       // set the chart title
       chart.title("Effective, Efficient Institutions: Project Disbursements by Location");
 
