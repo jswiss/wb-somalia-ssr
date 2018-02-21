@@ -211,11 +211,27 @@ export default {
       on the default primary value scale*/
       chart.yScale().stackMode("value");
 
+      chart.legend(true);
       // create column series
-      chart.column(seriesData_1).color(this.$store.state.color.blue);
-      chart.column(seriesData_2).color(this.$store.state.color.green);
-      chart.column(seriesData_3).color(this.$store.state.color.yellow);
-      chart.column(seriesData_4).color(this.$store.state.color.tan);
+      chart
+      .column(seriesData_1)
+      .color(this.$store.state.color.blue)
+      .name("Water and Sanitation");
+
+      chart
+      .column(seriesData_2)
+      .color(this.$store.state.color.green)
+      .name("Transport: Roads, Ports and Airports");
+
+      chart
+      .column(seriesData_3)
+      .color(this.$store.state.color.yellow)
+      .name("Mixed Infrastructure");
+
+      chart
+      .column(seriesData_4)
+      .color(this.$store.state.color.tan)
+      .name("Energy and ICT");
 
       // set the chart title
       chart.title("Infrastructure: Project Disbursements by Sector");
@@ -253,13 +269,28 @@ export default {
       on the default primary value scale*/
       chart.yScale().stackMode("value");
 
+      chart.legend(true);
       // create column series
-      chart.column(seriesData_1).color(this.$store.state.color.blue);
-      chart.column(seriesData_2).color(this.$store.state.color.green);
-      chart.column(seriesData_3).color(this.$store.state.color.yellow);
-      chart.column(seriesData_4).color(this.$store.state.color.tan);
+      chart
+      .column(seriesData_1)
+      .color(this.$store.state.color.blue)
+      .name("Water and Sanitation");
 
+      chart
+      .column(seriesData_2)
+      .color(this.$store.state.color.green)
+      .name("Transport: Roads, Ports and Airports");
 
+      chart
+      .column(seriesData_3)
+      .color(this.$store.state.color.yellow)
+      .name("Mixed Infrastructure");
+
+      chart
+      .column(seriesData_4)
+      .color(this.$store.state.color.tan)
+      .name("Energy and ICT");
+      
       // set the chart title
       chart.title("Infrastructure: Project Disbursements by Location");
 
