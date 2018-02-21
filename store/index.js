@@ -44,11 +44,11 @@ export const mutations = {
         k['2018 Disbursements (USD)'];
       k['Start Date'] =
         k['Start Date'] !== null
-          ? moment(excelToJsDate(k['Start Date'])).format('YYYY - MM')
+          ? moment(excelToJsDate(k['Start Date'])).format('YYYY-MM')
           : null;
       k['End Date'] =
         k['End Date'] !== null
-          ? moment(excelToJsDate(k['End Date'])).format('YYYY - MM')
+          ? moment(excelToJsDate(k['End Date'])).format('YYYY-MM')
           : null;
     });
   },
