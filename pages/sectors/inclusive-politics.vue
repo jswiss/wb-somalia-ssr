@@ -217,7 +217,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-        on the default primary value scale*/
+          on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series

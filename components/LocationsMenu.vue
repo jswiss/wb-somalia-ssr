@@ -48,7 +48,7 @@
       </div>
       <div class="columns">
         <div class="outline">
-          <nuxt-link class="nav-item" to="/locations/Jubaland" >
+          <nuxt-link class="nav-item" to="/locations/Jubaland">
             <div id="chart-selector-5" class="column">
               <img src="../static/icons/Jubaland.svg" alt="" class="location-icon">
               <h4 class="sidebar-title">
@@ -115,6 +115,11 @@
   h4 {
   	color: #0a0a0a;
   	text-decoration: none;
+  }
+
+  div.outline.is-active {
+  	border: 1px solid #db1414;
+  	margin: 1px;
   }
 </style>
 

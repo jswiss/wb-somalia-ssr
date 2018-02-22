@@ -30,7 +30,7 @@ module.exports = {
   loading: { color: '#4189DD', height: '10px' },
   modules: ['@nuxtjs/bulma', '@nuxtjs/axios'],
   // css
-  css: ['bulma/bulma.sass'],
+  css: ['bulma/bulma.sass', '~/assets/css/main.css'],
   plugins: [
     { src: '~/plugins/vue-bulma-tables-2', ssr: false },
     { src: '~/plugins/vuexPersistedState', ssr: false },
