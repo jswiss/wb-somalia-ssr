@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       somalilandDisbursementClusterData: [
-        ["Peace, Inclusive Politics, Security & Rule of Law", 12.3, 21.2, 7.7]
+        ["Peace, Inclusive Politics, Security & Rule of Law", 12.3, 21.2, 7.7],
         ["Effective, Efficient Institutions", 19.8, 12.7, 3.5],
         ["Economic Growth", 6.9, 5.8, 3.4],
         ["Infrastructure", 1, 4.6, 2.7],
@@ -69,9 +69,19 @@ export default {
       var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
       var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
 
-      var series1 = chart.column(seriesData_1);
-      var series2 = chart.column(seriesData_2);
-      var series3 = chart.column(seriesData_3);
+      var series1 = chart.column(seriesData_1).color(this.$store.state.color.blue);
+      series1.name("2016");
+      var series2 = chart.column(seriesData_2).color(this.$store.state.color.green);
+      series2.name("2017");
+      var series3 = chart.column(seriesData_3).color(this.$store.state.color.yellow);
+      series3.name("2018");
+
+      chart.legend(true);
+
+      var tooltip1 = series1.tooltip();
+      var tooltip2 = series2.tooltip();
+      var tooltip3 = series3.tooltip();
+
 
       // set the padding between columns
       chart.barsPadding(0);

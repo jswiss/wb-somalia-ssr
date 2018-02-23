@@ -92,13 +92,41 @@
   				['2018', 8.3, 28.1],
   			],
   			economicGrowthDataPie: [
-  				{ x: 'Private Sector', value: 56512142 },
-  				{ x: 'UN', value: 40336126 },
-  				{ x: 'NGOs', value: 38335938 },
-  				{ x: 'Mix of implementers - no government', value: 19444243 },
-  				{ x: 'Donor Agencies', value: 8391376 },
-  				{ x: 'Government', value: 8228265 },
-  				{ x: 'Other', value: 4524727 },
+  				{
+  					x: 'Private Sector',
+  					value: 56512142,
+  					normal: { fill: this.$store.state.color.blue },
+  				},
+  				{
+  					x: 'UN',
+  					value: 40336126,
+  					normal: { fill: this.$store.state.color.green },
+  				},
+  				{
+  					x: 'NGOs',
+  					value: 38335938,
+  					normal: { fill: this.$store.state.color.yellow },
+  				},
+  				{
+  					x: 'Mix of implementers - no government',
+  					value: 19444243,
+  					normal: { fill: this.$store.state.color.tan },
+  				},
+  				{
+  					x: 'Donor Agencies',
+  					value: 8391376,
+  					normal: { fill: this.$store.state.color.violet },
+  				},
+  				{
+  					x: 'Government',
+  					value: 8228265,
+  					normal: { fill: this.$store.state.color.brown },
+  				},
+  				{
+  					x: 'Other',
+  					value: 4524727,
+  					normal: { fill: this.$store.state.color.pink },
+  				},
   			],
   			economicLocationStack: [
   				['FGS', 8.5, 5.4, 13.9],
@@ -123,6 +151,7 @@
 
   			const column = chart.column(seriesData);
   			column
+  				.fill(this.$store.state.color.blue)
   				.labels()
   				.enabled(true)
   				.format('${%Value}');
@@ -157,42 +186,72 @@
   			chart.draw();
   		},
   		renderStack() {
-  			var stackChart = anychart.column();
+  			var chart = anychart.column();
 
   			const dataSet = anychart.data.set(this.economicGrowthDataStack);
 
   			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
+
   			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
 
   			// create a chart
-  			var stackChart = anychart.column();
+  			var chart = anychart.column();
+
+  			chart.legend(true);
 
   			/* enable the value stacking mode
         on the default primary value scale*/
-  			stackChart.yScale().stackMode('value');
+  			chart.yScale().stackMode('value');
 
   			// create column series
-  			stackChart.column(seriesData_1);
-  			stackChart.column(seriesData_2);
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.name('Productive Sectors (Agriculture, Fisheries, Livestock)')
+  				.tooltip()
+  				.format(
+  					'Productive Sectors (Agriculture, Fisheries, Livestock): ${%Value} mln'
+  				);
+
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.name('Private Sector Development')
+  				.tooltip()
+  				.format('Private Sector Development: ${%Value} mln');
 
   			// set the chart title
-  			stackChart.title('Economic Growth: Project Disbursements by Sector');
+  			chart.title('Economic Growth: Project Disbursements by Sector');
+
+  			// chart.xAxis(true);
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
 
   			// set the container id
-  			stackChart.container('stack-chart');
+  			chart.container('stack-chart');
+
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
+
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
 
   			// initiate drawing the chart
-  			stackChart.draw();
+  			chart.draw();
   		},
   		renderPie() {
-  			const pieChart = anychart.pie(this.economicGrowthDataStack);
+  			const chart = anychart.pie(this.economicGrowthDataPie);
 
-  			pieChart.title('Economic Growth: Key Implementers');
-  			pieChart.container('pie-chart');
-  			pieChart.draw();
+  			chart.title('Economic Growth: Key Implementers');
+  			chart.container('pie-chart');
+  			chart.animation(true);
+
+  			chart.draw();
   		},
   		renderLocationStack() {
-  			var locationStackChart = anychart.column();
+  			var chart = anychart.column();
 
   			const dataSet = anychart.data.set(this.economicLocationStack);
 
@@ -201,27 +260,46 @@
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
 
   			// create a chart
-  			var locationStackChart = anychart.column();
+  			var chart = anychart.column();
 
   			/* enable the value stacking mode
         on the default primary value scale*/
-  			locationStackChart.yScale().stackMode('value');
+  			chart.yScale().stackMode('value');
 
   			// create column series
-  			locationStackChart.column(seriesData_1);
-  			locationStackChart.column(seriesData_2);
-  			locationStackChart.column(seriesData_3);
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.tooltip()
+  				.format('2018: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.tooltip()
+  				.format('2017: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_3)
+  				.color(this.$store.state.color.yellow)
+  				.tooltip()
+  				.format('2016: ${%Value} mln');
 
   			// set the chart title
-  			locationStackChart.title(
-  				'Economic Growth: Project Disbursements by Location'
-  			);
+  			chart.title('Economic Growth: Project Disbursements by Location');
 
   			// set the container id
-  			locationStackChart.container('country-chart');
+  			chart.container('country-chart');
 
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
+
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
   			// initiate drawing the chart
-  			locationStackChart.draw();
+  			chart.draw();
   		},
   	},
   	mounted() {

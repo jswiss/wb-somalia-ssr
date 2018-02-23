@@ -81,8 +81,8 @@
                       <th><abbr title=""></abbr></th>
                       <th><abbr title="Federal Government of Somalia">FGS</abbr></th>
                       <th><abbr title="Benadir">Benadir</abbr></th>
-                      <th><abbr title="2015, USD">Galmudug</abbr></th>
-                      <th><abbr title="Hiiraan & Middle Shabelle">Hiirshabelle</abbr></th>
+                      <th><abbr title="Galmudug">Galmudug</abbr></th>
+                      <th><abbr title="Hiirshabelle">Hiirshabelle</abbr></th>
                       <th><abbr title="Jubaland">Jubaland</abbr></th>
                       <th><abbr title="Puntland">Puntland</abbr></th>
                       <th><abbr title="Somaliland">Somaliland</abbr></th>
@@ -125,7 +125,19 @@
                       <td>${{ project['2018 - Puntland'] || 0 | currency }}</td>
                       <td>${{ project['2018 - Somaliland'] || 0 | currency }}</td>
                       <td>${{ project['2018 - South West'] || 0 | currency }}</td>
-                      <td>${{ project['2018 - Unatributed'] || 0 | currency }}</td>
+                      <td>${{ project['2018 - Unattributed'] || 0 | currency }}</td>
+                    </tr>
+                    <tr>
+                      <td class="trend-row"><b>Trend</b></td>
+                      <td><trend :data="[project['2016 - FGS'], project['2017 - FGS'], project['2018 - FGS']]" auto-draw smooth  ></trend></td>
+                      <td><trend :data="[project['2016 - Benadir'], project['2017 - Benadir'], project['2018 - Benadir']]" auto-draw smooth ></trend></td>
+                      <td><trend :data="[project['2016 - Galmudug'], project['2017 - Galmudug'], project['2018 - Galmudug']]" auto-draw smooth ></trend></td>
+                      <td><trend :data="[project['2016 - Hiirshabelle'], project['2017 - Hiirshabelle'], project['2018 - Hiirshabelle']]" auto-draw smooth ></trend></td>
+                      <td><trend :data="[project['2016 - Jubaland'], project['2017 - Jubaland'], project['2018 - Jubaland']]" auto-draw smooth ></trend></td>
+                      <td><trend :data="[project['2016 - Puntland'], project['2017 - Puntland'], project['2018 - Puntland']]" auto-draw smooth ></trend></td>
+                      <td><trend :data="[project['2016 - Somaliland'], project['2017 - Somaliland'], project['2018 - Somaliland']]" auto-draw smooth ></trend></td>
+                      <td><trend :data="[project['2016 - South West'], project['2017 - South West'], project['2018 - South West']]" auto-draw smooth ></trend></td>
+                      <td><trend :data="[project['2016 - Unattributed'], project['2017 - Unattributed'], project['2018 - Unattributed']]" auto-draw smooth ></trend></td>
                     </tr>
                   </tbody>
                 </table>
@@ -302,7 +314,8 @@
   	.title {
   		margin-bottom: 2px;
   	}
-  	.year-row {
+  	.year-row,
+  	.trend-row {
   		font-weight: bold;
   	}
   	#table-allocation {
@@ -342,6 +355,9 @@
   }
   .desc-text {
   	text-align: justify;
+  }
+  abbr[title] {
+  	text-decoration: underline solid;
   }
 </style>
 

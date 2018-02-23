@@ -15,3 +15,7 @@ haters
 
 # Nuxt generate
 dist
+
+.ssh
+
+.ssh/*.pem

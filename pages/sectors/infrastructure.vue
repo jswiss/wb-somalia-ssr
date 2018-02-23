@@ -117,13 +117,41 @@
   				['2018', 8.1, 3.5, 5.7, 7.7],
   			],
   			infrastructureDataPie: [
-  				{ x: 'UN', value: 31369634 },
-  				{ x: 'Government', value: 26602499 },
-  				{ x: 'Mix of implementers - involving government', value: 18076515 },
-  				{ x: 'Private Sector', value: 16468854 },
-  				{ x: 'NGOs', value: 12502249 },
-  				{ x: 'Donor Agencies', value: 6138444 },
-  				{ x: 'Other', value: 3833586 },
+  				{
+  					x: 'UN',
+  					value: 31369634,
+  					normal: { fill: this.$store.state.color.blue },
+  				},
+  				{
+  					x: 'Government',
+  					value: 26602499,
+  					normal: { fill: this.$store.state.color.green },
+  				},
+  				{
+  					x: 'Mix of implementers - involving government',
+  					value: 18076515,
+  					normal: { fill: this.$store.state.color.yellow },
+  				},
+  				{
+  					x: 'Private Sector',
+  					value: 16468854,
+  					normal: { fill: this.$store.state.color.tan },
+  				},
+  				{
+  					x: 'NGOs',
+  					value: 12502249,
+  					normal: { fill: this.$store.state.color.violet },
+  				},
+  				{
+  					x: 'Donor Agencies',
+  					value: 6138444,
+  					normal: { fill: this.$store.state.color.brown },
+  				},
+  				{
+  					x: 'Other',
+  					value: 3833586,
+  					normal: { fill: this.$store.state.color.pink },
+  				},
   			],
   			infrastructureLocationStack: [
   				['FGS', 5.4, 5.9, 0.5, 0.7],
@@ -147,6 +175,7 @@
 
   			const column = chart.column(seriesData);
   			column
+  				.fill(this.$store.state.color.blue)
   				.labels()
   				.enabled(true)
   				.format('${%Value}');
@@ -181,7 +210,7 @@
   			chart.draw();
   		},
   		renderStack() {
-  			var stackChart = anychart.column();
+  			var chart = anychart.column();
 
   			const dataSet = anychart.data.set(this.infrastructureDataStack);
 
@@ -191,36 +220,70 @@
   			var seriesData_4 = dataSet.mapAs({ x: 0, value: 4 });
 
   			// create a chart
-  			var stackChart = anychart.column();
+  			var chart = anychart.column();
 
   			/* enable the value stacking mode
         on the default primary value scale*/
-  			stackChart.yScale().stackMode('value');
+  			chart.yScale().stackMode('value');
 
+  			chart.legend(true);
   			// create column series
-  			stackChart.column(seriesData_1);
-  			stackChart.column(seriesData_2);
-  			stackChart.column(seriesData_3);
-  			stackChart.column(seriesData_4);
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.name('Water and Sanitation')
+  				.tooltip()
+  				.format('Water and Sanitation: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.name('Transport: Roads, Ports and Airports')
+  				.tooltip()
+  				.format('Transport: Roads, Ports and Airports: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_3)
+  				.color(this.$store.state.color.yellow)
+  				.name('Mixed Infrastructure')
+  				.tooltip()
+  				.format('Mixed Infrastructure: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_4)
+  				.color(this.$store.state.color.tan)
+  				.name('Energy and ICT')
+  				.tooltip()
+  				.format('Energy and ICT: ${%Value} mln');
 
   			// set the chart title
-  			stackChart.title('Infrastructure: Project Disbursements by Sector');
+  			chart.title('Infrastructure: Project Disbursements by Sector');
 
   			// set the container id
-  			stackChart.container('stack-chart');
+  			chart.container('stack-chart');
+
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
+
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
 
   			// initiate drawing the chart
-  			stackChart.draw();
+  			chart.draw();
   		},
   		renderPie() {
-  			const pieChart = anychart.pie(this.infrastructureDataPie);
+  			const chart = anychart.pie(this.infrastructureDataPie);
 
-  			pieChart.title('Key Implementers of Infrastructure Projects');
-  			pieChart.container('pie-chart');
-  			pieChart.draw();
+  			chart.title('Key Implementers of Infrastructure Projects');
+  			chart.container('pie-chart');
+  			chart.animation(true);
+
+  			chart.draw();
   		},
   		renderCountryStack() {
-  			var stackChart = anychart.column();
+  			var chart = anychart.column();
 
   			const dataSet = anychart.data.set(this.infrastructureLocationStack);
 
@@ -231,22 +294,53 @@
 
   			/* enable the value stacking mode
         on the default primary value scale*/
-  			stackChart.yScale().stackMode('value');
+  			chart.yScale().stackMode('value');
 
+  			chart.legend(true);
   			// create column series
-  			stackChart.column(seriesData_1);
-  			stackChart.column(seriesData_2);
-  			stackChart.column(seriesData_3);
-  			stackChart.column(seriesData_4);
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.name('Water and Sanitation')
+  				.tooltip()
+  				.format('Water and Sanitation: ${%Value} mln');
 
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.name('Transport: Roads, Ports and Airports')
+  				.tooltip()
+  				.format('Transport: Roads, Ports and Airports: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_3)
+  				.color(this.$store.state.color.yellow)
+  				.name('Mixed Infrastructure')
+  				.tooltip()
+  				.format('Mixed Infrastructure: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_4)
+  				.color(this.$store.state.color.tan)
+  				.name('Energy and ICT')
+  				.tooltip()
+  				.format('Energy and ICT: ${%Value} mln');
   			// set the chart title
-  			stackChart.title('Infrastructure: Project Disbursements by Location');
+  			chart.title('Infrastructure: Project Disbursements by Location');
 
   			// set the container id
-  			stackChart.container('country-stack');
+  			chart.container('country-stack');
+
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
+
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
 
   			// initiate drawing the chart
-  			stackChart.draw();
+  			chart.draw();
   		},
   	},
   	mounted() {

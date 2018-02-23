@@ -4,7 +4,7 @@
       <div class="columns">
         <div class="column is-3"></div>
         <div id="table" class="column is-6">
-          <no-ssr>
+          <no-ssr placeholder="loading">
             <v-client-table
               :data="pools"
               :columns="columns"
@@ -12,22 +12,27 @@
             >
               <template slot="2015" slot-scope="props">
                 <div>
-                  $ {{ props.row['2015'] | currency }}
+                  ${{ props.row['2015'] | currency }}
                 </div>
               </template>
               <template slot="2016" slot-scope="props">
                 <div>
-                  $ {{ props.row['2016'] | currency }}
+                  ${{ props.row['2016'] | currency }}
                 </div>
               </template>
               <template slot="2017" slot-scope="props">
                 <div>
-                 $  {{ props.row['2017'] | currency }}
+                 ${{ props.row['2017'] | currency }}
                 </div>
               </template>
               <template slot="2018" slot-scope="props">
                 <div>
-                  $ {{ props.row['2018'] | currency }}
+                  ${{ props.row['2018'] | currency }}
+                </div>
+              </template>
+              <template slot="Trends" slot-scope="props">
+                <div>
+                  <trend :data="[props.row['2015'], props.row['2016'], props.row['2017'], props.row['2018'] ]" auto-draw smooth></trend>
                 </div>
               </template>
             </v-client-table>
@@ -47,6 +52,16 @@
   	name: 'envelopes',
   	data() {
   		return {
+        columns: [
+    'Agency',
+    'Contributions to MDTFs',
+    'Category',
+    '2015',
+    '2016',
+    '2017',
+    '2018',
+    'Trends',
+  ],
   			options: {
   				options: {
   					saveState: true,
@@ -62,7 +77,6 @@
   	computed: {
   		...mapState({
   			pools: state => state.pooledTable,
-  			columns: state => state.poolTableColumns,
   		}),
   	},
   };

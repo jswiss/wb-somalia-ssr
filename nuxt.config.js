@@ -30,14 +30,15 @@ module.exports = {
   loading: { color: '#4189DD', height: '10px' },
   modules: ['@nuxtjs/bulma', '@nuxtjs/axios'],
   // css
-  css: ['bulma/bulma.sass'],
+  css: ['bulma/bulma.sass', '~/assets/css/main.css'],
   plugins: [
     { src: '~/plugins/vue-bulma-tables-2', ssr: false },
     { src: '~/plugins/vuexPersistedState', ssr: false },
     { src: '~/plugins/anychart', ssr: false },
     { src: '~/plugins/filters' },
+    { src: '~/plugins/vuetrend' },
   ],
-  vendor: ['vue-bulma-tables-2', 'anychart', 'createPersistedState'],
+  vendor: ['vue-bulma-tables-2', 'anychart', 'createPersistedState', 'Trend'],
   /*
   ** Build configuration
   */

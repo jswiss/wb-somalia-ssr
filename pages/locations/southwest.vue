@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       southWestDisbursementClusterData: [
-        ["Peace, Inclusive Politics, Security & Rule of Law", 27.3, 13.3, 4.7]
+        ["Peace, Inclusive Politics, Security & Rule of Law", 27.3, 13.3, 4.7],
         ["Effective, Efficient Institutions", 14.8, 16, 7.7],
         ["Economic Growth", 25.8, 23.4, 10.4],
         ["Infrastructure", 22.5, 22.3, 7.6],
@@ -69,9 +69,21 @@ export default {
       var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
       var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
 
-      var series1 = chart.column(seriesData_1);
-      var series2 = chart.column(seriesData_2);
-      var series3 = chart.column(seriesData_3);
+      var series1 = chart.column(seriesData_1).color(this.$store.state.color.blue);
+      series1.name("2016");
+      var series2 = chart.column(seriesData_2).color(this.$store.state.color.green);
+      series2.name("2017");
+      var series3 = chart.column(seriesData_3).color(this.$store.state.color.yellow);
+      series3.name("2018");
+
+      var tooltip = chart.tooltip();
+      tooltip.positionMode("point");
+
+      var tooltip1 = series1.tooltip();
+      var tooltip2 = series2.tooltip();
+      var tooltip3 = series3.tooltip();
+
+      chart.legend(true);
 
       // set the padding between columns
       chart.barsPadding(0);
@@ -79,27 +91,21 @@ export default {
       // set the padding between column groups
       chart.barGroupsPadding(2);
 
-      // const column = chart.column(seriesData);
-      // column
-      // .labels()
-      // .enabled(true)
-      // .format('${%Value}');
-
       chart.animation(true);
 
       chart.title(chartTitle);
 
       chart.yScale().minimum(0);
 
-      chart
-      .tooltip()
-      .displayMode('union')
-      .position('point')
-      .unionFormat(function(){
-        return `Plain: $${
-          this.points[0].value
-        } mln \n Fact: $${this.points[0].value} `;
-      });
+      // chart
+      // .tooltip()
+      // .displayMode('union')
+      // .position('point')
+      // .unionFormat(function(){
+      //   return `Plain: $${
+      //     this.points[0].value
+      //   } mln \n Fact: $${this.points[0].value} `;
+      // });
 
       chart.interactivity().hoverMode('by-x');
 

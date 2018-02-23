@@ -1,0 +1,11 @@
+.nuxt-link-active h4 {
+    font-weight: bolder;
+    color: #4587ea;
+    text-decoration: underline solid #4587ea;
+}
+
+.nuxt-link-active {
+    font-weight: bolder;
+    color: #4587ea;
+    text-decoration: underline solid #4587ea;
+}

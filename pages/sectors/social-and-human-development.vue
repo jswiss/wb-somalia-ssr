@@ -108,13 +108,41 @@
   				['2018', 0.5, 84.1, 9.4],
   			],
   			socialHumanDevelopmentDataPie: [
-  				{ x: 'NGOs', value: 219302286.6 },
-  				{ x: 'Mix of implementers - involving government', value: 186777137.6 },
-  				{ x: 'UN', value: 64232464.15 },
-  				{ x: 'Private Sector', value: 19542741.02 },
-  				{ x: 'Donor Agency', value: 16527777.78 },
-  				{ x: 'Government', value: 11718557 },
-  				{ x: 'Other', value: 25085515.16 },
+  				{
+  					x: 'NGOs',
+  					value: 219302286.6,
+  					normal: { fill: this.$store.state.color.blue },
+  				},
+  				{
+  					x: 'Mix of implementers - involving government',
+  					value: 186777137.6,
+  					normal: { fill: this.$store.state.color.green },
+  				},
+  				{
+  					x: 'UN',
+  					value: 64232464.15,
+  					normal: { fill: this.$store.state.color.yellow },
+  				},
+  				{
+  					x: 'Private Sector',
+  					value: 19542741.02,
+  					normal: { fill: this.$store.state.color.tan },
+  				},
+  				{
+  					x: 'Donor Agency',
+  					value: 16527777.78,
+  					normal: { fill: this.$store.state.color.violet },
+  				},
+  				{
+  					x: 'Government',
+  					value: 11718557,
+  					normal: { fill: this.$store.state.color.brown },
+  				},
+  				{
+  					x: 'Other',
+  					value: 25085515.16,
+  					normal: { fill: this.$store.state.color.pink },
+  				},
   			],
   			socialHumanDevelopmentLocationData: [
   				['FGS', 9.3, 10.4, 0],
@@ -138,6 +166,7 @@
 
   			const column = chart.column(seriesData);
   			column
+  				.fill(this.$store.state.color.blue)
   				.labels()
   				.enabled(true)
   				.format('${%Value}');
@@ -172,7 +201,7 @@
   			chart.draw();
   		},
   		renderStack() {
-  			var stackChart = anychart.column();
+  			var chart = anychart.column();
 
   			const dataSet = anychart.data.set(this.socialHumanDevelopmentDataStack);
 
@@ -181,38 +210,66 @@
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
 
   			// create a chart
-  			var stackChart = anychart.column();
+  			var chart = anychart.column();
 
   			/* enable the value stacking mode
         on the default primary value scale*/
-  			stackChart.yScale().stackMode('value');
+  			chart.yScale().stackMode('value');
 
+  			chart.legend(true);
   			// create column series
-  			stackChart.column(seriesData_1);
-  			stackChart.column(seriesData_2);
-  			stackChart.column(seriesData_3);
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.name('2018')
+  				.tooltip()
+  				.format('2018: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.name('2017')
+  				.tooltip()
+  				.format('2017: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_3)
+  				.color(this.$store.state.color.yellow)
+  				.name('2016')
+  				.tooltip()
+  				.format('2016: ${%Value} mln');
 
   			// set the chart title
-  			stackChart.title(
+  			chart.title(
   				'Social & Human Development: Project Disbursements by Sector'
   			);
 
   			// set the container id
-  			stackChart.container('stack-chart');
+  			chart.container('stack-chart');
+
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
+
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
 
   			// initiate drawing the chart
-  			stackChart.draw();
+  			chart.draw();
   		},
   		renderPie() {
-  			const pieChart = anychart.pie(this.socialHumanDevelopmentDataPie);
+  			const chart = anychart.pie(this.socialHumanDevelopmentDataPie);
 
-  			pieChart.title('Key Implementers of Social & Human Development Projects');
-  			pieChart.container('pie-chart');
-  			pieChart.draw();
+  			chart.title('Key Implementers of Social & Human Development Projects');
+  			chart.container('pie-chart');
+  			chart.animation(true);
+
+  			chart.draw();
   		},
 
   		renderCountryStack() {
-  			var stackChart = anychart.column();
+  			var chart = anychart.column();
 
   			const dataSet = anychart.data.set(
   				this.socialHumanDevelopmentLocationData
@@ -224,23 +281,49 @@
 
   			/* enable the value stacking mode
         on the default primary value scale*/
-  			stackChart.yScale().stackMode('value');
+  			chart.yScale().stackMode('value');
 
+  			chart.legend(true);
   			// create column series
-  			stackChart.column(seriesData_1);
-  			stackChart.column(seriesData_2);
-  			stackChart.column(seriesData_3);
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.name('2018')
+  				.tooltip()
+  				.format('2018: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.name('2017')
+  				.tooltip()
+  				.format('2017: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_3)
+  				.color(this.$store.state.color.yellow)
+  				.name('2016')
+  				.tooltip()
+  				.format('2016: ${%Value} mln');
 
   			// set the chart title
-  			stackChart.title(
+  			chart.title(
   				'Social & Human Development: Project Disbursements by Location'
   			);
 
   			// set the container id
-  			stackChart.container('country-stack');
+  			chart.container('country-stack');
+
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
+
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
 
   			// initiate drawing the chart
-  			stackChart.draw();
+  			chart.draw();
   		},
   	},
   	mounted() {

@@ -14,9 +14,9 @@
             </tr>
           </thead>
           <tbody v-for="item in location2016Table" :key="item['Location:']">
-            <td>{{ item['Location:'] }}</td>
+            <td>{{ item['Location: '] }}</td>
             <td class="center">{{ item.Count }}</td>
-            <td>$ {{ item['Total:'] | currency }}</td>
+            <td>$ {{ item['Total: '] | currency }}</td>
           </tbody>
         </table>
       </div>
@@ -32,9 +32,9 @@
             </tr>
           </thead>
           <tbody v-for="item in location2017Table" :key="item['Location:']">
-            <td>{{ item['Location:'] }}</td>
+            <td>{{ item['Location: '] }}</td>
             <td class="center">{{ item.Count }}</td>
-            <td>$ {{ item['Total:'] | currency }}</td>
+            <td>$ {{ item['Total: '] | currency }}</td>
           </tbody>
         </table>
       </div>
@@ -50,9 +50,9 @@
             </tr>
           </thead>
           <tbody v-for="item in location2018Table" :key="item['Location:']">
-            <td>{{ item['Location:'] }}</td>
+            <td>{{ item['Location: '] }}</td>
             <td class="center">{{ item.Count }}</td>
-            <td>$ {{ item['Total:'] | currency }}</td>
+            <td>$ {{ item['Total: '] | currency }}</td>
           </tbody>
         </table>
       </div>

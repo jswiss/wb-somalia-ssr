@@ -3,7 +3,7 @@
     Resilience
     <div id="container"></div>
     <div id="stack-chart"></div>
-    <div id="pie-chart">Figure 29, wrong Pie is shown</div>
+    <div id="pie-chart"></div>
     <div id="country-stack"></div>
 
     <table class="table is-striped is-hoverable is-bordered">
@@ -155,6 +155,28 @@
   				['Somaliland', 5.5, 36.2, 0.4, 13.5, 86.6, 0],
   				['Unattributed', 3.2, 3.4, 1.1, 11.1, 328.5, 0],
   			],
+  			resilienceDataPie: [
+  				{
+  					x: 'Mix of implementers - involving government',
+  					value: 731665744,
+  					normal: { fill: this.$store.state.color.blue },
+  				},
+  				{
+  					x: 'NGOs',
+  					value: 265460791,
+  					normal: { fill: this.$store.state.color.green },
+  				},
+  				{
+  					x: 'UN',
+  					value: 77620689,
+  					normal: { fill: this.$store.state.color.yellow },
+  				},
+  				{
+  					x: 'Other',
+  					value: 101864066,
+  					normal: { fill: this.$store.state.color.tan },
+  				},
+  			],
   		};
   	},
   	methods: {
@@ -166,6 +188,7 @@
 
   			const column = chart.column(seriesData);
   			column
+  				.fill(this.$store.state.color.blue)
   				.labels()
   				.enabled(true)
   				.format('${%Value}');
@@ -200,7 +223,7 @@
   			chart.draw();
   		},
   		renderStack() {
-  			var stackChart = anychart.column();
+  			var chart = anychart.column();
 
   			const dataSet = anychart.data.set(this.resilienceDataStack);
 
@@ -212,32 +235,78 @@
   			var seriesData_6 = dataSet.mapAs({ x: 0, value: 6 });
 
   			// create a chart
-  			var stackChart = anychart.column();
+  			var chart = anychart.column();
 
   			/* enable the value stacking mode
         on the default primary value scale*/
-  			stackChart.yScale().stackMode('value');
+  			chart.yScale().stackMode('value');
 
+  			chart.legend(true);
   			// create column series
-  			stackChart.column(seriesData_1);
-  			stackChart.column(seriesData_2);
-  			stackChart.column(seriesData_3);
-  			stackChart.column(seriesData_4);
-  			stackChart.column(seriesData_5);
-  			stackChart.column(seriesData_6);
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.name('Cross-cutting resilience')
+  				.tooltip()
+  				.format('Cross-cutting resilience: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.name('Lifesaving humanitarian - cross-cutting')
+  				.tooltip()
+  				.format('Lifesaving humanitarian - cross-cutting: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_3)
+  				.color(this.$store.state.color.yellow)
+  				.name('Food Security')
+  				.tooltip()
+  				.format('Food Security: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_4)
+  				.color(this.$store.state.color.tan)
+  				.name('Social Protection')
+  				.tooltip()
+  				.format('Sociak Protection: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_5)
+  				.color(this.$store.state.color.violet)
+  				.name('Natural Resources Management')
+  				.tooltip()
+  				.format('Natural Resources Management: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_6)
+  				.color(this.$store.state.color.brown)
+  				.name('Migration, Displacement, Refugees and Durable Solutions')
+  				.tooltip()
+  				.format(
+  					'Migration, Displacement, Refugees and Durable Solutions: ${%Value} mln'
+  				);
 
   			// set the chart title
-  			stackChart.title('Resilience: Project Disbursements by Sector');
+  			chart.title('Resilience: Project Disbursements by Sector');
 
   			// set the container id
-  			stackChart.container('stack-chart');
+  			chart.container('stack-chart');
+
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
+
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
 
   			// initiate drawing the chart
-  			stackChart.draw();
+  			chart.draw();
   		},
 
   		renderCountryStack() {
-  			var stackChart = anychart.column();
+  			var chart = anychart.column();
 
   			const dataSet = anychart.data.set(this.resilienceLocationDataStack);
 
@@ -250,29 +319,88 @@
 
   			/* enable the value stacking mode
         on the default primary value scale*/
-  			stackChart.yScale().stackMode('value');
+  			chart.yScale().stackMode('value');
 
   			// create column series
-  			stackChart.column(seriesData_1);
-  			stackChart.column(seriesData_2);
-  			stackChart.column(seriesData_3);
-  			stackChart.column(seriesData_4);
-  			stackChart.column(seriesData_5);
-  			stackChart.column(seriesData_6);
+  			chart.legend(true);
+  			// create column series
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.name('Cross-cutting resilience')
+  				.tooltip()
+  				.format('Cross-cutting resilience: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.name('Lifesaving humanitarian - cross-cutting')
+  				.tooltip()
+  				.format('Lifesaving humanitarian - cross-cutting: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_3)
+  				.color(this.$store.state.color.yellow)
+  				.name('Food Security')
+  				.tooltip()
+  				.format('Food Security: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_4)
+  				.color(this.$store.state.color.tan)
+  				.name('Social Protection')
+  				.tooltip()
+  				.format('Sociak Protection: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_5)
+  				.color(this.$store.state.color.violet)
+  				.name('Natural Resources Management')
+  				.tooltip()
+  				.format('Natural Resources Management: ${%Value} mln');
+
+  			chart
+  				.column(seriesData_6)
+  				.color(this.$store.state.color.brown)
+  				.name('Migration, Displacement, Refugees and Durable Solutions')
+  				.tooltip()
+  				.format(
+  					'Migration, Displacement, Refugees and Durable Solutions: ${%Value} mln'
+  				);
 
   			// set the chart title
-  			stackChart.title('Resilience: Project Disbursements by Location');
+  			chart.title('Resilience: Project Disbursements by Location');
 
   			// set the container id
-  			stackChart.container('country-stack');
+  			chart.container('country-stack');
+
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
+
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
 
   			// initiate drawing the chart
-  			stackChart.draw();
+  			chart.draw();
+  		},
+
+  		renderPie() {
+  			const chart = anychart.pie(this.resilienceDataPie);
+
+  			chart.title('Key Implementers of Reslience Projects');
+  			chart.container('pie-chart');
+  			chart.animation(true);
+
+  			chart.draw();
   		},
   	},
   	mounted() {
   		this.renderChart();
   		this.renderStack();
+  		this.renderCountryStack();
+  		this.renderPie();
   	},
   };
 </script>
