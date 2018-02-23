@@ -115,7 +115,7 @@
   			const series1 = chart.area(seriesData_1);
 
   			series1.name('Development');
-  			series1.normal().fill('#4587EA', 0.3);
+  			series1.normal().fill('#4587EA', 1);
   			series1.hovered().fill('#4587EA', 0.1);
   			series1.selected().fill('#4587EA', 0.5);
   			series1.normal().stroke('#4587EA', 1, '10 5', 'round');
@@ -123,7 +123,9 @@
   			series1.selected().stroke('#4587EA', 4, '10 5', 'round');
 
   			const series2 = chart.area(seriesData_2);
-  			series2.normal().fill('#81D8C2', 0.3);
+
+  			series2.name('Humanitarian');
+  			series2.normal().fill('#81D8C2', 1);
   			series2.hovered().fill('#81D8C2', 0.1);
   			series2.selected().fill('#81D8C2', 0.5);
   			series2.normal().hatchFill('forward-diagonal', '#81D8C2', 1, 15);
