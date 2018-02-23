@@ -5,9 +5,9 @@
       <home-text></home-text>
     </div>
     <div class="column">
+      <flows-overview/>
       <pooled-funds/>
       <on-treasury/>
-      <flows-overview/>
     </div>
   </div>
 </template>
