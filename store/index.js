@@ -12,10 +12,16 @@ export const state = () => ({
   locationTree2016: [],
   locationTree2017: [],
   locationTree2018: [],
-  location2016Table: [],
-  location2017Table: [],
-  location2018Table: [],
-  locationsTableColumns: ['location', 'total', 'count'],
+  locationTable: [],
+  locationTableColumns: [
+    'Location',
+    'Total 2016',
+    'Total 2017',
+    'Total 2018',
+    'Count 2016',
+    'Count 2017',
+    'Count 2018',
+  ],
   color: {
     blue: '#4587EA',
     green: '#81D8C2',
@@ -78,14 +84,8 @@ export const mutations = {
       };
     });
   },
-  SET_2016_LOCATION_TABLE(state, data) {
+  SET_LOCATION_TABLE(state, data) {
     state.location2016Table = data;
-  },
-  SET_2017_LOCATION_TABLE(state, data) {
-    state.location2017Table = data;
-  },
-  SET_2018_LOCATION_TABLE(state, data) {
-    state.location2018Table = data;
   },
   SET_2016_LOC_TREE(state, data) {
     state.locationTree2016 = data;

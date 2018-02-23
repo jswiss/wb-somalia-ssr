@@ -4,7 +4,9 @@ export async function getAllProjects({ store, client }) {
   if (client) return;
 
   try {
-    const res = await axios.get('https://somalia-aid.herokuapp.com/master');
+    const res = await axios.get(
+      'http://somalia-api.us-east-2.elasticbeanstalk.com/master'
+    );
     store.commit('SET_MASTER', res.data);
   } catch (err) {
     console.log('====================================');
