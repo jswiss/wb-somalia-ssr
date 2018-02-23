@@ -97,10 +97,11 @@
   .outline {
   	border: 1px solid #0f0f0f;
   	margin: 1px;
+  	width: 100%;
   }
 
   .sidebar-title {
-  	font-size: 14px;
+  	font-size: 12px;
   }
 
   #location-menu {
@@ -110,16 +111,15 @@
   .location-icon {
   	width: 80px;
   	height: 80px;
+  	margin-left: auto;
+  	margin-right: auto;
+  	display: block;
   }
 
   h4 {
   	color: #0a0a0a;
   	text-decoration: none;
-  }
-
-  div.outline.is-active {
-  	border: 1px solid #db1414;
-  	margin: 1px;
+  	text-align: center;
   }
 </style>
 
