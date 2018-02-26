@@ -14,7 +14,7 @@
       </div>
     </div>
 
-      <div id="country-stack"></div>
+    <div id="country-stack"></div>
 
 
     <table class="table is-striped is-hoverable is-bordered">
@@ -118,19 +118,19 @@ export default {
         {x: "UN", value: 79498786,
         normal: {fill: this.$store.state.color.blue}},
         {x: "NGOs", value: 8419492,
-      normal: {fill: this.$store.state.color.green}},
+        normal: {fill: this.$store.state.color.green}},
         {x: "Unclear/TBD", value: 6186133,
-      normal: {fill: this.$store.state.color.yellow}},
+        normal: {fill: this.$store.state.color.yellow}},
         {x: "Private Sector", value: 6182000,
-      normal: {fill: this.$store.state.color.tan}},
+        normal: {fill: this.$store.state.color.tan}},
         {x: "Government", value: 4884026,
-      normal: {fill: this.$store.state.color.violet}},
+        normal: {fill: this.$store.state.color.violet}},
         {x: "Mix of implementers - no government", value: 4717214,
-      normal: {fill: this.$store.state.color.brown}},
+        normal: {fill: this.$store.state.color.brown}},
         {x: "Military", value: 4525200,
-      normal: {fill: this.$store.state.color.pink}},
+        normal: {fill: this.$store.state.color.pink}},
         {x: "Mix of implementers - government", value: 4123420,
-      normal: {fill: this.$store.state.color.lightblue}}
+        normal: {fill: this.$store.state.color.lightblue}}
       ],
       ruleOfLawLocationStack: [
         ["FGS", 0.2, 17.5, 25.2],
@@ -165,16 +165,7 @@ export default {
 
       chart.yScale().minimum(0);
 
-chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
-      // chart
-      // .tooltip()
-      // .displayMode('union')
-      // .position('point')
-      // .unionFormat(function(){
-      //   return `Plain: $${
-      //     this.points[0].value
-      //   } mln \n Fact: $${this.points[0].value} `;
-      // });
+      chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
 
       chart.interactivity().hoverMode('by-x');
 
