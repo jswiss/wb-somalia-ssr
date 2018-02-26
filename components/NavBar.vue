@@ -7,30 +7,31 @@
     <nuxt-link class="navbar-item is-brand" to="/">
       Somalia Aid Flows
     </nuxt-link>
-
-    <button class="button navbar-burger">
+    <div class="navbar-burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }">
       <span></span>
       <span></span>
       <span></span>
-    </button>
-  <div class="navbar-menu">
-    <nuxt-link class="navbar-item is-tab" to="/locations">
-      <!-- <i class="icon"><img src="https://icon.now.sh/map" alt=""></i>Locations -->
-      <i class="icon"><img src="../static/icons/somalia-outline-black.svg" alt=""></i>Locations
-    </nuxt-link>
-    <nuxt-link class="navbar-item is-tab" to="/sectors">
-      <i class="icon"><img class="image-icon"  src="https://icon.now.sh/developer_board" alt=""></i>Sectors
-    </nuxt-link>
-    <nuxt-link class="navbar-item is-tab" to="/tables">
-      <i class="icon"><img class="image-icon"  src="https://icon.now.sh/grid_on" alt=""></i>Tables
-    </nuxt-link>
-    <nuxt-link class="navbar-item is-tab" to="/documents">
-      <i class="icon"><img class="image-icon"  src="https://icon.now.sh/library_books" alt=""></i>Documents
-    </nuxt-link>
-    <nuxt-link class="navbar-item is-tab" to="/about">
-      <i class="icon"><img  class="image-icon" src="https://icon.now.sh/info_outline" alt=""></i>About
-    </nuxt-link>
-  </div>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="navbar-menu" :class="{ 'is-active': showNav }">
+      <nuxt-link class="navbar-item is-tab" to="/locations">
+        <!-- <i class="icon"><img src="https://icon.now.sh/map" alt=""></i>Locations -->
+        <i class="icon"><img src="../static/icons/somalia-outline-black.svg" alt=""></i>Locations
+      </nuxt-link>
+      <nuxt-link class="navbar-item is-tab" to="/sectors">
+        <i class="icon"><img class="image-icon"  src="https://icon.now.sh/developer_board" alt=""></i>Sectors
+      </nuxt-link>
+      <nuxt-link class="navbar-item is-tab" to="/tables">
+        <i class="icon"><img class="image-icon"  src="https://icon.now.sh/grid_on" alt=""></i>Tables
+      </nuxt-link>
+      <nuxt-link class="navbar-item is-tab" to="/documents">
+        <i class="icon"><img class="image-icon"  src="https://icon.now.sh/library_books" alt=""></i>Documents
+      </nuxt-link>
+      <nuxt-link class="navbar-item is-tab" to="/about">
+        <i class="icon"><img  class="image-icon" src="https://icon.now.sh/info_outline" alt=""></i>About
+      </nuxt-link>
+    </div>
   </div>
 </nav>
 
@@ -38,6 +39,11 @@
 <script type="text/javascript">
   export default {
   	name: 'NavBar',
+  	data() {
+  		return {
+  			showNav: false,
+  		};
+  	},
   };
 </script>
 
