@@ -14,79 +14,79 @@
       </div>
     </div>
 
-      <div id="country-stack"></div>
-      <table id="table" class="table is-striped is-hoverable is-bordered">
-        <thead>
-          <tr>
-            <th>
-            </th>
-            <th>FGS</th>
-            <th>Benadir</th>
-            <th>Galmudug</th>
-            <th>Hiirshabelle</th>
-            <th>Jubaland</th>
-            <th>Puntland</th>
-            <th>South West</th>
-            <th>Somaliland</th>
-            <th>Unattributed</th>
-            <th>Pillar Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2016</td>
-            <td>17.6</td>
-            <td>6.2</td>
-            <td>8.3</td>
-            <td>6.5</td>
-            <td>15.9</td>
-            <td>6.7</td>
-            <td>7</td>
-            <td>18</td>
-            <td>9.9</td>
-            <td>96.1</td>
-          </tr>
-          <tr>
-            <td>2017</td>
-            <td>12.8</td>
-            <td>3.3</td>
-            <td>2.1</td>
-            <td>2.8</td>
-            <td>9.4</td>
-            <td>4</td>
-            <td>9.7</td>
-            <td>9.7</td>
-            <td>11.9</td>
-            <td>65.7</td>
-          </tr>
-          <tr>
-            <td>2018</td>
-            <td>4</td>
-            <td>1</td>
-            <td>0.4</td>
-            <td>1.1</td>
-            <td>4.6</td>
-            <td>1.8</td>
-            <td>4.7</td>
-            <td>4</td>
-            <td>6.7</td>
-            <td>28.3</td>
-          </tr>
-          <tr>
-            <td>Total:</td>
-            <td>34.4</td>
-            <td>10.6</td>
-            <td>10.8</td>
-            <td>10.4</td>
-            <td>29.9</td>
-            <td>12.5</td>
-            <td>21.4</td>
-            <td>31.7</td>
-            <td>28.4</td>
-            <td>190.2</td>
-          </tr>
-        </tbody>
-      </table>
+    <div id="country-stack"></div>
+    <table id="table" class="table is-striped is-hoverable is-bordered">
+      <thead>
+        <tr>
+          <th>
+          </th>
+          <th>FGS</th>
+          <th>Benadir</th>
+          <th>Galmudug</th>
+          <th>Hiirshabelle</th>
+          <th>Jubaland</th>
+          <th>Puntland</th>
+          <th>South West</th>
+          <th>Somaliland</th>
+          <th>Unattributed</th>
+          <th>Pillar Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2016</td>
+          <td>17.6</td>
+          <td>6.2</td>
+          <td>8.3</td>
+          <td>6.5</td>
+          <td>15.9</td>
+          <td>6.7</td>
+          <td>7</td>
+          <td>18</td>
+          <td>9.9</td>
+          <td>96.1</td>
+        </tr>
+        <tr>
+          <td>2017</td>
+          <td>12.8</td>
+          <td>3.3</td>
+          <td>2.1</td>
+          <td>2.8</td>
+          <td>9.4</td>
+          <td>4</td>
+          <td>9.7</td>
+          <td>9.7</td>
+          <td>11.9</td>
+          <td>65.7</td>
+        </tr>
+        <tr>
+          <td>2018</td>
+          <td>4</td>
+          <td>1</td>
+          <td>0.4</td>
+          <td>1.1</td>
+          <td>4.6</td>
+          <td>1.8</td>
+          <td>4.7</td>
+          <td>4</td>
+          <td>6.7</td>
+          <td>28.3</td>
+        </tr>
+        <tr>
+          <td>Total:</td>
+          <td>34.4</td>
+          <td>10.6</td>
+          <td>10.8</td>
+          <td>10.4</td>
+          <td>29.9</td>
+          <td>12.5</td>
+          <td>21.4</td>
+          <td>31.7</td>
+          <td>28.4</td>
+          <td>190.2</td>
+        </tr>
+      </tbody>
+    </table>
 
   </div>
 </template>
@@ -147,7 +147,7 @@ export default {
       .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
-      .format('${%Value} ');
+      .format('${%Value}{groupsSeparator:\\,}');
 
       chart.animation(true);
 
@@ -155,22 +155,24 @@ export default {
 
       chart.yScale().minimum(0);
 
-      chart
-      .tooltip()
-      .displayMode('union')
-      .positionMode('point')
-      .unionFormat(function(){
-        return `Plain: $${
-          this.points[0].value
-        } mln \n Fact: $${this.points[0].value} `;
-      });
+      // chart
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+
+      // .tooltip()
+      // .displayMode('union')
+      // .positionMode('point')
+      // .unionFormat(function(){
+      //   return `Plain: $${
+      //     this.points[0].value
+      //   } mln \n Fact: $${this.points[0].value} `;
+      // });
 
       chart.interactivity().hoverMode('by-x');
 
       chart
       .yAxis()
       .labels()
-      .format('${%Value} mln');
+      .format('${%Value}{groupsSeparator:\\,}');
 
       chart.xAxis(true);
 
@@ -184,9 +186,7 @@ export default {
       chart.title("Inclusive Politics: Key Implementers");
       chart.container("pie-chart");
       chart
-      // .tooltip()
       chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
-      // .format('${%Value} mln');
 
       chart.animation(true)
 
