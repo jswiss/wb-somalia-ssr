@@ -258,7 +258,8 @@ export default {
 
       chart.title("Key Implementers of Gender & Human Rights Projects");
       chart.container("pie-chart");
-      chart.animation(true)
+      chart.animation(true);
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
 
       chart.draw();
     },

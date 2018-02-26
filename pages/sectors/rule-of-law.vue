@@ -185,7 +185,7 @@ export default {
 
       chart.title("Rule of Law: Key Implementers");
       chart.container("pie-chart");
-      chart.animation(true)
+      chart.animation(true);
       chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
 
       chart.draw();

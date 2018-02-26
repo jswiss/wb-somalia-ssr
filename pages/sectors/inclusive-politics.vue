@@ -185,10 +185,8 @@ export default {
 
       chart.title("Inclusive Politics: Key Implementers");
       chart.container("pie-chart");
-      chart
+      chart.animation(true);
       chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
-
-      chart.animation(true)
 
       chart.draw();
     },

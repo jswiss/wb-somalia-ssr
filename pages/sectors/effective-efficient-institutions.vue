@@ -261,7 +261,7 @@ export default {
 
       chart.title("Key Implementers of Effective, Efficient Institutions Projects");
       chart.container("pie-chart");
-      chart.animation(true)
+      chart.animation(true);
       chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
 
       chart.draw();
