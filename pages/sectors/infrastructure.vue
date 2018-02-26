@@ -188,7 +188,7 @@ export default {
       chart
       .yAxis()
       .labels()
-      .format('${%Value} mln');
+      .format('${%Value}{groupsSeparator:\\,}');
 
       chart.xAxis(true);
 
