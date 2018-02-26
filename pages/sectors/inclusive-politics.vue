@@ -184,8 +184,9 @@ export default {
       chart.title("Inclusive Politics: Key Implementers");
       chart.container("pie-chart");
       chart
-      .tooltip()
-      .format('${%Value} mln');
+      // .tooltip()
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+      // .format('${%Value} mln');
 
       chart.animation(true)
 

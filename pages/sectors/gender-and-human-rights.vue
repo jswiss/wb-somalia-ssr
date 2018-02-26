@@ -304,7 +304,6 @@ export default {
   padding: 0;
 }
 
-
 #pie-chart, #stack-chart, #container, #year-stack {
   height: 370px;
 }
