@@ -1,96 +1,108 @@
 <template lang="html">
-  <div id="sectors" class="container is-fluid">
-    Gender and Human Rights
-    <div class="columns is-multiline">
-
-      <div class="column is-half">
-        <div id="pie-chart" class="column"></div>
-        <div class="column"></div>
+  <div id="section" class="section">
+    <div id="sectors" class="container is-fluid">
+      <h1 class="title is-1">{{ title }}</h1>
+      <div class="columns">
+        <div class="column is-1"></div>
+        <div class="column is-5 is-mobile">
+          <div id="pie-chart" class="column"></div>
+        </div>
+        <div class="column is-1"></div>
+        <div class="column is-5 is-mobile">
+          <div id="bar-chart"></div>
+        </div>
       </div>
-
-
-      <div class="column is-half">
-        <div id="stack-chart" class="column"></div>
+      <div class="columns">
+        <div class="column is-1"></div>
+        <div class="column is-5 is-mobile">
+          <div id="year-stack"></div>
+        </div>
+        <div class="column is-1"></div>
+        <div class="column is-5">
+          <div id="stack-chart"></div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-2"></div>
+        <div class="column is-8 is-mobile">
+          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Year & Location</h4>
+          <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
+            <thead>
+              <tr>
+                <th></th>
+                <th>FGS</th>
+                <th>Benadir</th>
+                <th>Galmudug</th>
+                <th>Hiirshabelle</th>
+                <th>Jubaland</th>
+                <th>Puntland</th>
+                <th>South West</th>
+                <th>Somaliland</th>
+                <th>Unattributed</th>
+                <th>Pillar Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2016</td>
+                <td>0.7</td>
+                <td>5</td>
+                <td>0.2</td>
+                <td>0.2</td>
+                <td>0.3</td>
+                <td>2.2</td>
+                <td>1.8</td>
+                <td>3.9</td>
+                <td>1.7</td>
+                <td>16</td>
+              </tr>
+              <tr>
+                <td>2017</td>
+                <td>0.1</td>
+                <td>4.5</td>
+                <td>0.3</td>
+                <td>0.3</td>
+                <td>0.5</td>
+                <td>2.5</td>
+                <td>1.6</td>
+                <td>2.9</td>
+                <td>0.3</td>
+                <td>13</td>
+              </tr>
+              <tr>
+                <td>2018</td>
+                <td>0.1</td>
+                <td>3.7</td>
+                <td>0.1</td>
+                <td>0.1</td>
+                <td>0.2</td>
+                <td>0.9</td>
+                <td>0.7</td>
+                <td>1.1</td>
+                <td>0.2</td>
+                <td>7.1</td>
+              </tr>
+              <tr class="bold-row">
+                <td>Total:</td>
+                <td>0.8</td>
+                <td>13.1</td>
+                <td>0.6</td>
+                <td>0.6</td>
+                <td>1</td>
+                <td>5.7</td>
+                <td>4.1</td>
+                <td>7.9</td>
+                <td>2.1</td>
+                <td>36.1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column is-1"></div>
       </div>
     </div>
-
-    <div id="container"></div>
-    <div id="year-stack"></div>
-
-    <table class="table is-striped is-hoverable is-bordered">
-      <thead>
-        <tr>
-          <th></th>
-          <th>FGS</th>
-          <th>Benadir</th>
-          <th>Galmudug</th>
-          <th>Hiirshabelle</th>
-          <th>Jubaland</th>
-          <th>Puntland</th>
-          <th>South West</th>
-          <th>Somaliland</th>
-          <th>Unattributed</th>
-          <th>Pillar Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2016</td>
-          <td>0.7</td>
-          <td>5</td>
-          <td>0.2</td>
-          <td>0.2</td>
-          <td>0.3</td>
-          <td>2.2</td>
-          <td>1.8</td>
-          <td>3.9</td>
-          <td>1.7</td>
-          <td>16</td>
-        </tr>
-        <tr>
-          <td>2017</td>
-          <td>0.1</td>
-          <td>4.5</td>
-          <td>0.3</td>
-          <td>0.3</td>
-          <td>0.5</td>
-          <td>2.5</td>
-          <td>1.6</td>
-          <td>2.9</td>
-          <td>0.3</td>
-          <td>13</td>
-        </tr>
-        <tr>
-          <td>2018</td>
-          <td>0.1</td>
-          <td>3.7</td>
-          <td>0.1</td>
-          <td>0.1</td>
-          <td>0.2</td>
-          <td>0.9</td>
-          <td>0.7</td>
-          <td>1.1</td>
-          <td>0.2</td>
-          <td>7.1</td>
-        </tr>
-        <tr>
-          <td>Total:</td>
-          <td>0.8</td>
-          <td>13.1</td>
-          <td>0.6</td>
-          <td>0.6</td>
-          <td>1</td>
-          <td>5.7</td>
-          <td>4.1</td>
-          <td>7.9</td>
-          <td>2.1</td>
-          <td>36.1</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </template>
-
 
 <script>
   export default {
@@ -98,6 +110,7 @@
   	layout: 'sectors',
   	data() {
   		return {
+  			title: 'Gender and Human Rights',
   			genderHumanRightsData: [
   				['Government', 172342],
   				['Mix of implementers - involving government', 3700000],
@@ -175,7 +188,7 @@
 
   			chart.xAxis(true);
 
-  			chart.container('container');
+  			chart.container('bar-chart');
 
   			chart.draw();
   		},
@@ -224,7 +237,7 @@
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
 
   			/* enable the value stacking mode
-        on the default primary value scale*/
+              on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -289,11 +302,21 @@
 
 <style scoped>
   /* make sure div#id has a size defined, otherwise nothing will render */
-
+  #bar-chart {
+  	width: 100%;
+  	height: 100%;
+  	margin: 0;
+  	padding: 0;
+  }
   #pie-chart,
   #stack-chart,
-  #container,
   #year-stack {
   	height: 370px;
+  }
+  .bold-row {
+  	font-weight: bold;
+  }
+  table {
+  	overflow: auto;
   }
 </style>

@@ -1,133 +1,145 @@
 <template lang="html">
-  <div id="sectors" class="container is-fluid">
-    Resilience
-    <div class="columns is-multiline">
-
-      <div class="column is-half">
-        <div id="pie-chart" class="column"></div>
-        <div class="column"></div>
+  <div id="section" class="section">
+    <div id="sectors" class="container is-fluid">
+      <h1 class="title is-1">{{ title }}</h1>
+      <div class="columns">
+        <div class="column is-1"></div>
+        <div class="column is-5 is-mobile">
+          <div id="pie-chart" class="column"></div>
+        </div>
+        <div class="column is-1"></div>
+        <div class="column is-5 is-mobile">
+          <div id="bar-chart"></div>
+        </div>
       </div>
-
-
-      <div class="column is-half">
-        <div id="stack-chart" class="column"></div>
+      <div class="columns">
+        <div class="column is-1"></div>
+        <div class="column is-5 is-mobile">
+          <div id="country-stack"></div>
+        </div>
+        <div class="column is-1"></div>
+        <div class="column is-5">
+          <div id="stack-chart"></div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-2"></div>
+        <div class="column is-8 is-mobile">
+          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Subsector & Location</h4>
+          <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
+            <thead>
+              <tr>
+                <th></th>
+                <th>FGS</th>
+                <th>Benadir</th>
+                <th>Galmudug</th>
+                <th>Hiirshabelle</th>
+                <th>Jubaland</th>
+                <th>Puntland</th>
+                <th>South West</th>
+                <th>Somaliland</th>
+                <th>Unattributed</th>
+                <th>Pillar Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Migration, Displacement, Refugees and Durable Solutions</td>
+                <td>4.3</td>
+                <td>19.7</td>
+                <td>12.6</td>
+                <td>8.2</td>
+                <td>24.3</td>
+                <td>14.3</td>
+                <td>16.5</td>
+                <td>5.5</td>
+                <td>3.2</td>
+                <td>108.6</td>
+              </tr>
+              <tr>
+                <td>Natural Resources Management</td>
+                <td>0.1</td>
+                <td>11.8</td>
+                <td>9</td>
+                <td>8.6</td>
+                <td>9.4</td>
+                <td>21</td>
+                <td>9.9</td>
+                <td>36.2</td>
+                <td>3.4</td>
+                <td>109.4</td>
+              </tr>
+              <tr>
+                <td>Social Protection</td>
+                <td>1.1</td>
+                <td>0.4</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>10</td>
+                <td>0.5</td>
+                <td>&nbsp;</td>
+                <td>0.4</td>
+                <td>1.1</td>
+                <td>13.5</td>
+              </tr>
+              <tr>
+                <td>Cross-cutting resilience</td>
+                <td>&nbsp;</td>
+                <td>8.3</td>
+                <td>5.3</td>
+                <td>10.9</td>
+                <td>22.1</td>
+                <td>3.7</td>
+                <td>21.6</td>
+                <td>13.5</td>
+                <td>11.1</td>
+                <td>96.7</td>
+              </tr>
+              <tr>
+                <td>Food Security</td>
+                <td>21.8</td>
+                <td>42.5</td>
+                <td>62.1</td>
+                <td>15</td>
+                <td>24.3</td>
+                <td>100.5</td>
+                <td>59.3</td>
+                <td>86.6</td>
+                <td>328.5</td>
+                <td>740.4</td>
+              </tr>
+              <tr>
+                <td>Lifesaving humanitarian - cross-cutting</td>
+                <td>1.7</td>
+                <td>21.3</td>
+                <td>21.2</td>
+                <td>31.1</td>
+                <td>31</td>
+                <td>&nbsp;</td>
+                <td>1.7</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>108</td>
+              </tr>
+              <tr class="bold-row">
+                <td>Total</td>
+                <td>28.9</td>
+                <td>103.9</td>
+                <td>110.1</td>
+                <td>73.8</td>
+                <td>121.2</td>
+                <td>140.1</td>
+                <td>109</td>
+                <td>142.3</td>
+                <td>347.3</td>
+                <td>1176.6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column is-1"></div>
       </div>
     </div>
-
-    <div id="container"></div>
-    <div id="country-stack"></div>
-
-    <table class="table is-striped is-hoverable is-bordered">
-      <thead>
-        <tr>
-          <th></th>
-          <th>FGS</th>
-          <th>Benadir</th>
-          <th>Galmudug</th>
-          <th>Hiirshabelle</th>
-          <th>Jubaland</th>
-          <th>Puntland</th>
-          <th>South West</th>
-          <th>Somaliland</th>
-          <th>Unattributed</th>
-          <th>Pillar Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Migration, Displacement, Refugees and Durable Solutions</td>
-          <td>4.3</td>
-          <td>19.7</td>
-          <td>12.6</td>
-          <td>8.2</td>
-          <td>24.3</td>
-          <td>14.3</td>
-          <td>16.5</td>
-          <td>5.5</td>
-          <td>3.2</td>
-          <td>108.6</td>
-        </tr>
-        <tr>
-          <td>Natural Resources Management</td>
-          <td>0.1</td>
-          <td>11.8</td>
-          <td>9</td>
-          <td>8.6</td>
-          <td>9.4</td>
-          <td>21</td>
-          <td>9.9</td>
-          <td>36.2</td>
-          <td>3.4</td>
-          <td>109.4</td>
-        </tr>
-        <tr>
-          <td>Social Protection</td>
-          <td>1.1</td>
-          <td>0.4</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>10</td>
-          <td>0.5</td>
-          <td>&nbsp;</td>
-          <td>0.4</td>
-          <td>1.1</td>
-          <td>13.5</td>
-        </tr>
-        <tr>
-          <td>Cross-cutting resilience</td>
-          <td>&nbsp;</td>
-          <td>8.3</td>
-          <td>5.3</td>
-          <td>10.9</td>
-          <td>22.1</td>
-          <td>3.7</td>
-          <td>21.6</td>
-          <td>13.5</td>
-          <td>11.1</td>
-          <td>96.7</td>
-        </tr>
-        <tr>
-          <td>Food Security</td>
-          <td>21.8</td>
-          <td>42.5</td>
-          <td>62.1</td>
-          <td>15</td>
-          <td>24.3</td>
-          <td>100.5</td>
-          <td>59.3</td>
-          <td>86.6</td>
-          <td>328.5</td>
-          <td>740.4</td>
-        </tr>
-        <tr>
-          <td>Lifesaving humanitarian - cross-cutting</td>
-          <td>1.7</td>
-          <td>21.3</td>
-          <td>21.2</td>
-          <td>31.1</td>
-          <td>31</td>
-          <td>&nbsp;</td>
-          <td>1.7</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>108</td>
-        </tr>
-        <tr>
-          <td>Total</td>
-          <td>28.9</td>
-          <td>103.9</td>
-          <td>110.1</td>
-          <td>73.8</td>
-          <td>121.2</td>
-          <td>140.1</td>
-          <td>109</td>
-          <td>142.3</td>
-          <td>347.3</td>
-          <td>1176.6</td>
-        </tr>
-      </tbody>
-    </table>
-
   </div>
 </template>
 
@@ -137,6 +149,7 @@
   	layout: 'sectors',
   	data() {
   		return {
+  			title: 'Resilience',
   			resilienceData: [
   				['Donor Agency', 18738364],
   				['Government', 20570204],
@@ -221,7 +234,7 @@
 
   			chart.xAxis(true);
 
-  			chart.container('container');
+  			chart.container('bar-chart');
 
   			chart.draw();
   		},
@@ -241,7 +254,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-        on the default primary value scale*/
+            on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -321,7 +334,7 @@
   			var seriesData_6 = dataSet.mapAs({ x: 0, value: 6 });
 
   			/* enable the value stacking mode
-        on the default primary value scale*/
+            on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -412,17 +425,22 @@
 <style scoped>
   /* make sure div#id has a size defined, otherwise nothing will render */
 
-  #container {
+  #bar-chart {
   	width: 100%;
   	height: 100%;
   	margin: 0;
   	padding: 0;
   }
-
   #pie-chart,
   #stack-chart,
-  #container,
   #country-stack {
   	height: 370px;
   }
+  .bold-row {
+  	font-weight: bold;
+  }
+  table {
+  	overflow: auto;
+  }
 </style>
+
