@@ -1,9 +1,20 @@
 <template lang="html">
   <div id="sectors" class="container is-fluid">
     Social and Human Development
+    <div class="columns is-multiline">
+
+      <div class="column is-half">
+        <div id="pie-chart" class="column"></div>
+        <div class="column"></div>
+      </div>
+
+
+      <div class="column is-half">
+        <div id="stack-chart" class="column"></div>
+      </div>
+    </div>
+
     <div id="container"></div>
-    <div id="stack-chart"></div>
-    <div id="pie-chart"></div>
     <div id="country-stack"></div>
 
     <table class="table is-striped is-hoverable is-bordered">
@@ -109,19 +120,19 @@ export default {
       ],
       socialHumanDevelopmentDataPie: [
         {x: "NGOs", value: 219302286.6,
-      normal: {fill: this.$store.state.color.blue}},
+        normal: {fill: this.$store.state.color.blue}},
         {x: "Mix of implementers - involving government", value: 186777137.6,
-      normal: {fill: this.$store.state.color.green}},
+        normal: {fill: this.$store.state.color.green}},
         {x: "UN", value: 64232464.15,
-      normal: {fill: this.$store.state.color.yellow}},
+        normal: {fill: this.$store.state.color.yellow}},
         {x: "Private Sector", value: 19542741.02,
-      normal: {fill: this.$store.state.color.tan}},
+        normal: {fill: this.$store.state.color.tan}},
         {x: "Donor Agency", value: 16527777.78,
-      normal: {fill: this.$store.state.color.violet}},
+        normal: {fill: this.$store.state.color.violet}},
         {x: "Government", value: 11718557,
-      normal: {fill: this.$store.state.color.brown}},
+        normal: {fill: this.$store.state.color.brown}},
         {x: "Other", value: 25085515.16,
-      normal: {fill: this.$store.state.color.pink}},
+        normal: {fill: this.$store.state.color.pink}},
       ],
       socialHumanDevelopmentLocationData: [
         ["FGS", 9.3, 10.4, 0],
@@ -313,5 +324,9 @@ export default {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+#pie-chart, #stack-chart, #container, #country-stack {
+  height: 370px;
 }
 </style>
