@@ -186,7 +186,7 @@ export default {
 
       chart.yScale().minimum(0);
 
-      chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.interactivity().hoverMode('by-x');
 
