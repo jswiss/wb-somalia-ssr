@@ -1,94 +1,106 @@
 <template lang="html">
-  <div id="sectors" class="container is-fluid">
-    Social and Human Development
-    <div class="columns is-multiline">
-
-      <div class="column is-half">
-        <div id="pie-chart" class="column"></div>
-        <div class="column"></div>
+  <div id="section" class="section">
+    <div id="sectors" class="container is-fluid">
+      <h1 class="title is-1">{{ title }}</h1>
+      <div class="columns">
+        <div class="column is-1"></div>
+        <div class="column is-5 is-mobile">
+          <div id="pie-chart" class="column"></div>
+        </div>
+        <div class="column is-1"></div>
+        <div class="column is-5 is-mobile">
+          <div id="bar-chart"></div>
+        </div>
       </div>
-
-
-      <div class="column is-half">
-        <div id="stack-chart" class="column"></div>
+      <div class="columns">
+        <div class="column is-1"></div>
+        <div class="column is-5 is-mobile">
+          <div id="country-stack"></div>
+        </div>
+        <div class="column is-1"></div>
+        <div class="column is-5">
+          <div id="stack-chart"></div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-2"></div>
+        <div class="column is-8 is-mobile">
+          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Location</h4>
+          <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
+            <thead>
+              <tr>
+                <th></th>
+                <th>FGS</th>
+                <th>Benadir</th>
+                <th>Galmudug</th>
+                <th>Hiirshabelle</th>
+                <th>Jubaland</th>
+                <th>Puntland</th>
+                <th>South West</th>
+                <th>Somaliland</th>
+                <th>Unattributed</th>
+                <th>Pillar Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Education</td>
+                <td>9.3</td>
+                <td>5.4</td>
+                <td>9.0</td>
+                <td>12.0</td>
+                <td>9.7</td>
+                <td>15.3</td>
+                <td>9.3</td>
+                <td>24.1</td>
+                <td>24.0</td>
+                <td>118.1</td>
+              </tr>
+              <tr>
+                <td>Health</td>
+                <td>10.4</td>
+                <td>53.0</td>
+                <td>32.2</td>
+                <td>38.3</td>
+                <td>40.1</td>
+                <td>58.4</td>
+                <td>32.8</td>
+                <td>65.6</td>
+                <td>67.9</td>
+                <td>398.9</td>
+              </tr>
+              <tr>
+                <td>WASH</td>
+                <td>&nbsp;</td>
+                <td>5.0</td>
+                <td>2.5</td>
+                <td>2.5</td>
+                <td>2.6</td>
+                <td>5.9</td>
+                <td>2.5</td>
+                <td>5.0</td>
+                <td>&nbsp;</td>
+                <td>26.2</td>
+              </tr>
+              <tr class="bold-row">
+                <td>Total</td>
+                <td>19.6</td>
+                <td>63.5</td>
+                <td>43.7</td>
+                <td>52.8</td>
+                <td>52.5</td>
+                <td>79.6</td>
+                <td>44.6</td>
+                <td>94.8</td>
+                <td>92.0</td>
+                <td>543.2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column is-1"></div>
       </div>
     </div>
-
-    <div id="container"></div>
-    <div id="country-stack"></div>
-
-    <table class="table is-striped is-hoverable is-bordered">
-      <thead>
-        <tr>
-          <th></th>
-          <th>FGS</th>
-          <th>Benadir</th>
-          <th>Galmudug</th>
-          <th>Hiirshabelle</th>
-          <th>Jubaland</th>
-          <th>Puntland</th>
-          <th>South West</th>
-          <th>Somaliland</th>
-          <th>Unattributed</th>
-          <th>Pillar Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Education</td>
-          <td>9.3</td>
-          <td>5.4</td>
-          <td>9.0</td>
-          <td>12.0</td>
-          <td>9.7</td>
-          <td>15.3</td>
-          <td>9.3</td>
-          <td>24.1</td>
-          <td>24.0</td>
-          <td>118.1</td>
-        </tr>
-        <tr>
-          <td>Health</td>
-          <td>10.4</td>
-          <td>53.0</td>
-          <td>32.2</td>
-          <td>38.3</td>
-          <td>40.1</td>
-          <td>58.4</td>
-          <td>32.8</td>
-          <td>65.6</td>
-          <td>67.9</td>
-          <td>398.9</td>
-        </tr>
-        <tr>
-          <td>WASH</td>
-          <td>&nbsp;</td>
-          <td>5.0</td>
-          <td>2.5</td>
-          <td>2.5</td>
-          <td>2.6</td>
-          <td>5.9</td>
-          <td>2.5</td>
-          <td>5.0</td>
-          <td>&nbsp;</td>
-          <td>26.2</td>
-        </tr>
-        <tr>
-          <td>Total</td>
-          <td>19.6</td>
-          <td>63.5</td>
-          <td>43.7</td>
-          <td>52.8</td>
-          <td>52.5</td>
-          <td>79.6</td>
-          <td>44.6</td>
-          <td>94.8</td>
-          <td>92.0</td>
-          <td>543.2</td>
-        </tr>
-      </tbody>
-    </table>
-
   </div>
 </template>
 
@@ -99,6 +111,7 @@
   	layout: 'sectors',
   	data() {
   		return {
+  			title: 'Social and Human Development',
   			socialHumanDevelopmentData: [
   				['Academic / Research Institutions', 3733435],
   				['Donor Agency', 16527778],
@@ -200,7 +213,7 @@
 
   			chart.xAxis(true);
 
-  			chart.container('container');
+  			chart.container('bar-chart');
 
   			chart.draw();
   		},
@@ -217,7 +230,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-        on the default primary value scale*/
+          on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -285,7 +298,7 @@
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
 
   			/* enable the value stacking mode
-        on the default primary value scale*/
+          on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -343,17 +356,21 @@
 <style scoped>
   /* make sure div#id has a size defined, otherwise nothing will render */
 
-  #container {
+  #bar-chart {
   	width: 100%;
   	height: 100%;
   	margin: 0;
   	padding: 0;
   }
-
   #pie-chart,
   #stack-chart,
-  #container,
   #country-stack {
   	height: 370px;
+  }
+  .bold-row {
+  	font-weight: bold;
+  }
+  table {
+  	overflow: auto;
   }
 </style>
