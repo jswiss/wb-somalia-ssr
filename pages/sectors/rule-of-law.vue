@@ -1,9 +1,21 @@
 <template lang="html">
   <div id="sectors" class="container is-fluid">
     Rule of Law
-    <div id="container"></div>
-    <div id="pie-chart"></div>
-    <div id="country-stack"></div>
+    <div class="columns is-multiline">
+
+      <div class="column is-half">
+        <div id="pie-chart" class="column"></div>
+        <div class="column"></div>
+      </div>
+
+
+      <div class="column is-half">
+        <div id="container" class="column"></div>
+      </div>
+    </div>
+
+      <div id="country-stack"></div>
+
 
     <table class="table is-striped is-hoverable is-bordered">
       <thead>
@@ -260,4 +272,9 @@ export default {
   margin: 0;
   padding: 0;
 }
+
+#pie-chart, #country-stack {
+  height: 370px;
+}
+
 </style>
