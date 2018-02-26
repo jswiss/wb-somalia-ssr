@@ -1,14 +1,24 @@
 <template lang="html">
   <div id="layouts" class="container is-fluid">
     Somaliland
-    <div id="container"></div>
-    <div id="project-disbursements"></div>
-    <div id="peace-security"></div>
-    <div id="institutions"></div>
-    <div id="economic-growth"></div>
-    <div id="infrastructure"></div>
-    <div id="social-human"></div>
-    <div id="reslience"></div>
+    <div class="columns">
+      <div class="column" id="project-disbursements"></div>
+
+      <div class="column" id="peace-security"></div>
+    </div>
+
+    <div class="columns">
+      <div class="column" id="institutions"></div>
+      <div class="column" id="economic-growth"></div>
+    </div>
+
+    <div class="columns">
+      <div class="column" id="infrastructure"></div>
+      <div class="column" id="social-human"></div>
+    </div>
+
+    <div class="column" id="resilience"></div>
+
   </div>
 </template>
 
@@ -138,7 +148,7 @@ export default {
 
     this.renderClusterChart(this.somalilandSocialHumanDevClusterData, "Somaliland: Social & Human Development", 'social-human');
 
-    this.renderClusterChart(this.somalilandResilienceClusterData, "Somaliland: Resilience", 'reslience');
+    this.renderClusterChart(this.somalilandResilienceClusterData, "Somaliland: Resilience", 'resilience');
 
   }
 };
@@ -153,4 +163,9 @@ export default {
   margin: 0;
   padding: 0;
 }
+
+#project-disbursements, #institutions, #infrastructure, #resilience {
+  height: 350px;
+}
+
 </style>

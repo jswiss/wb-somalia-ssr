@@ -1,10 +1,22 @@
 <template lang="html">
   <div id="sectors" class="container is-fluid">
     Gender and Human Rights
+    <div class="columns is-multiline">
+
+      <div class="column is-half">
+        <div id="pie-chart" class="column"></div>
+        <div class="column"></div>
+      </div>
+
+
+      <div class="column is-half">
+        <div id="stack-chart" class="column"></div>
+      </div>
+    </div>
+
     <div id="container"></div>
-    <div id="stack-chart"></div>
-    <div id="pie-chart"></div>
     <div id="year-stack"></div>
+
     <table class="table is-striped is-hoverable is-bordered">
       <thead>
         <tr>
@@ -144,7 +156,7 @@
   				.fill(this.$store.state.color.blue)
   				.labels()
   				.enabled(true)
-  				.format('${%Value}');
+  				.format('${%Value}{groupsSeparator:\\,}');
 
   			chart.animation(true);
 
@@ -152,22 +164,14 @@
 
   			chart.yScale().minimum(0);
 
-  			chart
-  				.tooltip()
-  				.displayMode('union')
-  				.position('point')
-  				.unionFormat(function() {
-  					return `Plain: $${
-  						this.points[0].value
-  					} mln \n Fact: $${this.points[0].value} `;
-  				});
+  			chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
 
   			chart.interactivity().hoverMode('by-x');
 
   			chart
   				.yAxis()
   				.labels()
-  				.format('${%Value} mln');
+  				.format('${%Value}{groupsSeparator:\\,}');
 
   			chart.xAxis(true);
 
@@ -186,7 +190,7 @@
   				.fill(this.$store.state.color.blue)
   				.labels()
   				.enabled(true)
-  				.format('${%Value}');
+  				.format('${%Value}{groupsSeparator:\\,} mln');
 
   			chart.animation(true);
 
@@ -194,47 +198,35 @@
 
   			chart.yScale().minimum(0);
 
-  			chart
-  				.tooltip()
-  				.displayMode('union')
-  				.position('point')
-  				.unionFormat(function() {
-  					return `Plain: $${
-  						this.points[0].value
-  					} mln \n Fact: $${this.points[0].value} `;
-  				});
+  			chart.tooltip().format('${%Value}{groupsSeparator:\\,} mln');
 
   			chart.interactivity().hoverMode('by-x');
 
   			chart
   				.yAxis()
   				.labels()
-  				.format('${%Value} mln');
+  				.format('${%Value}{groupsSeparator:\\,} mln');
 
   			chart.xAxis(true);
 
   			chart.container('stack-chart');
-
-  			var labels = chart.xAxis().labels();
-  			labels.enabled(true);
-
-  			chart
-  				.yAxis()
-  				.labels()
-  				.format('${%value} mln');
 
   			chart.draw();
   		},
 
   		renderYearStack() {
   			var chart = anychart.column();
+
   			const dataSet = anychart.data.set(this.genderYearStackData);
+
   			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
   			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
+
   			/* enable the value stacking mode
         on the default primary value scale*/
   			chart.yScale().stackMode('value');
+
   			chart.legend(true);
   			// create column series
   			chart
@@ -243,28 +235,35 @@
   				.name('2018')
   				.tooltip()
   				.format('2018: ${%Value} mln');
+
   			chart
   				.column(seriesData_2)
   				.color(this.$store.state.color.green)
   				.name('2017')
   				.tooltip()
   				.format('2017: ${%Value} mln');
+
   			chart
   				.column(seriesData_3)
   				.color(this.$store.state.color.yellow)
   				.name('2016')
   				.tooltip()
   				.format('2016: ${%Value} mln');
+
   			// set the chart title
   			chart.title('Gender & Human Rights: Project Disbursements by Location');
+
   			// set the container id
   			chart.container('year-stack');
+
   			var labels = chart.xAxis().labels();
   			labels.enabled(true);
+
   			chart
   				.yAxis()
   				.labels()
   				.format('${%value} mln');
+
   			// initiate drawing the chart
   			chart.draw();
   		},
@@ -274,6 +273,7 @@
   			chart.title('Key Implementers of Gender & Human Rights Projects');
   			chart.container('pie-chart');
   			chart.animation(true);
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
 
   			chart.draw();
   		},
@@ -290,10 +290,10 @@
 <style scoped>
   /* make sure div#id has a size defined, otherwise nothing will render */
 
-  #container {
-  	width: 100%;
-  	height: 100%;
-  	margin: 0;
-  	padding: 0;
+  #pie-chart,
+  #stack-chart,
+  #container,
+  #year-stack {
+  	height: 370px;
   }
 </style>

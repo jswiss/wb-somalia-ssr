@@ -1,9 +1,20 @@
 <template lang="html">
   <div id="sectors" class="container is-fluid">
     Social and Human Development
+    <div class="columns is-multiline">
+
+      <div class="column is-half">
+        <div id="pie-chart" class="column"></div>
+        <div class="column"></div>
+      </div>
+
+
+      <div class="column is-half">
+        <div id="stack-chart" class="column"></div>
+      </div>
+    </div>
+
     <div id="container"></div>
-    <div id="stack-chart"></div>
-    <div id="pie-chart"></div>
     <div id="country-stack"></div>
 
     <table class="table is-striped is-hoverable is-bordered">
@@ -169,7 +180,7 @@
   				.fill(this.$store.state.color.blue)
   				.labels()
   				.enabled(true)
-  				.format('${%Value}');
+  				.format('${%Value}{groupsSeparator:\\,}');
 
   			chart.animation(true);
 
@@ -177,22 +188,15 @@
 
   			chart.yScale().minimum(0);
 
-  			chart
-  				.tooltip()
-  				.displayMode('union')
-  				.position('point')
-  				.unionFormat(function() {
-  					return `Plain: $${
-  						this.points[0].value
-  					} mln \n Fact: $${this.points[0].value} `;
-  				});
+  			chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
 
   			chart.interactivity().hoverMode('by-x');
 
   			chart
   				.yAxis()
   				.labels()
-  				.format('${%Value} mln');
+  				.enabled(true)
+  				.format('${%Value}{groupsSeparator:\\,}');
 
   			chart.xAxis(true);
 
@@ -264,6 +268,7 @@
   			chart.title('Key Implementers of Social & Human Development Projects');
   			chart.container('pie-chart');
   			chart.animation(true);
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
 
   			chart.draw();
   		},
@@ -337,10 +342,18 @@
 
 <style scoped>
   /* make sure div#id has a size defined, otherwise nothing will render */
+
   #container {
   	width: 100%;
   	height: 100%;
   	margin: 0;
   	padding: 0;
+  }
+
+  #pie-chart,
+  #stack-chart,
+  #container,
+  #country-stack {
+  	height: 370px;
   }
 </style>

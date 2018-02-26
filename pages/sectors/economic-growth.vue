@@ -1,9 +1,20 @@
 <template lang="html">
   <div id="sectors" class="container is-fluid">
     Economic Growth
+    <div class="columns is-multiline">
+
+      <div class="column is-half">
+        <div id="pie-chart" class="column"></div>
+        <div class="column"></div>
+      </div>
+
+
+      <div class="column is-half">
+        <div id="stack-chart" class="column"></div>
+      </div>
+    </div>
+
     <div id="container"></div>
-    <div id="stack-chart"></div>
-    <div id="pie-chart"></div>
     <div id="country-chart"></div>
 
     <table class="table is-striped is-hoverable is-bordered">
@@ -154,7 +165,7 @@
   				.fill(this.$store.state.color.blue)
   				.labels()
   				.enabled(true)
-  				.format('${%Value}');
+  				.format('${%Value}{groupsSeparator:\\,}');
 
   			chart.animation(true);
 
@@ -162,15 +173,7 @@
 
   			chart.yScale().minimum(0);
 
-  			chart
-  				.tooltip()
-  				.displayMode('union')
-  				.position('point')
-  				.unionFormat(function() {
-  					return `Plain: $${
-  						this.points[0].value
-  					} mln \n Fact: $${this.points[0].value} `;
-  				});
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
 
   			chart.interactivity().hoverMode('by-x');
 
@@ -247,6 +250,7 @@
   			chart.title('Economic Growth: Key Implementers');
   			chart.container('pie-chart');
   			chart.animation(true);
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
 
   			chart.draw();
   		},
@@ -319,5 +323,12 @@
   	height: 100%;
   	margin: 0;
   	padding: 0;
+  }
+
+  #pie-chart,
+  #stack-chart,
+  #container,
+  #country-chart {
+  	height: 370px;
   }
 </style>

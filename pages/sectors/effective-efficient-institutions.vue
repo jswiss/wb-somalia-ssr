@@ -1,9 +1,20 @@
 <template lang="html">
   <div id="sectors" class="container is-fluid">
     Effective, Efficient Institutions
+    <div class="columns is-multiline">
+
+
+      <div class="column is-half">
+        <div id="pie-chart" class="column"></div>
+      </div>
+
+      <div class="column is-half">
+        <div id="stack-chart" class="column"></div>
+      </div>
+
+    </div>
+
     <div id="container"></div>
-    <div id="stack-chart"></div>
-    <div id="pie-chart"></div>
     <div id="country-stack"></div>
 
     <table class="table is-striped is-hoverable is-bordered">
@@ -176,138 +187,99 @@
   		renderChart() {
   			const chart = anychart.cartesian();
   			const dataSet = anychart.data.set(this.institutionsData);
-
   			const seriesData = dataSet.mapAs({ x: 0, value: 1 });
-
   			const column = chart.column(seriesData);
   			column
   				.fill(this.$store.state.color.blue)
   				.labels()
   				.enabled(true)
-  				.format('${%Value}');
-
+  				.format('${%Value}{groupsSeparator:\\,}');
   			chart.animation(true);
-
   			chart.title('Effective, Efficient Institutions, 2016-2018 spend ($) ');
-
   			chart.yScale().minimum(0);
-
-  			chart
-  				.tooltip()
-  				.displayMode('union')
-  				.position('point')
-  				.unionFormat(function() {
-  					return `Plain: $${
-  						this.points[0].value
-  					} mln \n Fact: $${this.points[0].value} `;
-  				});
-
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
   			chart.interactivity().hoverMode('by-x');
-
   			chart
   				.yAxis()
   				.labels()
-  				.format('${%Value} mln');
-
+  				.format('${%Value}{groupsSeparator:\\,}');
   			chart.xAxis(true);
-
   			chart.container('container');
-
   			chart.draw();
   		},
   		renderStack() {
   			var chart = anychart.column();
-
   			const dataSet = anychart.data.set(this.institutionsDataStack);
-
   			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
   			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
   			var seriesData_4 = dataSet.mapAs({ x: 0, value: 4 });
-
   			/* enable the value stacking mode
         on the default primary value scale*/
   			chart.yScale().stackMode('value');
-
   			// create column series
-
   			chart.legend(true);
-
   			chart
   				.column(seriesData_1)
   				.color(this.$store.state.color.blue)
   				.name('State and Local Governance')
   				.tooltip()
   				.format('State and Local Governance: ${%Value} mln');
-
   			chart
   				.column(seriesData_2)
   				.color(this.$store.state.color.green)
   				.name('Public Financial Management')
   				.tooltip()
   				.format('Public Financial Management: ${%Value} mln');
-
   			chart
   				.column(seriesData_3)
   				.color(this.$store.state.color.yellow)
   				.name('Planning, M&E and Statistics')
   				.tooltip()
   				.format('Planning, M&E and Statistics: ${%Value} mln');
-
   			chart
   				.column(seriesData_4)
   				.color(this.$store.state.color.tan)
   				.name('Civil Service Reform/Public Administration')
   				.tooltip()
   				.format('Civil Service Reform/Public Administration: ${%Value} mln');
-
   			// set the chart title
   			chart.title(
   				'Effective, Efficient Institutions: Project Disbursements by Sector'
   			);
-
   			// set the container id
   			chart.container('stack-chart');
-
   			var labels = chart.xAxis().labels();
   			labels.enabled(true);
-
   			chart
   				.yAxis()
   				.labels()
   				.format('${%value} mln');
-
   			// initiate drawing the chart
   			chart.draw();
   		},
   		renderPie() {
   			const chart = anychart.pie(this.institutionsDataPie);
-
   			chart.title(
   				'Key Implementers of Effective, Efficient Institutions Projects'
   			);
   			chart.container('pie-chart');
   			chart.animation(true);
-
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
   			chart.draw();
   		},
   		renderCountryStack() {
   			var chart = anychart.column();
-
   			const dataSet = anychart.data.set(this.institutionsLocationStack);
-
   			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
   			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
   			var seriesData_4 = dataSet.mapAs({ x: 0, value: 3 });
-
   			// create a chart
   			var chart = anychart.column();
-
   			/* enable the value stacking mode
         on the default primary value scale*/
   			chart.yScale().stackMode('value');
-
   			chart.legend(true);
   			// create column series
   			chart
@@ -316,21 +288,18 @@
   				.name('State and Local Governance')
   				.tooltip()
   				.format('State and Local Governance: ${%Value} mln');
-
   			chart
   				.column(seriesData_2)
   				.color(this.$store.state.color.green)
   				.name('Public Financial Management')
   				.tooltip()
   				.format('Public Financial Management: ${%Value} mln');
-
   			chart
   				.column(seriesData_3)
   				.color(this.$store.state.color.yellow)
   				.name('Planning, M&E and Statistics')
   				.tooltip()
   				.format('Planning, M&E and Statistics: ${%Value} mln');
-
   			chart
   				.column(seriesData_4)
   				.color(this.$store.state.color.tan)
@@ -341,18 +310,14 @@
   			chart.title(
   				'Effective, Efficient Institutions: Project Disbursements by Location'
   			);
-
   			// set the container id
   			chart.container('country-stack');
-
   			var labels = chart.xAxis().labels();
   			labels.enabled(true);
-
   			chart
   				.yAxis()
   				.labels()
   				.format('${%value} mln');
-
   			// initiate drawing the chart
   			chart.draw();
   		},
@@ -368,18 +333,16 @@
 
 <style scoped>
   /* make sure div#id has a size defined, otherwise nothing will render */
-
   #container {
   	width: 100%;
   	height: 100%;
   	margin: 0;
   	padding: 0;
   }
-
-  #stack-chart {
-  	width: 50%;
-  	height: 400px;
-  	margin: 0;
-  	padding: 0;
+  #pie-chart,
+  #stack-chart,
+  #container,
+  #country-stack {
+  	height: 370px;
   }
 </style>
