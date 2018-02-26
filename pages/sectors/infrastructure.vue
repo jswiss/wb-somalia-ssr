@@ -1,9 +1,20 @@
 <template lang="html">
   <div id="sectors" class="container is-fluid">
     Infrastructure
+    <div class="columns is-multiline">
+
+      <div class="column is-half">
+        <div id="pie-chart" class="column"></div>
+        <div class="column"></div>
+      </div>
+
+
+      <div class="column is-half">
+        <div id="stack-chart" class="column"></div>
+      </div>
+    </div>
+
     <div id="container"></div>
-    <div id="stack-chart"></div>
-    <div id="pie-chart"></div>
     <div id="country-stack"></div>
 
 
@@ -123,19 +134,19 @@ export default {
       ],
       infrastructureDataPie: [
         {x: "UN", value: 31369634,
-      normal: {fill: this.$store.state.color.blue}},
+        normal: {fill: this.$store.state.color.blue}},
         {x: "Government", value: 26602499,
-      normal: {fill: this.$store.state.color.green}},
+        normal: {fill: this.$store.state.color.green}},
         {x: "Mix of implementers - involving government", value: 18076515,
-      normal: {fill: this.$store.state.color.yellow}},
+        normal: {fill: this.$store.state.color.yellow}},
         {x: "Private Sector", value: 16468854,
-      normal: {fill: this.$store.state.color.tan}},
+        normal: {fill: this.$store.state.color.tan}},
         {x: "NGOs", value: 12502249,
-      normal: {fill: this.$store.state.color.violet}},
+        normal: {fill: this.$store.state.color.violet}},
         {x: "Donor Agencies", value: 6138444,
-      normal: {fill: this.$store.state.color.brown}},
+        normal: {fill: this.$store.state.color.brown}},
         {x: "Other", value: 3833586,
-      normal: {fill: this.$store.state.color.pink}}
+        normal: {fill: this.$store.state.color.pink}}
       ],
       infrastructureLocationStack: [
         ["FGS", 5.4, 5.9, 0.5, 0.7],
@@ -334,12 +345,16 @@ export default {
 </script>
 
 <style scoped>
-  /* make sure div#id has a size defined, otherwise nothing will render */
+/* make sure div#id has a size defined, otherwise nothing will render */
 
-  #container {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+#container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#pie-chart, #stack-chart, #container, #country-stack {
+  height: 370px;
+}
 </style>
