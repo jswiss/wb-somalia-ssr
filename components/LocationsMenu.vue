@@ -24,7 +24,7 @@
           </nuxt-link>
         </div>
       </div>
-      <div class="columns">
+      <div class="columns is-mobile">
         <div class="outline">
           <nuxt-link class="nav-item" to="/locations/Galmudug" >
             <div id="chart-selector-3" class="column">
@@ -46,7 +46,7 @@
             </nuxt-link>
           </div>
       </div>
-      <div class="columns">
+      <div class="columns is-mobile">
         <div class="outline">
           <nuxt-link class="nav-item" to="/locations/Jubaland">
             <div id="chart-selector-5" class="column">
@@ -68,7 +68,7 @@
           </nuxt-link>
         </div>
       </div>
-      <div class="columns">
+      <div class="columns is-mobile">
         <div class="outline">
           <nuxt-link class="nav-item" to="/locations/Somaliland" >
             <div id="chart-selector-7" class="column">
