@@ -62,22 +62,22 @@
   	name: 'envelopes',
   	data() {
   		return {
-        columns: ['Agency',
-    'Agency Category',
-    'Aid Flow Category',
-    '2016',
-    '2017',
-    '2018',
-    '2019',
-    '2020',
-    'Total 2016-18',
-    'Trends',],
+  			columns: [
+  				'Agency',
+  				'Agency Category',
+  				'Aid Flow Category',
+  				'2016',
+  				'2017',
+  				'2018',
+  				'2019',
+  				'2020',
+  				'Total 2016-18',
+  				'Trends',
+  			],
   			options: {
-  				options: {
-  					saveState: true,
-  					highlightMatches: true,
-  					storage: 'local',
-  				},
+  				saveState: true,
+  				highlightMatches: true,
+  				storage: 'local',
   			},
   		};
   	},

@@ -4,7 +4,6 @@ import { excelToJsDate } from '../pages/helpers';
 
 export const state = () => ({
   project: null,
-  locationsTable: [],
   locationYear: '',
   envelopeTable: [],
   pooledTable: [],
@@ -13,15 +12,6 @@ export const state = () => ({
   locationTree2017: [],
   locationTree2018: [],
   locationTable: [],
-  locationTableColumns: [
-    'Location',
-    'Total 2016',
-    'Total 2017',
-    'Total 2018',
-    'Count 2016',
-    'Count 2017',
-    'Count 2018',
-  ],
   color: {
     blue: '#4587EA',
     green: '#81D8C2',
@@ -85,7 +75,17 @@ export const mutations = {
     });
   },
   SET_LOCATION_TABLE(state, data) {
-    state.location2016Table = data;
+    state.locationTable = data.map(k => {
+      return {
+        Location: k.location,
+        '2016 Count of Projects': k.count2016,
+        '2017 Count of Projects': k.count2017,
+        '2018 Count of Projects': k.count2018,
+        '2016 Total Disbursements': k.total2016,
+        '2017 Total Disbursements': k.total2017,
+        '2018 Total Disbursements': k.total2018,
+      };
+    });
   },
   SET_2016_LOC_TREE(state, data) {
     state.locationTree2016 = data;
