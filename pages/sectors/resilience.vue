@@ -1,9 +1,20 @@
 <template lang="html">
   <div id="sectors" class="container is-fluid">
     Resilience
+    <div class="columns is-multiline">
+
+      <div class="column is-half">
+        <div id="pie-chart" class="column"></div>
+        <div class="column"></div>
+      </div>
+
+
+      <div class="column is-half">
+        <div id="stack-chart" class="column"></div>
+      </div>
+    </div>
+
     <div id="container"></div>
-    <div id="stack-chart"></div>
-    <div id="pie-chart"></div>
     <div id="country-stack"></div>
 
     <table class="table is-striped is-hoverable is-bordered">
@@ -399,4 +410,9 @@ export default {
   margin: 0;
   padding: 0;
 }
+
+#pie-chart, #stack-chart, #container, #country-stack {
+  height: 370px;
+}
+
 </style>
