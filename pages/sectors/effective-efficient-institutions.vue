@@ -111,6 +111,7 @@
             </tbody>
           </table>
         </div>
+        <div class="column is-1"></div>
       </div>
     </div>
   </div>
@@ -227,7 +228,7 @@
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
   			var seriesData_4 = dataSet.mapAs({ x: 0, value: 4 });
   			/* enable the value stacking mode
-                    on the default primary value scale*/
+                      on the default primary value scale*/
   			chart.yScale().stackMode('value');
   			// create column series
   			chart.legend(true);
@@ -290,7 +291,7 @@
   			// create a chart
   			var chart = anychart.column();
   			/* enable the value stacking mode
-                    on the default primary value scale*/
+                      on the default primary value scale*/
   			chart.yScale().stackMode('value');
   			chart.legend(true);
   			// create column series

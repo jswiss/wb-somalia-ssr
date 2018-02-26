@@ -1,80 +1,93 @@
 <template lang="html">
-  <div id="sectors" class="container is-fluid">
-    Economic Growth
-    <div class="columns is-multiline">
-
-      <div class="column is-half">
-        <div id="pie-chart" class="column"></div>
-        <div class="column"></div>
+  <div id="section" class="section">
+    <div id="sectors" class="container is-fluid">
+      <h1 class="title is-1">{{ title }}</h1>
+      <div class="columns">
+        <div class="column is-1"></div>
+        <div class="column is-5 is-mobile">
+          <div id="pie-chart" class="column"></div>
+        </div>
+        <div class="column is-1"></div>
+        <div class="column is-5 is-mobile">
+          <div id="bar-chart"></div>
+        </div>
       </div>
-
-
-      <div class="column is-half">
-        <div id="stack-chart" class="column"></div>
+      <div class="columns">
+        <div class="column is-1"></div>
+        <div class="column is-5 is-mobile">
+          <div id="country-stack"></div>
+        </div>
+        <div class="column is-1"></div>
+        <div class="column is-5">
+          <div id="stack-chart"></div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-2"></div>
+        <div class="column is-8 is-mobile">
+          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Location</h4>
+          <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
+            <thead>
+              <tr>
+                <th></th>
+                <th>FGS</th>
+                <th>Benadir</th>
+                <th>Galmudug</th>
+                <th>Hiirshabelle</th>
+                <th>Jubaland</th>
+                <th>Puntland</th>
+                <th>South West</th>
+                <th>Somaliland</th>
+                <th>Unattributed</th>
+                <th>Pillar Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Private Sector Development</td>
+                <td>8.5</td>
+                <td>10.9</td>
+                <td>4.8</td>
+                <td>11.8</td>
+                <td>13.9</td>
+                <td>15.4</td>
+                <td>10.5</td>
+                <td>42.6</td>
+                <td>8.4</td>
+                <td>126.8</td>
+              </tr>
+              <tr>
+                <td>Productive Sectors </td>
+                <td>5.4</td>
+                <td>0.6</td>
+                <td>0.6</td>
+                <td>3.1</td>
+                <td>4.3</td>
+                <td>4.3</td>
+                <td>5.6</td>
+                <td>16.9</td>
+                <td>8.1</td>
+                <td>49</td>
+              </tr>
+              <tr class="bold-row">
+                <td>Total</td>
+                <td>13.9</td>
+                <td>11.5</td>
+                <td>5.4</td>
+                <td>14.9</td>
+                <td>18.2</td>
+                <td>19.7</td>
+                <td>16.2</td>
+                <td>59.5</td>
+                <td>16.5</td>
+                <td>175.8</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column is-1"></div>
       </div>
     </div>
-
-    <div id="container"></div>
-    <div id="country-chart"></div>
-
-    <table class="table is-striped is-hoverable is-bordered">
-      <thead>
-        <tr>
-          <th></th>
-          <th>FGS</th>
-          <th>Benadir</th>
-          <th>Galmudug</th>
-          <th>Hiirshabelle</th>
-          <th>Jubaland</th>
-          <th>Puntland</th>
-          <th>South West</th>
-          <th>Somaliland</th>
-          <th>Unattributed</th>
-          <th>Pillar Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Private Sector Development</td>
-          <td>8.5</td>
-          <td>10.9</td>
-          <td>4.8</td>
-          <td>11.8</td>
-          <td>13.9</td>
-          <td>15.4</td>
-          <td>10.5</td>
-          <td>42.6</td>
-          <td>8.4</td>
-          <td>126.8</td>
-        </tr>
-        <tr>
-          <td>Productive Sectors </td>
-          <td>5.4</td>
-          <td>0.6</td>
-          <td>0.6</td>
-          <td>3.1</td>
-          <td>4.3</td>
-          <td>4.3</td>
-          <td>5.6</td>
-          <td>16.9</td>
-          <td>8.1</td>
-          <td>49</td>
-        </tr>
-        <tr>
-          <td>Total</td>
-          <td>13.9</td>
-          <td>11.5</td>
-          <td>5.4</td>
-          <td>14.9</td>
-          <td>18.2</td>
-          <td>19.7</td>
-          <td>16.2</td>
-          <td>59.5</td>
-          <td>16.5</td>
-          <td>175.8</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </template>
 
@@ -85,6 +98,7 @@
   	layout: 'sectors',
   	data() {
   		return {
+  			title: 'Economic Growth',
   			economicGrowthData: [
   				['Donor Agency', 8391376],
   				['Government', 8228265],
@@ -184,7 +198,7 @@
 
   			chart.xAxis(true);
 
-  			chart.container('container');
+  			chart.container('bar-chart');
 
   			chart.draw();
   		},
@@ -203,7 +217,7 @@
   			chart.legend(true);
 
   			/* enable the value stacking mode
-        on the default primary value scale*/
+                  on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -267,7 +281,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-        on the default primary value scale*/
+                  on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -293,7 +307,7 @@
   			chart.title('Economic Growth: Project Disbursements by Location');
 
   			// set the container id
-  			chart.container('country-chart');
+  			chart.container('country-stack');
 
   			var labels = chart.xAxis().labels();
   			labels.enabled(true);
@@ -318,17 +332,21 @@
 <style scoped>
   /* make sure div#id has a size defined, otherwise nothing will render */
 
-  #container {
+  #bar-chart {
   	width: 100%;
   	height: 100%;
   	margin: 0;
   	padding: 0;
   }
-
   #pie-chart,
   #stack-chart,
-  #container,
-  #country-chart {
+  #country-stack {
   	height: 370px;
+  }
+  .bold-row {
+  	font-weight: bold;
+  }
+  table {
+  	overflow: auto;
   }
 </style>
