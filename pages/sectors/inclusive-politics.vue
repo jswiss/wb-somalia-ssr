@@ -77,7 +77,7 @@
                 <td>6.7</td>
                 <td>28.3</td>
               </tr>
-              <tr>
+              <tr class="bold-row">
                 <td><b>Total:</b></td>
                 <td><b>34.4</b></td>
                 <td><b>10.6</b></td>
@@ -226,7 +226,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-                                                    on the default primary value scale*/
+                                                      on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -301,5 +301,8 @@
   }
   table {
   	overflow: auto;
+  }
+  .bold-row {
+  	font-weight: bold;
   }
 </style>

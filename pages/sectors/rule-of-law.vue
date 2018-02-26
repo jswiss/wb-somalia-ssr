@@ -78,7 +78,7 @@
                 <td>0.5</td>
                 <td>4.7</td>
               </tr>
-              <tr>
+              <tr class="bold-row">
                 <td>Total</td>
                 <td>42.9</td>
                 <td>10.1</td>
@@ -94,6 +94,7 @@
             </tbody>
           </table>
         </div>
+        <div class="column is-1"></div>
       </div>
     </div>
   </div>
@@ -235,7 +236,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-                    on the default primary value scale*/
+                          on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -302,5 +303,8 @@
   }
   table {
   	overflow: auto;
+  }
+  .bold-row {
+  	font-weight: bold;
   }
 </style>
