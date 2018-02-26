@@ -1,7 +1,6 @@
 <template lang="html">
   <div id="sectors" class="container is-fluid">
     Inclusive Politics
-    <div id="country-stack"></div>
     <div class="columns is-multiline">
 
       <div class="column is-half">
@@ -13,7 +12,9 @@
       <div class="column is-half">
         <div id="container" class="column"></div>
       </div>
+    </div>
 
+      <div id="country-stack"></div>
       <table id="table" class="table is-striped is-hoverable is-bordered">
         <thead>
           <tr>
@@ -87,8 +88,6 @@
         </tbody>
       </table>
 
-
-    </div>
   </div>
 </template>
 
@@ -267,6 +266,10 @@ export default {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+#country-stack {
+  height: 370px;
 }
 
 #pie-chart {

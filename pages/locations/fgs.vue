@@ -164,6 +164,7 @@ export default {
 
 #project-disbursements, #institutions, #infrastructure, #resilience {
   height: 350px;
+  width: 90%;
 }
 
 </style>
