@@ -1,23 +1,26 @@
 <template>
-  <div id="documents">
-    <div class="columns is-gapless is-mobile">
-    <div class="column is-2"></div>
-     <div class="column is-5">
-      <div class="field">
-        <label for="query" class="label">Search Documents</label>
-        <input type="text" name="query" class="input" v-model="searchQuery">
-      </div>
-     </div>
-      <div class="column is-5"></div>
-    </div>
-    <div class="columns is-gapless is-mobile">
+  <div id="section" class="section">
+    <div class="container">
+      <div class="columns is-gapless">
       <div class="column is-2"></div>
-      <div class="column is-6">
-        <ul id="doc-list">
-          <li v-for="link in filteredDocs" :key="link.id"><a :href="link.url" target="_blank">{{ link.text }}    </a><span><img :src="link.fileType" alt=""></span></li>
-        </ul>
+      <div class="column is-5">
+        <h1 class="title is-3">{{ title }}</h1>
+        <div class="field is-mobile">
+          <label for="query" class="label">Search Documents</label>
+          <input type="text" name="query" class="input" v-model="searchQuery">
+        </div>
       </div>
-      <div class="column is-4"></div>
+        <div class="column is-5"></div>
+      </div>
+      <div class="columns is-gapless">
+        <div class="column is-2"></div>
+        <div class="column is-6 is-mobile">
+          <ul id="doc-list is-mobile">
+            <li v-for="link in filteredDocs" :key="link.id"><a :href="link.url" target="_blank">{{ link.text }}    </a><span><img :src="link.fileType" alt=""></span></li>
+          </ul>
+        </div>
+        <div class="column is-4"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -27,6 +30,7 @@
   	name: 'documents',
   	data() {
   		return {
+  			title: 'Aid Flow Document Library',
   			links: [
   				{
   					id: 1,
@@ -92,8 +96,8 @@
 </script>
 
 <style scoped>
-  #documents {
-  	margin-top: 5%;
+  #section {
+  	margin-top: 3%;
   }
 </style>
 

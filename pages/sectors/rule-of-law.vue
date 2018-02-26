@@ -1,94 +1,99 @@
 <template lang="html">
-  <div id="sectors" class="container is-fluid">
-    Rule of Law
-    <div class="columns is-multiline">
-
-      <div class="column is-half">
+   <div id="rule-of-law" class="container is-fluid">
+    <h1 class="title is-1">{{ title }}</h1>
+    <div class="columns">
+      <div class="column is-1"></div>
+      <div class="column is-3 is-mobile">
         <div id="pie-chart" class="column"></div>
-        <div class="column"></div>
       </div>
-
-
-      <div class="column is-half">
-        <div id="container" class="column"></div>
+      <div class="column is-1"></div>
+      <div class="column is-3 is-mobile">
+        <div id="bar-chart"></div>
+      </div>
+      <div class="column is-1"></div>
+      <div class="column is-3 is-mobile">
+        <div id="country-stack"></div>
       </div>
     </div>
 
-    <div id="country-stack"></div>
-
-
-    <table class="table is-striped is-hoverable is-bordered">
-      <thead>
-        <tr>
-          <th>
-          </th>
-          <th>FGS</th>
-          <th>Benadir</th>
-          <th>Galmudug</th>
-          <th>Hiirshabelle</th>
-          <th>Jubaland</th>
-          <th>Puntland</th>
-          <th>South West</th>
-          <th>Somaliland</th>
-          <th>Unattributed</th>
-          <th>Pillar Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2016</td>
-          <td>25.2</td>
-          <td>5.6</td>
-          <td>0.1</td>
-          <td>3.2</td>
-          <td>4.2</td>
-          <td>7.9</td>
-          <td>4</td>
-          <td>9</td>
-          <td>6.3</td>
-          <td>65.5</td>
-        </tr>
-        <tr>
-          <td>2017</td>
-          <td>17.5</td>
-          <td>3.5</td>
-          <td>0.6</td>
-          <td>4.4</td>
-          <td>4.4</td>
-          <td>3.3</td>
-          <td>4.5</td>
-          <td>3.3</td>
-          <td>6.7</td>
-          <td>48.3</td>
-        </tr>
-        <tr>
-          <td>2018</td>
-          <td>0.2</td>
-          <td>0.9</td>
-          <td>0.6</td>
-          <td>0.6</td>
-          <td>0.7</td>
-          <td>0.1</td>
-          <td>0.7</td>
-          <td>0.4</td>
-          <td>0.5</td>
-          <td>4.7</td>
-        </tr>
-        <tr>
-          <td>Total</td>
-          <td>42.9</td>
-          <td>10.1</td>
-          <td>1.3</td>
-          <td>8.2</td>
-          <td>9.3</td>
-          <td>11.3</td>
-          <td>9.3</td>
-          <td>12.7</td>
-          <td>13.5</td>
-          <td>118.5</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="columns">
+      <div class="column is-2"></div>
+      <div class="column is-8 is-mobile">
+        <h4 class="title is-4">{{ title }}: Disbursement of Funds by Location</h4>
+        <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
+          <thead>
+            <tr>
+              <th>
+              </th>
+              <th>FGS</th>
+              <th>Benadir</th>
+              <th>Galmudug</th>
+              <th>Hiirshabelle</th>
+              <th>Jubaland</th>
+              <th>Puntland</th>
+              <th>South West</th>
+              <th>Somaliland</th>
+              <th>Unattributed</th>
+              <th>Pillar Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2016</td>
+              <td>25.2</td>
+              <td>5.6</td>
+              <td>0.1</td>
+              <td>3.2</td>
+              <td>4.2</td>
+              <td>7.9</td>
+              <td>4</td>
+              <td>9</td>
+              <td>6.3</td>
+              <td>65.5</td>
+            </tr>
+            <tr>
+              <td>2017</td>
+              <td>17.5</td>
+              <td>3.5</td>
+              <td>0.6</td>
+              <td>4.4</td>
+              <td>4.4</td>
+              <td>3.3</td>
+              <td>4.5</td>
+              <td>3.3</td>
+              <td>6.7</td>
+              <td>48.3</td>
+            </tr>
+            <tr>
+              <td>2018</td>
+              <td>0.2</td>
+              <td>0.9</td>
+              <td>0.6</td>
+              <td>0.6</td>
+              <td>0.7</td>
+              <td>0.1</td>
+              <td>0.7</td>
+              <td>0.4</td>
+              <td>0.5</td>
+              <td>4.7</td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td>42.9</td>
+              <td>10.1</td>
+              <td>1.3</td>
+              <td>8.2</td>
+              <td>9.3</td>
+              <td>11.3</td>
+              <td>9.3</td>
+              <td>12.7</td>
+              <td>13.5</td>
+              <td>118.5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -99,6 +104,7 @@
   	layout: 'sectors',
   	data() {
   		return {
+  			title: 'Rule of Law',
   			ruleOfLawData: [
   				['Government', 4884026],
   				['Military', 4525200],
@@ -200,7 +206,7 @@
 
   			chart.xAxis(true);
 
-  			chart.container('container');
+  			chart.container('bar-chart');
 
   			chart.draw();
   		},
@@ -227,7 +233,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-        on the default primary value scale*/
+                on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -281,7 +287,7 @@
 <style scoped>
   /* make sure div#id has a size defined, otherwise nothing will render */
 
-  #container {
+  #bar-chart {
   	width: 100%;
   	height: 100%;
   	margin: 0;
@@ -291,5 +297,8 @@
   #pie-chart,
   #country-stack {
   	height: 370px;
+  }
+  table {
+  	overflow: auto;
   }
 </style>

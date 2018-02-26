@@ -8,7 +8,7 @@
       </div>
       <div class="column is-1"></div>
       <div class="column is-3 is-mobile">
-        <div id="inclusive-politics"></div>
+        <div id="bar-chart"></div>
       </div>
       <div class="column is-1"></div>
       <div class="column is-3 is-mobile">
@@ -19,7 +19,7 @@
       <div class="column is-2"></div>
       <div class="column is-8 is-mobile">
         <h4 class="title is-4">{{ title }}: Disbursement of Funds by Location</h4>
-        <table id="table" class="table is-striped is-hoverable is-bordered">
+        <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
           <thead>
             <tr>
               <th>
@@ -197,7 +197,7 @@
 
   			chart.xAxis(true);
 
-  			chart.container('inclusive-politics');
+  			chart.container('bar-chart');
 
   			chart.draw();
   		},
@@ -224,7 +224,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-                                      on the default primary value scale*/
+                                                on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -280,7 +280,7 @@
 </script>
 
 <style scoped>
-  #inclusive-politics {
+  #bar-chart {
   	width: 100%;
   	height: 100%;
   	margin: 0;
@@ -296,5 +296,8 @@
   	height: 370px;
   	margin: 0;
   	padding: 0;
+  }
+  table {
+  	overflow: auto;
   }
 </style>
