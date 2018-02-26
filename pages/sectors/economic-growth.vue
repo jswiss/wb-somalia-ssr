@@ -145,7 +145,7 @@ export default {
       .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
-      .format('${%Value}');
+      .format('${%Value}{groupsSeparator:\\,}');
 
       chart.animation(true);
 
@@ -153,15 +153,7 @@ export default {
 
       chart.yScale().minimum(0);
 
-      chart
-      .tooltip()
-      .displayMode('union')
-      .position('point')
-      .unionFormat(function(){
-        return `Plain: $${
-          this.points[0].value
-        } mln \n Fact: $${this.points[0].value} `;
-      });
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
 
       chart.interactivity().hoverMode('by-x');
 
@@ -234,7 +226,8 @@ export default {
 
       chart.title("Economic Growth: Key Implementers");
       chart.container("pie-chart");
-      chart.animation(true)
+      chart.animation(true);
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
 
       chart.draw();
     },
