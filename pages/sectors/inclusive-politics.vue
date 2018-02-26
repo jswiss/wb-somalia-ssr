@@ -3,21 +3,21 @@
     <h1 class="title is-1">{{ title }}</h1>
     <div class="columns">
       <div class="column is-1"></div>
-      <div class="column is-3">
+      <div class="column is-3 is-mobile">
         <div id="pie-chart" class="column"></div>
       </div>
       <div class="column is-1"></div>
-      <div class="column is-3">
+      <div class="column is-3 is-mobile">
         <div id="inclusive-politics"></div>
       </div>
       <div class="column is-1"></div>
-      <div class="column is-3">
+      <div class="column is-3 is-mobile">
         <div id="country-stack"></div>
       </div>
     </div>
     <div class="columns">
       <div class="column is-2"></div>
-      <div class=" is-8">
+      <div class="column is-8 is-mobile">
         <h4 class="title is-4">{{ title }}: Disbursement of Funds by Location</h4>
         <table id="table" class="table is-striped is-hoverable is-bordered">
           <thead>
@@ -224,7 +224,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-                                on the default primary value scale*/
+                                      on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
