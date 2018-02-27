@@ -52,11 +52,16 @@
   		return {
   			title: 'Benadir',
   			benadirDisbursementClusterData: [
-  				['Peace, Inclusive Politics, Security & Rule of Law', 11.9, 7.2, 2.1],
-  				['Effective, Efficient Institutions', 4.6, 2.9, 1.7],
+  				[
+  					'Peace,\n Inclusive Politics,\n Security & Rule of Law',
+  					11.9,
+  					7.2,
+  					2.1,
+  				],
+  				['Effective, \nEfficient Institutions', 4.6, 2.9, 1.7],
   				['Economic Growth', 7.1, 2.3, 2.1],
   				['Infrastructure', 1.5, 3.1, 0.8],
-  				['Social & Human Development', 20.9, 31.5, 11.2],
+  				['Social & \nHuman Development', 20.9, 31.5, 11.2],
   				['Reslience', 21.6, 48.8, 33.4],
   			],
   			benadirPeacePoliticsSecurityClusterData: [
@@ -65,15 +70,15 @@
   				['2018', 0.1, 0.4, 0.1],
   			],
   			benadirInstititionsClusterData: [
-  				['Civil Service Reform/Public Administration', 1.2, 0.7, 0.8],
-  				['Planning, M & E and Statistics', 1.1, 1, 0.8],
-  				['Public Financial Management', 0, 0, 0],
-  				['State and Local Governance', 2.3, 1.2, 0],
+  				['Civil Service Reform/\nPublic Administration', 1.2, 0.7, 0.8],
+  				['Planning, \nM & E and Statistics', 1.1, 1, 0.8],
+  				['Public \nFinancial Management', 0, 0, 0],
+  				['State and \nLocal Governance', 2.3, 1.2, 0],
   			],
   			benadirEconomicClusterData: [
   				['Private Sector Development', 6.8, 2.2, 2],
   				[
-  					'Productive Sectors (Agriculture, Fisheries, Livestock)',
+  					'Productive Sectors\n (Agriculture, \nFisheries, Livestock)',
   					0.3,
   					0.1,
   					0.1,
@@ -82,19 +87,24 @@
   			benadirInfrastructureClusterData: [
   				['Energy and ICT', 0.1, 0.2, 0.2],
   				['Mixed Infrastructure', 0.3, 1, 0],
-  				['Transport: Roads, Ports, Airports', 0.9, 1.8, 0.5],
-  				['Water and Sanitation (Urban)', 0.1, 0.1, 0.1],
+  				['Transport: \nRoads, Ports,\n Airports', 0.9, 1.8, 0.5],
+  				['Water and \nSanitation (Urban)', 0.1, 0.1, 0.1],
   			],
   			benadirSocialHumanDevClusterData: [
   				['Education', 1.3, 4.1, 0],
   				['Health', 19.2, 22.7, 11.1],
   			],
   			benadirResilienceClusterData: [
-  				['Migration, Displayment, Refugees and Durable Solutions', 3.4, 9, 7.2],
-  				['Natural Resources Management', 5, 4.4, 2.4],
+  				[
+  					'Migration, Displayment, \nRefugees and \nDurable Solutions',
+  					3.4,
+  					9,
+  					7.2,
+  				],
+  				['Natural \nResources Management', 5, 4.4, 2.4],
   				['Social Protection', 0, 0.4, 0],
   				['Food Security', 4.6, 16.7, 21.2],
-  				['Lifesaving humanitarian - cross-cutting', 4, 14.7, 2.6],
+  				['Lifesaving humanitarian\n - cross-cutting', 4, 14.7, 2.6],
   			],
   		};
   	},
@@ -154,7 +164,11 @@
   				.labels()
   				.format('${%Value} mln');
 
-  			chart.xAxis(true);
+  			chart
+  				.xAxis()
+  				.labels()
+  				.rotation(-70)
+  				.fontSize(10);
 
   			chart.container(container);
 
