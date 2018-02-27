@@ -77,8 +77,8 @@
   				'2016 Disbursements',
   				'2017 Disbursements',
   				'2018 Disbursements',
-          'Total Project Value',
-          'Trends'
+  				'Total Project Value',
+  				'Trends',
   			],
   			options: {
   				saveState: true,
@@ -103,5 +103,9 @@
 <style scoped>
   #projects {
   	margin-top: 5%;
+  }
+
+  #table {
+  	overflow: auto;
   }
 </style>

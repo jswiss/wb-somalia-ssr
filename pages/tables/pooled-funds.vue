@@ -52,16 +52,16 @@
   	name: 'envelopes',
   	data() {
   		return {
-        columns: [
-    'Agency',
-    'Contributions to MDTFs',
-    'Category',
-    '2015',
-    '2016',
-    '2017',
-    '2018',
-    'Trends',
-  ],
+  			columns: [
+  				'Agency',
+  				'Contributions to MDTFs',
+  				'Category',
+  				'2015',
+  				'2016',
+  				'2017',
+  				'2018',
+  				'Trends',
+  			],
   			options: {
   				options: {
   					saveState: true,
@@ -81,3 +81,9 @@
   	},
   };
 </script>
+
+<style scoped>
+  #table {
+  	overflow: auto;
+  }
+</style>

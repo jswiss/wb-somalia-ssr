@@ -81,3 +81,10 @@
   	},
   };
 </script>
+
+<style scoped>
+  .table {
+  	overflow: auto;
+  }
+</style>
+

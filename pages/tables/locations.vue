@@ -93,3 +93,8 @@
   }
 </style>
 
+<style scoped>
+  #table {
+  	overflow: auto;
+  }
+</style>
