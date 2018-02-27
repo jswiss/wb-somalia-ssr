@@ -16,7 +16,7 @@
           <div id="institutions"></div>
         </div>
         <div class="column is-1"></div>
-        <div class="column is-5">
+        <div class="column is-5 is-mobile">
           <div id="economic-growth"></div>
         </div>
       </div>
@@ -26,7 +26,7 @@
           <div id="resilience"></div>
         </div>
         <div class="column is-1"></div>
-        <div class="column is-5">
+        <div class="column is-5 is-mobile">
           <div id="infrastructure"></div>
         </div>
       </div>
@@ -36,7 +36,7 @@
           <div id="social-human"></div>
         </div>
         <div class="column is-1"></div>
-        <div class="column is-5">
+        <div class="column is-5 is-mobile">
           <div id="peace-security"></div>
         </div>
       </div>
@@ -154,7 +154,7 @@
 
   			chart.yScale().minimum(0);
 
-  			chart.tooltip().format('{%x}: ${%Value}');
+  			chart.tooltip().format('${%Value} mln');
 
   			chart.interactivity().hoverMode('by-x');
 
