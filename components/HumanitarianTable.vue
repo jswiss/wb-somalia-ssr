@@ -1,5 +1,5 @@
 <template>
-  <div class="column is-5 buffer">
+  <div class="column is-5 buffer is-mobile">
     <h3 class="title is-4">Reported Humanitarian Aid By Partner</h3>
     <h6 class="subtitle is-6">US$ Millions, listed in order of magnitude of total aid reported for 2016-18</h6>
     <table class="table is-bordered is-striped is-narrow is-hoverable">

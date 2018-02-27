@@ -5,17 +5,17 @@
       <h1 class="column title is-3">Overview of Flows</h1>
     </div>
     <div class="columns">
-      <div class="column is-5">
+      <div class="column is-5 is-mobile">
         <gdp-chart></gdp-chart>
       </div>
       <div class="column is-1"></div>
-      <div class="column is-5">
+      <div class="column is-5 is-mobile">
         <oda-chart></oda-chart>
       </div>
     <div class="columns"></div>
     </div>
     <div class="columns" id="tables">
-      <div class="column is-1"></div>
+      <div class="column is-1 is-mobile"></div>
       <no-ssr placeholder="Loading...">
         <humanitarian-table/>
       </no-ssr>
