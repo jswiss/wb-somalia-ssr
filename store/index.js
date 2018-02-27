@@ -88,39 +88,12 @@ export const mutations = {
     });
   },
   SET_TREE_2016(state, data) {
-    data.forEach(k => {
-      if (k.location === 'southWest') {
-        k.location = 'South West';
-      } else if (k.location === 'fgs') {
-        k.location = 'FGS';
-      } else {
-        k.location = capitalizeString(k.location);
-      }
-    });
     state.treeMap2016 = data;
   },
   SET_TREE_2017(state, data) {
-    data.forEach(k => {
-      if (k.location === 'southWest') {
-        k.location = 'South West';
-      } else if (k.location === 'fgs') {
-        k.location = 'FGS';
-      } else {
-        k.location = capitalizeString(k.location);
-      }
-    });
     state.treeMap2017 = data;
   },
   SET_TREE_2018(state, data) {
-    data.forEach(k => {
-      if (k.location === 'southWest') {
-        k.location = 'South West';
-      } else if (k.location === 'fgs') {
-        k.location = 'FGS';
-      } else {
-        k.location = capitalizeString(k.location);
-      }
-    });
     state.treeMap2018 = data;
   },
   SET_PROJECT(state, data) {
