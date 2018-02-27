@@ -18,9 +18,9 @@
   	},
   	async asyncData({ query, error, store }) {
   		let [envRes, pooledRes, locRes] = await Promise.all([
-  			axios.get('http://somalia-api.us-east-2.elasticbeanstalk.com/envelopes'),
-  			axios.get('http://somalia-api.us-east-2.elasticbeanstalk.com/pooled'),
-  			axios.get('http://somalia-api.us-east-2.elasticbeanstalk.com/locations'),
+  			axios.get('https://api.80pco.com/envelopes'),
+  			axios.get('https://api.80pco.com/pooled'),
+  			axios.get('https://api.80pco.com/locations'),
   		]);
   		store.commit('SET_ENV_TABLE', envRes.data);
   		store.commit('SET_POOLED_TABLE', pooledRes.data);

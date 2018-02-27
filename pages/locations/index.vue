@@ -65,9 +65,9 @@
   	},
   	async asyncData({ query, error, store }) {
   		let [tree2016, tree2017, tree2018] = await Promise.all([
-  			axios.get('http://somalia-api.us-east-2.elasticbeanstalk.com/2016'),
-  			axios.get('http://somalia-api.us-east-2.elasticbeanstalk.com/2017'),
-  			axios.get('http://somalia-api.us-east-2.elasticbeanstalk.com/2018'),
+  			axios.get('https://api.80pco.com/2016'),
+  			axios.get('https://api.80pco.com/2017'),
+  			axios.get('https://api.80pco.com/2018'),
   		]);
   		store.commit('SET_TREE_2016', tree2016.data);
   		store.commit('SET_TREE_2017', tree2017.data);
