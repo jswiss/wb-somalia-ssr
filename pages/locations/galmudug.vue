@@ -77,7 +77,7 @@
   			galmudugEconomicClusterData: [
   				['Private Sector Development', 2.2, 1.6, 1.0],
   				[
-  					'Productive Sectors \n(Agriculture, Fisheries, Livestock)',
+  					'Productive Sectors \n(Agriculture, \nFisheries, Livestock)',
   					0.3,
   					0.1,
   					0.1,

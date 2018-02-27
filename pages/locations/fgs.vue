@@ -77,7 +77,7 @@
   			fgsEconomicClusterData: [
   				['Private Sector\n Development', 1.8, 3, 3.7],
   				[
-  					'Productive Sectors\n (Agriculture, Fisheries, Livestock)',
+  					'Productive Sectors\n (Agriculture, \nFisheries, Livestock)',
   					2.7,
   					2.7,
   					0.1,
