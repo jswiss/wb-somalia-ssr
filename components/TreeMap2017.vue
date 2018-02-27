@@ -1,5 +1,105 @@
 <template>
-  <div>
-    2017
-  </div>
+  <div id="tree"></div>
 </template>
+
+<script>
+  const d3 = Object.assign({}, require('d3-array'), require('d3-collection'));
+  import { capitalizeString } from '../pages/helpers';
+
+  export default {
+  	name: 'TreeMap2017',
+  	computed: {
+  		tree() {
+  			const data = this.$store.state.treeMap2017;
+
+  			const tree = { values: {} };
+  			tree.values = d3
+  				.nest()
+  				.key(d => d.location)
+  				.key(d => d.pillar)
+  				.key(d => d.sector)
+  				.key(d => d.project)
+  				.rollup(d => d3.sum(d, d => d.value))
+  				.entries(data);
+  			console.log('====================================');
+  			console.log(tree);
+  			console.log('====================================');
+
+  			const tree2017 = [
+  				{
+  					name: 2017,
+  					children: tree.values.map(location => {
+  						return {
+  							name: location.key,
+  							children: location.values.map(pillar => {
+  								return {
+  									name: pillar.key,
+  									children: pillar.values.map(sector => {
+  										return {
+  											name: sector.key,
+  											children: sector.values.map(project => {
+  												return {
+  													name: project.key,
+  													value: project.value,
+  													url: `https://somaliaaidflows.so/tables/projects/${
+  														project.key
+  													}`,
+  												};
+  											}),
+  										};
+  									}),
+  								};
+  							}),
+  						};
+  					}),
+  				},
+  			];
+
+  			return tree2017;
+  		},
+  	},
+  	methods: {
+  		treeChart() {
+  			const treeData = this.tree;
+  			const chart = anychart.treeMap(treeData);
+
+  			chart
+  				.headers()
+  				.format('{%name} :: Disbursements: ${%value}{groupsSeparator:\\,}');
+  			chart.headers().fontSize(15);
+  			chart.headers().fontWeight('bold');
+  			chart.labels().format('{%name}');
+  			// chart.labels().textWrap('byWord');
+  			chart.labels().fontSize(11);
+  			chart.labels().fontWeight(900);
+  			chart.labels().fontColor('White');
+  			chart.tooltip().titleFormat('{%name}');
+  			chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
+  			chart.hintOpacity(0.7);
+  			chart.listen('pointClick', e => {
+  				// eslint-disable-next-line
+  				console.log(e.point.get('name'));
+  				const new_value = e.point.get('url');
+  				if (new_value) {
+  					window.open(new_value, '_blank');
+  				}
+  			});
+  			chart.maxDepth(1);
+  			chart.colorRange(true);
+
+  			chart.container('tree');
+  			chart.draw();
+  		},
+  	},
+  	mounted() {
+  		this.treeChart();
+  	},
+  };
+</script>
+
+<style scoped>
+  #tree {
+  	width: auto;
+  	height: 300%;
+  }
+</style>

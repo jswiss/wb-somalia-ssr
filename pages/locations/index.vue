@@ -4,7 +4,7 @@
       <h1 class="title is-1">Disbursements by Location, Pillar, Sector, and Project</h1>
       <div class="columns">
         <div class="column is-2"></div>
-        <div class="column is-8">
+        <div class="column is-10 is-mobile">
           <div class="field">
             <p class="control" id="radios">
               <label class="radio">
@@ -21,24 +21,29 @@
               </label>
             </p>
           </div>
+          <div class="instructions">
+            <p class="is-size-7 has-text-grey-light">
+              Click on the treemap to see the breakdown of aid disbursements by location, NDP pillar, sector, and project. Click the top bar of the chart to go up a level.
+            </p>
+          </div>
         </div>
         <div class="column is-2"></div>
       </div>
-      <div class="columns">
-        <div class="column is-2"></div>
-        <div class="column is-8">
+      <div class="columns is-narrow">
+        <div class="column is-1"></div>
+        <div class="column is-10 is-mobile">
           <tree-map-2016 v-if="tree === 2016"></tree-map-2016>
           <tree-map-2018 v-if="tree === 2018"></tree-map-2018>
           <tree-map-2017 v-if="tree2017"></tree-map-2017>
         </div>
-        <div class="column is-2"></div>
+        <div class="column is-1"></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import { mapState, mapMutations } from 'vuex';
+  import axios from 'axios';
   import LocationsMenu from '~/components/LocationsMenu';
   import TreeMap2016 from '~/components/TreeMap2016';
   import TreeMap2017 from '~/components/TreeMap2017';
@@ -58,8 +63,21 @@
   		TreeMap2017,
   		TreeMap2018,
   	},
-  	computed: {
-  		...mapMutations(['SET_TREE']),
+  	async asyncData({ query, error, store }) {
+  		let [tree2016, tree2017, tree2018] = await Promise.all([
+  			axios.get('http://somalia-api.us-east-2.elasticbeanstalk.com/2016'),
+  			axios.get('http://somalia-api.us-east-2.elasticbeanstalk.com/2017'),
+  			axios.get('http://somalia-api.us-east-2.elasticbeanstalk.com/2018'),
+  		]);
+  		store.commit('SET_TREE_2016', tree2016.data);
+  		store.commit('SET_TREE_2017', tree2017.data);
+  		store.commit('SET_TREE_2018', tree2018.data);
+
+  		return {
+  			tree2016: tree2016.data,
+  			tree2017: tree2017.data,
+  			tree2018: tree2018.data,
+  		};
   	},
   };
 </script>
@@ -70,6 +88,9 @@
   }
   input[type='radio'] {
   	margin-right: 10px;
+  }
+  .instructions {
+  	font-style: italic;
   }
 </style>
 

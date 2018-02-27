@@ -1,7 +1,6 @@
 import axios from 'axios';
 import moment from 'moment';
-const d3 = Object.assign({}, require('d3-array'), require('d3-collection'));
-import { excelToJsDate } from '../pages/helpers';
+import { excelToJsDate, capitalizeString } from '../pages/helpers';
 
 export const state = () => ({
   project: null,
@@ -9,11 +8,10 @@ export const state = () => ({
   envelopeTable: [],
   pooledTable: [],
   projectsTable: [],
-  locationTree2016: [],
-  locationTree2017: [],
-  locationTree2018: [],
   locationTable: [],
-  treeMap: [],
+  treeMap2016: [],
+  treeMap2017: [],
+  treeMap2018: [],
   color: {
     blue: '#4587EA',
     green: '#81D8C2',
@@ -89,8 +87,41 @@ export const mutations = {
       };
     });
   },
-  SET_TREE(state, data) {
-    state.treeMap = data;
+  SET_TREE_2016(state, data) {
+    data.forEach(k => {
+      if (k.location === 'southWest') {
+        k.location = 'South West';
+      } else if (k.location === 'fgs') {
+        k.location = 'FGS';
+      } else {
+        k.location = capitalizeString(k.location);
+      }
+    });
+    state.treeMap2016 = data;
+  },
+  SET_TREE_2017(state, data) {
+    data.forEach(k => {
+      if (k.location === 'southWest') {
+        k.location = 'South West';
+      } else if (k.location === 'fgs') {
+        k.location = 'FGS';
+      } else {
+        k.location = capitalizeString(k.location);
+      }
+    });
+    state.treeMap2017 = data;
+  },
+  SET_TREE_2018(state, data) {
+    data.forEach(k => {
+      if (k.location === 'southWest') {
+        k.location = 'South West';
+      } else if (k.location === 'fgs') {
+        k.location = 'FGS';
+      } else {
+        k.location = capitalizeString(k.location);
+      }
+    });
+    state.treeMap2018 = data;
   },
   SET_PROJECT(state, data) {
     state.project = data;
