@@ -4,18 +4,16 @@
       <h1 class="title is-1">{{ title }}</h1>
       <div class="columns">
         <div class="column is-1"></div>
-        <div class="column is-5 is-mobile">
+        <div class="column is-10 is-mobile">
           <div id="project-disbursements"></div>
         </div>
         <div class="column is-1"></div>
-        <div class="column is-5 is-mobile">
-          <div id="institutions"></div>
-        </div>
+
       </div>
       <div class="columns">
         <div class="column is-1"></div>
         <div class="column is-5 is-mobile">
-          <div id="peace-security"></div>
+          <div id="institutions"></div>
         </div>
         <div class="column is-1"></div>
         <div class="column is-5">
@@ -39,6 +37,7 @@
         </div>
         <div class="column is-1"></div>
         <div class="column is-5">
+          <div id="peace-security"></div>
         </div>
       </div>
     </div>
