@@ -1,5 +1,6 @@
 import axios from 'axios';
 import moment from 'moment';
+const d3 = Object.assign({}, require('d3-array'), require('d3-collection'));
 import { excelToJsDate } from '../pages/helpers';
 
 export const state = () => ({
@@ -12,6 +13,7 @@ export const state = () => ({
   locationTree2017: [],
   locationTree2018: [],
   locationTable: [],
+  treeMap: [],
   color: {
     blue: '#4587EA',
     green: '#81D8C2',
@@ -87,14 +89,8 @@ export const mutations = {
       };
     });
   },
-  SET_2016_LOC_TREE(state, data) {
-    state.locationTree2016 = data;
-  },
-  SET_2017_LOC_TREE(state, data) {
-    state.locationTree2017 = data;
-  },
-  SET_2018_LOC_TREE(state, data) {
-    state.locationTree2018 = data;
+  SET_TREE(state, data) {
+    state.treeMap = data;
   },
   SET_PROJECT(state, data) {
     state.project = data;

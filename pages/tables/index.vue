@@ -8,7 +8,6 @@
 </template>
 
 <script>
-  import { mapState, mapMutations, mapActions } from 'vuex';
   import axios from 'axios';
   import TableTabs from '~/components/TableTabs';
 
@@ -17,13 +16,6 @@
   	components: {
   		TableTabs,
   	},
-  	// fetch({ store, params }) {
-  	// 	return axios
-  	// 		.get('http://somalia-aid-flows.herokuapp.com/project-table')
-  	// 		.then(res => {
-  	// 			store.commit('getProjectData', res.data);
-  	// 		});
-  	// },
   	async asyncData({ query, error, store }) {
   		let [envRes, pooledRes, locRes] = await Promise.all([
   			axios.get('http://somalia-api.us-east-2.elasticbeanstalk.com/envelopes'),

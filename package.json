@@ -20,6 +20,8 @@
     "anychart-nodejs": "^1.3.8",
     "babel-preset-es2015": "^6.24.1",
     "bulma": "^0.6.2",
+    "d3-array": "^1.2.1",
+    "d3-collection": "^1.0.4",
     "moment": "^2.20.1",
     "nuxt": "^1.0.0",
     "vue-bulma-tables-2": "^0.6.36",

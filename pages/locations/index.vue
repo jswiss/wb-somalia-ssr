@@ -1,18 +1,76 @@
 <template>
-  <div id="location">
+  <div id="location" class="section">
+    <div class="container">
+      <h1 class="title is-1">Disbursements by Location, Pillar, Sector, and Project</h1>
+      <div class="columns">
+        <div class="column is-2"></div>
+        <div class="column is-8">
+          <div class="field">
+            <p class="control" id="radios">
+              <label class="radio">
+                <input type="radio" name="question" value="2018" @click="tree = 2018, tree2017 = false">
+                2018
+              </label>
+              <label class="radio">
+                <input type="radio" name="question" value="2017" @click="tree = 2017, tree2017 = true">
+                2017
+              </label>
+              <label class="radio">
+                <input type="radio" name="question" value="2016" @click="tree = 2016, tree2017 = false">
+                2016
+              </label>
+            </p>
+          </div>
+        </div>
+        <div class="column is-2"></div>
+      </div>
+      <div class="columns">
+        <div class="column is-2"></div>
+        <div class="column is-8">
+          <tree-map-2016 v-if="tree === 2016"></tree-map-2016>
+          <tree-map-2018 v-if="tree === 2018"></tree-map-2018>
+          <tree-map-2017 v-if="tree2017"></tree-map-2017>
+        </div>
+        <div class="column is-2"></div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+  import { mapState, mapMutations } from 'vuex';
   import LocationsMenu from '~/components/LocationsMenu';
+  import TreeMap2016 from '~/components/TreeMap2016';
+  import TreeMap2017 from '~/components/TreeMap2017';
+  import TreeMap2018 from '~/components/TreeMap2018';
+
   export default {
   	name: 'locations',
   	layout: 'locations',
+  	data() {
+  		return {
+  			tree2017: true,
+  			tree: '',
+  		};
+  	},
+  	components: {
+  		TreeMap2016,
+  		TreeMap2017,
+  		TreeMap2018,
+  	},
+  	computed: {
+  		...mapMutations(['SET_TREE']),
+  	},
   };
 </script>
 
 <style scoped>
-  #location {
-  	margin-top: 5%;
+  label.radio {
+  	margin-left: 15%;
+  }
+  input[type='radio'] {
+  	margin-right: 10px;
   }
 </style>
+
+
