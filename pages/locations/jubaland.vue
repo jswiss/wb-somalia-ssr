@@ -95,7 +95,7 @@
   			],
   			jubalandResilienceClusterData: [
   				[
-  					'Migration, \nDisplayment, \nRefugees and Durable Solutions',
+  					'Migration, \nDisplayment, \nRefugees and \nDurable Solutions',
   					5.2,
   					15.7,
   					3.5,
