@@ -1,9 +1,17 @@
 <template lang="html">
-  <div id="topmost" class="container is-fluid">
-    <table-tabs></table-tabs>
-    <div id="table-text">
-			Dummy text here (add columns dummy)
-		</div>
+  <div id="section" class="section">
+    <div class="container">
+      <table-tabs></table-tabs>
+      <div class="columns">
+        <div class="column is-3"></div>
+        <div class="column is-6">
+          <div id="table-text">
+            Choose a table from the tabs above to view detailed aid flow data. In each of the tables, you can sort by columns and search most fields. The raw data is available for download in the <nuxt-link to="/documents">document library</nuxt-link>.
+          </div>
+        </div>
+        <div class="column is-3"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -36,3 +44,10 @@
   	},
   };
 </script>
+
+<style scoped>
+  #table-text {
+  	margin-top: 3%;
+  }
+</style>
+
