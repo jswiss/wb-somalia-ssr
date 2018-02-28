@@ -17,6 +17,8 @@
   		TableTabs,
   	},
   	async asyncData({ query, error, store }) {
+  		if (store.state.envelopeTable.length !== 0) return;
+
   		let [envRes, pooledRes, locRes] = await Promise.all([
   			axios.get('https://api.80pco.com/envelopes'),
   			axios.get('https://api.80pco.com/pooled'),

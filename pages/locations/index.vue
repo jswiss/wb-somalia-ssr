@@ -64,6 +64,8 @@
   		TreeMap2018,
   	},
   	async asyncData({ query, error, store }) {
+  		if (store.state.treeMap2016.length !== 0) return;
+
   		let [tree2016, tree2017, tree2018] = await Promise.all([
   			axios.get('https://api.80pco.com/2016'),
   			axios.get('https://api.80pco.com/2017'),
