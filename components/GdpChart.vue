@@ -58,6 +58,8 @@
 
   			chart.tooltip().format('{%Value}%');
 
+  			chart.animation(true);
+
   			chart.title('Financial Flows as Percent of GDP, 2017');
   			chart.yAxis().title('% GDP');
   			chart.container('gdp');

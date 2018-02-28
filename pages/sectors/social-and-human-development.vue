@@ -230,7 +230,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-              on the default primary value scale*/
+                on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -263,6 +263,8 @@
 
   			// set the container id
   			chart.container('stack-chart');
+
+  			chart.animation(true);
 
   			var labels = chart.xAxis().labels();
   			labels.enabled(true);
@@ -298,7 +300,7 @@
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
 
   			/* enable the value stacking mode
-              on the default primary value scale*/
+                on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -331,6 +333,8 @@
 
   			// set the container id
   			chart.container('country-stack');
+
+  			chart.animation(true);
 
   			var labels = chart.xAxis().labels();
   			labels.enabled(true);

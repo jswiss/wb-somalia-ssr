@@ -228,7 +228,7 @@
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
   			var seriesData_4 = dataSet.mapAs({ x: 0, value: 4 });
   			/* enable the value stacking mode
-                        on the default primary value scale*/
+                              on the default primary value scale*/
   			chart.yScale().stackMode('value');
   			// create column series
   			chart.legend(true);
@@ -261,13 +261,16 @@
   				'Effective, Efficient Institutions: Project Disbursements by Sector'
   			);
   			// set the container id
-  			chart.container('stack-chart');
   			var labels = chart.xAxis().labels();
   			labels.enabled(true);
   			chart
   				.yAxis()
   				.labels()
   				.format('${%value} mln');
+
+  			chart.animation(true);
+
+  			chart.container('stack-chart');
   			// initiate drawing the chart
   			chart.draw();
   		},
@@ -277,8 +280,8 @@
   				'Key Implementers of Effective, Efficient Institutions Projects'
   			);
   			chart.container('pie-chart');
-  			chart.animation(true);
   			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+  			chart.animation(true);
   			chart.draw();
   		},
   		renderCountryStack() {
@@ -291,7 +294,7 @@
   			// create a chart
   			var chart = anychart.column();
   			/* enable the value stacking mode
-                        on the default primary value scale*/
+                              on the default primary value scale*/
   			chart.yScale().stackMode('value');
   			chart.legend(true);
   			// create column series
@@ -324,13 +327,16 @@
   				'Effective, Efficient Institutions: Project Disbursements by Location'
   			);
   			// set the container id
-  			chart.container('country-stack');
   			var labels = chart.xAxis().labels();
   			labels.enabled(true);
   			chart
   				.yAxis()
   				.labels()
   				.format('${%value} mln');
+
+  			chart.animation(true);
+
+  			chart.container('country-stack');
   			// initiate drawing the chart
   			chart.draw();
   		},

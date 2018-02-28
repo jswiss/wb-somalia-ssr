@@ -237,7 +237,7 @@
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
 
   			/* enable the value stacking mode
-              on the default primary value scale*/
+                on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -262,6 +262,8 @@
   				.name('2016')
   				.tooltip()
   				.format('2016: ${%Value} mln');
+
+  			chart.animation(true);
 
   			// set the chart title
   			chart.title('Gender & Human Rights: Project Disbursements by Location');

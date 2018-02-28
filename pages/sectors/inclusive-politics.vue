@@ -178,17 +178,7 @@
 
   			chart.yScale().minimum(0);
 
-  			// chart
   			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
-
-  			// .tooltip()
-  			// .displayMode('union')
-  			// .positionMode('point')
-  			// .unionFormat(function(){
-  			//   return `Plain: $${
-  			//     this.points[0].value
-  			//   } mln \n Fact: $${this.points[0].value} `;
-  			// });
 
   			chart.interactivity().hoverMode('by-x');
 
@@ -225,8 +215,7 @@
   			// create a chart
   			var chart = anychart.column();
 
-  			/* enable the value stacking mode
-                                                        on the default primary value scale*/
+  			// enable the value stacking mode on the default primary value scale
   			chart.yScale().stackMode('value');
 
   			// create column series

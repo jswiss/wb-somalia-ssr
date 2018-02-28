@@ -254,8 +254,10 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-            on the default primary value scale*/
+              on the default primary value scale*/
   			chart.yScale().stackMode('value');
+
+  			chart.animation(true);
 
   			chart.legend(true);
   			// create column series
@@ -334,7 +336,7 @@
   			var seriesData_6 = dataSet.mapAs({ x: 0, value: 6 });
 
   			/* enable the value stacking mode
-            on the default primary value scale*/
+              on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -386,6 +388,8 @@
 
   			// set the chart title
   			chart.title('Resilience: Project Disbursements by Location');
+
+  			chart.animation(true);
 
   			// set the container id
   			chart.container('country-stack');

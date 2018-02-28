@@ -217,7 +217,7 @@
   			chart.legend(true);
 
   			/* enable the value stacking mode
-                    on the default primary value scale*/
+                      on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -255,6 +255,8 @@
   				.labels()
   				.format('${%value} mln');
 
+  			chart.animation(true);
+
   			// initiate drawing the chart
   			chart.draw();
   		},
@@ -281,7 +283,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-                    on the default primary value scale*/
+                      on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -316,6 +318,9 @@
   				.yAxis()
   				.labels()
   				.format('${%value} mln');
+
+  			chart.animation(true);
+
   			// initiate drawing the chart
   			chart.draw();
   		},
