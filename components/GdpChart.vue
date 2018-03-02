@@ -71,3 +71,9 @@
   	},
   };
 </script>
+
+<style scoped>
+  #gdp {
+    height: 350px;
+  }
+</style>

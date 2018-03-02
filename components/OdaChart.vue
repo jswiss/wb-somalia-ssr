@@ -94,3 +94,9 @@
   	},
   };
 </script>
+
+<style scoped>
+  #oda {
+    height: 350px;
+  }
+</style>
