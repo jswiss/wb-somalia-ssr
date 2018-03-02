@@ -5,7 +5,7 @@
       <div class="column is-2">
         <locations-menu/>
       </div>
-      <div class="column is-10 buffer">
+      <div class="column is-10">
         <nuxt/>
       </div>
     </div>
@@ -18,6 +18,7 @@
   import FooterMenu from '~/components/FooterMenu';
   import LocationsMenu from '~/components/LocationsMenu';
   export default {
+    name: 'locations',
   	components: {
   		NavBar,
   		FooterMenu,

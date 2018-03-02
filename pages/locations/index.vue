@@ -1,9 +1,9 @@
 <template>
-  <div id="location" class="section">
-    <div class="container">
-      <h1 class="title is-1">Disbursements by Location, Pillar, Sector, and Project</h1>
+  <div class="section is-fluid">
+    <div class="container is-mobile">
+      <h1 class="title is-3">Disbursements by Location, Pillar, Sector, and Project</h1>
+      <h1 class="subtitle is-6">Choose from the menu at the left for location-specific aid information.</h1>
       <div class="columns">
-        <div class="column is-2"></div>
         <div class="column is-10 is-mobile">
           <div class="field">
             <p class="control" id="radios">
@@ -27,16 +27,15 @@
             </p>
           </div>
         </div>
-        <div class="column is-2"></div>
+        <div class="column is-1 is-mobile"></div>
       </div>
       <div class="columns is-narrow">
-        <div class="column is-1"></div>
         <div class="column is-10 is-mobile">
           <tree-map-2016 v-if="tree === 2016"></tree-map-2016>
           <tree-map-2018 v-if="tree === 2018"></tree-map-2018>
           <tree-map-2017 v-if="tree2017"></tree-map-2017>
         </div>
-        <div class="column is-1"></div>
+        <div class="column is-1 is-mobile"></div>
       </div>
     </div>
   </div>

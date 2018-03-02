@@ -79,9 +79,9 @@
   			chart.listen('pointClick', e => {
   				// eslint-disable-next-line
   				console.log(e.point.get('name'));
-  				const new_value = e.point.get('url');
-  				if (new_value) {
-  					window.open(new_value, '_blank');
+  				const newValue = e.point.get('url');
+  				if (newValue) {
+  					window.open(newValue, '_self');
   				}
   			});
   			chart.maxDepth(1);

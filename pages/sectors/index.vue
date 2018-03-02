@@ -1,6 +1,6 @@
-<template lang="html">
-  <div id="sectors" class="section is-fluid">
-    <div id="container">
+<template>
+  <div class="section is-fluid">
+    <div class="container is-mobile">
       <h1 class="title is-3">{{ title }}</h1>
       <h1 class="subtitle is-6">Choose from the menu at the left for specific sectoral aid information.</h1>
       <div class="columns">
@@ -132,12 +132,7 @@
 <style scoped>
   /* make sure div#id has a size defined, otherwise nothing will render */
 
-  #container {
-  	width: 100%;
-  	height: 100%;
-  	margin: 0;
-  	padding: 0;
-  }
+
 
   #aid-by-pillar {
   	height: 800px;
