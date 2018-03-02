@@ -8,7 +8,6 @@
         <div class="column"></div>
       </div>
 
-
       <div class="column is-half">
         <div id="stack-chart" class="column"></div>
       </div>
@@ -131,12 +130,8 @@
   </div>
 </template>
 
-
-
-
 <script>
 import { formatMillion } from '../helpers'
-
 
 export default {
   name: 'resilience',
@@ -194,6 +189,7 @@ export default {
       const column = chart.column(seriesData);
       column
       .fill(this.$store.state.color.blue)
+      .stroke(null)
       .labels()
       .enabled(true)
       .format('${%Value}{groupsSeparator:\\,} mln');
@@ -244,6 +240,7 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
+      .stroke(null)
       .name("Cross-cutting resilience")
       .tooltip()
       .format('Cross-cutting resilience: ${%Value} mln');
@@ -251,6 +248,7 @@ export default {
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
+      .stroke(null)
       .name("Lifesaving humanitarian - cross-cutting")
       .tooltip()
       .format('Lifesaving humanitarian - cross-cutting: ${%Value} mln');
@@ -258,6 +256,7 @@ export default {
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
+      .stroke(null)
       .name("Food Security")
       .tooltip()
       .format('Food Security: ${%Value} mln');
@@ -265,6 +264,7 @@ export default {
       chart
       .column(seriesData_4)
       .color(this.$store.state.color.tan)
+      .stroke(null)
       .name("Social Protection")
       .tooltip()
       .format('Sociak Protection: ${%Value} mln');
@@ -272,6 +272,7 @@ export default {
       chart
       .column(seriesData_5)
       .color(this.$store.state.color.violet)
+      .stroke(null)
       .name("Natural Resources Management")
       .tooltip()
       .format('Natural Resources Management: ${%Value} mln');
@@ -279,6 +280,7 @@ export default {
       chart
       .column(seriesData_6)
       .color(this.$store.state.color.brown)
+      .stroke(null)
       .name("Migration, Displacement, Refugees and Durable Solutions")
       .tooltip()
       .format('Migration, Displacement, Refugees and Durable Solutions: ${%Value} mln');
@@ -321,6 +323,7 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
+      .stroke(null)
       .name("Cross-cutting resilience")
       .tooltip()
       .format('Cross-cutting resilience: ${%Value} mln');
@@ -328,6 +331,7 @@ export default {
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
+      .stroke(null)
       .name("Lifesaving humanitarian - cross-cutting")
       .tooltip()
       .format('Lifesaving humanitarian - cross-cutting: ${%Value} mln');
@@ -335,6 +339,7 @@ export default {
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
+      .stroke(null)
       .name("Food Security")
       .tooltip()
       .format('Food Security: ${%Value} mln');
@@ -342,6 +347,7 @@ export default {
       chart
       .column(seriesData_4)
       .color(this.$store.state.color.tan)
+      .stroke(null)
       .name("Social Protection")
       .tooltip()
       .format('Sociak Protection: ${%Value} mln');
@@ -349,6 +355,7 @@ export default {
       chart
       .column(seriesData_5)
       .color(this.$store.state.color.violet)
+      .stroke(null)
       .name("Natural Resources Management")
       .tooltip()
       .format('Natural Resources Management: ${%Value} mln');
@@ -356,10 +363,10 @@ export default {
       chart
       .column(seriesData_6)
       .color(this.$store.state.color.brown)
+      .stroke(null)
       .name("Migration, Displacement, Refugees and Durable Solutions")
       .tooltip()
       .format('Migration, Displacement, Refugees and Durable Solutions: ${%Value} mln');
-
 
       // set the chart title
       chart.title("Resilience: Project Disbursements by Location");
