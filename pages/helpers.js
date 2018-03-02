@@ -61,3 +61,13 @@ export async function getLocationData({ store, redirect, client }) {
     console.log(err);
   }
 }
+
+export function formatMillion(number) {
+  if (number < 1000000) {
+    var num = Math.floor(number / 10000)
+    return num / 100
+  } else if (number < 1000000000) {
+    var num = Math.floor(number / 100000)
+    return num / 10
+  }
+}

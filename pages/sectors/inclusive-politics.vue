@@ -92,6 +92,7 @@
 </template>
 
 <script>
+import { formatMillion } from '../helpers'
 
 export default {
   name: 'inclusive-politics',
@@ -111,10 +112,15 @@ export default {
         ["Unclear / TBD", 3787340]
       ],
       inclusivePoliticsChart: [
-        ["2016", 96124800],
-        ["2017", 65736375],
-        ["2018", 28332975]
+        ["2016", formatMillion(96124800)],
+        ["2017", formatMillion(65736375)],
+        ["2018", formatMillion(28332975)]
       ],
+      // inclusivePoliticsChart: [
+      //   ["2016", 96.1],
+      //   ["2017", 65.7],
+      //   ["2018", 28.3]
+      // ],
       inclusivePoliticsLocationStack: [
         ["FGS", 4.0, 12.8, 17.6],
         ["Benadir", 1.0, 3.3, 6.2],
@@ -127,10 +133,10 @@ export default {
         ["Unattributed", 6.7, 11.9, 9.9]
       ],
       inclusivePoliticsPie: [
-        {x: "NGOs", value: 81895424, normal:  {fill: this.$store.state.color.blue} },
-        {x: "UN", value: 57038475, normal: {fill: this.$store.state.color.green} },
-        {x: "Private Sector", value: 36028311, normal: {fill: this.$store.state.color.yellow} },
-        {x: "Other", value: 15231941, normal: {fill: this.$store.state.color.tan} }
+        {x: "NGOs", value: formatMillion(81895424), normal:  {fill: this.$store.state.color.blue} },
+        {x: "UN", value: formatMillion(57038475), normal: {fill: this.$store.state.color.green} },
+        {x: "Private Sector", value: formatMillion(36028311), normal: {fill: this.$store.state.color.yellow} },
+        {x: "Other", value: formatMillion(15231941), normal: {fill: this.$store.state.color.tan} }
       ],
     }
   },
@@ -147,7 +153,7 @@ export default {
       .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.animation(true);
 
@@ -155,24 +161,14 @@ export default {
 
       chart.yScale().minimum(0);
 
-      // chart
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
-
-      // .tooltip()
-      // .displayMode('union')
-      // .positionMode('point')
-      // .unionFormat(function(){
-      //   return `Plain: $${
-      //     this.points[0].value
-      //   } mln \n Fact: $${this.points[0].value} `;
-      // });
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
       chart.interactivity().hoverMode('by-x');
 
       chart
       .yAxis()
       .labels()
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.xAxis(true);
 
@@ -186,7 +182,7 @@ export default {
       chart.title("Inclusive Politics: Key Implementers");
       chart.container("pie-chart");
       chart.animation(true);
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
       chart.draw();
     },
@@ -247,8 +243,7 @@ export default {
 
       // initiate drawing the chart
       chart.draw();
-    },
-
+    }
   },
   mounted() {
     this.renderChart();
