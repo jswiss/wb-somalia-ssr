@@ -106,10 +106,6 @@
   </div>
 </template>
 
-
-
-
-
 <script>
 import { formatMillion } from '../helpers'
 
@@ -119,15 +115,15 @@ export default {
   data() {
     return {
       infrastructureData: [
-        ["Donor Agency", 6138444],
-        ["Government", 26602499],
-        ["IFI", 889142],
-        ["Mix of implementers - involving government", 18076515],
-        ["Mix of implementers - no government", 0],
-        ["NGOs", 12502249],
-        ["Private Sector", 16468854],
-        ["UN", 31369634],
-        ["Unclear / TBD", 2944444]
+        ["Donor Agency", formatMillion(6138444)],
+        ["Government", formatMillion(26602499)],
+        ["IFI", formatMillion(889142)],
+        ["Mix of implementers - involving government", formatMillion(18076515)],
+        ["Mix of implementers - no government", formatMillion(0)],
+        ["NGOs", formatMillion(12502249)],
+        ["Private Sector", formatMillion(16468854)],
+        ["UN", formatMillion(31369634)],
+        ["Unclear / TBD", formatMillion(2944444)]
       ],
       infrastructureDataStack: [
         ["2016", 11.1, 9.7, 13.0, 5.3],
@@ -135,19 +131,19 @@ export default {
         ["2018", 8.1, 3.5, 5.7, 7.7]
       ],
       infrastructureDataPie: [
-        {x: "UN", value: 31369634,
+        {x: "UN", value: formatMillion(31369634),
         normal: {fill: this.$store.state.color.blue}},
-        {x: "Government", value: 26602499,
+        {x: "Government", value: formatMillion(26602499),
         normal: {fill: this.$store.state.color.green}},
-        {x: "Mix of implementers - involving government", value: 18076515,
+        {x: "Mix of implementers - involving government", value: formatMillion(18076515),
         normal: {fill: this.$store.state.color.yellow}},
-        {x: "Private Sector", value: 16468854,
+        {x: "Private Sector", value: formatMillion(16468854),
         normal: {fill: this.$store.state.color.tan}},
-        {x: "NGOs", value: 12502249,
+        {x: "NGOs", value: formatMillion(12502249),
         normal: {fill: this.$store.state.color.violet}},
-        {x: "Donor Agencies", value: 6138444,
+        {x: "Donor Agencies", value: formatMillion(6138444),
         normal: {fill: this.$store.state.color.brown}},
-        {x: "Other", value: 3833586,
+        {x: "Other", value: formatMillion(3833586),
         normal: {fill: this.$store.state.color.pink}}
       ],
       infrastructureLocationStack: [
@@ -175,7 +171,7 @@ export default {
       .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.animation(true);
 
@@ -183,14 +179,14 @@ export default {
 
       chart.yScale().minimum(0);
 
-      chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.interactivity().hoverMode('by-x');
 
       chart
       .yAxis()
       .labels()
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.xAxis(true);
 
@@ -266,7 +262,7 @@ export default {
       chart.title("Key Implementers of Infrastructure Projects");
       chart.container("pie-chart");
       chart.animation(true);
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
       chart.draw();
     },
