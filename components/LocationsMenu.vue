@@ -5,7 +5,7 @@
           <nuxt-link class="nav-item" to="/locations/FGS" >
             <div id="chart-selector-1" class="column">
               <span>
-                <img src="../static/icons/somalia-outline-black.svg" alt="" class="location-icon">
+                <img src="../static/icons/institutions.svg" alt="" class="location-icon">
               </span>
               <h4 class="sidebar-title">
                 FGS
