@@ -248,17 +248,6 @@ export default {
 
       chart.draw();
     },
-    renderLocationStack() {
-
-      var chart = anychart.column();
-
-  			chart.title('Economic Growth: Key Implementers');
-  			chart.container('pie-chart');
-  			chart.animation(true);
-  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
-
-  			chart.draw();
-  		},
   		renderLocationStack() {
   			var chart = anychart.column();
 
