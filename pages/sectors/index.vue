@@ -131,11 +131,8 @@
 
 <style scoped>
   /* make sure div#id has a size defined, otherwise nothing will render */
-
-
-
   #aid-by-pillar {
-  	height: 800px;
+  	height: 600px;
   	width: 90%;
   }
 </style>

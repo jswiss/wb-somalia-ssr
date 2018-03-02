@@ -1,6 +1,4 @@
 <template>
-<div class="section">
-  <div class="container">
     <div class="columns">
       <div class="column is-4"></div>
       <div class="column is-4">
@@ -12,8 +10,6 @@
       </div>
       <div class="column is-4"></div>
     </div>
-  </div>
-</div>
 </template>
 
 <style scoped>
