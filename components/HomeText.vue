@@ -1,7 +1,7 @@
  <!--home page-->
 <template lang="html">
   <div class="title">
-    <p class="text">
+    <p class="text" id="top">
       This site provides tools for exploring the underlying data of the 2017 report <a href="https://s3.eu-west-2.amazonaws.com/somaliaaidflows.so/assets/Aid+Flows+Booklet+FINAL.pdf" target="_blank">Aid Flows in Somalia: Analysis of aid flow data</a>. The data was collected in the 2016 Aid Mapping Exercise led by the Aid Coordination Unit in the Office of the Prime Minister of the Federal Government of Somalia, with the support of the World Bank and United Nations. Find out more about the <router-link to="/about">Aid Mapping Exercise</router-link>.
     </p>
     <p class="text">
@@ -20,12 +20,14 @@ export default {
 .title {
   display: inline-block;
 }
+#top {
+  margin-top: 15%;
+}
 .text {
   font-size: 16px;
-  /*text-align: justify;*/
+  text-align: justify;
   line-height: 1.5;
   margin: 3%;
-  margin-top: 15%;
   font-weight: 400;
 }
 </style>
