@@ -43,3 +43,13 @@ export function capitalizeString(str) {
     .map(x => x[0].toUpperCase() + x.slice(1))
     .join(' ');
 }
+
+export function formatMillion(number) {
+  if (number < 1000000) {
+    var num = Math.floor(number / 10000)
+    return num / 100
+  } else if (number < 1000000000) {
+    var num = Math.floor(number / 100000)
+    return num / 10
+  }
+}

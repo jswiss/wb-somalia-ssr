@@ -104,257 +104,230 @@
   </div>
 </template>
 
-
 <script>
-  export default {
-  	name: 'social-and-human-development',
-  	layout: 'sectors',
-  	data() {
-  		return {
-  			title: 'Social and Human Development',
-  			socialHumanDevelopmentData: [
-  				['Academic / Research Institutions', 3733435],
-  				['Donor Agency', 16527778],
-  				['Government', 11718557],
-  				['IFI', 799, 565],
-  				['Intergovernmental Organization', 194500],
-  				['Mix of implementers - involving government', 186777138],
-  				['Mix of implementers - no government', 7961733],
-  				['NGOs', 219302287],
-  				['Other', 2022044],
-  				['Private Sector', 19542741],
-  				['UN', 64232464],
-  				['Unclear / TBD', 10, 374, 238],
-  			],
-  			socialHumanDevelopmentDataStack: [
-  				['2016', 1.8, 138.5, 55.4],
-  				['2017', 23.9, 176.3, 53.3],
-  				['2018', 0.5, 84.1, 9.4],
-  			],
-  			socialHumanDevelopmentDataPie: [
-  				{
-  					x: 'NGOs',
-  					value: 219302286.6,
-  					normal: { fill: this.$store.state.color.blue },
-  				},
-  				{
-  					x: 'Mix of implementers - involving government',
-  					value: 186777137.6,
-  					normal: { fill: this.$store.state.color.green },
-  				},
-  				{
-  					x: 'UN',
-  					value: 64232464.15,
-  					normal: { fill: this.$store.state.color.yellow },
-  				},
-  				{
-  					x: 'Private Sector',
-  					value: 19542741.02,
-  					normal: { fill: this.$store.state.color.tan },
-  				},
-  				{
-  					x: 'Donor Agency',
-  					value: 16527777.78,
-  					normal: { fill: this.$store.state.color.violet },
-  				},
-  				{
-  					x: 'Government',
-  					value: 11718557,
-  					normal: { fill: this.$store.state.color.brown },
-  				},
-  				{
-  					x: 'Other',
-  					value: 25085515.16,
-  					normal: { fill: this.$store.state.color.pink },
-  				},
-  			],
-  			socialHumanDevelopmentLocationData: [
-  				['FGS', 9.3, 10.4, 0],
-  				['Benadir', 5.4, 53, 5],
-  				['Galmudug', 9, 32.2, 2.5],
-  				['Hiirshabelle', 12, 38.3, 2.5],
-  				['Jubaland', 9.7, 40.1, 2.6],
-  				['Puntland', 15.3, 58.4, 5.9],
-  				['South West', 9.3, 32.8, 2.5],
-  				['Somaliland', 24.1, 65.6, 5],
-  				['Unattributed', 24, 67.9, 0],
-  			],
-  		};
-  	},
-  	methods: {
-  		renderChart() {
-  			const chart = anychart.cartesian();
-  			const dataSet = anychart.data.set(this.socialHumanDevelopmentData);
+import { formatMillion } from '../helpers'
 
-  			const seriesData = dataSet.mapAs({ x: 0, value: 1 });
+export default {
+  name: 'social-and-human-development',
+  layout: 'sectors',
+  data() {
+    return {
+      socialHumanDevelopmentData: [
+        ["Academic / Research Institutions", formatMillion(3733435)],
+        ["Donor Agency", formatMillion(16527778)],
+        ["Government", formatMillion(11718557)],
+        ["IFI", formatMillion(799565)],
+        ["Intergovernmental Organization", formatMillion(194500)],
+        ["Mix of implementers - involving government", formatMillion(186777138)],
+        ["Mix of implementers - no government", formatMillion(7961733)],
+        ["NGOs", formatMillion(219302287)],
+        ["Other", formatMillion(2022044)],
+        ["Private Sector", formatMillion(19542741)],
+        ["UN", formatMillion(64232464)],
+        ["Unclear / TBD", formatMillion(10374238)]
+      ],
+      socialHumanDevelopmentDataStack: [
+        ["2016", 1.8, 138.5, 55.4],
+        ["2017", 23.9, 176.3, 53.3],
+        ["2018", 0.5, 84.1, 9.4]
+      ],
+      socialHumanDevelopmentDataPie: [
+        {x: "NGOs", value: formatMillion(219302287),
+        normal: {fill: this.$store.state.color.blue}},
+        {x: "Mix of implementers - involving government", value: formatMillion(186777138),
+        normal: {fill: this.$store.state.color.green}},
+        {x: "UN", value: formatMillion(64232464),
+        normal: {fill: this.$store.state.color.yellow}},
+        {x: "Private Sector", value: formatMillion(19542741),
+        normal: {fill: this.$store.state.color.tan}},
+        {x: "Donor Agency", value: formatMillion(16527778),
+        normal: {fill: this.$store.state.color.violet}},
+        {x: "Government", value: formatMillion(11718557),
+        normal: {fill: this.$store.state.color.brown}},
+        {x: "Other", value: formatMillion(25085515),
+        normal: {fill: this.$store.state.color.pink}},
+      ],
+      socialHumanDevelopmentLocationData: [
+        ["FGS", 9.3, 10.4, 0],
+        ["Benadir", 5.4, 53, 5],
+        ["Galmudug", 9, 32.2, 2.5],
+        ["Hiirshabelle", 12, 38.3, 2.5],
+        ["Jubaland", 9.7, 40.1, 2.6],
+        ["Puntland", 15.3, 58.4, 5.9],
+        ["South West", 9.3, 32.8, 2.5],
+        ["Somaliland", 24.1, 65.6, 5],
+        ["Unattributed", 24, 67.9, 0]
+      ]
+    };
+  },
+  methods: {
+    renderChart() {
+      const chart = anychart.cartesian();
+      const dataSet = anychart.data.set(this.socialHumanDevelopmentData);
 
-  			const column = chart.column(seriesData);
-  			column
-  				.fill(this.$store.state.color.blue)
-  				.labels()
-  				.enabled(true)
-  				.format('${%Value}{groupsSeparator:\\,}');
+      const seriesData = dataSet.mapAs({x: 0, value: 1});
 
-  			chart.animation(true);
+      const column = chart.column(seriesData);
+      column
+      .fill(this.$store.state.color.blue)
+      .stroke(null)
+      .labels()
+      .enabled(true)
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
-  			chart.title('Social & Human Development, 2016-2018 spend ($) ');
+      chart.animation(true);
 
-  			chart.yScale().minimum(0);
+      chart.title("Social & Human Development, 2016-2018 spend ($) ");
 
-  			chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
+      chart.yScale().minimum(0);
 
-  			chart.interactivity().hoverMode('by-x');
+      chart.tooltip().format('${%Value}{groupsSeparator:\\,} mln');
 
-  			chart
-  				.yAxis()
-  				.labels()
-  				.enabled(true)
-  				.format('${%Value}{groupsSeparator:\\,}');
+      chart.interactivity().hoverMode('by-x');
 
-  			chart.xAxis(true);
+      chart
+      .yAxis()
+      .labels()
+      .enabled(true)
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
-  			chart.container('bar-chart');
+      chart.xAxis(true);
 
-  			chart.draw();
-  		},
-  		renderStack() {
-  			var chart = anychart.column();
+      chart.container('container');
 
-  			const dataSet = anychart.data.set(this.socialHumanDevelopmentDataStack);
+      chart.draw();
+    },
+    renderStack() {
+      var chart = anychart.column();
 
-  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
-  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
-  			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
+      const dataSet = anychart.data.set(this.socialHumanDevelopmentDataStack);
 
-  			// create a chart
-  			var chart = anychart.column();
+      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
+      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
+      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
 
-  			/* enable the value stacking mode
-                on the default primary value scale*/
-  			chart.yScale().stackMode('value');
+      // create a chart
+      var chart = anychart.column();
 
-  			chart.legend(true);
-  			// create column series
-  			chart
-  				.column(seriesData_1)
-  				.color(this.$store.state.color.blue)
-  				.name('2018')
-  				.tooltip()
-  				.format('2018: ${%Value} mln');
+      /* enable the value stacking mode
+      on the default primary value scale*/
+      chart.yScale().stackMode("value");
 
-  			chart
-  				.column(seriesData_2)
-  				.color(this.$store.state.color.green)
-  				.name('2017')
-  				.tooltip()
-  				.format('2017: ${%Value} mln');
+      chart.legend(true);
+      // create column series
+      chart
+      .column(seriesData_1)
+      .color(this.$store.state.color.blue)
+      .stroke(null)
+      .name("2018")
+      .tooltip()
+      .format('2018: ${%Value} mln');
 
-  			chart
-  				.column(seriesData_3)
-  				.color(this.$store.state.color.yellow)
-  				.name('2016')
-  				.tooltip()
-  				.format('2016: ${%Value} mln');
+      chart
+      .column(seriesData_2)
+      .color(this.$store.state.color.green)
+      .stroke(null)
+      .name("2017")
+      .tooltip()
+      .format('2017: ${%Value} mln');
 
-  			// set the chart title
-  			chart.title(
-  				'Social & Human Development: Project Disbursements by Sector'
-  			);
+      chart
+      .column(seriesData_3)
+      .color(this.$store.state.color.yellow)
+      .stroke(null)
+      .name("2016")
+      .tooltip()
+      .format('2016: ${%Value} mln');
 
-  			// set the container id
-  			chart.container('stack-chart');
+      // set the chart title
+      chart.title("Social & Human Development: Project Disbursements by Sector");
 
-  			chart.animation(true);
+      // set the container id
+      chart.container("stack-chart");
 
-  			var labels = chart.xAxis().labels();
-  			labels.enabled(true);
+      var labels = chart.xAxis().labels();
+      labels.enabled(true);
 
-  			chart
-  				.yAxis()
-  				.labels()
-  				.format('${%value} mln');
+      chart.yAxis().labels().format("${%value} mln");
 
-  			// initiate drawing the chart
-  			chart.draw();
-  		},
-  		renderPie() {
-  			const chart = anychart.pie(this.socialHumanDevelopmentDataPie);
+      // initiate drawing the chart
+      chart.draw();
+    },
+    renderPie() {
+      const chart = anychart.pie(this.socialHumanDevelopmentDataPie);
 
-  			chart.title('Key Implementers of Social & Human Development Projects');
-  			chart.container('pie-chart');
-  			chart.animation(true);
-  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+      chart.title("Key Implementers of Social & Human Development Projects");
+      chart.container("pie-chart");
+      chart.animation(true);
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
-  			chart.draw();
-  		},
+      chart.draw();
+    },
 
-  		renderCountryStack() {
-  			var chart = anychart.column();
+    renderCountryStack() {
 
-  			const dataSet = anychart.data.set(
-  				this.socialHumanDevelopmentLocationData
-  			);
+      var chart = anychart.column();
 
-  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
-  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
-  			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
+      const dataSet = anychart.data.set(this.socialHumanDevelopmentLocationData);
 
-  			/* enable the value stacking mode
-                on the default primary value scale*/
-  			chart.yScale().stackMode('value');
+      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
+      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
+      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
 
-  			chart.legend(true);
-  			// create column series
-  			chart
-  				.column(seriesData_1)
-  				.color(this.$store.state.color.blue)
-  				.name('2018')
-  				.tooltip()
-  				.format('2018: ${%Value} mln');
+      /* enable the value stacking mode
+      on the default primary value scale*/
+      chart.yScale().stackMode("value");
 
-  			chart
-  				.column(seriesData_2)
-  				.color(this.$store.state.color.green)
-  				.name('2017')
-  				.tooltip()
-  				.format('2017: ${%Value} mln');
+      chart.legend(true);
+      // create column series
+      chart
+      .column(seriesData_1)
+      .color(this.$store.state.color.blue)
+      .stroke(null)
+      .name("2018")
+      .tooltip()
+      .format('2018: ${%Value} mln');
 
-  			chart
-  				.column(seriesData_3)
-  				.color(this.$store.state.color.yellow)
-  				.name('2016')
-  				.tooltip()
-  				.format('2016: ${%Value} mln');
+      chart
+      .column(seriesData_2)
+      .color(this.$store.state.color.green)
+      .stroke(null)
+      .name("2017")
+      .tooltip()
+      .format('2017: ${%Value} mln');
 
-  			// set the chart title
-  			chart.title(
-  				'Social & Human Development: Project Disbursements by Location'
-  			);
+      chart
+      .column(seriesData_3)
+      .color(this.$store.state.color.yellow)
+      .stroke(null)
+      .name("2016")
+      .tooltip()
+      .format('2016: ${%Value} mln');
 
-  			// set the container id
-  			chart.container('country-stack');
+      // set the chart title
+      chart.title("Social & Human Development: Project Disbursements by Location");
 
-  			chart.animation(true);
+      // set the container id
+      chart.container('country-stack');
 
-  			var labels = chart.xAxis().labels();
-  			labels.enabled(true);
+      var labels = chart.xAxis().labels();
+      labels.enabled(true);
 
-  			chart
-  				.yAxis()
-  				.labels()
-  				.format('${%value} mln');
+      chart.yAxis().labels().format("${%value} mln");
 
-  			// initiate drawing the chart
-  			chart.draw();
-  		},
-  	},
-  	mounted() {
-  		this.renderChart();
-  		this.renderStack();
-  		this.renderPie();
-  		this.renderCountryStack();
-  	},
-  };
+      // initiate drawing the chart
+      chart.draw();
+    },
+
+  },
+  mounted() {
+    this.renderChart();
+    this.renderStack();
+    this.renderPie();
+    this.renderCountryStack();
+  }
+
+};
 </script>
 
 <style scoped>
