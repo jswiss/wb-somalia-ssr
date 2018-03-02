@@ -101,10 +101,10 @@ export default {
   data() {
     return {
       genderHumanRightsData: [
-        ["Government", 172342],
-        ["Mix of implementers - involving government", 3700000],
-        ["NGOs", 31539718],
-        ["Private Sector", 695274]
+        ["Government", formatMillion(172342)],
+        ["Mix of implementers - involving government", formatMillion(3700000)],
+        ["NGOs", formatMillion(31539718)],
+        ["Private Sector", formatMillion(695274)]
       ],
       genderHumanRightsDataChart: [
         ["2016", 16.0],
@@ -123,13 +123,13 @@ export default {
         ["Unattributed", 0.2, 0.3, 1.7]
       ],
       genderDataPie: [
-        {x: "NGOs", value: 31539718,
+        {x: "NGOs", value: formatMillion(31539718),
         normal: {fill: this.$store.state.color.blue}},
-        {x: "Mix of implementers - involving government", value: 3700000,
+        {x: "Mix of implementers - involving government", value: formatMillion(3700000),
         normal: {fill: this.$store.state.color.green}},
-        {x: "Private Sector", value: 695274,
+        {x: "Private Sector", value: formatMillion(695274),
         normal: {fill: this.$store.state.color.yellow}},
-        {x: "Government", value: 172342,
+        {x: "Government", value: formatMillion(172342),
         normal: {fill: this.$store.state.color.tan}},
       ],
     };
@@ -146,7 +146,7 @@ export default {
       .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.animation(true);
 
@@ -154,14 +154,14 @@ export default {
 
       chart.yScale().minimum(0);
 
-      chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.interactivity().hoverMode('by-x');
 
       chart
       .yAxis()
       .labels()
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.xAxis(true);
 
@@ -261,7 +261,7 @@ export default {
       chart.title("Key Implementers of Gender & Human Rights Projects");
       chart.container("pie-chart");
       chart.animation(true);
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
       chart.draw();
     },
