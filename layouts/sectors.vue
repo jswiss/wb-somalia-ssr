@@ -5,7 +5,7 @@
       <div class="column is-2">
         <sectors-menu/>
       </div>
-      <div class="column is-10 buffer">
+      <div class="column is-10">
         <nuxt/>
       </div>
     </div>
@@ -27,7 +27,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   html {
   	font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
   		Roboto, 'Helvetica Neue', Arial, sans-serif;
