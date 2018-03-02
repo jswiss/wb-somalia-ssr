@@ -114,16 +114,16 @@ export default {
   data() {
     return {
       institutionsData: [
-        ["Academic / Research Institutions", 420722],
-        ["Donor Agency", 4920635],
-        ["Government", 171206377],
-        ["IFI", 12862328],
-        ["Mix of implementers - involving government", 3036189],
-        ["NGOs", 19830111],
-        ["Other", 1222222],
-        ["Private Sector", 104214427],
-        ["UN", 79737620],
-        ["Unclear / TBD", 1353615]
+        ["Academic / Research Institutions", formatMillion(420722)],
+        ["Donor Agency", formatMillion(4920635)],
+        ["Government", formatMillion(171206377)],
+        ["IFI", formatMillion(12862328)],
+        ["Mix of implementers - involving government", formatMillion(3036189)],
+        ["NGOs", formatMillion(19830111)],
+        ["Other", formatMillion(1222222)],
+        ["Private Sector", formatMillion(104214427)],
+        ["UN", formatMillion(79737620)],
+        ["Unclear / TBD", formatMillion(1353615)]
       ],
       institutionsDataStack: [
         ["2016", 63.5, 63.9, 9.9, 17.9],
@@ -131,21 +131,21 @@ export default {
         ["2018", 1.1, 52.1, 13.2, 10.4]
       ],
       institutionsDataPie: [
-        {x: "UN", value: 79498786,
+        {x: "UN", value: formatMillion(79498786),
         normal: {fill: this.$store.state.color.blue}},
-        {x: "NGOs", value: 8419492,
+        {x: "NGOs", value: formatMillion(8419492),
         normal: {fill: this.$store.state.color.green}},
-        {x: "Unclear/TBD", value: 6186133,
+        {x: "Unclear/TBD", value: formatMillion(6186133),
         normal: {fill: this.$store.state.color.yellow}},
-        {x: "Private Sector", value: 6182000,
+        {x: "Private Sector", value: formatMillion(6182000),
         normal: {fill: this.$store.state.color.tan}},
-        {x: "Government", value: 4884026,
+        {x: "Government", value: formatMillion(4884026),
         normal: {fill: this.$store.state.color.violet}},
-        {x: "Mix of implementers - no government", value: 4717214,
+        {x: "Mix of implementers - no government", value: formatMillion(4717214),
         normal: {fill: this.$store.state.color.brown}},
-        {x: "Military", value: 4525200,
+        {x: "Military", value: formatMillion(4525200),
         normal: {fill: this.$store.state.color.pink}},
-        {x: "Mix of implementers - government", value: 4123420,
+        {x: "Mix of implementers - government", value: formatMillion(4123420),
         normal: {fill: this.$store.state.color.lightblue}}
       ],
       institutionsLocationStack: [
@@ -173,7 +173,7 @@ export default {
       .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.animation(true);
 
@@ -181,14 +181,14 @@ export default {
 
       chart.yScale().minimum(0);
 
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
       chart.interactivity().hoverMode('by-x');
 
       chart
       .yAxis()
       .labels()
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.xAxis(true);
 
@@ -264,7 +264,7 @@ export default {
       chart.title("Key Implementers of Effective, Efficient Institutions Projects");
       chart.container("pie-chart");
       chart.animation(true);
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
       chart.draw();
     },
