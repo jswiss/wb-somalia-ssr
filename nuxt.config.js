@@ -52,7 +52,7 @@ module.exports = {
       new webpack.IgnorePlugin(/^\.\/geodata$/, /anychart$/),
       new webpack.IgnorePlugin(/^\.\/locales$/, /anychart$/),
       new webpack.IgnorePlugin(/^\.\/themes$/, /anychart$/),
-      new BundleAnalyzerPlugin(),
+      // new BundleAnalyzerPlugin(),
       // new CompressionPlugin({
       //   asset: '[path].gz[query]',
       //   algorithm: 'gzip',
