@@ -88,16 +88,16 @@ export default {
   data() {
     return {
       economicGrowthData: [
-        ["Donor Agency", 8391376],
-        ["Government", 8228265],
-        ["IFI", 3013949],
-        ["Mix of implementers - involving government", 19444243],
-        ["Mix of implementers - no government", 433000],
-        ["NGOs", 38335938],
-        ["Private Sector", 56512142],
-        ["Regional Actors", 1077778],
-        ["UN", 40336126],
-        ["Unclear / TBD", 0]
+        ["Donor Agency", formatMillion(8391376)],
+        ["Government", formatMillion(8228265)],
+        ["IFI", formatMillion(3013949)],
+        ["Mix of implementers - involving government", formatMillion(19444243)],
+        ["Mix of implementers - no government", formatMillion(433000)],
+        ["NGOs", formatMillion(38335938)],
+        ["Private Sector", formatMillion(56512142)],
+        ["Regional Actors", formatMillion(1077778)],
+        ["UN", formatMillion(40336126)],
+        ["Unclear / TBD", formatMillion(0)]
       ],
       economicGrowthDataStack: [
         ["2016", 18.0, 57.0],
@@ -105,19 +105,19 @@ export default {
         ["2018", 8.3, 28.1]
       ],
       economicGrowthDataPie: [
-        {x: "Private Sector", value: 56512142,
+        {x: "Private Sector", value: formatMillion(56512142),
         normal: {fill: this.$store.state.color.blue}},
-        {x: "UN", value: 40336126,
+        {x: "UN", value: formatMillion(40336126),
         normal: {fill: this.$store.state.color.green}},
-        {x: "NGOs", value: 38335938,
+        {x: "NGOs", value: formatMillion(38335938),
         normal: {fill: this.$store.state.color.yellow}},
-        {x: "Mix of implementers - no government", value: 19444243,
+        {x: "Mix of implementers - no government", value: formatMillion(19444243),
         normal: {fill: this.$store.state.color.tan}},
-        {x: "Donor Agencies", value: 8391376,
+        {x: "Donor Agencies", value: formatMillion(8391376),
         normal: {fill: this.$store.state.color.violet}},
-        {x: "Government", value: 8228265,
+        {x: "Government", value: formatMillion(8228265),
         normal: {fill: this.$store.state.color.brown}},
-        {x: "Other", value: 4524727,
+        {x: "Other", value: formatMillion(4524727),
         normal: {fill: this.$store.state.color.pink}}
       ],
       economicLocationStack: [
@@ -147,7 +147,7 @@ export default {
       .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.animation(true);
 
@@ -155,7 +155,7 @@ export default {
 
       chart.yScale().minimum(0);
 
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
       chart.interactivity().hoverMode('by-x');
 
@@ -229,7 +229,7 @@ export default {
       chart.title("Economic Growth: Key Implementers");
       chart.container("pie-chart");
       chart.animation(true);
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
       chart.draw();
     },
