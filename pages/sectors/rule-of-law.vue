@@ -16,7 +16,6 @@
 
     <div id="country-stack"></div>
 
-
     <table class="table is-striped is-hoverable is-bordered">
       <thead>
         <tr>
@@ -157,6 +156,7 @@ export default {
       const column = chart.column(seriesData);
       column
       .fill(this.$store.state.color.blue)
+      .stroke(null)
       .labels()
       .enabled(true)
       .format('${%Value}{groupsSeparator:\\,} mln');
@@ -218,14 +218,12 @@ export default {
       .tooltip()
       .format('2018: ${%Value} mln');
 
-
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
       .name("2017")
       .tooltip()
       .format('2017: ${%Value} mln');
-
 
       chart
       .column(seriesData_3)

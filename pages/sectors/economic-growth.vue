@@ -145,6 +145,7 @@ export default {
       const column = chart.column(seriesData);
       column
       .fill(this.$store.state.color.blue)
+      .stroke(null)
       .labels()
       .enabled(true)
       .format('${%Value}{groupsSeparator:\\,} mln');
