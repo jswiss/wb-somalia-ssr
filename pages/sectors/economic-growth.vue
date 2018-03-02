@@ -194,14 +194,15 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
+      .stroke(null)
       .name("Productive Sectors (Agriculture, Fisheries, Livestock)")
       .tooltip()
       .format('Productive Sectors (Agriculture, Fisheries, Livestock): ${%Value} mln');
 
-
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
+      .stroke(null)
       .name("Private Sector Development")
       .tooltip()
       .format('Private Sector Development: ${%Value} mln');
@@ -255,21 +256,23 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
+      .stroke(null)
       .tooltip()
       .format('2018: ${%Value} mln');
 
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
+      .stroke(null)
       .tooltip()
       .format('2017: ${%Value} mln');
 
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
+      .stroke(null)
       .tooltip()
       .format('2016: ${%Value} mln');
-
 
       // set the chart title
       chart.title("Economic Growth: Project Disbursements by Location");

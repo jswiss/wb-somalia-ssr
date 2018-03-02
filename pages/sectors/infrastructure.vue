@@ -8,7 +8,6 @@
         <div class="column"></div>
       </div>
 
-
       <div class="column is-half">
         <div id="stack-chart" class="column"></div>
       </div>
@@ -16,7 +15,6 @@
 
     <div id="container"></div>
     <div id="country-stack"></div>
-
 
     <table class="table is-striped is-hoverable is-bordered">
       <thead>
@@ -169,6 +167,7 @@ export default {
       const column = chart.column(seriesData);
       column
       .fill(this.$store.state.color.blue)
+      .stroke(null)
       .labels()
       .enabled(true)
       .format('${%Value}{groupsSeparator:\\,} mln');
@@ -217,6 +216,7 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
+      .stroke(null)
       .name("Water and Sanitation")
       .tooltip()
       .format('Water and Sanitation: ${%Value} mln');
@@ -224,6 +224,7 @@ export default {
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
+      .stroke(null)
       .name("Transport: Roads, Ports and Airports")
       .tooltip()
       .format('Transport: Roads, Ports and Airports: ${%Value} mln');
@@ -231,6 +232,7 @@ export default {
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
+      .stroke(null)
       .name("Mixed Infrastructure")
       .tooltip()
       .format('Mixed Infrastructure: ${%Value} mln');
@@ -238,6 +240,7 @@ export default {
       chart
       .column(seriesData_4)
       .color(this.$store.state.color.tan)
+      .stroke(null)
       .name("Energy and ICT")
       .tooltip()
       .format('Energy and ICT: ${%Value} mln');
@@ -286,6 +289,7 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
+      .stroke(null)
       .name("Water and Sanitation")
       .tooltip()
       .format('Water and Sanitation: ${%Value} mln');
@@ -293,6 +297,7 @@ export default {
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
+      .stroke(null)
       .name("Transport: Roads, Ports and Airports")
       .tooltip()
       .format('Transport: Roads, Ports and Airports: ${%Value} mln');
@@ -300,6 +305,7 @@ export default {
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
+      .stroke(null)
       .name("Mixed Infrastructure")
       .tooltip()
       .format('Mixed Infrastructure: ${%Value} mln');
@@ -307,6 +313,7 @@ export default {
       chart
       .column(seriesData_4)
       .color(this.$store.state.color.tan)
+      .stroke(null)
       .name("Energy and ICT")
       .tooltip()
       .format('Energy and ICT: ${%Value} mln');

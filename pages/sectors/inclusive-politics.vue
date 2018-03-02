@@ -211,6 +211,7 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
+      .stroke(null)
       .name("2018")
       .tooltip()
       .format('2018: ${%Value} mln');
@@ -218,6 +219,7 @@ export default {
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
+      .stroke(null)
       .name("2017")
       .tooltip()
       .format('2017: ${%Value} mln');
@@ -226,6 +228,7 @@ export default {
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
+      .stroke(null)
       .name("2016")
       .tooltip()
       .format('2016: ${%Value} mln');
