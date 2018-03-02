@@ -7,7 +7,9 @@
         <div class="column is-10 is-mobile">
           <div id="project-disbursements"></div>
         </div>
-        <div class="column is-1"></div>
+        <div class="column is-1">
+          <a href="https://s3.eu-central-1.amazonaws.com/somalia-aid-flows.so/Aid+Flows+in+Somalia+-+Benadir+Exerpt.pdf"  target="_blank" class="button is-link">{{title}} Report</a>
+        </div>
 
       </div>
       <div class="columns">
@@ -49,6 +51,7 @@
     layout: 'locations',
     data() {
       return {
+        title: 'Benadir',
         benadirDisbursementClusterData: [
           ["Peace, Inclusive Politics, Security & Rule of Law", 11.9, 7.2, 2.1],
           ["Effective, Efficient Institutions", 4.6, 2.9, 1.7],

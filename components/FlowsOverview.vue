@@ -49,10 +49,10 @@
     <div class="columns">
       <div class="column is-1 is-mobile"></div>
       <div class="column is-8 is-mobile">
-        <no-ssr>
+        <no-ssr placeholder="Loading...">
           <humanitarian-table v-if="!devDisplayed"></humanitarian-table>
         </no-ssr>
-        <no-ssr>
+        <no-ssr placeholder="Loading...">
           <development-table v-if="devDisplayed"></development-table>
         </no-ssr>
       </div>

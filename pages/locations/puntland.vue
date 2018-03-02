@@ -7,7 +7,9 @@
         <div class="column is-10 is-mobile">
           <div id="project-disbursements"></div>
         </div>
-        <div class="column is-1"></div>
+        <div class="column is-1">
+          <a href="https://s3.eu-central-1.amazonaws.com/somalia-aid-flows.so/Aid+Flows+in+Somalia+-+Puntland+Excerpt+.pdf"  target="_blank" class="button is-link">{{title}} Report</a>
+        </div>
 
       </div>
       <div class="columns">
