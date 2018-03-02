@@ -97,12 +97,6 @@ export default {
       // set the padding between column groups
       chart.barGroupsPadding(2);
 
-      // const column = chart.column(seriesData);
-      // column
-      // .labels()
-      // .enabled(true)
-      // .format('${%Value}');
-
       chart.animation(true);
 
       chart.title(chartTitle);
