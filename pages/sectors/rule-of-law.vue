@@ -112,26 +112,26 @@ export default {
         ["Unclear / TBD", 6186113]
       ],
       ruleOfLawChart: [
-        ["2016", 65544693],
-        ["2017", 48282515],
-        ["2018", 4709043]
+        ["2016", formatMillion(65544693)],
+        ["2017", formatMillion(48282515)],
+        ["2018", formatMillion(4709043)]
       ],
       ruleOfLawDataPie: [
-        {x: "UN", value: 79498786,
+        {x: "UN", value: formatMillion(79498786),
         normal: {fill: this.$store.state.color.blue}},
-        {x: "NGOs", value: 8419492,
+        {x: "NGOs", value: formatMillion(8419492),
         normal: {fill: this.$store.state.color.green}},
-        {x: "Unclear/TBD", value: 6186133,
+        {x: "Unclear/TBD", value: formatMillion(6186133),
         normal: {fill: this.$store.state.color.yellow}},
-        {x: "Private Sector", value: 6182000,
+        {x: "Private Sector", value: formatMillion(6182000),
         normal: {fill: this.$store.state.color.tan}},
-        {x: "Government", value: 4884026,
+        {x: "Government", value: formatMillion(4884026),
         normal: {fill: this.$store.state.color.violet}},
-        {x: "Mix of implementers - no government", value: 4717214,
+        {x: "Mix of implementers - no government", value: formatMillion(4717214),
         normal: {fill: this.$store.state.color.brown}},
-        {x: "Military", value: 4525200,
+        {x: "Military", value: formatMillion(4525200),
         normal: {fill: this.$store.state.color.pink}},
-        {x: "Mix of implementers - government", value: 4123420,
+        {x: "Mix of implementers - government", value: formatMillion(4123420),
         normal: {fill: this.$store.state.color.lightblue}}
       ],
       ruleOfLawLocationStack: [
@@ -159,7 +159,7 @@ export default {
       .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.animation(true);
 
@@ -167,14 +167,14 @@ export default {
 
       chart.yScale().minimum(0);
 
-      chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.interactivity().hoverMode('by-x');
 
       chart
       .yAxis()
       .labels()
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.xAxis(true);
 
@@ -188,7 +188,7 @@ export default {
       chart.title("Rule of Law: Key Implementers");
       chart.container("pie-chart");
       chart.animation(true);
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
       chart.draw();
     },
