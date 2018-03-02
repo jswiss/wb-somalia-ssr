@@ -135,6 +135,8 @@
 
 
 <script>
+import { formatMillion } from '../helpers'
+
 
 export default {
   name: 'resilience',

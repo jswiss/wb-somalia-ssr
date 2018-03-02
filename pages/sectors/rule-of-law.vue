@@ -94,6 +94,8 @@
 
 
 <script>
+import { formatMillion } from '../helpers'
+
 export default {
   name: 'rule-of-law',
   layout: 'sectors',

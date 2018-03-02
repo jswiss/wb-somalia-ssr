@@ -80,6 +80,8 @@
 
 
 <script>
+import { formatMillion } from '../helpers'
+
 export default {
   name: 'economic-growth',
   layout: 'sectors',

@@ -111,6 +111,8 @@
 
 
 <script>
+import { formatMillion } from '../helpers'
+
 export default {
   name: 'infrastructure',
   layout: 'sectors',

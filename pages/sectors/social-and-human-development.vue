@@ -94,6 +94,8 @@
 
 
 <script>
+import { formatMillion } from '../helpers'
+
 export default {
   name: 'social-and-human-development',
   layout: 'sectors',

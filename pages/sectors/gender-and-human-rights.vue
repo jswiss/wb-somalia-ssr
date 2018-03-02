@@ -93,6 +93,8 @@
 
 
 <script>
+import { formatMillion } from '../helpers'
+
 export default {
   name: 'gender-and-human-rights',
   layout: 'sectors',

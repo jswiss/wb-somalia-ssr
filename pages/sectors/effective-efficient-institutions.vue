@@ -106,6 +106,8 @@
 </template>
 
 <script>
+import { formatMillion } from '../helpers'
+
 export default {
   name: 'institutions',
   layout: 'sectors',
