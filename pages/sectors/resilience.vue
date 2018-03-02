@@ -144,17 +144,17 @@ export default {
   data() {
     return {
       resilienceData: [
-        ["Donor Agency", 18738364],
-        ["Government", 20570204],
-        ["IFI", 500000],
-        ["Intergovernmental Organization", 13296978],
-        ["Mix of implementers - involving government", 731665744],
-        ["NGOs", 265460791],
-        ["Other", 105031],
-        ["Private Sector", 15600000],
-        ["Regional Actors", 4164600],
-        ["UN", 77620689],
-        ["Unclear / TBD", 28888889]
+        ["Donor Agency", formatMillion(18738364)],
+        ["Government", formatMillion(20570204)],
+        ["IFI", formatMillion(500000)],
+        ["Intergovernmental Organization", formatMillion(13296978)],
+        ["Mix of implementers - involving government", formatMillion(731665744)],
+        ["NGOs", formatMillion(265460791)],
+        ["Other", formatMillion(105031)],
+        ["Private Sector", formatMillion(15600000)],
+        ["Regional Actors", formatMillion(4164600)],
+        ["UN", formatMillion(77620689)],
+        ["Unclear / TBD", formatMillion(28888889)]
       ],
       resilienceDataStack: [
         ["2016", 37.5, 20.4, 41.7, 5.5, 38.5, 21.3],
@@ -173,13 +173,13 @@ export default {
         ["Unattributed", 3.2, 3.4, 1.1, 11.1, 328.5, 0]
       ],
       resilienceDataPie: [
-        {x: "Mix of implementers - involving government", value: 731665744,
+        {x: "Mix of implementers - involving government", value: formatMillion(731665744),
         normal: {fill: this.$store.state.color.blue}},
-        {x: "NGOs", value: 265460791,
+        {x: "NGOs", value: formatMillion(265460791),
         normal: {fill: this.$store.state.color.green}},
-        {x: "UN", value: 77620689,
+        {x: "UN", value: formatMillion(77620689),
         normal: {fill: this.$store.state.color.yellow}},
-        {x: "Other", value: 101864066,
+        {x: "Other", value: formatMillion(101864066),
         normal: {fill: this.$store.state.color.tan}},
       ],
     };
@@ -196,7 +196,7 @@ export default {
       .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.animation(true);
 
@@ -204,14 +204,14 @@ export default {
 
       chart.yScale().minimum(0);
 
-      chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.interactivity().hoverMode('by-x');
 
       chart
       .yAxis()
       .labels()
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.xAxis(true);
 
@@ -382,7 +382,7 @@ export default {
       chart.title("Key Implementers of Reslience Projects");
       chart.container("pie-chart");
       chart.animation(true);
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
       chart.draw();
     },
