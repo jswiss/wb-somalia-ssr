@@ -8,7 +8,6 @@
         <div class="column"></div>
       </div>
 
-
       <div class="column is-half">
         <div id="stack-chart" class="column"></div>
       </div>
@@ -91,7 +90,6 @@
   </div>
 </template>
 
-
 <script>
 import { formatMillion } from '../helpers'
 
@@ -144,6 +142,7 @@ export default {
       const column = chart.column(seriesData);
       column
       .fill(this.$store.state.color.blue)
+      .stroke(null)
       .labels()
       .enabled(true)
       .format('${%Value}{groupsSeparator:\\,} mln');
@@ -178,6 +177,7 @@ export default {
       const column = chart.column(seriesData);
       column
       .fill(this.$store.state.color.blue)
+      .stroke(null)
       .labels()
       .enabled(true)
       .format('${%Value}{groupsSeparator:\\,} mln');
@@ -223,6 +223,7 @@ export default {
       chart
       .column(seriesData_1)
       .color(this.$store.state.color.blue)
+      .stroke(null)
       .name("2018")
       .tooltip()
       .format('2018: ${%Value} mln');
@@ -230,6 +231,7 @@ export default {
       chart
       .column(seriesData_2)
       .color(this.$store.state.color.green)
+      .stroke(null)
       .name("2017")
       .tooltip()
       .format('2017: ${%Value} mln');
@@ -237,6 +239,7 @@ export default {
       chart
       .column(seriesData_3)
       .color(this.$store.state.color.yellow)
+      .stroke(null)
       .name("2016")
       .tooltip()
       .format('2016: ${%Value} mln');
