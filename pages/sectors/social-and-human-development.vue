@@ -102,18 +102,18 @@ export default {
   data() {
     return {
       socialHumanDevelopmentData: [
-        ["Academic / Research Institutions", 3733435],
-        ["Donor Agency", 16527778],
-        ["Government", 11718557],
-        ["IFI", 799,565],
-        ["Intergovernmental Organization", 194500],
-        ["Mix of implementers - involving government", 186777138],
-        ["Mix of implementers - no government", 7961733],
-        ["NGOs", 219302287],
-        ["Other", 2022044],
-        ["Private Sector", 19542741],
-        ["UN", 64232464],
-        ["Unclear / TBD", 10,374,238]
+        ["Academic / Research Institutions", formatMillion(3733435)],
+        ["Donor Agency", formatMillion(16527778)],
+        ["Government", formatMillion(11718557)],
+        ["IFI", formatMillion(799565)],
+        ["Intergovernmental Organization", formatMillion(194500)],
+        ["Mix of implementers - involving government", formatMillion(186777138)],
+        ["Mix of implementers - no government", formatMillion(7961733)],
+        ["NGOs", formatMillion(219302287)],
+        ["Other", formatMillion(2022044)],
+        ["Private Sector", formatMillion(19542741)],
+        ["UN", formatMillion(64232464)],
+        ["Unclear / TBD", formatMillion(10374238)]
       ],
       socialHumanDevelopmentDataStack: [
         ["2016", 1.8, 138.5, 55.4],
@@ -121,19 +121,19 @@ export default {
         ["2018", 0.5, 84.1, 9.4]
       ],
       socialHumanDevelopmentDataPie: [
-        {x: "NGOs", value: 219302286.6,
+        {x: "NGOs", value: formatMillion(219302287),
         normal: {fill: this.$store.state.color.blue}},
-        {x: "Mix of implementers - involving government", value: 186777137.6,
+        {x: "Mix of implementers - involving government", value: formatMillion(186777138),
         normal: {fill: this.$store.state.color.green}},
-        {x: "UN", value: 64232464.15,
+        {x: "UN", value: formatMillion(64232464),
         normal: {fill: this.$store.state.color.yellow}},
-        {x: "Private Sector", value: 19542741.02,
+        {x: "Private Sector", value: formatMillion(19542741),
         normal: {fill: this.$store.state.color.tan}},
-        {x: "Donor Agency", value: 16527777.78,
+        {x: "Donor Agency", value: formatMillion(16527778),
         normal: {fill: this.$store.state.color.violet}},
-        {x: "Government", value: 11718557,
+        {x: "Government", value: formatMillion(11718557),
         normal: {fill: this.$store.state.color.brown}},
-        {x: "Other", value: 25085515.16,
+        {x: "Other", value: formatMillion(25085515),
         normal: {fill: this.$store.state.color.pink}},
       ],
       socialHumanDevelopmentLocationData: [
@@ -161,7 +161,7 @@ export default {
       .fill(this.$store.state.color.blue)
       .labels()
       .enabled(true)
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.animation(true);
 
@@ -169,7 +169,7 @@ export default {
 
       chart.yScale().minimum(0);
 
-      chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.interactivity().hoverMode('by-x');
 
@@ -177,7 +177,7 @@ export default {
       .yAxis()
       .labels()
       .enabled(true)
-      .format('${%Value}{groupsSeparator:\\,}');
+      .format('${%Value}{groupsSeparator:\\,} mln');
 
       chart.xAxis(true);
 
@@ -244,7 +244,7 @@ export default {
       chart.title("Key Implementers of Social & Human Development Projects");
       chart.container("pie-chart");
       chart.animation(true);
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
       chart.draw();
     },
