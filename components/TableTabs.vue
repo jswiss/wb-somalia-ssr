@@ -23,6 +23,11 @@
             Pooled Funds
           </nuxt-link>
         </li>
+        <li>
+          <nuxt-link class="nav-item is-tab" to="/tables/project-locations">
+           Project Locations
+          </nuxt-link>
+        </li>
       </ul>
     </div>
   </div>

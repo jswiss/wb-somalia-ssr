@@ -5,6 +5,7 @@
         <div class="column is-1"></div>
         <div class="column is-10">
           <div id="table">
+            <h1 class="title is-4">Filter by title, objective, NDP pillar, or sector</h1>
             <no-ssr placeholder="Loading...">
               <v-client-table
                 :data="projects"
@@ -70,6 +71,7 @@
   		return {
   			columns: [
   				'Project Title',
+  				'Objective',
   				'Start Date',
   				'End Date',
   				'NDP Pillar',
@@ -85,7 +87,12 @@
   				highlightMatches: true,
   				storage: 'local',
   				dateColumns: ['Start Date', 'End Date'],
-  				filterable: ['Project Title', 'NDP Pillar', 'Primary Sector'],
+  				filterable: [
+  					'Project Title',
+  					'NDP Pillar',
+  					'Primary Sector',
+  					'Objective',
+  				],
   			},
   		};
   	},
@@ -107,5 +114,8 @@
 
   #table {
   	overflow: auto;
+  }
+  .title {
+  	margin-top: 2%;
   }
 </style>

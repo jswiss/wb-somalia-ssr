@@ -8,13 +8,13 @@
       <div class="column is-10 is-mobile">
         <h4 class="subtitle is-5">Select a chart: </h4>
         <div class="field">
-          <p class="control" id="radios">
+          <p class="control" id="chart-radios">
             <label class="radio">
               <input type="radio" name="question" value="oda" @click="flowsDisplayed = !flowsDisplayed">
               ODA Trends
             </label>
             <label class="radio">
-              <input type="radio" name="question" value="flow" @click="flowsDisplayed = true">
+              <input type="radio" name="question" value="flow" @click="flowsDisplayed = true" checked>
               Flows as % of GDP
             </label>
           </p>
@@ -33,7 +33,7 @@
       <div class="column is-8 is-mobile">
         <h4 class="subtitle is-5">Select a table: </h4>
         <div class="field">
-          <p class="control" id="radios">
+          <p class="control" id="table-radios">
             <label class="radio">
               <input type="radio" name="question" value="oda" @click="devDisplayed = !devDisplayed">
               Humanitarian Table
@@ -70,13 +70,13 @@
   import OdaChart from '~/components/OdaChart';
 
   export default {
-    name: 'FlowsOverview',
-    data() {
-      return {
-        flowsDisplayed: true,
-        devDisplayed: true,
-      }
-    },
+  	name: 'FlowsOverview',
+  	data() {
+  		return {
+  			flowsDisplayed: true,
+  			devDisplayed: true,
+  		};
+  	},
   	components: {
   		HumanitarianTable,
   		DevelopmentTable,
@@ -87,11 +87,12 @@
 </script>
 
 <style scoped>
-#charts-section, #tables-section {
-  margin-top: 2%;
-}
+  #charts-section,
+  #tables-section {
+  	margin-top: 2%;
+  }
   #charts {
-    height: 400px;
+  	height: 400px;
   }
   #overview {
   	margin-top: 3%;
@@ -101,10 +102,11 @@
   }
 
   .subtitle {
-    font-weight: bold;
+  	font-weight: bold;
   }
 
-  label.radio, h4 {
+  label.radio,
+  h4 {
   	margin-left: 15%;
   }
   input[type='radio'] {

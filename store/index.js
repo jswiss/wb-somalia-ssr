@@ -41,6 +41,7 @@ export const mutations = {
     state.projectsTable.forEach(k => {
       k.id = k.id;
       k['Project Title'] = k['Project title'];
+      k['Objective'] = k['Project objectives'];
       k['2016 Disbursements'] = k['2016 Disbursements (USD)'];
       k['2017 Disbursements'] = k['2017 Disbursements (USD)'];
       k['2018 Disbursements'] = k['2018 Disbursements (USD)'];
@@ -98,16 +99,5 @@ export const mutations = {
   },
   SET_PROJECT(state, data) {
     state.project = data;
-  },
-};
-
-export const actions = {
-  getId({ commit }, project) {
-    const projectId = this.$route.params.id;
-    function findProject(project) {
-      return project.id === projectId;
-    }
-    const result = project.find(findProject);
-    commit('SET_PROJECT', result);
   },
 };

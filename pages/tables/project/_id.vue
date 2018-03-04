@@ -211,7 +211,7 @@
 </template>
 
 <script type="text/javascript">
-  import { mapState, mapActions } from 'vuex';
+  import { mapState } from 'vuex';
 
   export default {
   	name: 'Project',
@@ -222,38 +222,10 @@
   		);
   		store.commit('SET_PROJECT', item[0]);
   	},
-  	data() {
-  		return {
-  			// projectId: this.$route.params.id * 1,
-  			// projects: this.$store.state.projectsTable,
-  			// project: this.$store.state.projectsTable.filter(
-  			// 	project => project.id == projectId
-  			// ),
-  		};
-  	},
-  	// async asyncData({ store, params, error }) {
-  	// 	if (error) console.log('ERR: ', error);
-  	// 	const projectId = params.id * 1;
-  	// 	console.log(projectId);
-  	// 	const item = await store.state.projectsTable.filter(
-  	// 		item => item.id == projectId
-  	// 	);
-  	// 	console.log(item);
-  	// 	const cleanItem = item[0];
-  	// 	console.log(cleanItem);
-  	// 	return { project: cleanItem };
-  	// },
   	computed: {
   		...mapState({
   			project: state => state.project,
   		}),
-  		// project() {
-  		// 	const item = this.projects.filter(
-  		// 		project => project.id == this.$route.params.id
-  		// 	);
-  		// 	const project = item[0];
-  		// 	return project;
-  		// },
   	},
   	methods: {
   		printPage(el) {
