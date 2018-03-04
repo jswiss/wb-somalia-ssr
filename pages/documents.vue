@@ -1,9 +1,9 @@
 <template>
   <div id="section" class="section">
     <div class="container">
+      <h1 class="title is-3">{{ title }}</h1>
 
-      <div class="columns is-gapless">
-        <div class="column is-2"></div>
+        <!--<div class="column is-2"></div>
         <div class="column is-5">
           <h1 class="title is-3">{{ title }}</h1>
           <div class="field is-mobile">
@@ -12,7 +12,6 @@
           </div>
         </div>
         <div class="column is-5"></div>
-      </div>
 
       <div class="columns is-gapless">
         <div class="column is-2"></div>
@@ -22,75 +21,46 @@
           </ul>
         </div>
         <div class="column is-4"></div>
-      </div>
-
-      <!-- <div class="columns is-gapless">
-        <div class="column is-2"></div>
-        <div class="column is-6 is-mobile">
-          <ul id="doc-list is-mobile">
-            <li>
-              <h1>Reports</h1>
-            </li>
-            <li v-for="link in sortedReports" :key="link.id">
-              <a :href="link.url" target="_blank">{{ link.text }}</a>
-              <span><img :src="link.fileType" alt=""></span>
-            </li>
-          </ul>
-        </div>
-        <div class="column is-4"></div>
-      </div>
-
-      <div class="columns is-gapless">
-        <div class="column is-2"></div>
-        <div class="column is-6 is-mobile">
-          <ul id="doc-list is-mobile">
-            <li>
-              <h1>Datasheets</h1>
-            </li>
-            <li v-for="link in sortedData" :key="link.id">
-              <a :href="link.url" target="_blank">{{ link.text }}</a>
-              <span><img :src="link.fileType" alt=""></span>
-            </li>
-          </ul>
-        </div>
-        <div class="column is-4"></div>
       </div> -->
 
-      <div id="tables-container">
 
-        <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
-          <thead>
-            <tr>
-              <th>Reports</th>
-              <th>Download</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="link in sortedReports" :key="link.id">
-              <td>{{ link.text }}</td>
-              <td><span><a :href="link.url" target="_blank"><img :src="link.fileType" alt=""></a></span></td>
-            </tr>
-          </tbody>
-        </table>
-
-
-        <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
-          <thead>
-            <tr>
-              <th>Data</th>
-              <th>Download</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="link in sortedData" :key="link.id">
-              <td>{{ link.text }}</td>
-              <td><span><a :href="link.url" target="_blank"><img :src="link.fileType" alt=""></a></span></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="columns is-gapless">
+        <!-- <div class="column is-1"></div> -->
+        <div class="column is-5">
+          <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
+            <thead>
+              <tr>
+                <th>Reports</th>
+                <th>Download</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="link in sortedReports" :key="link.id">
+                <td>{{ link.text }}</td>
+                <td><span><a :href="link.url" target="_blank"><img :src="link.fileType" alt=""></a></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column is-1"></div>
+        <div class="column is-5">
+          <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Download</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="link in sortedData" :key="link.id">
+                <td>{{ link.text }}</td>
+                <td><span><a :href="link.url" target="_blank"><img :src="link.fileType" alt=""></a></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column is-1"></div>
       </div>
-
-
     </div>
   </div>
 </template>
