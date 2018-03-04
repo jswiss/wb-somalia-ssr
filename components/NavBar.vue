@@ -33,6 +33,9 @@
       </nuxt-link>
     </div>
   </div>
+    <div class="navbar-end">
+      <a class="navbar-item is-tab report button is-link is-inverted" href="https://s3.eu-central-1.amazonaws.com/somalia-aid-flows.so/Aid+Flows+in+Somalia+-+2018FINAL.pdf">Download the 2018 Report</a>
+    </div>
 </nav>
 
 </template>
