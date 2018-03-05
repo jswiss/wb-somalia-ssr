@@ -12,7 +12,7 @@
                 2018
               </label>
               <label class="radio">
-                <input type="radio" name="question" value="2017" @click="tree = 2017, tree2017 = true">
+                <input type="radio" name="question" value="2017" @click="tree = 2017, tree2017 = true" checked>
                 2017
               </label>
               <label class="radio">
@@ -85,13 +85,15 @@
 
 <style scoped>
   label.radio {
-  	margin-left: 15%;
+  	margin-left: 20%;
+  	text-align: center;
   }
   input[type='radio'] {
   	margin-right: 10px;
   }
   .instructions {
   	font-style: italic;
+  	text-align: center;
   }
 </style>
 
