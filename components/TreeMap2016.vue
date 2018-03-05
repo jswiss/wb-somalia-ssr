@@ -15,11 +15,11 @@
 				const tree = { values: {} };
 				tree.values = d3
 					.nest()
-					.key(d => d.location)
-					.key(d => d.pillar)
-					.key(d => d.sector)
-					.key(d => d.project)
-					.rollup(d => d3.sum(d, d => d.value))
+					.key(d => d.Location)
+					.key(d => d['NDP Pillar'])
+					.key(d => d.Sector)
+					.key(d => d['Project title'])
+					.rollup(d => d3.sum(d, d => d.Value))
 					.entries(data);
 				console.log('====================================');
 				console.log(tree);
@@ -100,7 +100,7 @@
 <style scoped>
 	#tree {
 		width: auto;
-		height: 4500px;
+		height: 450px;
 	}
 </style>
 
