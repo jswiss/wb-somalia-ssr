@@ -95,13 +95,13 @@ export const mutations = {
     let arr = [];
     state.treeMap2016 = data.reduce(function(r, o) {
       Object.keys(o).forEach(function(k) {
-        if (['Project title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
+        if (['Project Title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
           return;
         }
         r.push({
           Location: k,
           Value: o[k],
-          'Project Title': o['Project title'],
+          'Project Title': o['Project Title'],
           'NDP Pillar': o['NDP Pillar'],
           Sector: o.Sector,
           Year: 2016,
@@ -116,13 +116,13 @@ export const mutations = {
     let arr = [];
     state.treeMap2017 = data.reduce(function(r, o) {
       Object.keys(o).forEach(function(k) {
-        if (['Project title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
+        if (['Project Title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
           return;
         }
         r.push({
           Location: k,
           Value: o[k],
-          'Project Title': o['Project title'],
+          'Project Title': o['Project Title'],
           'NDP Pillar': o['NDP Pillar'],
           Sector: o.Sector,
           Year: 2017,
@@ -137,13 +137,13 @@ export const mutations = {
     let arr = [];
     state.treeMap2018 = data.reduce(function(r, o) {
       Object.keys(o).forEach(function(k) {
-        if (['Project title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
+        if (['Project Title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
           return;
         }
         r.push({
           Location: k,
           Value: o[k],
-          'Project Title': o['Project title'],
+          'Project Title': o['Project Title'],
           'NDP Pillar': o['NDP Pillar'],
           Sector: o.Sector,
           Year: 2018,
@@ -155,13 +155,16 @@ export const mutations = {
     }, []);
   },
   SET_PROJECT_LOCATION(state) {
-    for (let i = 0; i < state.treeMap2016.length; i++) {
+    let i = state.treeMap2016.length;
+    let j = state.treeMap2017.length;
+    let k = state.treeMap2018.length;
+    while (i--) {
       state.projectLocationTable.push(state.treeMap2016[i]);
     }
-    for (let i = 0; i < state.treeMap2017.length; i++) {
+    while (j--) {
       state.projectLocationTable.push(state.treeMap2017[i]);
     }
-    for (let i = 0; i < state.treeMap2018.length; i++) {
+    while (k--) {
       state.projectLocationTable.push(state.treeMap2018[i]);
     }
   },

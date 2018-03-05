@@ -7,8 +7,8 @@ export async function getAllProjects({ store, client }) {
     const res = await axios.get('https://api.80pco.com/master');
     const tree2016 = res.data.map(k => {
       return {
-        Project: k['Project title'],
-        pillar: k['NDP Pillar'],
+        'Project Title': k['Project title'],
+        'NDP Pillar': k['NDP Pillar'],
         Sector: k['Primary Sector'],
         FGS: k['2016 - FGS'],
         Benadir: k['2016 - Benadir'],
@@ -23,7 +23,7 @@ export async function getAllProjects({ store, client }) {
     });
     const tree2017 = res.data.map(k => {
       return {
-        Project: k['Project title'],
+        'Project Title': k['Project title'],
         'NDP Pillar': k['NDP Pillar'],
         Sector: k['Primary Sector'],
         FGS: k['2017 - FGS'],
@@ -39,7 +39,7 @@ export async function getAllProjects({ store, client }) {
     });
     const tree2018 = res.data.map(k => {
       return {
-        Project: k['Project title'],
+        'Project Title': k['Project title'],
         'NDP Pillar': k['NDP Pillar'],
         Sector: k['Primary Sector'],
         FGS: k['2018 - FGS'],
