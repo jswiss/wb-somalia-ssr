@@ -5,22 +5,58 @@ export async function getAllProjects({ store, client }) {
 
   try {
     const res = await axios.get('https://api.80pco.com/master');
+    const tree2016 = res.data.map(k => {
+      return {
+        project: k['Project title'],
+        pillar: k['NDP Pillar'],
+        sector: k['Primary Sector'],
+        FGS: k['2016 - FGS'],
+        Benadir: k['2016 - Benadir'],
+        Galmudug: k['2016 - Galmudug'],
+        Hiirshabelle: k['2016 - Hiirshabelle'],
+        Jubaland: k['2016 - Jubaland'],
+        Puntland: k['2016 - Puntland'],
+        'South West': k['2016 - South West'],
+        Somaliland: k['2016 - Somaliland'],
+        Unattributed: k['2016 - Unattributed'],
+      };
+    });
+    const tree2017 = res.data.map(k => {
+      return {
+        project: k['Project title'],
+        pillar: k['NDP Pillar'],
+        sector: k['Primary Sector'],
+        FGS: k['2017 - FGS'],
+        Benadir: k['2017 - Benadir'],
+        Galmudug: k['2017 - Galmudug'],
+        Hiirshabelle: k['2017 - Hiirshabelle'],
+        Jubaland: k['2017 - Jubaland'],
+        Puntland: k['2017 - Puntland'],
+        'South West': k['2017 - South West'],
+        Somaliland: k['2017 - Somaliland'],
+        Unattributed: k['2017 - Unattributed'],
+      };
+    });
+    const tree2018 = res.data.map(k => {
+      return {
+        project: k['Project title'],
+        pillar: k['NDP Pillar'],
+        sector: k['Primary Sector'],
+        FGS: k['2018 - FGS'],
+        Benadir: k['2018 - Benadir'],
+        Galmudug: k['2018 - Galmudug'],
+        Hiirshabelle: k['2018 - Hiirshabelle'],
+        Jubaland: k['2018 - Jubaland'],
+        Puntland: k['2018 - Puntland'],
+        'South West': k['2018 - South West'],
+        Somaliland: k['2018 - Somaliland'],
+        Unattributed: k['2018 - Unattributed'],
+      };
+    });
     store.commit('SET_MASTER', res.data);
-  } catch (err) {
-    console.log('====================================');
-    console.log(err);
-    console.log('====================================');
-  }
-}
-
-export async function getProject(store, params, client) {
-  if (client) return;
-  try {
-    const projectId = this.$route.params.id * 1;
-    const item = await store.state.projectsTable.filter(
-      project => project.id == projectId
-    );
-    store.commit('SET_PROJECT', item[0]);
+    store.commit('SET_2016', tree2016);
+    store.commit('SET_2017', tree2017);
+    store.commit('SET_2018', tree2018);
   } catch (err) {
     console.log('====================================');
     console.log(err);
@@ -46,10 +82,10 @@ export function capitalizeString(str) {
 
 export function formatMillion(number) {
   if (number < 1000000) {
-    var num = Math.floor(number / 10000)
-    return num / 100
+    var num = Math.floor(number / 10000);
+    return num / 100;
   } else if (number < 1000000000) {
-    var num = Math.floor(number / 100000)
-    return num / 10
+    var num = Math.floor(number / 100000);
+    return num / 10;
   }
 }

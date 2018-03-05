@@ -12,6 +12,7 @@ export const state = () => ({
   treeMap2016: [],
   treeMap2017: [],
   treeMap2018: [],
+  projectLocationTable: [],
   color: {
     blue: '#4587EA',
     green: '#81D8C2',
@@ -26,37 +27,39 @@ export const state = () => ({
 
 export const mutations = {
   SET_POOLED_TABLE(state, data) {
-    state.pooledTable = data;
-    state.pooledTable.forEach(k => {
-      k['Contributions to MDTFs'] =
-        k['Contributions to Multi Donor Trust Funds (MDTFs)'];
-      k['2015'] = k['2015, US$'];
-      k['2016'] = k['2016, US$'];
-      k['2017'] = k['2017, US$'];
-      k['2018'] = k['2018, US$'];
+    state.pooledTable = data.map(k => {
+      return {
+        'Contributions to MDTFs':
+          k['Contributions to Multi Donor Trust Funds (MDTFs)'],
+        '2015': k['2015, US$'],
+        '2016': k['2016, US$'],
+        '2017': k['2017, US$'],
+        '2018': k['2018, US$'],
+      };
     });
   },
   SET_MASTER(state, data) {
-    state.projectsTable = data;
-    state.projectsTable.forEach(k => {
-      k.id = k.id;
-      k['Project Title'] = k['Project title'];
-      k['Objective'] = k['Project objectives'];
-      k['2016 Disbursements'] = k['2016 Disbursements (USD)'];
-      k['2017 Disbursements'] = k['2017 Disbursements (USD)'];
-      k['2018 Disbursements'] = k['2018 Disbursements (USD)'];
-      k['Total Project Value'] =
-        k['2016 Disbursements (USD)'] +
-        k['2017 Disbursements (USD)'] +
-        k['2018 Disbursements (USD)'];
-      k['Start Date'] =
-        k['Start Date'] !== null
-          ? moment(excelToJsDate(k['Start Date'])).format('YYYY-MM')
-          : null;
-      k['End Date'] =
-        k['End Date'] !== null
-          ? moment(excelToJsDate(k['End Date'])).format('YYYY-MM')
-          : null;
+    state.projectsTable = data.map(k => {
+      return {
+        id: k.id,
+        'Project Title': k['Project title'],
+        Objective: k['Project objectives'],
+        '2016 Disbursements': k['2016 Disbursements (USD)'],
+        '2017 Disbursements': k['2017 Disbursements (USD)'],
+        '2018 Disbursements': k['2018 Disbursements (USD)'],
+        'Total Project Value':
+          k['2016 Disbursements (USD)'] +
+          k['2017 Disbursements (USD)'] +
+          k['2018 Disbursements (USD)'],
+        'Start Date':
+          k['Start Date'] !== null
+            ? moment(excelToJsDate(k['Start Date'])).format('YYYY-MM')
+            : null,
+        'End Date':
+          k['End Date'] !== null
+            ? moment(excelToJsDate(k['End Date'])).format('YYYY-MM')
+            : null,
+      };
     });
   },
   SET_ENV_TABLE(state, data) {
@@ -88,14 +91,79 @@ export const mutations = {
       };
     });
   },
-  SET_TREE_2016(state, data) {
-    state.treeMap2016 = data;
+  SET_2016(state, data) {
+    let arr = [];
+    state.treeMap2016 = data.reduce(function(r, o) {
+      Object.keys(o).forEach(function(k) {
+        if (['project', 'pillar', 'sector'].includes(k) || !o[k]) {
+          return;
+        }
+        r.push({
+          Location: k,
+          Value: o[k],
+          'Project Title': o.project,
+          'NDP Pillar': o.pillar,
+          Sector: o.sector,
+          Year: 2016,
+        });
+      });
+
+      arr.push(r);
+      return r;
+    }, []);
   },
-  SET_TREE_2017(state, data) {
-    state.treeMap2017 = data;
+  SET_2017(state, data) {
+    let arr = [];
+    state.treeMap2017 = data.reduce(function(r, o) {
+      Object.keys(o).forEach(function(k) {
+        if (['project', 'pillar', 'sector'].includes(k) || !o[k]) {
+          return;
+        }
+        r.push({
+          Location: k,
+          Value: o[k],
+          'Project Title': o.project,
+          'NDP Pillar': o.pillar,
+          Sector: o.sector,
+          Year: 2017,
+        });
+      });
+
+      arr.push(r);
+      return r;
+    }, []);
   },
-  SET_TREE_2018(state, data) {
-    state.treeMap2018 = data;
+  SET_2018(state, data) {
+    let arr = [];
+    state.treeMap2018 = data.reduce(function(r, o) {
+      Object.keys(o).forEach(function(k) {
+        if (['project', 'pillar', 'sector'].includes(k) || !o[k]) {
+          return;
+        }
+        r.push({
+          Location: k,
+          Value: o[k],
+          'Project Title': o.project,
+          'NDP Pillar': o.pillar,
+          Sector: o.sector,
+          Year: 2018,
+        });
+      });
+
+      arr.push(r);
+      return r;
+    }, []);
+  },
+  SET_PROJECT_LOCATION(state) {
+    for (let i = 0; i < state.treeMap2016.length; i++) {
+      state.projectLocationTable.push(state.treeMap2016[i]);
+    }
+    for (let i = 0; i < state.treeMap2017.length; i++) {
+      state.projectLocationTable.push(state.treeMap2017[i]);
+    }
+    for (let i = 0; i < state.treeMap2018.length; i++) {
+      state.projectLocationTable.push(state.treeMap2018[i]);
+    }
   },
   SET_PROJECT(state, data) {
     state.project = data;

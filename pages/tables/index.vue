@@ -16,38 +16,47 @@
 </template>
 
 <script>
-  import axios from 'axios';
-  import TableTabs from '~/components/TableTabs';
+	import axios from 'axios';
+	import TableTabs from '~/components/TableTabs';
 
-  export default {
-  	name: 'tables',
-  	components: {
-  		TableTabs,
-  	},
-  	async asyncData({ query, error, store }) {
-  		if (store.state.envelopeTable.length !== 0) return;
+	export default {
+		name: 'tables',
+		components: {
+			TableTabs,
+		},
+		async asyncData({ query, error, store }) {
+			if (store.state.envelopeTable.length !== 0) return;
 
-  		let [envRes, pooledRes, locRes] = await Promise.all([
-  			axios.get('https://api.80pco.com/envelopes'),
-  			axios.get('https://api.80pco.com/pooled'),
-  			axios.get('https://api.80pco.com/locations'),
-  		]);
-  		store.commit('SET_ENV_TABLE', envRes.data);
-  		store.commit('SET_POOLED_TABLE', pooledRes.data);
-  		store.commit('SET_LOCATION_TABLE', locRes.data);
+			let [envRes, pooledRes, locRes] = await Promise.all([
+				axios.get('https://api.80pco.com/envelopes'),
+				axios.get('https://api.80pco.com/pooled'),
+				axios.get('https://api.80pco.com/locations'),
+			]);
+			store.commit('SET_ENV_TABLE', envRes.data);
+			store.commit('SET_POOLED_TABLE', pooledRes.data);
+			store.commit('SET_LOCATION_TABLE', locRes.data);
 
-  		return {
-  			envs: envRes.data,
-  			pools: pooledRes.data,
-  			loc2016: locRes.data,
-  		};
-  	},
-  };
+			return {
+				envs: envRes.data,
+				pools: pooledRes.data,
+				loc2016: locRes.data,
+			};
+		},
+		methods: {
+			setProjectLocationTable() {
+				if (this.$store.state.projectLocationTable.length !== 0) return;
+				this.$store.commit('SET_PROJECT_LOCATION');
+			},
+		},
+		mounted() {
+			this.setProjectLocationTable();
+		},
+	};
 </script>
 
 <style scoped>
-  #table-text {
-  	margin-top: 3%;
-  }
+	#table-text {
+		margin-top: 3%;
+	}
 </style>
 
