@@ -117,12 +117,12 @@
   }
 
   #sectors-menu {
-  	margin: 1% 0 0 1%;
+  	margin: 6% 0 0 1%;
   }
 
   .sector-icon {
-  	width: 80px;
-  	height: 80px;
+  	width: 60%;
+  	height: 60%;
   	margin-left: auto;
   	margin-right: auto;
   	display: block;
