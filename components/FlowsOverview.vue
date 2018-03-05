@@ -2,7 +2,7 @@
   <div id="overview">
     <div class="columns">
       <div class="column is-1"></div>
-      <h1 class="column title is-3">Overview of Flows</h1>
+      <h1 id="title" class="title is-1">{{ title }}</h1>
     </div>
     <div id="charts-section" class="columns">
       <div class="column is-10 is-mobile">
@@ -73,6 +73,7 @@
   	name: 'FlowsOverview',
   	data() {
   		return {
+  			title: 'Overview of Flows',
   			flowsDisplayed: true,
   			devDisplayed: true,
   		};
@@ -99,6 +100,10 @@
   }
   #tables {
   	margin-top: 6%;
+  }
+
+  #title {
+  	margin-top: 3%;
   }
 
   .subtitle {
