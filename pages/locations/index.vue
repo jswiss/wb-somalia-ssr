@@ -62,24 +62,24 @@
   		TreeMap2017,
   		TreeMap2018,
   	},
-  	async asyncData({ query, error, store }) {
-  		if (store.state.treeMap2016.length !== 0) return;
+  	// async asyncData({ query, error, store }) {
+  	// 	if (store.state.treeMap2016.length !== 0) return;
 
-  		let [tree2016, tree2017, tree2018] = await Promise.all([
-  			axios.get('https://api.80pco.com/2016'),
-  			axios.get('https://api.80pco.com/2017'),
-  			axios.get('https://api.80pco.com/2018'),
-  		]);
-  		store.commit('SET_TREE_2016', tree2016.data);
-  		store.commit('SET_TREE_2017', tree2017.data);
-  		store.commit('SET_TREE_2018', tree2018.data);
+  	// 	let [tree2016, tree2017, tree2018] = await Promise.all([
+  	// 		axios.get('https://api.80pco.com/2016'),
+  	// 		axios.get('https://api.80pco.com/2017'),
+  	// 		axios.get('https://api.80pco.com/2018'),
+  	// 	]);
+  	// 	store.commit('SET_TREE_2016', tree2016.data);
+  	// 	store.commit('SET_TREE_2017', tree2017.data);
+  	// 	store.commit('SET_TREE_2018', tree2018.data);
 
-  		return {
-  			tree2016: tree2016.data,
-  			tree2017: tree2017.data,
-  			tree2018: tree2018.data,
-  		};
-  	},
+  	// 	return {
+  	// 		tree2016: tree2016.data,
+  	// 		tree2017: tree2017.data,
+  	// 		tree2018: tree2018.data,
+  	// 	};
+  	// },
   };
 </script>
 

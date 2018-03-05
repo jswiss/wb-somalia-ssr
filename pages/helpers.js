@@ -7,9 +7,9 @@ export async function getAllProjects({ store, client }) {
     const res = await axios.get('https://api.80pco.com/master');
     const tree2016 = res.data.map(k => {
       return {
-        project: k['Project title'],
+        Project: k['Project title'],
         pillar: k['NDP Pillar'],
-        sector: k['Primary Sector'],
+        Sector: k['Primary Sector'],
         FGS: k['2016 - FGS'],
         Benadir: k['2016 - Benadir'],
         Galmudug: k['2016 - Galmudug'],
@@ -23,9 +23,9 @@ export async function getAllProjects({ store, client }) {
     });
     const tree2017 = res.data.map(k => {
       return {
-        project: k['Project title'],
-        pillar: k['NDP Pillar'],
-        sector: k['Primary Sector'],
+        Project: k['Project title'],
+        'NDP Pillar': k['NDP Pillar'],
+        Sector: k['Primary Sector'],
         FGS: k['2017 - FGS'],
         Benadir: k['2017 - Benadir'],
         Galmudug: k['2017 - Galmudug'],
@@ -39,9 +39,9 @@ export async function getAllProjects({ store, client }) {
     });
     const tree2018 = res.data.map(k => {
       return {
-        project: k['Project title'],
-        pillar: k['NDP Pillar'],
-        sector: k['Primary Sector'],
+        Project: k['Project title'],
+        'NDP Pillar': k['NDP Pillar'],
+        Sector: k['Primary Sector'],
         FGS: k['2018 - FGS'],
         Benadir: k['2018 - Benadir'],
         Galmudug: k['2018 - Galmudug'],

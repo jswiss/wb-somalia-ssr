@@ -25,7 +25,9 @@
       <div class="column is-1 is-mobile"></div>
       <div  id="charts" class="column is-8 is-mobile">
         <oda-chart v-if="!flowsDisplayed"></oda-chart>
-        <gdp-chart v-if="flowsDisplayed"></gdp-chart>
+        <no-ssr placeholder="Loading...">
+          <gdp-chart v-if="flowsDisplayed"></gdp-chart>
+        </no-ssr>
       </div>
       <div class="column is-1 is-mobile"></div>
     </div>
