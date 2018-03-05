@@ -95,13 +95,13 @@ export const mutations = {
     let arr = [];
     state.treeMap2016 = data.reduce(function(r, o) {
       Object.keys(o).forEach(function(k) {
-        if (['Project Title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
+        if (['Project title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
           return;
         }
         r.push({
           Location: k,
           Value: o[k],
-          'Project Title': o['Project Title'],
+          'Project Title': o['Project title'],
           'NDP Pillar': o['NDP Pillar'],
           Sector: o.Sector,
           Year: 2016,
@@ -116,13 +116,13 @@ export const mutations = {
     let arr = [];
     state.treeMap2017 = data.reduce(function(r, o) {
       Object.keys(o).forEach(function(k) {
-        if (['Project Title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
+        if (['Project title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
           return;
         }
         r.push({
           Location: k,
           Value: o[k],
-          'Project Title': o['Project Title'],
+          'Project Title': o['Project title'],
           'NDP Pillar': o['NDP Pillar'],
           Sector: o.Sector,
           Year: 2017,
@@ -137,13 +137,13 @@ export const mutations = {
     let arr = [];
     state.treeMap2018 = data.reduce(function(r, o) {
       Object.keys(o).forEach(function(k) {
-        if (['Project Title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
+        if (['Project title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
           return;
         }
         r.push({
           Location: k,
           Value: o[k],
-          'Project Title': o['Project Title'],
+          'Project Title': o['Project title'],
           'NDP Pillar': o['NDP Pillar'],
           Sector: o.Sector,
           Year: 2018,
