@@ -41,9 +41,7 @@
   				'Value',
   			],
   			options: {
-  				saveState: true,
   				highlightMatches: true,
-  				storage: 'local',
   				filterable: [
   					'Location',
   					'Year',

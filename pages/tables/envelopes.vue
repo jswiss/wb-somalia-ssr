@@ -61,7 +61,6 @@
 
   export default {
   	name: 'envelopes',
-  	props: ['name'],
   	data() {
   		return {
   			title: 'Filter by agency, agency category, or aid flow category',
@@ -78,9 +77,7 @@
   				'Trends',
   			],
   			options: {
-  				useVuex: true,
   				highlightMatches: true,
-  				storage: 'local',
   				filterable: ['Agency', 'Agency Category', 'Aid Flow Category'],
   			},
   		};

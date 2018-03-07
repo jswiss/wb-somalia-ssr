@@ -92,9 +92,7 @@
   			],
   			options: {
   				options: {
-  					saveState: true,
   					highlightMatches: true,
-  					storage: 'local',
   					filterable: ['Agency', 'Contributions to MDTFs', 'Category'],
   				},
   			},

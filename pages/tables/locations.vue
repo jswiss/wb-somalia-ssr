@@ -64,9 +64,7 @@
   				'Total Disbursements by Location Trend',
   			],
   			options: {
-  				saveState: true,
   				highlightMatches: true,
-  				storage: 'local',
   				filterable: ['Location'],
   			},
   		};
