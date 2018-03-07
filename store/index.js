@@ -46,6 +46,8 @@ export const mutations = {
       return {
         id: k.id,
         'Project Title': k['Project title'],
+        'NDP Pillar': k['NDP Pillar'],
+        'Primary Sector': k['Primary Sector'],
         Objective: k['Project objectives'],
         '2016 Disbursements': k['2016 Disbursements (USD)'],
         '2017 Disbursements': k['2017 Disbursements (USD)'],
