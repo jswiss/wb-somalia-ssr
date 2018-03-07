@@ -9,17 +9,20 @@
         <nuxt/>
       </div>
     </div>
+    <footer-menu/>
   </div>
 </template>
 
 <script>
   import NavBar from '~/components/NavBar';
   import SectorsMenu from '~/components/SectorsMenu';
+  import FooterMenu from '~/components/FooterMenu';
   export default {
   	name: 'sectors',
   	components: {
   		NavBar,
   		SectorsMenu,
+  		FooterMenu,
   	},
   };
 </script>
