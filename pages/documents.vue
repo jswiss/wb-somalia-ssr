@@ -27,6 +27,7 @@
       <div class="columns is-gapless">
         <!-- <div class="column is-1"></div> -->
         <div class="column is-5 is-mobile">
+					<h1 class="title is-5">Aid Flow Reports</h1>
           <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
             <thead>
               <tr>
@@ -44,6 +45,7 @@
         </div>
         <div class="column is-1"></div>
         <div class="column is-5 is-mobile">
+          <h1 class="title is-5">Data from 2017 Aid Mapping</h1>
           <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
             <thead>
               <tr>
@@ -75,12 +77,21 @@
   			sortedData: [],
   			links: [
   				{
-  					id: 1,
+  					id: 0,
+  					text: '2018 Aid Flow Analysis',
+  					url:
+  						'https://s3.eu-central-1.amazonaws.com/somalia-aid-flows.so/Aid+Flows+in+Somalia+-+2018FINAL.pdf',
+  					fileType: 'https://icon.now.sh/picture_as_pdf',
+  					date: 0,
+  					type: 'report',
+  				},
+  				{
+  					id: 3,
   					text: '2014 Aid Flow Analysis',
   					url:
   						'https://s3.eu-central-1.amazonaws.com/somalia-aid-flows.so/2014+Aid+Flows+Analysis.pdf',
   					fileType: 'https://icon.now.sh/picture_as_pdf',
-  					date: 1,
+  					date: 3,
   					type: 'report',
   				},
   				{
@@ -89,30 +100,30 @@
   					url:
   						'https://s3.eu-central-1.amazonaws.com/somalia-aid-flows.so/2016+Aid+Flows+Analysis.pdf',
   					fileType: 'https://icon.now.sh/picture_as_pdf',
-  					date: 3,
+  					date: 2,
   					type: 'report',
   				},
   				{
-  					id: 3,
+  					id: 1,
   					text: '2017 Aid Flow Analysis',
   					url:
   						'https://s3.eu-central-1.amazonaws.com/somalia-aid-flows.so/2017+Aid+Flows+Analysis.pdf',
+  					fileType: 'https://icon.now.sh/picture_as_pdf',
+  					date: 1,
+  					type: 'report',
+  				},
+  				{
+  					id: 4,
+  					text: 'Somalia AIMS Review',
+  					url:
+  						'https://s3.eu-central-1.amazonaws.com/somalia-aid-flows.so/Somali+AIMS+Review+19Aug.pdf',
   					fileType: 'https://icon.now.sh/picture_as_pdf',
   					date: 4,
   					type: 'report',
   				},
   				{
-  					id: 4,
-  					text: '2015 - Somalia AIMS Review',
-  					url:
-  						'https://s3.eu-central-1.amazonaws.com/somalia-aid-flows.so/Somali+AIMS+Review+19Aug.pdf',
-  					fileType: 'https://icon.now.sh/picture_as_pdf',
-  					date: 2,
-  					type: 'report',
-  				},
-  				{
   					id: 5,
-  					text: 'Somalia Aid Flows - 2018 Envelopes Reporting',
+  					text: '2018 Donors Envelopes',
   					url:
   						'https://s3.eu-central-1.amazonaws.com/somalia-aid-flows.so/Somalia+Aid+Flows+-+2018+Envelopes+Reporting.xlsx',
   					fileType: 'https://icon.now.sh/microsoftexcel',
@@ -121,7 +132,7 @@
   				},
   				{
   					id: 6,
-  					text: 'Somalia Aid Flows - 2018 Pooled Funds',
+  					text: '2018 Pooled Funds Contributions',
   					url:
   						'https://s3.eu-central-1.amazonaws.com/somalia-aid-flows.so/Somalia+Aid+Flows+-+2018+Pooled+Funds.xlsx',
   					fileType: 'https://icon.now.sh/microsoftexcel',
@@ -130,7 +141,7 @@
   				},
   				{
   					id: 7,
-  					text: 'Somalia Aid Flows - 2018 Master Data',
+  					text: '2018 Project Reporting',
   					url:
   						'https://s3.eu-central-1.amazonaws.com/somalia-aid-flows.so/Somalia+Aid+Flows+2018+Master.xlsx',
   					fileType: 'https://icon.now.sh/microsoftexcel',

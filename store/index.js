@@ -5,7 +5,6 @@ const d3 = Object.assign({}, require('d3-array'), require('d3-collection'));
 
 export const state = () => ({
   project: null,
-  locationYear: '',
   envelopeTable: [],
   pooledTable: [],
   projectsTable: [],
