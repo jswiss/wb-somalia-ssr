@@ -13,7 +13,7 @@
   		...mapState({
   			treeData: state => state.treeMap2018,
   		}),
-  		tree() {
+  		async tree() {
   			const data = this.treeData;
 
   			const tree = { values: {} };
@@ -29,7 +29,7 @@
   			console.log(tree);
   			console.log('====================================');
 
-  			const tree2018 = [
+  			const tree2018 = await [
   				{
   					name: 2018,
   					children: tree.values.map(location => {
