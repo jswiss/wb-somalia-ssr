@@ -66,7 +66,10 @@
   			chart
   				.yAxis()
   				.labels()
-  				.format('{%Value}{groupsSeparator:\\,}');
+  				.format(function() {
+  					return `$${this.value / 1000000} mln`;
+  				});
+  			// .format('{%Value}{groupsSeparator:\\,}');
 
   			// set titles for Y-axis
   			chart.yAxis().title('Aid in USD');
@@ -133,6 +136,6 @@
   /* make sure div#id has a size defined, otherwise nothing will render */
   #aid-by-pillar {
   	height: 600px;
-  	width: 90%;
+  	width: 100%;
   }
 </style>
