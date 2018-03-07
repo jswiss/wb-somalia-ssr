@@ -2,6 +2,7 @@
   <div id="section" class="section">
     <div id="rule-of-law" class="container is-fluid">
       <h1 class="title is-1">{{ title }}</h1>
+      <h4 class="subtitle is-5">{{ subTitle }}</h4>
       <div class="columns">
         <div class="column is-1"></div>
         <div class="column is-3 is-mobile">
@@ -101,170 +102,196 @@
 </template>
 
 <script>
-import { formatMillion } from '../helpers'
+  import { formatMillion } from '../helpers';
 
-export default {
-  name: 'rule-of-law',
-  layout: 'sectors',
-  data() {
-    return {
-      ruleOfLawData: [
-        ["Government", 4884026],
-        ["Military", 4525200],
-        ["Mix of implementers - involving government", 4123420],
-        ["Mix of implementers - no government", 4717214],
-        ["NGOs", 8419492],
-        ["Private Sector", 6182000],
-        ["UN", 79498786],
-        ["Unclear / TBD", 6186113]
-      ],
-      ruleOfLawChart: [
-        ["2016", formatMillion(65544693)],
-        ["2017", formatMillion(48282515)],
-        ["2018", formatMillion(4709043)]
-      ],
-      ruleOfLawDataPie: [
-        {x: "UN", value: formatMillion(79498786),
-        normal: {fill: this.$store.state.color.blue}},
-        {x: "NGOs", value: formatMillion(8419492),
-        normal: {fill: this.$store.state.color.green}},
-        {x: "Unclear/TBD", value: formatMillion(6186133),
-        normal: {fill: this.$store.state.color.yellow}},
-        {x: "Private Sector", value: formatMillion(6182000),
-        normal: {fill: this.$store.state.color.tan}},
-        {x: "Government", value: formatMillion(4884026),
-        normal: {fill: this.$store.state.color.violet}},
-        {x: "Mix of implementers - no government", value: formatMillion(4717214),
-        normal: {fill: this.$store.state.color.brown}},
-        {x: "Military", value: formatMillion(4525200),
-        normal: {fill: this.$store.state.color.pink}},
-        {x: "Mix of implementers - government", value: formatMillion(4123420),
-        normal: {fill: this.$store.state.color.lightblue}}
-      ],
-      ruleOfLawLocationStack: [
-        ["FGS", 0.2, 17.5, 25.2],
-        ["Benadir", 0.9, 3.5, 5.6],
-        ["Galmudug", 0.6, 0.6, 0.1],
-        ["Hiirshabelle", 0.6, 4.4, 3.2],
-        ["Jubaland", 0.7, 4.4, 4.2],
-        ["Puntland", 0.1, 3.3, 7.8],
-        ["South West", 0.7, 4.5, 4.0],
-        ["Somaliland", 0.4, 3.3, 9.0],
-        ["Unattributed", 0.5, 6.7, 6.3]
-      ]
-    }
-  },
-  methods: {
-    renderChart() {
-      const chart = anychart.cartesian();
-      const dataSet = anychart.data.set(this.ruleOfLawChart);
+  export default {
+  	name: 'rule-of-law',
+  	layout: 'sectors',
+  	data() {
+  		return {
+  			title: 'Rule of Law',
+  			subTitle: 'All values in millions US$',
+  			ruleOfLawData: [
+  				['Government', 4884026],
+  				['Military', 4525200],
+  				['Mix of implementers - involving government', 4123420],
+  				['Mix of implementers - no government', 4717214],
+  				['NGOs', 8419492],
+  				['Private Sector', 6182000],
+  				['UN', 79498786],
+  				['Unclear / TBD', 6186113],
+  			],
+  			ruleOfLawChart: [
+  				['2016', formatMillion(65544693)],
+  				['2017', formatMillion(48282515)],
+  				['2018', formatMillion(4709043)],
+  			],
+  			ruleOfLawDataPie: [
+  				{
+  					x: 'UN',
+  					value: formatMillion(79498786),
+  					normal: { fill: this.$store.state.color.blue },
+  				},
+  				{
+  					x: 'NGOs',
+  					value: formatMillion(8419492),
+  					normal: { fill: this.$store.state.color.green },
+  				},
+  				{
+  					x: 'Unclear/TBD',
+  					value: formatMillion(6186133),
+  					normal: { fill: this.$store.state.color.yellow },
+  				},
+  				{
+  					x: 'Private Sector',
+  					value: formatMillion(6182000),
+  					normal: { fill: this.$store.state.color.tan },
+  				},
+  				{
+  					x: 'Government',
+  					value: formatMillion(4884026),
+  					normal: { fill: this.$store.state.color.violet },
+  				},
+  				{
+  					x: 'Mix of implementers - no government',
+  					value: formatMillion(4717214),
+  					normal: { fill: this.$store.state.color.brown },
+  				},
+  				{
+  					x: 'Military',
+  					value: formatMillion(4525200),
+  					normal: { fill: this.$store.state.color.pink },
+  				},
+  				{
+  					x: 'Mix of implementers - government',
+  					value: formatMillion(4123420),
+  					normal: { fill: this.$store.state.color.lightblue },
+  				},
+  			],
+  			ruleOfLawLocationStack: [
+  				['FGS', 0.2, 17.5, 25.2],
+  				['Benadir', 0.9, 3.5, 5.6],
+  				['Galmudug', 0.6, 0.6, 0.1],
+  				['Hiirshabelle', 0.6, 4.4, 3.2],
+  				['Jubaland', 0.7, 4.4, 4.2],
+  				['Puntland', 0.1, 3.3, 7.8],
+  				['South West', 0.7, 4.5, 4.0],
+  				['Somaliland', 0.4, 3.3, 9.0],
+  				['Unattributed', 0.5, 6.7, 6.3],
+  			],
+  		};
+  	},
+  	methods: {
+  		renderChart() {
+  			const chart = anychart.cartesian();
+  			const dataSet = anychart.data.set(this.ruleOfLawChart);
 
-      const seriesData = dataSet.mapAs({x: 0, value: 1});
+  			const seriesData = dataSet.mapAs({ x: 0, value: 1 });
 
-      const column = chart.column(seriesData);
-      column
-      .fill(this.$store.state.color.blue)
-      .stroke(null)
-      .labels()
-      .enabled(true)
-      .format('${%Value}{groupsSeparator:\\,} mln');
+  			const column = chart.column(seriesData);
+  			column
+  				.fill(this.$store.state.color.blue)
+  				.stroke(null)
+  				.labels()
+  				.enabled(true)
+  				.format('${%Value}{groupsSeparator:\\,} mln');
 
-      chart.animation(true);
+  			chart.animation(true);
 
-      chart.title("Rule of Law: Project Disbursements");
+  			chart.title('Rule of Law: Project Disbursements');
 
-      chart.yScale().minimum(0);
+  			chart.yScale().minimum(0);
 
-      chart.tooltip().format('${%Value}{groupsSeparator:\\,} mln');
+  			chart.tooltip().format('${%Value}{groupsSeparator:\\,} mln');
 
-      chart.interactivity().hoverMode('by-x');
+  			chart.interactivity().hoverMode('by-x');
 
-      chart
-      .yAxis()
-      .labels()
-      .format('${%Value}{groupsSeparator:\\,} mln');
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%Value}{groupsSeparator:\\,} mln');
 
-      chart.xAxis(true);
+  			chart.xAxis(true);
 
-      chart.container('container');
+  			chart.container('bar-chart');
 
-      chart.draw();
-    },
-    renderPie() {
-      const chart = anychart.pie(this.ruleOfLawDataPie);
+  			chart.draw();
+  		},
+  		renderPie() {
+  			const chart = anychart.pie(this.ruleOfLawDataPie);
 
-      chart.title("Rule of Law: Key Implementers");
-      chart.container("pie-chart");
-      chart.animation(true);
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
+  			chart.title('Rule of Law: Key Implementers');
+  			chart.container('pie-chart');
+  			chart.animation(true);
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
-      chart.draw();
-    },
-    renderCountryStack() {
+  			chart.draw();
+  		},
+  		renderCountryStack() {
+  			var chart = anychart.column();
 
-      var chart = anychart.column();
+  			const dataSet = anychart.data.set(this.ruleOfLawLocationStack);
 
-      const dataSet = anychart.data.set(this.ruleOfLawLocationStack);
+  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
+  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
+  			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
 
-      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
-      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
-      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
+  			// create a chart
+  			var chart = anychart.column();
 
-      // create a chart
-      var chart = anychart.column();
+  			/* enable the value stacking mode
+            on the default primary value scale*/
+  			chart.yScale().stackMode('value');
 
-      /* enable the value stacking mode
-      on the default primary value scale*/
-      chart.yScale().stackMode("value");
+  			chart.legend(true);
+  			// create column series
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.stroke(null)
+  				.name('2018')
+  				.tooltip()
+  				.format('2018: ${%Value} mln');
 
-      chart.legend(true);
-      // create column series
-      chart
-      .column(seriesData_1)
-      .color(this.$store.state.color.blue)
-      .stroke(null)
-      .name("2018")
-      .tooltip()
-      .format('2018: ${%Value} mln');
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.stroke(null)
+  				.name('2017')
+  				.tooltip()
+  				.format('2017: ${%Value} mln');
 
-      chart
-      .column(seriesData_2)
-      .color(this.$store.state.color.green)
-      .stroke(null)
-      .name("2017")
-      .tooltip()
-      .format('2017: ${%Value} mln');
+  			chart
+  				.column(seriesData_3)
+  				.color(this.$store.state.color.yellow)
+  				.stroke(null)
+  				.name('2016')
+  				.tooltip()
+  				.format('2016: ${%Value} mln');
 
-      chart
-      .column(seriesData_3)
-      .color(this.$store.state.color.yellow)
-      .stroke(null)
-      .name("2016")
-      .tooltip()
-      .format('2016: ${%Value} mln');
+  			// set the chart title
+  			chart.title('Rule of Law: Project Disbursements by Location');
 
-      // set the chart title
-      chart.title("Rule of Law: Project Disbursements by Location");
+  			// set the container id
+  			chart.container('country-stack');
 
-      // set the container id
-      chart.container('country-stack');
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
 
-      var labels = chart.xAxis().labels();
-      labels.enabled(true);
-
-      chart.yAxis().labels().format("${%value} mln");
-      // initiate drawing the chart
-      chart.draw();
-    },
-
-
-  },
-  mounted() {
-    this.renderChart();
-    this.renderPie();
-    this.renderCountryStack();
-  }
-};
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
+  			// initiate drawing the chart
+  			chart.draw();
+  		},
+  	},
+  	mounted() {
+  		this.renderChart();
+  		this.renderPie();
+  		this.renderCountryStack();
+  	},
+  };
 </script>
 
 <style scoped>

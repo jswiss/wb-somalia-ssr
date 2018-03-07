@@ -2,6 +2,7 @@
   <div id="section" class="section">
     <div id="sectors" class="container is-fluid">
       <h1 class="title is-1">{{ title }}</h1>
+      <h4 class="subtitle is-5">{{ subTitle }}</h4>
       <div class="columns">
         <div class="column is-1"></div>
         <div class="column is-5 is-mobile">
@@ -93,161 +94,187 @@
 
 
 <script>
-import { formatMillion } from '../helpers'
+  import { formatMillion } from '../helpers';
 
-export default {
-  name: 'economic-growth',
-  layout: 'sectors',
-  data() {
-    return {
-      economicGrowthData: [
-        ["Donor Agency", formatMillion(8391376)],
-        ["Government", formatMillion(8228265)],
-        ["IFI", formatMillion(3013949)],
-        ["Mix of implementers - involving government", formatMillion(19444243)],
-        ["Mix of implementers - no government", formatMillion(433000)],
-        ["NGOs", formatMillion(38335938)],
-        ["Private Sector", formatMillion(56512142)],
-        ["Regional Actors", formatMillion(1077778)],
-        ["UN", formatMillion(40336126)],
-        ["Unclear / TBD", formatMillion(0)]
-      ],
-      economicGrowthDataStack: [
-        ["2016", 18.0, 57.0],
-        ["2017", 22.7, 41.7],
-        ["2018", 8.3, 28.1]
-      ],
-      economicGrowthDataPie: [
-        {x: "Private Sector", value: formatMillion(56512142),
-        normal: {fill: this.$store.state.color.blue}},
-        {x: "UN", value: formatMillion(40336126),
-        normal: {fill: this.$store.state.color.green}},
-        {x: "NGOs", value: formatMillion(38335938),
-        normal: {fill: this.$store.state.color.yellow}},
-        {x: "Mix of implementers - no government", value: formatMillion(19444243),
-        normal: {fill: this.$store.state.color.tan}},
-        {x: "Donor Agencies", value: formatMillion(8391376),
-        normal: {fill: this.$store.state.color.violet}},
-        {x: "Government", value: formatMillion(8228265),
-        normal: {fill: this.$store.state.color.brown}},
-        {x: "Other", value: formatMillion(4524727),
-        normal: {fill: this.$store.state.color.pink}}
-      ],
-      economicLocationStack: [
-        ["FGS", 8.5, 5.4, 13.9],
-        ["Benadir", 10.9, 0.6, 11.5],
-        ["Galmudug", 4.8, 0.6, 5.4],
-        ["Hiirshabelle", 11.8, 3.1, 14.9],
-        ["Jubaland", 13.9, 4.3, 18.2],
-        ["Puntland", 15.4, 4.3, 19.7],
-        ["South West", 10.5, 5.6, 16.2],
-        ["Somaliland", 42.6, 16.9, 59.5],
-        ["Unattributed", 8.4, 8.1, 16.5]
-      ]
-    };
-  },
+  export default {
+  	name: 'economic-growth',
+  	layout: 'sectors',
+  	data() {
+  		return {
+  			title: 'Economic Growth',
+  			subTitle: 'All values in millions US$',
+  			economicGrowthData: [
+  				['Donor Agency', formatMillion(8391376)],
+  				['Government', formatMillion(8228265)],
+  				['IFI', formatMillion(3013949)],
+  				['Mix of implementers - involving government', formatMillion(19444243)],
+  				['Mix of implementers - no government', formatMillion(433000)],
+  				['NGOs', formatMillion(38335938)],
+  				['Private Sector', formatMillion(56512142)],
+  				['Regional Actors', formatMillion(1077778)],
+  				['UN', formatMillion(40336126)],
+  				['Unclear / TBD', formatMillion(0)],
+  			],
+  			economicGrowthDataStack: [
+  				['2016', 18.0, 57.0],
+  				['2017', 22.7, 41.7],
+  				['2018', 8.3, 28.1],
+  			],
+  			economicGrowthDataPie: [
+  				{
+  					x: 'Private Sector',
+  					value: formatMillion(56512142),
+  					normal: { fill: this.$store.state.color.blue },
+  				},
+  				{
+  					x: 'UN',
+  					value: formatMillion(40336126),
+  					normal: { fill: this.$store.state.color.green },
+  				},
+  				{
+  					x: 'NGOs',
+  					value: formatMillion(38335938),
+  					normal: { fill: this.$store.state.color.yellow },
+  				},
+  				{
+  					x: 'Mix of implementers - no government',
+  					value: formatMillion(19444243),
+  					normal: { fill: this.$store.state.color.tan },
+  				},
+  				{
+  					x: 'Donor Agencies',
+  					value: formatMillion(8391376),
+  					normal: { fill: this.$store.state.color.violet },
+  				},
+  				{
+  					x: 'Government',
+  					value: formatMillion(8228265),
+  					normal: { fill: this.$store.state.color.brown },
+  				},
+  				{
+  					x: 'Other',
+  					value: formatMillion(4524727),
+  					normal: { fill: this.$store.state.color.pink },
+  				},
+  			],
+  			economicLocationStack: [
+  				['FGS', 8.5, 5.4, 13.9],
+  				['Benadir', 10.9, 0.6, 11.5],
+  				['Galmudug', 4.8, 0.6, 5.4],
+  				['Hiirshabelle', 11.8, 3.1, 14.9],
+  				['Jubaland', 13.9, 4.3, 18.2],
+  				['Puntland', 15.4, 4.3, 19.7],
+  				['South West', 10.5, 5.6, 16.2],
+  				['Somaliland', 42.6, 16.9, 59.5],
+  				['Unattributed', 8.4, 8.1, 16.5],
+  			],
+  		};
+  	},
 
+  	methods: {
+  		renderChart() {
+  			const chart = anychart.cartesian();
+  			const dataSet = anychart.data.set(this.economicGrowthData);
 
-  methods: {
-    renderChart() {
-      const chart = anychart.cartesian();
-      const dataSet = anychart.data.set(this.economicGrowthData);
+  			const seriesData = dataSet.mapAs({ x: 0, value: 1 });
 
-      const seriesData = dataSet.mapAs({x: 0, value: 1});
+  			const column = chart.column(seriesData);
+  			column
+  				.fill(this.$store.state.color.blue)
+  				.stroke(null)
+  				.labels()
+  				.enabled(true)
+  				.format('${%Value}{groupsSeparator:\\,} mln');
 
-      const column = chart.column(seriesData);
-      column
-      .fill(this.$store.state.color.blue)
-      .stroke(null)
-      .labels()
-      .enabled(true)
-      .format('${%Value}{groupsSeparator:\\,} mln');
+  			chart.animation(true);
 
-      chart.animation(true);
+  			chart.title('Economic Growth, 2016-2018 spend ($) ');
 
-      chart.title("Economic Growth, 2016-2018 spend ($) ");
+  			chart.yScale().minimum(0);
 
-      chart.yScale().minimum(0);
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
+  			chart.interactivity().hoverMode('by-x');
 
-      chart.interactivity().hoverMode('by-x');
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%Value} mln');
 
-      chart
-      .yAxis()
-      .labels()
-      .format('${%Value} mln');
+  			chart.xAxis(true);
 
-      chart.xAxis(true);
+  			chart.container('bar-chart');
 
-      chart.container('container');
+  			chart.draw();
+  		},
+  		renderStack() {
+  			var chart = anychart.column();
 
-      chart.draw();
-    },
-    renderStack() {
+  			const dataSet = anychart.data.set(this.economicGrowthDataStack);
 
-      var chart = anychart.column();
+  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
 
-      const dataSet = anychart.data.set(this.economicGrowthDataStack);
+  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
 
-      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
+  			// create a chart
+  			var chart = anychart.column();
 
-      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
+  			chart.legend(true);
 
-      // create a chart
-      var chart = anychart.column();
+  			/* enable the value stacking mode
+          on the default primary value scale*/
+  			chart.yScale().stackMode('value');
 
-      chart.legend(true);
+  			// create column series
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.stroke(null)
+  				.name('Productive Sectors (Agriculture, Fisheries, Livestock)')
+  				.tooltip()
+  				.format(
+  					'Productive Sectors (Agriculture, Fisheries, Livestock): ${%Value} mln'
+  				);
 
-      /* enable the value stacking mode
-      on the default primary value scale*/
-      chart.yScale().stackMode("value");
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.stroke(null)
+  				.name('Private Sector Development')
+  				.tooltip()
+  				.format('Private Sector Development: ${%Value} mln');
 
-      // create column series
-      chart
-      .column(seriesData_1)
-      .color(this.$store.state.color.blue)
-      .stroke(null)
-      .name("Productive Sectors (Agriculture, Fisheries, Livestock)")
-      .tooltip()
-      .format('Productive Sectors (Agriculture, Fisheries, Livestock): ${%Value} mln');
+  			// set the chart title
+  			chart.title('Economic Growth: Project Disbursements by Sector');
 
-      chart
-      .column(seriesData_2)
-      .color(this.$store.state.color.green)
-      .stroke(null)
-      .name("Private Sector Development")
-      .tooltip()
-      .format('Private Sector Development: ${%Value} mln');
+  			// chart.xAxis(true);
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
 
-      // set the chart title
-      chart.title("Economic Growth: Project Disbursements by Sector");
+  			// set the container id
+  			chart.container('stack-chart');
 
-      // chart.xAxis(true);
-      var labels = chart.xAxis().labels();
-      labels.enabled(true);
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
 
-      // set the container id
-      chart.container("stack-chart");
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
 
-      var labels = chart.xAxis().labels();
-      labels.enabled(true);
+  			// initiate drawing the chart
+  			chart.draw();
+  		},
+  		renderPie() {
+  			const chart = anychart.pie(this.economicGrowthDataPie);
 
-      chart.yAxis().labels().format("${%value} mln");
+  			chart.title('Economic Growth: Key Implementers');
+  			chart.container('pie-chart');
+  			chart.animation(true);
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
-      // initiate drawing the chart
-      chart.draw();
-    },
-    renderPie() {
-      const chart = anychart.pie(this.economicGrowthDataPie);
-
-      chart.title("Economic Growth: Key Implementers");
-      chart.container("pie-chart");
-      chart.animation(true);
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
-
-      chart.draw();
-    },
+  			chart.draw();
+  		},
   		renderLocationStack() {
   			var chart = anychart.column();
 
@@ -257,50 +284,52 @@ export default {
   			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
 
-      // create column series
-      chart
-      .column(seriesData_1)
-      .color(this.$store.state.color.blue)
-      .stroke(null)
-      .tooltip()
-      .format('2018: ${%Value} mln');
+  			// create column series
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.stroke(null)
+  				.tooltip()
+  				.format('2018: ${%Value} mln');
 
-      chart
-      .column(seriesData_2)
-      .color(this.$store.state.color.green)
-      .stroke(null)
-      .tooltip()
-      .format('2017: ${%Value} mln');
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.stroke(null)
+  				.tooltip()
+  				.format('2017: ${%Value} mln');
 
-      chart
-      .column(seriesData_3)
-      .color(this.$store.state.color.yellow)
-      .stroke(null)
-      .tooltip()
-      .format('2016: ${%Value} mln');
+  			chart
+  				.column(seriesData_3)
+  				.color(this.$store.state.color.yellow)
+  				.stroke(null)
+  				.tooltip()
+  				.format('2016: ${%Value} mln');
 
-      // set the chart title
-      chart.title("Economic Growth: Project Disbursements by Location");
+  			// set the chart title
+  			chart.title('Economic Growth: Project Disbursements by Location');
 
-      // set the container id
-      chart.container("country-chart");
+  			// set the container id
+  			chart.container('country-stack');
 
-      var labels = chart.xAxis().labels();
-      labels.enabled(true);
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
 
-      chart.yAxis().labels().format("${%value} mln");
-      // initiate drawing the chart
-      chart.draw();
-    },
-
-  },
-  mounted() {
-    this.renderChart();
-    this.renderStack();
-    this.renderPie();
-    this.renderLocationStack();
-  }
-};
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
+  			// initiate drawing the chart
+  			chart.draw();
+  		},
+  	},
+  	mounted() {
+  		this.renderChart();
+  		this.renderStack();
+  		this.renderPie();
+  		this.renderLocationStack();
+  	},
+  };
 </script>
 
 <style scoped>

@@ -2,6 +2,7 @@
   <div id="section" class="section">
     <div id="sectors" class="container is-fluid">
       <h1 class="title is-1">{{ title }}</h1>
+      <h4 class="subtitle is-5">{{ subTitle }}</h4>
       <div class="columns">
         <div class="column is-1"></div>
         <div class="column is-3 is-mobile">
@@ -100,170 +101,182 @@
 </template>
 
 <script>
-import { formatMillion } from '../helpers'
+  import { formatMillion } from '../helpers';
 
-export default {
-  name: 'inclusive-politics',
-  layout: 'sectors',
-  data() {
-    return {
-      inclusivePoliticsData: [
-        ["Academic / Research Institutions",  1969387 ],
-        ["Government",  1861751],
-        ["IFI",  2749769 ],
-        ["Mix of implementers - involving government",  329659 ],
-        ["Mix of implementers - no government",  3589589 ],
-        ["NGOs", 81895424  ],
-        ["Private Sector", 36028311],
-        ["Regional Actors", 944444],
-        ["UN", 57038475],
-        ["Unclear / TBD", 3787340]
-      ],
-      inclusivePoliticsChart: [
-        ["2016", formatMillion(96124800)],
-        ["2017", formatMillion(65736375)],
-        ["2018", formatMillion(28332975)]
-      ],
-      // inclusivePoliticsChart: [
-      //   ["2016", 96.1],
-      //   ["2017", 65.7],
-      //   ["2018", 28.3]
-      // ],
-      inclusivePoliticsLocationStack: [
-        ["FGS", 4.0, 12.8, 17.6],
-        ["Benadir", 1.0, 3.3, 6.2],
-        ["Galmudug", 0.4, 2.1, 8.3],
-        ["Hiirshabelle", 1.1, 2.8, 6.5],
-        ["Jubaland", 4.6, 9.4, 15.9],
-        ["Puntland", 1.8, 4.0, 6.7],
-        ["South West", 4.7, 9.7, 7.0],
-        ["Somaliland", 4.0, 9.7, 18.0],
-        ["Unattributed", 6.7, 11.9, 9.9]
-      ],
-      inclusivePoliticsPie: [
-        {x: "NGOs", value: formatMillion(81895424), normal:  {fill: this.$store.state.color.blue} },
-        {x: "UN", value: formatMillion(57038475), normal: {fill: this.$store.state.color.green} },
-        {x: "Private Sector", value: formatMillion(36028311), normal: {fill: this.$store.state.color.yellow} },
-        {x: "Other", value: formatMillion(15231941), normal: {fill: this.$store.state.color.tan} }
-      ],
-    }
-  },
-  methods: {
-    renderChart() {
+  export default {
+  	name: 'inclusive-politics',
+  	layout: 'sectors',
+  	data() {
+  		return {
+  			title: 'Inclusive Politics',
+  			subTitle: 'All values in millions US$',
+  			inclusivePoliticsData: [
+  				['Academic / Research Institutions', 1969387],
+  				['Government', 1861751],
+  				['IFI', 2749769],
+  				['Mix of implementers - involving government', 329659],
+  				['Mix of implementers - no government', 3589589],
+  				['NGOs', 81895424],
+  				['Private Sector', 36028311],
+  				['Regional Actors', 944444],
+  				['UN', 57038475],
+  				['Unclear / TBD', 3787340],
+  			],
+  			inclusivePoliticsChart: [
+  				['2016', formatMillion(96124800)],
+  				['2017', formatMillion(65736375)],
+  				['2018', formatMillion(28332975)],
+  			],
+  			inclusivePoliticsLocationStack: [
+  				['FGS', 4.0, 12.8, 17.6],
+  				['Benadir', 1.0, 3.3, 6.2],
+  				['Galmudug', 0.4, 2.1, 8.3],
+  				['Hiirshabelle', 1.1, 2.8, 6.5],
+  				['Jubaland', 4.6, 9.4, 15.9],
+  				['Puntland', 1.8, 4.0, 6.7],
+  				['South West', 4.7, 9.7, 7.0],
+  				['Somaliland', 4.0, 9.7, 18.0],
+  				['Unattributed', 6.7, 11.9, 9.9],
+  			],
+  			inclusivePoliticsPie: [
+  				{
+  					x: 'NGOs',
+  					value: formatMillion(81895424),
+  					normal: { fill: this.$store.state.color.blue },
+  				},
+  				{
+  					x: 'UN',
+  					value: formatMillion(57038475),
+  					normal: { fill: this.$store.state.color.green },
+  				},
+  				{
+  					x: 'Private Sector',
+  					value: formatMillion(36028311),
+  					normal: { fill: this.$store.state.color.yellow },
+  				},
+  				{
+  					x: 'Other',
+  					value: formatMillion(15231941),
+  					normal: { fill: this.$store.state.color.tan },
+  				},
+  			],
+  		};
+  	},
+  	methods: {
+  		renderChart() {
+  			const chart = anychart.cartesian();
+  			const dataSet = anychart.data.set(this.inclusivePoliticsChart);
 
-      const chart = anychart.cartesian();
-      const dataSet = anychart.data.set(this.inclusivePoliticsChart);
+  			const seriesData = dataSet.mapAs({ x: 0, value: 1 });
 
-      const seriesData = dataSet.mapAs({ x: 0, value: 1});
+  			const column = chart.column(seriesData);
+  			column
+  				.fill(this.$store.state.color.blue)
+  				.stroke(null)
+  				.labels()
+  				.enabled(true)
+  				.format('${%Value}{groupsSeparator:\\,} mln');
 
-      const column = chart.column(seriesData);
-      column
-      .fill(this.$store.state.color.blue)
-      .stroke(null)
-      .labels()
-      .enabled(true)
-      .format('${%Value}{groupsSeparator:\\,} mln');
+  			chart.animation(true);
 
-      chart.animation(true);
+  			chart.title('Inclusive Politics: Project Disbursements Reported in 2017');
 
-      chart.title("Inclusive Politics: Project Disbursements Reported in 2017");
+  			chart.yScale().minimum(0);
 
-      chart.yScale().minimum(0);
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
+  			chart.interactivity().hoverMode('by-x');
 
-      chart.interactivity().hoverMode('by-x');
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%Value}{groupsSeparator:\\,} mln');
 
-      chart
-      .yAxis()
-      .labels()
-      .format('${%Value}{groupsSeparator:\\,} mln');
+  			chart.xAxis(true);
 
-      chart.xAxis(true);
+  			chart.container('bar-chart');
 
-      chart.container('container');
+  			chart.draw();
+  		},
+  		renderPie() {
+  			const chart = anychart.pie(this.inclusivePoliticsPie);
 
-      chart.draw();
-    },
-    renderPie() {
-      const chart = anychart.pie(this.inclusivePoliticsPie);
+  			chart.title('Inclusive Politics: Key Implementers');
+  			chart.container('pie-chart');
+  			chart.animation(true);
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
-      chart.title("Inclusive Politics: Key Implementers");
-      chart.container("pie-chart");
-      chart.animation(true);
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
+  			chart.draw();
+  		},
+  		renderCountryStack() {
+  			var chart = anychart.column();
 
-      chart.draw();
-    },
-    renderCountryStack() {
+  			const dataSet = anychart.data.set(this.inclusivePoliticsLocationStack);
 
-      var chart = anychart.column();
+  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
+  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
+  			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
 
-      const dataSet = anychart.data.set(this.inclusivePoliticsLocationStack);
+  			// create a chart
+  			var chart = anychart.column();
 
-      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
-      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
-      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
+  			/* enable the value stacking mode
+            on the default primary value scale*/
+  			chart.yScale().stackMode('value');
 
-      // create a chart
-      var chart = anychart.column();
+  			// create column series
+  			chart.legend(true);
 
-      /* enable the value stacking mode
-      on the default primary value scale*/
-      chart.yScale().stackMode("value");
+  			// create column series
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.stroke(null)
+  				.name('2018')
+  				.tooltip()
+  				.format('2018: ${%Value} mln');
 
-      // create column series
-      chart.legend(true);
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.stroke(null)
+  				.name('2017')
+  				.tooltip()
+  				.format('2017: ${%Value} mln');
 
-      // create column series
-      chart
-      .column(seriesData_1)
-      .color(this.$store.state.color.blue)
-      .stroke(null)
-      .name("2018")
-      .tooltip()
-      .format('2018: ${%Value} mln');
+  			chart
+  				.column(seriesData_3)
+  				.color(this.$store.state.color.yellow)
+  				.stroke(null)
+  				.name('2016')
+  				.tooltip()
+  				.format('2016: ${%Value} mln');
 
-      chart
-      .column(seriesData_2)
-      .color(this.$store.state.color.green)
-      .stroke(null)
-      .name("2017")
-      .tooltip()
-      .format('2017: ${%Value} mln');
+  			// set the chart title
+  			chart.title('Inclusive Politics: Project Disbursements by Location');
 
+  			// set the container id
+  			chart.container('country-stack');
 
-      chart
-      .column(seriesData_3)
-      .color(this.$store.state.color.yellow)
-      .stroke(null)
-      .name("2016")
-      .tooltip()
-      .format('2016: ${%Value} mln');
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
 
-      // set the chart title
-      chart.title("Inclusive Politics: Project Disbursements by Location");
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
+  			chart.animation(true);
 
-      // set the container id
-      chart.container('country-stack');
-
-      var labels = chart.xAxis().labels();
-      labels.enabled(true);
-
-      chart.yAxis().labels().format("${%value} mln");
-      chart.animation(true)
-
-      // initiate drawing the chart
-      chart.draw();
-    }
-  },
-  mounted() {
-    this.renderChart();
-    this.renderPie();
-    this.renderCountryStack();
-  }
-}
-
+  			// initiate drawing the chart
+  			chart.draw();
+  		},
+  	},
+  	mounted() {
+  		this.renderChart();
+  		this.renderPie();
+  		this.renderCountryStack();
+  	},
+  };
 </script>
 
 <style scoped>

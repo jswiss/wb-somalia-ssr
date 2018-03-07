@@ -9,19 +9,16 @@
         <nuxt/>
       </div>
     </div>
-    <footer-usd/>
   </div>
 </template>
 
 <script>
   import NavBar from '~/components/NavBar';
-  import FooterUsd from '~/components/FooterUsd';
   import SectorsMenu from '~/components/SectorsMenu';
   export default {
   	name: 'sectors',
   	components: {
   		NavBar,
-  		FooterUsd,
   		SectorsMenu,
   	},
   };

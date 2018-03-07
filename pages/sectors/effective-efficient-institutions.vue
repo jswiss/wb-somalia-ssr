@@ -2,6 +2,7 @@
   <div id="section" class="section">
     <div id="sectors" class="container is-fluid">
       <h1 class="title is-1">{{ title }}</h1>
+      <h4 class="subtitle is-5">{{ subTitle }}</h4>
       <div class="columns">
         <div class="column is-1"></div>
         <div class="column is-5 is-mobile">
@@ -118,249 +119,281 @@
 </template>
 
 <script>
-import { formatMillion } from '../helpers'
+  import { formatMillion } from '../helpers';
 
-export default {
-  name: 'institutions',
-  layout: 'sectors',
-  data() {
-    return {
-      institutionsData: [
-        ["Academic / Research Institutions", formatMillion(420722)],
-        ["Donor Agency", formatMillion(4920635)],
-        ["Government", formatMillion(171206377)],
-        ["IFI", formatMillion(12862328)],
-        ["Mix of implementers - involving government", formatMillion(3036189)],
-        ["NGOs", formatMillion(19830111)],
-        ["Other", formatMillion(1222222)],
-        ["Private Sector", formatMillion(104214427)],
-        ["UN", formatMillion(79737620)],
-        ["Unclear / TBD", formatMillion(1353615)]
-      ],
-      institutionsDataStack: [
-        ["2016", 63.5, 63.9, 9.9, 17.9],
-        ["2017", 45.2, 86.8, 14.1, 20.7],
-        ["2018", 1.1, 52.1, 13.2, 10.4]
-      ],
-      institutionsDataPie: [
-        {x: "UN", value: formatMillion(79498786),
-        normal: {fill: this.$store.state.color.blue}},
-        {x: "NGOs", value: formatMillion(8419492),
-        normal: {fill: this.$store.state.color.green}},
-        {x: "Unclear/TBD", value: formatMillion(6186133),
-        normal: {fill: this.$store.state.color.yellow}},
-        {x: "Private Sector", value: formatMillion(6182000),
-        normal: {fill: this.$store.state.color.tan}},
-        {x: "Government", value: formatMillion(4884026),
-        normal: {fill: this.$store.state.color.violet}},
-        {x: "Mix of implementers - no government", value: formatMillion(4717214),
-        normal: {fill: this.$store.state.color.brown}},
-        {x: "Military", value: formatMillion(4525200),
-        normal: {fill: this.$store.state.color.pink}},
-        {x: "Mix of implementers - government", value: formatMillion(4123420),
-        normal: {fill: this.$store.state.color.lightblue}}
-      ],
-      institutionsLocationStack: [
-        ["FGS", 10.5, 146.1, 9.8, 19.9],
-        ["Benadir", 3.5, 0.0, 3.0, 2.6],
-        ["Galmudug", 11.9, 3.6, 0.5, 0.8],
-        ["Hiirshabelle", 2.9, 3.5, 0.5, 0.7],
-        ["Jubaland", 14.7, 7.9, 5.4, 1.3],
-        ["Puntland", 17.5, 15.9, 1.2, 5.2],
-        ["South West", 21.1, 4.9, 3.1, 6.8],
-        ["Somaliland", 18.3, 12.8, 1.5, 5.9],
-        ["Unattributed", 9.4, 8.3, 12.1, 5.7]
-      ]
-    };
-  },
-  methods: {
-    renderChart() {
-      const chart = anychart.cartesian();
-      const dataSet = anychart.data.set(this.institutionsData);
+  export default {
+  	name: 'institutions',
+  	layout: 'sectors',
+  	data() {
+  		return {
+  			title: 'Effective, Efficient Institutions',
+  			subTitle: 'All values in millions US$',
+  			institutionsData: [
+  				['Academic / Research Institutions', formatMillion(420722)],
+  				['Donor Agency', formatMillion(4920635)],
+  				['Government', formatMillion(171206377)],
+  				['IFI', formatMillion(12862328)],
+  				['Mix of implementers - involving government', formatMillion(3036189)],
+  				['NGOs', formatMillion(19830111)],
+  				['Other', formatMillion(1222222)],
+  				['Private Sector', formatMillion(104214427)],
+  				['UN', formatMillion(79737620)],
+  				['Unclear / TBD', formatMillion(1353615)],
+  			],
+  			institutionsDataStack: [
+  				['2016', 63.5, 63.9, 9.9, 17.9],
+  				['2017', 45.2, 86.8, 14.1, 20.7],
+  				['2018', 1.1, 52.1, 13.2, 10.4],
+  			],
+  			institutionsDataPie: [
+  				{
+  					x: 'UN',
+  					value: formatMillion(79498786),
+  					normal: { fill: this.$store.state.color.blue },
+  				},
+  				{
+  					x: 'NGOs',
+  					value: formatMillion(8419492),
+  					normal: { fill: this.$store.state.color.green },
+  				},
+  				{
+  					x: 'Unclear/TBD',
+  					value: formatMillion(6186133),
+  					normal: { fill: this.$store.state.color.yellow },
+  				},
+  				{
+  					x: 'Private Sector',
+  					value: formatMillion(6182000),
+  					normal: { fill: this.$store.state.color.tan },
+  				},
+  				{
+  					x: 'Government',
+  					value: formatMillion(4884026),
+  					normal: { fill: this.$store.state.color.violet },
+  				},
+  				{
+  					x: 'Mix of implementers - no government',
+  					value: formatMillion(4717214),
+  					normal: { fill: this.$store.state.color.brown },
+  				},
+  				{
+  					x: 'Military',
+  					value: formatMillion(4525200),
+  					normal: { fill: this.$store.state.color.pink },
+  				},
+  				{
+  					x: 'Mix of implementers - government',
+  					value: formatMillion(4123420),
+  					normal: { fill: this.$store.state.color.lightblue },
+  				},
+  			],
+  			institutionsLocationStack: [
+  				['FGS', 10.5, 146.1, 9.8, 19.9],
+  				['Benadir', 3.5, 0.0, 3.0, 2.6],
+  				['Galmudug', 11.9, 3.6, 0.5, 0.8],
+  				['Hiirshabelle', 2.9, 3.5, 0.5, 0.7],
+  				['Jubaland', 14.7, 7.9, 5.4, 1.3],
+  				['Puntland', 17.5, 15.9, 1.2, 5.2],
+  				['South West', 21.1, 4.9, 3.1, 6.8],
+  				['Somaliland', 18.3, 12.8, 1.5, 5.9],
+  				['Unattributed', 9.4, 8.3, 12.1, 5.7],
+  			],
+  		};
+  	},
+  	methods: {
+  		renderChart() {
+  			const chart = anychart.cartesian();
+  			const dataSet = anychart.data.set(this.institutionsData);
 
-      const seriesData = dataSet.mapAs({x: 0, value: 1});
+  			const seriesData = dataSet.mapAs({ x: 0, value: 1 });
 
-      const column = chart.column(seriesData);
-      column
-      .fill(this.$store.state.color.blue)
-      .stroke(null)
-      .labels()
-      .enabled(true)
-      .format('${%Value}{groupsSeparator:\\,} mln');
+  			const column = chart.column(seriesData);
+  			column
+  				.fill(this.$store.state.color.blue)
+  				.stroke(null)
+  				.labels()
+  				.enabled(true)
+  				.format('${%Value}{groupsSeparator:\\,} mln');
 
-      chart.animation(true);
+  			chart.animation(true);
 
-      chart.title("Effective, Efficient Institutions, 2016-2018 spend ($) ");
+  			chart.title('Effective, Efficient Institutions, 2016-2018 spend ($) ');
 
-      chart.yScale().minimum(0);
+  			chart.yScale().minimum(0);
 
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
-      chart.interactivity().hoverMode('by-x');
+  			chart.interactivity().hoverMode('by-x');
 
-      chart
-      .yAxis()
-      .labels()
-      .format('${%Value}{groupsSeparator:\\,} mln');
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%Value}{groupsSeparator:\\,} mln');
 
-      chart.xAxis(true);
+  			chart.xAxis(true);
 
-      chart.container('container');
+  			chart.container('bar-chart');
 
-      chart.draw();
-    },
-    renderStack() {
+  			chart.draw();
+  		},
+  		renderStack() {
+  			var chart = anychart.column();
 
-      var chart = anychart.column();
+  			const dataSet = anychart.data.set(this.institutionsDataStack);
 
-      const dataSet = anychart.data.set(this.institutionsDataStack);
+  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
+  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
+  			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
+  			var seriesData_4 = dataSet.mapAs({ x: 0, value: 4 });
 
-      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
-      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
-      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
-      var seriesData_4 = dataSet.mapAs({x: 0, value: 4});
+  			/* enable the value stacking mode
+            on the default primary value scale*/
+  			chart.yScale().stackMode('value');
 
-      /* enable the value stacking mode
-      on the default primary value scale*/
-      chart.yScale().stackMode("value");
+  			// create column series
 
-      // create column series
+  			chart.legend(true);
 
-      chart.legend(true)
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.stroke(null)
+  				.name('State and Local Governance')
+  				.tooltip()
+  				.format('State and Local Governance: ${%Value} mln');
 
-      chart.
-      column(seriesData_1)
-      .color(this.$store.state.color.blue)
-      .stroke(null)
-      .name("State and Local Governance")
-      .tooltip()
-      .format('State and Local Governance: ${%Value} mln');
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.stroke(null)
+  				.name('Public Financial Management')
+  				.tooltip()
+  				.format('Public Financial Management: ${%Value} mln');
 
-      chart
-      .column(seriesData_2)
-      .color(this.$store.state.color.green)
-      .stroke(null)
-      .name("Public Financial Management")
-      .tooltip()
-      .format('Public Financial Management: ${%Value} mln');
+  			chart
+  				.column(seriesData_3)
+  				.color(this.$store.state.color.yellow)
+  				.stroke(null)
+  				.name('Planning, M&E and Statistics')
+  				.tooltip()
+  				.format('Planning, M&E and Statistics: ${%Value} mln');
 
-      chart
-      .column(seriesData_3)
-      .color(this.$store.state.color.yellow)
-      .stroke(null)
-      .name("Planning, M&E and Statistics")
-      .tooltip()
-      .format('Planning, M&E and Statistics: ${%Value} mln');
+  			chart
+  				.column(seriesData_4)
+  				.color(this.$store.state.color.tan)
+  				.stroke(null)
+  				.name('Civil Service Reform/Public Administration')
+  				.tooltip()
+  				.format('Civil Service Reform/Public Administration: ${%Value} mln');
 
-      chart
-      .column(seriesData_4)
-      .color(this.$store.state.color.tan)
-      .stroke(null)
-      .name("Civil Service Reform/Public Administration")
-      .tooltip()
-      .format('Civil Service Reform/Public Administration: ${%Value} mln');
+  			// set the chart title
+  			chart.title(
+  				'Effective, Efficient Institutions: Project Disbursements by Sector'
+  			);
 
+  			// set the container id
+  			chart.container('stack-chart');
 
-      // set the chart title
-      chart.title("Effective, Efficient Institutions: Project Disbursements by Sector");
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
 
-      // set the container id
-      chart.container("stack-chart");
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
 
-      var labels = chart.xAxis().labels();
-      labels.enabled(true);
+  			// initiate drawing the chart
+  			chart.draw();
+  		},
+  		renderPie() {
+  			const chart = anychart.pie(this.institutionsDataPie);
 
-      chart.yAxis().labels().format("${%value} mln");
+  			chart.title(
+  				'Key Implementers of Effective, Efficient Institutions Projects'
+  			);
+  			chart.container('pie-chart');
+  			chart.animation(true);
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
 
-      // initiate drawing the chart
-      chart.draw();
-    },
-    renderPie() {
-      const chart = anychart.pie(this.institutionsDataPie);
+  			chart.draw();
+  		},
+  		renderCountryStack() {
+  			var chart = anychart.column();
 
-      chart.title("Key Implementers of Effective, Efficient Institutions Projects");
-      chart.container("pie-chart");
-      chart.animation(true);
-      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
+  			const dataSet = anychart.data.set(this.institutionsLocationStack);
 
-      chart.draw();
-    },
-    renderCountryStack() {
+  			var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
+  			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
+  			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
+  			var seriesData_4 = dataSet.mapAs({ x: 0, value: 3 });
 
-      var chart = anychart.column();
+  			// create a chart
+  			var chart = anychart.column();
 
-      const dataSet = anychart.data.set(this.institutionsLocationStack);
+  			/* enable the value stacking mode
+            on the default primary value scale*/
+  			chart.yScale().stackMode('value');
 
-      var seriesData_1 = dataSet.mapAs({x: 0, value: 1});
-      var seriesData_2 = dataSet.mapAs({x: 0, value: 2});
-      var seriesData_3 = dataSet.mapAs({x: 0, value: 3});
-      var seriesData_4 = dataSet.mapAs({x: 0, value: 3});
+  			chart.legend(true);
+  			// create column series
+  			chart
+  				.column(seriesData_1)
+  				.color(this.$store.state.color.blue)
+  				.stroke(null)
+  				.name('State and Local Governance')
+  				.tooltip()
+  				.format('State and Local Governance: ${%Value} mln');
 
-      // create a chart
-      var chart = anychart.column();
+  			chart
+  				.column(seriesData_2)
+  				.color(this.$store.state.color.green)
+  				.stroke(null)
+  				.name('Public Financial Management')
+  				.tooltip()
+  				.format('Public Financial Management: ${%Value} mln');
 
-      /* enable the value stacking mode
-      on the default primary value scale*/
-      chart.yScale().stackMode("value");
+  			chart
+  				.column(seriesData_3)
+  				.color(this.$store.state.color.yellow)
+  				.stroke(null)
+  				.name('Planning, M&E and Statistics')
+  				.tooltip()
+  				.format('Planning, M&E and Statistics: ${%Value} mln');
 
-      chart.legend(true);
-      // create column series
-      chart.
-      column(seriesData_1)
-      .color(this.$store.state.color.blue)
-      .stroke(null)
-      .name("State and Local Governance")
-      .tooltip()
-      .format('State and Local Governance: ${%Value} mln');
+  			chart
+  				.column(seriesData_4)
+  				.color(this.$store.state.color.tan)
+  				.stroke(null)
+  				.name('Civil Service Reform/Public Administration')
+  				.tooltip()
+  				.format('Civil Service Reform/Public Administration: ${%Value} mln');
+  			// set the chart title
+  			chart.title(
+  				'Effective, Efficient Institutions: Project Disbursements by Location'
+  			);
 
-      chart
-      .column(seriesData_2)
-      .color(this.$store.state.color.green)
-      .stroke(null)
-      .name("Public Financial Management")
-      .tooltip()
-      .format('Public Financial Management: ${%Value} mln');
+  			// set the container id
+  			chart.container('country-stack');
 
-      chart
-      .column(seriesData_3)
-      .color(this.$store.state.color.yellow)
-      .stroke(null)
-      .name("Planning, M&E and Statistics")
-      .tooltip()
-      .format('Planning, M&E and Statistics: ${%Value} mln');
+  			var labels = chart.xAxis().labels();
+  			labels.enabled(true);
 
-      chart
-      .column(seriesData_4)
-      .color(this.$store.state.color.tan)
-      .stroke(null)
-      .name("Civil Service Reform/Public Administration")
-      .tooltip()
-      .format('Civil Service Reform/Public Administration: ${%Value} mln');
-      // set the chart title
-      chart.title("Effective, Efficient Institutions: Project Disbursements by Location");
+  			chart
+  				.yAxis()
+  				.labels()
+  				.format('${%value} mln');
 
-      // set the container id
-      chart.container('country-stack');
-
-      var labels = chart.xAxis().labels();
-      labels.enabled(true);
-
-      chart.yAxis().labels().format("${%value} mln");
-
-
-      // initiate drawing the chart
-      chart.draw();
-    },
-
-
-  },
-  mounted() {
-    this.renderChart();
-    this.renderStack();
-    this.renderPie();
-    this.renderCountryStack();
-  }
-};
+  			// initiate drawing the chart
+  			chart.draw();
+  		},
+  	},
+  	mounted() {
+  		this.renderChart();
+  		this.renderStack();
+  		this.renderPie();
+  		this.renderCountryStack();
+  	},
+  };
 </script>
 
 <style scoped>
