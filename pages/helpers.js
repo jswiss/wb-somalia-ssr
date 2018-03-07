@@ -57,6 +57,7 @@ export async function getAllProjects({ store, client }) {
     store.commit('SET_2016', tree2016);
     store.commit('SET_2017', tree2017);
     store.commit('SET_2018', tree2018);
+    store.commit('SET_PROJECT_LOCATION');
   } catch (err) {
     console.log('====================================');
     console.log(err);

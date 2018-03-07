@@ -4,6 +4,7 @@
       <div class="columns">
         <div class="column is-3"></div>
         <div id="table" class="column is-6">
+          <h1 class="title is-4">{{ title }}</h1>
           <no-ssr placeholder="loading">
             <v-client-table
               :data="pools"
@@ -52,6 +53,7 @@
   	name: 'envelopes',
   	data() {
   		return {
+  			title: 'Filter by agency, contributions to MDTFs, or Category',
   			columns: [
   				'Agency',
   				'Contributions to MDTFs',
@@ -67,6 +69,7 @@
   					saveState: true,
   					highlightMatches: true,
   					storage: 'local',
+  					filterable: ['Agency', 'Contributions to MDTFs', 'Category'],
   				},
   			},
   		};
@@ -85,5 +88,8 @@
 <style scoped>
   #table {
   	overflow: auto;
+  }
+  .title {
+  	margin-top: 2%;
   }
 </style>

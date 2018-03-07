@@ -29,8 +29,10 @@ export const mutations = {
   SET_POOLED_TABLE(state, data) {
     state.pooledTable = data.map(k => {
       return {
+        Agency: k.Agency,
         'Contributions to MDTFs':
           k['Contributions to Multi Donor Trust Funds (MDTFs)'],
+        Category: k.Category,
         '2015': k['2015, US$'],
         '2016': k['2016, US$'],
         '2017': k['2017, US$'],
@@ -162,10 +164,10 @@ export const mutations = {
       state.projectLocationTable.push(state.treeMap2016[i]);
     }
     while (j--) {
-      state.projectLocationTable.push(state.treeMap2017[i]);
+      state.projectLocationTable.push(state.treeMap2017[j]);
     }
     while (k--) {
-      state.projectLocationTable.push(state.treeMap2018[i]);
+      state.projectLocationTable.push(state.treeMap2018[k]);
     }
   },
   SET_PROJECT(state, data) {

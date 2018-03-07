@@ -4,6 +4,7 @@
       <div class="columns">
         <div class="column is-1"></div>
         <div id="table" class="column is-10">
+          <h1 class="title is-4">{{ title }}</h1>
           <no-ssr placeholder="Loading...">
             <v-client-table
               :data="envelopes"
@@ -60,8 +61,10 @@
 
   export default {
   	name: 'envelopes',
+  	props: ['name'],
   	data() {
   		return {
+  			title: 'Filter by agency, agency category, or aid flow category',
   			columns: [
   				'Agency',
   				'Agency Category',
@@ -75,9 +78,10 @@
   				'Trends',
   			],
   			options: {
-  				saveState: true,
+  				useVuex: true,
   				highlightMatches: true,
   				storage: 'local',
+  				filterable: ['Agency', 'Agency Category', 'Aid Flow Category'],
   			},
   		};
   	},
@@ -95,6 +99,9 @@
 <style scoped>
   #table {
   	overflow: auto;
+  }
+  .title {
+  	margin-top: 2%;
   }
 </style>
 

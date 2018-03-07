@@ -4,7 +4,7 @@
     <div id="table" class="columns">
       <div class="column is-1"></div>
       <div class="column is-10 buffer">
-        <h1 class="title">Number of Projects and Total Project Disbursements by Year and Location</h1>
+        <h1 class="title is-4">{{ title }}</h1>
           <v-client-table
               :data="locationTable"
               :columns="columns"
@@ -51,6 +51,7 @@
   	name: 'locations',
   	data() {
   		return {
+  			title: 'Filter by location',
   			columns: [
   				'Location',
   				'2016 Count of Projects',
@@ -66,6 +67,7 @@
   				saveState: true,
   				highlightMatches: true,
   				storage: 'local',
+  				filterable: ['Location'],
   			},
   		};
   	},
@@ -85,16 +87,14 @@
   div.control {
   	text-align: left;
   }
-  #table {
-  	margin-top: 2%;
-  }
   .center {
   	text-align: center;
   }
-</style>
 
-<style scoped>
   #table {
   	overflow: auto;
+  }
+  .title {
+  	margin-top: 2%;
   }
 </style>

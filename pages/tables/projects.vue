@@ -5,7 +5,7 @@
         <div class="column is-1"></div>
         <div class="column is-10">
           <div id="table">
-            <h1 class="title is-4">Filter by title, objective, NDP pillar, or sector</h1>
+            <h1 class="title is-4">{{ title }}</h1>
             <no-ssr placeholder="Loading...">
               <v-client-table
                 :data="projects"
@@ -56,7 +56,8 @@
             </no-ssr>
           </div>
         </div>
-        <div class="column is-1"></div>
+        <div class="column is-1">
+        </div>
       </div>
     </div>
   </template>
@@ -69,6 +70,7 @@
   	name: 'projects',
   	data() {
   		return {
+  			title: 'Filter by title, objective, NDP pillar, or sector',
   			columns: [
   				'Project Title',
   				'Objective',
@@ -117,5 +119,8 @@
   }
   .title {
   	margin-top: 2%;
+  }
+  #download_button {
+  	font-size: 13px;
   }
 </style>

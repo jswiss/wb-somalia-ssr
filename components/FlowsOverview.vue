@@ -51,7 +51,7 @@
     <div class="columns">
       <div class="column is-1 is-mobile"></div>
       <div class="column is-8 is-mobile">
-        <no-ssr placeholder="Loading...">
+        <no-ssr>
           <humanitarian-table v-if="!devDisplayed"></humanitarian-table>
         </no-ssr>
         <no-ssr placeholder="Loading...">
