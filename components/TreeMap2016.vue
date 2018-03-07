@@ -3,14 +3,18 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex';
   const d3 = Object.assign({}, require('d3-array'), require('d3-collection'));
   import { capitalizeString } from '../pages/helpers';
 
   export default {
   	name: 'TreeMap2016',
   	computed: {
+  		...mapState({
+  			treeData: state => state.treeMap2016,
+  		}),
   		tree() {
-  			const data = this.$store.state.treeMap2016;
+  			const data = this.treeData;
 
   			const tree = { values: {} };
   			tree.values = d3
