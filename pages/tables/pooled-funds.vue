@@ -2,7 +2,11 @@
     <div id="pools">
       <table-tabs></table-tabs>
       <div class="columns">
-        <div class="column is-3"></div>
+        <div class="column is-1"></div>
+        <div class="column is-4 is-mobile">
+          <div id="pie-chart"></div>
+        </div>
+        <!-- <div class="column is-1"></div> -->
         <div id="table" class="column is-6">
           <h1 class="title is-4">{{ title }}</h1>
           <no-ssr placeholder="loading">
@@ -39,7 +43,7 @@
             </v-client-table>
           </no-ssr>
         </div>
-        <div class="column is-3"></div>
+        <div class="column is-2"></div>
       </div>
     </div>
   </template>
@@ -53,6 +57,28 @@
   	name: 'envelopes',
   	data() {
   		return {
+  			pieData: [
+  				{
+  					x: 'WB MPF',
+  					value: 197.0,
+  					normal: { fill: this.$store.state.color.green },
+  				},
+  				{
+  					x: 'UN MPTF',
+  					value: 183.7,
+  					normal: { fill: this.$store.state.color.yellow },
+  				},
+  				{
+  					x: 'AfDB SIF',
+  					value: 20.2,
+  					normal: { fill: this.$store.state.color.tan },
+  				},
+  				{
+  					x: 'Aid channeled\n outside of\n SDRF Funds',
+  					value: 1531.2,
+  					normal: { fill: this.$store.state.color.blue },
+  				},
+  			],
   			title: 'Filter by agency, contributions to MDTFs, or Category',
   			columns: [
   				'Agency',
@@ -74,6 +100,27 @@
   			},
   		};
   	},
+  	methods: {
+  		renderPie() {
+  			const chart = anychart.pie(this.pieData);
+  			chart.title(
+  				'Share of Development Aid Channeled through SDRF Funds, 2015-17'
+  			);
+  			chart.animation(true);
+
+  			chart
+  				.labels()
+  				.format('{%x}\n${%Value} mln')
+  				.position('outside');
+
+  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+  			chart.container('pie-chart');
+  			chart.draw();
+  		},
+  	},
+  	mounted() {
+  		this.renderPie();
+  	},
   	components: {
   		TableTabs,
   	},
@@ -89,7 +136,13 @@
   #table {
   	overflow: auto;
   }
-  .title {
+  .title,
+  #pie-chart {
   	margin-top: 2%;
+  }
+
+  #pie-chart {
+  	height: 800px;
+  	width: 100%;
   }
 </style>
