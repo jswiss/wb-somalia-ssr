@@ -5,17 +5,19 @@
       <div class="column is-1"></div>
       <div class="column is-10 buffer">
         <h1 class="title is-4">{{ title }}</h1>
-          <v-client-table
-              :data="projectLocationTable"
-              :columns="columns"
-              :options="options"
-            >
-              <template slot="Value" slot-scope="props">
-                <div>
-                  ${{ props.row['Value'] | currency }}
-                </div>
-              </template>
+          <no-ssr placeholder="Loading...">
+            <v-client-table
+                :data="projectLocationTable"
+                :columns="columns"
+                :options="options"
+              >
+                <template slot="Value" slot-scope="props">
+                  <div>
+                    ${{ props.row['Value'] | currency }}
+                  </div>
+                </template>
             </v-client-table>
+          </no-ssr>
       </div>
       <div class="column is-1"></div>
     </div>
