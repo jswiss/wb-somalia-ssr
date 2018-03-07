@@ -9,15 +9,21 @@
 
   export default {
   	name: 'TreeMap2016',
+  	data() {
+  		return {
+  			treeMapData: this.$store.state.treeMap2016,
+  		};
+  	},
   	computed: {
-  		...mapState({
-  			treeData: state => state.treeMap2016,
-  		}),
-  		async tree() {
-  			const data = this.treeData;
+  		// ...mapState({
+  		// 	treeData: state => state.treeMap2016,
+  		// }),
+  		tree() {
+  			const data = this.treeMapData;
+  			console.log('1', data);
 
   			const tree = { values: {} };
-  			tree.values = await d3
+  			tree.values = d3
   				.nest()
   				.key(d => d.Location)
   				.key(d => d['NDP Pillar'])
@@ -26,7 +32,7 @@
   				.rollup(d => d3.sum(d, d => d.Value))
   				.entries(data);
   			console.log('====================================');
-  			console.log('tree 2016', tree);
+  			console.log('2', tree);
   			console.log('====================================');
 
   			const tree2016 = [
@@ -58,6 +64,7 @@
   					}),
   				},
   			];
+  			console.log('3', tree2016);
 
   			return tree2016;
   		},

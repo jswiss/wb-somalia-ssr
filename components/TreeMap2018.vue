@@ -13,11 +13,11 @@
   		...mapState({
   			treeData: state => state.treeMap2018,
   		}),
-  		async tree() {
+  		tree() {
   			const data = this.treeData;
 
   			const tree = { values: {} };
-  			tree.values = await d3
+  			tree.values = d3
   				.nest()
   				.key(d => d.Location)
   				.key(d => d['NDP Pillar'])
