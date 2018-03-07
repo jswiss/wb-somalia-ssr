@@ -55,9 +55,12 @@ export async function getAllProjects({ store, client }) {
       };
     });
     store.commit('SET_MASTER', res.data);
-    store.commit('SET_2016', tree2016);
-    store.commit('SET_2017', tree2017);
-    store.commit('SET_2018', tree2018);
+    store.commit('CLEAN_2016', tree2016);
+    store.commit('CLEAN_2017', tree2017);
+    store.commit('CLEAN_2018', tree2018);
+    store.commit('SET_2016');
+    store.commit('SET_2017');
+    store.commit('SET_2018');
     store.commit('SET_PROJECT_LOCATION');
   } catch (err) {
     console.log('====================================');

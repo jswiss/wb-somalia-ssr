@@ -10,6 +10,9 @@ export const state = () => ({
   pooledTable: [],
   projectsTable: [],
   locationTable: [],
+  clean2016: [],
+  clean2017: [],
+  clean2018: [],
   treeMap2016: [],
   treeMap2017: [],
   treeMap2018: [],
@@ -96,9 +99,9 @@ export const mutations = {
       };
     });
   },
-  SET_2016(state, data) {
+  CLEAN_2016(state, data) {
     let arr = [];
-    const reducedTree = data.reduce(function(r, o) {
+    state.clean2016 = data.reduce(function(r, o) {
       Object.keys(o).forEach(function(k) {
         if (['Project Title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
           return;
@@ -116,7 +119,9 @@ export const mutations = {
       arr.push(r);
       return r;
     }, []);
-
+  },
+  SET_2016(state) {
+    const reducedTree = state.clean2016;
     const d3Tree = { values: {} };
     d3Tree.values = d3
       .nest()
@@ -157,9 +162,9 @@ export const mutations = {
       },
     ];
   },
-  SET_2017(state, data) {
+  CLEAN_2017(state, data) {
     let arr = [];
-    const reducedTree = data.reduce(function(r, o) {
+    state.clean2017 = data.reduce(function(r, o) {
       Object.keys(o).forEach(function(k) {
         if (['Project Title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
           return;
@@ -177,7 +182,9 @@ export const mutations = {
       arr.push(r);
       return r;
     }, []);
-
+  },
+  SET_2017(state) {
+    const reducedTree = state.clean2017;
     const d3Tree = { values: {} };
     d3Tree.values = d3
       .nest()
@@ -218,9 +225,9 @@ export const mutations = {
       },
     ];
   },
-  SET_2018(state, data) {
+  CLEAN_2018(state, data) {
     let arr = [];
-    const reducedTree = data.reduce(function(r, o) {
+    state.clean2018 = data.reduce(function(r, o) {
       Object.keys(o).forEach(function(k) {
         if (['Project Title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
           return;
@@ -238,7 +245,9 @@ export const mutations = {
       arr.push(r);
       return r;
     }, []);
-
+  },
+  SET_2018(state) {
+    const reducedTree = state.clean2018;
     const d3Tree = { values: {} };
     d3Tree.values = d3
       .nest()
@@ -280,17 +289,17 @@ export const mutations = {
     ];
   },
   SET_PROJECT_LOCATION(state) {
-    let i = state.treeMap2016.length;
-    let j = state.treeMap2017.length;
-    let k = state.treeMap2018.length;
+    let i = state.clean2016.length;
+    let j = state.clean2017.length;
+    let k = state.clean2018.length;
     while (i--) {
-      state.projectLocationTable.push(state.treeMap2016[i]);
+      state.projectLocationTable.push(state.clean2016[i]);
     }
     while (j--) {
-      state.projectLocationTable.push(state.treeMap2017[j]);
+      state.projectLocationTable.push(state.clean2017[j]);
     }
     while (k--) {
-      state.projectLocationTable.push(state.treeMap2018[k]);
+      state.projectLocationTable.push(state.clean2018[k]);
     }
   },
   SET_PROJECT(state, data) {
