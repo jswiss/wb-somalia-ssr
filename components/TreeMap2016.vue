@@ -17,7 +17,7 @@
   			const data = this.treeData;
 
   			const tree = { values: {} };
-  			tree.values = d3
+  			tree.values = await d3
   				.nest()
   				.key(d => d.Location)
   				.key(d => d['NDP Pillar'])
@@ -26,10 +26,10 @@
   				.rollup(d => d3.sum(d, d => d.Value))
   				.entries(data);
   			console.log('====================================');
-  			console.log(tree);
+  			console.log('tree 2016', tree);
   			console.log('====================================');
 
-  			const tree2016 = await [
+  			const tree2016 = [
   				{
   					name: 2016,
   					children: tree.values.map(location => {
