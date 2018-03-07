@@ -1,6 +1,7 @@
 import axios from 'axios';
 import moment from 'moment';
 import { excelToJsDate, capitalizeString } from '../pages/helpers';
+const d3 = Object.assign({}, require('d3-array'), require('d3-collection'));
 
 export const state = () => ({
   project: null,
@@ -95,7 +96,7 @@ export const mutations = {
   },
   SET_2016(state, data) {
     let arr = [];
-    state.treeMap2016 = data.reduce(function(r, o) {
+    const reducedTree = data.reduce(function(r, o) {
       Object.keys(o).forEach(function(k) {
         if (['Project Title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
           return;
@@ -113,10 +114,50 @@ export const mutations = {
       arr.push(r);
       return r;
     }, []);
+
+    const d3Tree = { values: {} };
+    d3Tree.values = d3
+      .nest()
+      .key(d => d.Location)
+      .key(d => d['NDP Pillar'])
+      .key(d => d.Sector)
+      .key(d => d['Project title'])
+      .rollup(d => d3.sum(d, d => d.Value))
+      .entries(reducedTree);
+
+    state.treeMap2016 = [
+      {
+        name: 2016,
+        children: d3Tree.values.map(location => {
+          return {
+            name: location.key,
+            children: location.values.map(pillar => {
+              return {
+                name: pillar.key,
+                children: pillar.values.map(sector => {
+                  return {
+                    name: sector.key,
+                    children: sector.values.map(project => {
+                      return {
+                        name: project.key,
+                        value: project.value,
+                        url: `https://somaliaaidflows.so/tables/projects/${
+                          project.key
+                        }`,
+                      };
+                    }),
+                  };
+                }),
+              };
+            }),
+          };
+        }),
+      },
+    ];
   },
   SET_2017(state, data) {
     let arr = [];
-    state.treeMap2017 = data.reduce(function(r, o) {
+    const reducedTree = data.reduce(function(r, o) {
       Object.keys(o).forEach(function(k) {
         if (['Project Title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
           return;
@@ -134,10 +175,50 @@ export const mutations = {
       arr.push(r);
       return r;
     }, []);
+
+    const d3Tree = { values: {} };
+    d3Tree.values = d3
+      .nest()
+      .key(d => d.Location)
+      .key(d => d['NDP Pillar'])
+      .key(d => d.Sector)
+      .key(d => d['Project title'])
+      .rollup(d => d3.sum(d, d => d.Value))
+      .entries(reducedTree);
+
+    state.treeMap2017 = [
+      {
+        name: 2017,
+        children: d3Tree.values.map(location => {
+          return {
+            name: location.key,
+            children: location.values.map(pillar => {
+              return {
+                name: pillar.key,
+                children: pillar.values.map(sector => {
+                  return {
+                    name: sector.key,
+                    children: sector.values.map(project => {
+                      return {
+                        name: project.key,
+                        value: project.value,
+                        url: `https://somaliaaidflows.so/tables/projects/${
+                          project.key
+                        }`,
+                      };
+                    }),
+                  };
+                }),
+              };
+            }),
+          };
+        }),
+      },
+    ];
   },
   SET_2018(state, data) {
     let arr = [];
-    state.treeMap2018 = data.reduce(function(r, o) {
+    const reducedTree = data.reduce(function(r, o) {
       Object.keys(o).forEach(function(k) {
         if (['Project Title', 'NDP Pillar', 'Sector'].includes(k) || !o[k]) {
           return;
@@ -155,6 +236,46 @@ export const mutations = {
       arr.push(r);
       return r;
     }, []);
+
+    const d3Tree = { values: {} };
+    d3Tree.values = d3
+      .nest()
+      .key(d => d.Location)
+      .key(d => d['NDP Pillar'])
+      .key(d => d.Sector)
+      .key(d => d['Project title'])
+      .rollup(d => d3.sum(d, d => d.Value))
+      .entries(reducedTree);
+
+    state.treeMap2018 = [
+      {
+        name: 2018,
+        children: d3Tree.values.map(location => {
+          return {
+            name: location.key,
+            children: location.values.map(pillar => {
+              return {
+                name: pillar.key,
+                children: pillar.values.map(sector => {
+                  return {
+                    name: sector.key,
+                    children: sector.values.map(project => {
+                      return {
+                        name: project.key,
+                        value: project.value,
+                        url: `https://somaliaaidflows.so/tables/projects/${
+                          project.key
+                        }`,
+                      };
+                    }),
+                  };
+                }),
+              };
+            }),
+          };
+        }),
+      },
+    ];
   },
   SET_PROJECT_LOCATION(state) {
     let i = state.treeMap2016.length;

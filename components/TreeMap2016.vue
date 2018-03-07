@@ -4,75 +4,18 @@
 
 <script>
   import { mapState } from 'vuex';
-  const d3 = Object.assign({}, require('d3-array'), require('d3-collection'));
   import { capitalizeString } from '../pages/helpers';
 
   export default {
   	name: 'TreeMap2016',
-  	data() {
-  		return {
-  			treeMapData: this.$store.state.treeMap2016,
-  		};
-  	},
   	computed: {
-  		// ...mapState({
-  		// 	treeData: state => state.treeMap2016,
-  		// }),
-  		tree() {
-  			const data = this.treeMapData;
-  			console.log('1', data);
-
-  			const tree = { values: {} };
-  			tree.values = d3
-  				.nest()
-  				.key(d => d.Location)
-  				.key(d => d['NDP Pillar'])
-  				.key(d => d.Sector)
-  				.key(d => d['Project title'])
-  				.rollup(d => d3.sum(d, d => d.Value))
-  				.entries(data);
-  			console.log('====================================');
-  			console.log('2', tree);
-  			console.log('====================================');
-
-  			const tree2016 = [
-  				{
-  					name: 2016,
-  					children: tree.values.map(location => {
-  						return {
-  							name: location.key,
-  							children: location.values.map(pillar => {
-  								return {
-  									name: pillar.key,
-  									children: pillar.values.map(sector => {
-  										return {
-  											name: sector.key,
-  											children: sector.values.map(project => {
-  												return {
-  													name: project.key,
-  													value: project.value,
-  													url: `https://somaliaaidflows.so/tables/projects/${
-  														project.key
-  													}`,
-  												};
-  											}),
-  										};
-  									}),
-  								};
-  							}),
-  						};
-  					}),
-  				},
-  			];
-  			console.log('3', tree2016);
-
-  			return tree2016;
-  		},
+  		...mapState({
+  			treeData: state => state.treeMap2016,
+  		}),
   	},
   	methods: {
   		treeChart() {
-  			const treeData = this.tree;
-  			const chart = anychart.treeMap(treeData);
+  			const chart = anychart.treeMap(this.treeData);
 
   			chart
   				.headers()
@@ -80,7 +23,6 @@
   			chart.headers().fontSize(15);
   			chart.headers().fontWeight('bold');
   			chart.labels().format('{%name}');
-  			// chart.labels().textWrap('byWord');
   			chart.labels().fontSize(11);
   			chart.labels().fontWeight(900);
   			chart.labels().fontColor('White');
@@ -88,8 +30,6 @@
   			chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
   			chart.hintOpacity(0.7);
   			chart.listen('pointClick', e => {
-  				// eslint-disable-next-line
-  				console.log(e.point.get('name'));
   				const newValue = e.point.get('url');
   				if (newValue) {
   					window.open(newValue, '_self');
