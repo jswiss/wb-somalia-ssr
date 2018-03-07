@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export async function getAllProjects({ store, client }) {
   if (client) return;
+  if (store.state.projectsTable !== 0) return;
 
   try {
     const res = await axios.get('https://api.80pco.com/master');
