@@ -5,7 +5,7 @@
       <h4 class="subtitle is-5">{{ subTitle }}</h4>
       <div class="columns">
         <div class="column is-1"></div>
-        <div class="column is-3 is-mobile">
+        <div class="column is-2 is-mobile">
           <div id="pie-chart" class="column"></div>
         </div>
         <div class="column is-1"></div>
@@ -13,7 +13,7 @@
           <div id="bar-chart"></div>
         </div>
         <div class="column is-1"></div>
-        <div class="column is-3 is-mobile">
+        <div class="column is-4 is-mobile">
           <div id="country-stack"></div>
         </div>
       </div>
@@ -21,7 +21,7 @@
       <div class="columns">
         <div class="column is-2"></div>
         <div class="column is-8 is-mobile">
-          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Year & Location</h4>
+          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Year & Location (Millions US$)</h4>
           <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
             <thead>
               <tr>
@@ -240,7 +240,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-            on the default primary value scale*/
+                  on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -275,8 +275,11 @@
   			// set the container id
   			chart.container('country-stack');
 
-  			var labels = chart.xAxis().labels();
-  			labels.enabled(true);
+  			chart
+  				.xAxis()
+  				.labels()
+  				.rotation(-70)
+  				.fontSize(8.5);
 
   			chart
   				.yAxis()

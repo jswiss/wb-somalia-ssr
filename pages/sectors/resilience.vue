@@ -26,7 +26,7 @@
       <div class="columns">
         <div class="column is-2"></div>
         <div class="column is-8 is-mobile">
-          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Subsector & Location</h4>
+          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Subsector & Location (Millions US$)</h4>
           <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
             <thead>
               <tr>
@@ -158,9 +158,9 @@
   				['Donor Agency', formatMillion(18738364)],
   				['Government', formatMillion(20570204)],
   				['IFI', formatMillion(500000)],
-  				['Intergovernmental Organization', formatMillion(13296978)],
+  				['Intergovernmental\n Organization', formatMillion(13296978)],
   				[
-  					'Mix of implementers - involving government',
+  					'Mix of implementers\n - involving government',
   					formatMillion(731665744),
   				],
   				['NGOs', formatMillion(265460791)],
@@ -241,7 +241,15 @@
   				.labels()
   				.format('${%Value}{groupsSeparator:\\,} mln');
 
-  			chart.xAxis(true);
+  			chart
+  				.xAxis()
+  				.labels()
+  				// .rotation(-60)
+  				.fontSize(8.5);
+  			// enabling stagger mode
+  			chart.xAxis().staggerMode(true);
+  			// adjusting settings for stagger mode
+  			chart.xAxis().staggerLines(2);
 
   			chart.container('bar-chart');
 
@@ -263,7 +271,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-            on the default primary value scale*/
+                  on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -324,9 +332,6 @@
   			// set the container id
   			chart.container('stack-chart');
 
-  			var labels = chart.xAxis().labels();
-  			labels.enabled(true);
-
   			chart
   				.yAxis()
   				.labels()
@@ -349,7 +354,7 @@
   			var seriesData_6 = dataSet.mapAs({ x: 0, value: 6 });
 
   			/* enable the value stacking mode
-            on the default primary value scale*/
+                  on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -411,8 +416,15 @@
   			// set the container id
   			chart.container('country-stack');
 
-  			var labels = chart.xAxis().labels();
-  			labels.enabled(true);
+  			chart
+  				.xAxis()
+  				.labels()
+  				// .rotation(-60)
+  				.fontSize(8.5);
+  			// enabling stagger mode
+  			chart.xAxis().staggerMode(true);
+  			// adjusting settings for stagger mode
+  			chart.xAxis().staggerLines(2);
 
   			chart
   				.yAxis()

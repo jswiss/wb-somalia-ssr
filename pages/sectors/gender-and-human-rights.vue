@@ -26,7 +26,7 @@
       <div class="columns">
         <div class="column is-2"></div>
         <div class="column is-8 is-mobile">
-          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Year & Location</h4>
+          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Year & Location (Millions US$)</h4>
           <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
             <thead>
               <tr>
@@ -117,7 +117,10 @@
   			subTitle: 'All values in millions US$',
   			genderHumanRightsData: [
   				['Government', formatMillion(172342)],
-  				['Mix of implementers - involving government', formatMillion(3700000)],
+  				[
+  					'Mix of implementers\n - involving government',
+  					formatMillion(3700000),
+  				],
   				['NGOs', formatMillion(31539718)],
   				['Private Sector', formatMillion(695274)],
   			],
@@ -144,7 +147,7 @@
   					normal: { fill: this.$store.state.color.blue },
   				},
   				{
-  					x: 'Mix of implementers - involving government',
+  					x: 'Mix of implementers\n - involving government',
   					value: formatMillion(3700000),
   					normal: { fill: this.$store.state.color.green },
   				},
@@ -173,7 +176,7 @@
   				.enabled(true)
   				.format('${%Value}{groupsSeparator:\\,}');
   			chart.animation(true);
-  			chart.title('Gender & Human Rights, 2016-2018 spend ($) ');
+  			chart.title('Gender & Human Rights, 2016-2018 spend US$ ');
   			chart.yScale().minimum(0);
   			chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
   			chart.interactivity().hoverMode('by-x');
@@ -181,7 +184,15 @@
   				.yAxis()
   				.labels()
   				.format('${%Value}{groupsSeparator:\\,}');
-  			chart.xAxis(true);
+  			chart
+  				.xAxis()
+  				.labels()
+  				// .rotation(-60)
+  				.fontSize(8.5);
+  			// enabling stagger mode
+  			chart.xAxis().staggerMode(true);
+  			// adjusting settings for stagger mode
+  			chart.xAxis().staggerLines(2);
   			chart.container('bar-chart');
   			chart.draw();
   		},
@@ -204,7 +215,7 @@
   				.yAxis()
   				.labels()
   				.format('${%Value}{groupsSeparator:\\,} mln');
-  			chart.xAxis(true);
+  			chart.xAxis().labels(true);
   			chart.container('stack-chart');
   			chart.draw();
   		},
@@ -215,7 +226,7 @@
   			var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
   			/* enable the value stacking mode
-                    on the default primary value scale*/
+                              on the default primary value scale*/
   			chart.yScale().stackMode('value');
   			chart.legend(true);
   			// create column series
@@ -243,7 +254,15 @@
   			// set the container id
   			chart.container('year-stack');
   			var labels = chart.xAxis().labels();
-  			labels.enabled(true);
+  			chart
+  				.xAxis()
+  				.labels()
+  				// .rotation(-60)
+  				.fontSize(8.5);
+  			// enabling stagger mode
+  			chart.xAxis().staggerMode(true);
+  			// adjusting settings for stagger mode
+  			chart.xAxis().staggerLines(2);
   			chart
   				.yAxis()
   				.labels()

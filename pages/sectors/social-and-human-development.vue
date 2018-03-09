@@ -26,7 +26,7 @@
       <div class="columns">
         <div class="column is-2"></div>
         <div class="column is-8 is-mobile">
-          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Sector & Location</h4>
+          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Sector & Location (Millions US$)</h4>
           <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
             <thead>
               <tr>
@@ -116,16 +116,16 @@
   			title: 'Social & Human Development',
   			subTitle: 'All values in millions US$',
   			socialHumanDevelopmentData: [
-  				['Academic / Research Institutions', formatMillion(3733435)],
+  				['Academic / Research\n Institutions', formatMillion(3733435)],
   				['Donor Agency', formatMillion(16527778)],
   				['Government', formatMillion(11718557)],
   				['IFI', formatMillion(799565)],
-  				['Intergovernmental Organization', formatMillion(194500)],
+  				['Intergovernmental\n Organization', formatMillion(194500)],
   				[
-  					'Mix of implementers - involving government',
+  					'Mix of implementers\n - involving government',
   					formatMillion(186777138),
   				],
-  				['Mix of implementers - no government', formatMillion(7961733)],
+  				['Mix of implementers\n - no government', formatMillion(7961733)],
   				['NGOs', formatMillion(219302287)],
   				['Other', formatMillion(2022044)],
   				['Private Sector', formatMillion(19542741)],
@@ -144,7 +144,7 @@
   					normal: { fill: this.$store.state.color.blue },
   				},
   				{
-  					x: 'Mix of implementers - involving government',
+  					x: 'Mix of implementers\n - involving government',
   					value: formatMillion(186777138),
   					normal: { fill: this.$store.state.color.green },
   				},
@@ -219,7 +219,15 @@
   				.enabled(true)
   				.format('${%Value}{groupsSeparator:\\,} mln');
 
-  			chart.xAxis(true);
+  			chart
+  				.xAxis()
+  				.labels()
+  				// .rotation(-60)
+  				.fontSize(8.5);
+  			// enabling stagger mode
+  			chart.xAxis().staggerMode(true);
+  			// adjusting settings for stagger mode
+  			chart.xAxis().staggerLines(2);
 
   			chart.container('bar-chart');
 
@@ -238,7 +246,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-            on the default primary value scale*/
+                    on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -309,7 +317,7 @@
   			var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
 
   			/* enable the value stacking mode
-            on the default primary value scale*/
+                    on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -346,8 +354,15 @@
   			// set the container id
   			chart.container('country-stack');
 
-  			var labels = chart.xAxis().labels();
-  			labels.enabled(true);
+  			chart
+  				.xAxis()
+  				.labels()
+  				// .rotation(-60)
+  				.fontSize(8.5);
+  			// enabling stagger mode
+  			chart.xAxis().staggerMode(true);
+  			// adjusting settings for stagger mode
+  			chart.xAxis().staggerLines(2);
 
   			chart
   				.yAxis()

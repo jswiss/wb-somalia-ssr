@@ -26,7 +26,7 @@
       <div class="columns">
         <div class="column is-2"></div>
         <div class="column is-8 is-mobile">
-          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Subsector & Location</h4>
+          <h4 class="title is-4">{{ title }}: Disbursement of Funds by Subsector & Location (Millions US$)</h4>
           <table id="table" class="table is-striped is-hoverable is-bordered is-narrow is-mobile">
             <thead>
               <tr>
@@ -107,8 +107,11 @@
   				['Donor Agency', formatMillion(8391376)],
   				['Government', formatMillion(8228265)],
   				['IFI', formatMillion(3013949)],
-  				['Mix of implementers - involving government', formatMillion(19444243)],
-  				['Mix of implementers - no government', formatMillion(433000)],
+  				[
+  					'Mix of implementers\n - involving government',
+  					formatMillion(19444243),
+  				],
+  				['Mix of implementers\n - no government', formatMillion(433000)],
   				['NGOs', formatMillion(38335938)],
   				['Private Sector', formatMillion(56512142)],
   				['Regional Actors', formatMillion(1077778)],
@@ -137,7 +140,7 @@
   					normal: { fill: this.$store.state.color.yellow },
   				},
   				{
-  					x: 'Mix of implementers - no government',
+  					x: 'Mix of implementers\n - no government',
   					value: formatMillion(19444243),
   					normal: { fill: this.$store.state.color.tan },
   				},
@@ -202,7 +205,15 @@
   				.labels()
   				.format('${%Value} mln');
 
-  			chart.xAxis(true);
+  			chart
+  				.xAxis()
+  				.labels()
+  				// .rotation(-60)
+  				.fontSize(8);
+  			// enabling stagger mode
+  			chart.xAxis().staggerMode(true);
+  			// adjusting settings for stagger mode
+  			chart.xAxis().staggerLines(2);
 
   			chart.container('bar-chart');
 
@@ -223,7 +234,7 @@
   			chart.legend(true);
 
   			/* enable the value stacking mode
-              on the default primary value scale*/
+                        on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -313,8 +324,15 @@
   			// set the container id
   			chart.container('country-stack');
 
-  			var labels = chart.xAxis().labels();
-  			labels.enabled(true);
+  			chart
+  				.xAxis()
+  				.labels()
+  				// .rotation(-60)
+  				.fontSize(8.5);
+  			// enabling stagger mode
+  			chart.xAxis().staggerMode(true);
+  			// adjusting settings for stagger mode
+  			chart.xAxis().staggerLines(2);
 
   			chart
   				.yAxis()
