@@ -66,6 +66,45 @@ export const mutations = {
           k['End Date'] !== null
             ? moment(excelToJsDate(k['End Date'])).format('YYYY-MM')
             : null,
+        Gender: k.Gender,
+        Capacity: k['Capacity building'],
+        Stabilization: k.Stabilization,
+        Durable: k['Durable Solutions'],
+        Youth: k.Youth,
+        Conflict: k['Conflict Sensitivity Analysis'],
+        'Reporting Agency': k['Reporting Agency'],
+        Implementers: k.Implementers,
+        Funders: k.Funders,
+        'Implementer Category': k['Implementer Category'],
+        Links: k['Links to project webpages or documents'],
+        'Links to other Sector': k['Links to other Sector'],
+        '2016 - FGS': k['2016 - FGS'],
+        '2016 - Benadir': k['2016 - Benadir'],
+        '2016 - Galmudug': k['2016 - Galmudug'],
+        '2016 - Hiirshabelle': k['2016 - Hiirshabelle'],
+        '2016 - Jubaland': k['2016 - Jubaland'],
+        '2016 - Puntland': k['2016 - Puntland'],
+        '2016 - Somaliland': k['2016 - Somaliland'],
+        '2016 - South West': k['2016 - South West'],
+        '2016 - Unattributed': k['2016 - Unattributed'],
+        '2017 - FGS': k['2017 - FGS'],
+        '2017 - Benadir': k['2017 - Benadir'],
+        '2017 - Galmudug': k['2017 - Galmudug'],
+        '2017 - Hiirshabelle': k['2017 - Hiirshabelle'],
+        '2017 - Jubaland': k['2017 - Jubaland'],
+        '2017 - Puntland': k['2017 - Puntland'],
+        '2017 - Somaliland': k['2017 - Somaliland'],
+        '2017 - South West': k['2017 - South West'],
+        '2017 - Unattributed': k['2017 - Unattributed'],
+        '2018 - FGS': k['2018 - FGS'],
+        '2018 - Benadir': k['2018 - Benadir'],
+        '2018 - Galmudug': k['2018 - Galmudug'],
+        '2018 - Hiirshabelle': k['2018 - Hiirshabelle'],
+        '2018 - Jubaland': k['2018 - Jubaland'],
+        '2018 - Puntland': k['2018 - Puntland'],
+        '2018 - Somaliland': k['2018 - Somaliland'],
+        '2018 - South West': k['2018 - South West'],
+        '2018 - Unattributed': k['2018 - Unattributed'],
       };
     });
   },
@@ -127,7 +166,7 @@ export const mutations = {
       .key(d => d.Location)
       .key(d => d['NDP Pillar'])
       .key(d => d.Sector)
-      .key(d => d['Project title'])
+      .key(d => d['Project Title'])
       .rollup(d => d3.sum(d, d => d.Value))
       .entries(reducedTree);
 
@@ -190,7 +229,7 @@ export const mutations = {
       .key(d => d.Location)
       .key(d => d['NDP Pillar'])
       .key(d => d.Sector)
-      .key(d => d['Project title'])
+      .key(d => d['Project Title'])
       .rollup(d => d3.sum(d, d => d.Value))
       .entries(reducedTree);
 
@@ -253,7 +292,7 @@ export const mutations = {
       .key(d => d.Location)
       .key(d => d['NDP Pillar'])
       .key(d => d.Sector)
-      .key(d => d['Project title'])
+      .key(d => d['Project Title'])
       .rollup(d => d3.sum(d, d => d.Value))
       .entries(reducedTree);
 

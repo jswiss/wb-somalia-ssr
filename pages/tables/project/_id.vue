@@ -30,7 +30,7 @@
               </div>
               <div class="column is-5 is-mobile" id="description">
                 <h4 class="title is-4 is-bold">Description:</h4>
-                <p class="desc-text">{{ project['Project objectives'] || 'n/a' }}</p>
+                <p class="desc-text">{{ project.Objective || 'n/a' }}</p>
               </div>
               <div class="column is-4 is-mobile">
                 <h4 class="title is-4 is-bold"><span class="ndp">Related Sectors:</span></h4>
@@ -45,7 +45,7 @@
               <div class="column is-4"></div>
               <div class="column is-4 is-mobile" id="project-website">
                 <h4 class="title is-4">Project Website:</h4>
-                <a v-bind:href="project['Links to project webpages or documents']"><p class="url">{{ project['Links to project webpages or documents'] || 'n/a'}}</p></a>
+                <a v-bind:href="project['Links to project webpages or documents']"><p class="url">{{ project.Links || 'n/a'}}</p></a>
               </div>
             </div>
           </div>
@@ -56,19 +56,19 @@
             <div id="value" class="columns is-mobile">
               <div class="column is-3 is-mobile" id="project-value">
                 <h4 class="title is-4 is-bold">Total Project Value (2016-18):</h4>
-                <p id="total-value" class="desc-text">${{ project['2016 Disbursements (USD)'] + project['2017 Disbursements (USD)'] + project['2018 Disbursements (USD)']  | currency }}</p>
+                <p id="total-value" class="desc-text">${{ project['Total Project Value']  | currency }}</p>
               </div>
               <div class="column is-3 is-mobile">
                 <h4 class="title is-4 is-bold"><span class="disb">2016 Disbursement:</span></h4>
-                <p class="year-disb">${{ project['2016 Disbursements (USD)'] | currency }}</p>
+                <p class="year-disb">${{ project['2016 Disbursements'] | currency }}</p>
               </div>
               <div class="column is-3 is-mobile">
                 <h4 class="title is-4 is-bold"><span class="disb">2017 Disbursement:</span></h4>
-                <p class="year-disb">${{ project['2017 Disbursements (USD)'] | currency }}</p>
+                <p class="year-disb">${{ project['2017 Disbursements'] | currency }}</p>
               </div>
               <div class="column is-3 is-mobile">
                 <h4 class="title is-4 is-bold"><span class="disb">2018 Disbursement:</span></h4>
-                <p class="year-disb">${{ project['2018 Disbursements (USD)'] | currency }}</p>
+                <p class="year-disb">${{ project['2018 Disbursements'] | currency }}</p>
               </div>
             </div>
             <div id="table-allocation" class="columns">
@@ -101,7 +101,7 @@
                       <td>${{ project['2016 - Puntland'] || 0 | currency }}</td>
                       <td>${{ project['2016 - Somaliland'] || 0 | currency }}</td>
                       <td>${{ project['2016 - South West'] || 0 | currency }}</td>
-                      <td>${{ project['2016 - Unatributed'] || 0 | currency }}</td>
+                      <td>${{ project['2016 - Unattributed'] || 0 | currency }}</td>
                     </tr>
                     <tr>
                       <td class="year-row">2017</td>
@@ -113,7 +113,7 @@
                       <td>${{ project['2017 - Puntland'] || 0 | currency }}</td>
                       <td>${{ project['2017 - Somaliland'] || 0 | currency }}</td>
                       <td>${{ project['2017 - South West'] || 0 | currency }}</td>
-                      <td>${{ project['2017 - Unatributed'] || 0 | currency }}</td>
+                      <td>${{ project['2017 - Unattributed'] || 0 | currency }}</td>
                     </tr>
                     <tr>
                       <td class="year-row">2018</td>
@@ -183,7 +183,7 @@
               </div>
               <div class="column is-4 is-mobile">
                 <h4 class="title is-4 is-bold"><span class="focus">Capacity Building:</span></h4>
-                <p class="proj-focus">{{ project['Capacity building'] || 'n/a' }}</p>
+                <p class="proj-focus">{{ project.Capacity || 'n/a' }}</p>
               </div>
               <div class="column is-4 is-mobile">
                 <h4 class="title is-4 is-bold"><span class="focus">Stabilization:</span></h4>
@@ -193,7 +193,7 @@
             <div id="focuses" class="columns is-mobile">
               <div class="column is-4 is-mobile">
                 <h4 class="title is-4 is-bold"><span class="focus">Durable Solutions:</span></h4>
-                <p class="proj-focus">{{ project['Durable Solutions'] || 'n/a' }}</p>
+                <p class="proj-focus">{{ project.Durable || 'n/a' }}</p>
               </div>
               <div class="column is-4 is-mobile">
                 <h4 class="title is-4 is-bold"><span class="focus">Youth:</span></h4>
@@ -201,7 +201,7 @@
               </div>
               <div class="column is-4 is-mobile">
                 <h4 class="title is-4 is-bold"><span class="focus">Conflict Sensitivity Analysis:</span></h4>
-                <p class="proj-focus">{{ project['Conflict Sensitivity Analysis'] || 'n/a' }}</p>
+                <p class="proj-focus">{{ project.Conflict || 'n/a' }}</p>
               </div>
             </div>
           </div>
