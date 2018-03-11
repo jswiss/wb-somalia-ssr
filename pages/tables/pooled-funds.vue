@@ -50,7 +50,6 @@
 
   <script>
   import { mapState } from 'vuex';
-  import { getEnvelopeData } from '../helpers';
   import TableTabs from '~/components/TableTabs';
 
   export default {
@@ -93,7 +92,9 @@
   			options: {
   				options: {
   					highlightMatches: true,
+  					filterByColumn: true,
   					filterable: ['Agency', 'Contributions to MDTFs', 'Category'],
+  					storage: 'local',
   				},
   			},
   		};

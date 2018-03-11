@@ -1,9 +1,7 @@
 	<template>
-    <div id="projects">
+    <div id="projects" class="section">
       <table-tabs></table-tabs>
-      <div class="columns">
-        <div class="column is-1"></div>
-        <div class="column is-10">
+      <div class="container">
           <div id="table">
             <h1 class="title is-4">{{ title }}</h1>
             <no-ssr placeholder="Loading...">
@@ -52,11 +50,8 @@
                   <trend :data="[props.row['2016 Disbursements'], props.row['2017 Disbursements'], props.row['2018 Disbursements'] ]" auto-draw smooth></trend>
                 </div>
               </template>
-              </v-client-table>
-            </no-ssr>
-          </div>
-        </div>
-        <div class="column is-1">
+            </v-client-table>
+          </no-ssr>
         </div>
       </div>
     </div>
@@ -64,10 +59,21 @@
 
   <script>
   import { mapState } from 'vuex';
+  import axios from 'axios';
   import TableTabs from '~/components/TableTabs';
 
   export default {
   	name: 'projects',
+  	async asyncData({ query, error, store }) {
+  		if (store.state.pooledTable.length !== 0) return;
+
+  		let [pooledRes] = await axios.get('https://api.80pco.com/pooled');
+  		store.commit('SET_POOLED_TABLE', pooledRes.data);
+
+  		return {
+  			pools: pooledRes.data,
+  		};
+  	},
   	data() {
   		return {
   			title: 'Filter by title, objective, NDP pillar, or sector',
@@ -86,7 +92,17 @@
   			],
   			options: {
   				saveState: true,
+  				columnsDropdown: true,
   				highlightMatches: true,
+  				filterByColumn: true,
+  				customFilters: [
+  					{
+  						name: 'Locations',
+  						callback: function(row, query) {
+  							return row.Location === query;
+  						},
+  					},
+  				],
   				storage: 'local',
   				dateColumns: ['Start Date', 'End Date'],
   				filterable: [
@@ -114,13 +130,16 @@
   	margin-top: 5%;
   }
 
-  #table {
-  	overflow: auto;
-  }
+  /* #table {
+                        	overflow: auto;
+                        } */
   .title {
   	margin-top: 2%;
   }
   #download_button {
   	font-size: 13px;
+  }
+  button.dropdown-trigger {
+  	margin: 10%;
   }
 </style>

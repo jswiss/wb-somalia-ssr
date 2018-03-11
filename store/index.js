@@ -75,6 +75,7 @@ export const mutations = {
         'Reporting Agency': k['Reporting Agency'],
         Implementers: k.Implementers,
         Funders: k.Funders,
+        Locations: k.locations,
         'Implementer Category': k['Implementer Category'],
         Links: k['Links to project webpages or documents'],
         'Links to other Sector': k['Links to other Sector'],
@@ -325,22 +326,5 @@ export const mutations = {
         }),
       },
     ];
-  },
-  SET_PROJECT_LOCATION(state) {
-    let i = state.clean2016.length;
-    let j = state.clean2017.length;
-    let k = state.clean2018.length;
-    while (i--) {
-      state.projectLocationTable.push(state.clean2016[i]);
-    }
-    while (j--) {
-      state.projectLocationTable.push(state.clean2017[j]);
-    }
-    while (k--) {
-      state.projectLocationTable.push(state.clean2018[k]);
-    }
-  },
-  SET_PROJECT(state, data) {
-    state.project = data;
   },
 };

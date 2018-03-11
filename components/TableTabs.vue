@@ -4,28 +4,13 @@
     <div class="tabs is-centered">
       <ul>
         <li>
-          <nuxt-link class="nav-item is-tab" to="/tables/projects">
+          <nuxt-link class="nav-item is-tab" to="/tables">
             Projects
-          </nuxt-link>
-        </li>
-        <li>
-          <nuxt-link class="nav-item is-tab" to="/tables/envelopes">
-            Envelopes
-          </nuxt-link>
-        </li>
-        <li>
-          <nuxt-link class="nav-item is-tab" to="/tables/locations">
-            Locations
           </nuxt-link>
         </li>
         <li>
           <nuxt-link class="nav-item is-tab" to="/tables/pooled-funds">
             Pooled Funds
-          </nuxt-link>
-        </li>
-        <li>
-          <nuxt-link class="nav-item is-tab" to="/tables/project-locations">
-           Project Locations
           </nuxt-link>
         </li>
       </ul>

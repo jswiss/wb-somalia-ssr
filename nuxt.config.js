@@ -22,7 +22,6 @@ module.exports = {
   },
   env: {
     CHART_KEY: process.env.CHART_KEY,
-    baseUrl: process.env.BASE_URL,
   },
   /*
   ** Customize the progress bar color
@@ -32,13 +31,14 @@ module.exports = {
   // css
   css: ['bulma/bulma.sass', '~/assets/css/main.css'],
   plugins: [
-    { src: '~/plugins/vue-bulma-tables-2', ssr: false },
+    // { src: '~/plugins/vue-bulma-tables-2', ssr: false },
+    { src: '~/plugins/vue-tables-2', ssr: false },
     { src: '~/plugins/vuexPersistedState', ssr: false },
     { src: '~/plugins/anychart', ssr: false },
     { src: '~/plugins/filters' },
     { src: '~/plugins/vuetrend' },
   ],
-  vendor: ['vue-bulma-tables-2', 'anychart', 'createPersistedState', 'Trend'],
+  vendor: ['vue-tables-2', 'anychart', 'createPersistedState', 'Trend'],
   /*
   ** Build configuration
   */
