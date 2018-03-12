@@ -5,7 +5,10 @@ export async function getAllProjects({ store, client }) {
   if (store.state.projectLocationTable.length !== 0) return;
 
   try {
-    const res = await axios.get('https://api.80pco.com/master_locations');
+    const [res, locs] = await Promise.all([
+      axios.get('https://api.80pco.com/master_locations'),
+      axios.get('http://api.80pco.com/locations'),
+    ]);
     const tree2016 = res.data.map(k => {
       return {
         'Project Title': k['Project title'],
@@ -61,6 +64,7 @@ export async function getAllProjects({ store, client }) {
     store.commit('SET_2016');
     store.commit('SET_2017');
     store.commit('SET_2018');
+    store.commit('SET_LOCATION_TABLE', locs.data);
   } catch (err) {
     console.log('====================================');
     console.log(err);
