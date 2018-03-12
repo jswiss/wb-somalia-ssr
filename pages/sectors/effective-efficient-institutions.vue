@@ -220,7 +220,6 @@
   				.stroke(null)
   				.labels()
   				.enabled(true)
-  				.rotation(-30)
   				.format('${%Value}{groupsSeparator:\\,} mln');
 
   			chart.animation(true);
@@ -263,7 +262,7 @@
   			var seriesData_4 = dataSet.mapAs({ x: 0, value: 4 });
 
   			/* enable the value stacking mode
-                                            on the default primary value scale*/
+                                              on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -347,7 +346,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-                                            on the default primary value scale*/
+                                              on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
