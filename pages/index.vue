@@ -11,6 +11,7 @@
 </template>
 
 <script type="text/javascript">
+  console.log('anychart: ', process.env.CHART_KEY);
   import { mapState } from 'vuex';
   import HomeText from '~/components/HomeText';
   import FlowsOverview from '~/components/FlowsOverview';

@@ -191,7 +191,6 @@
   				.stroke(null)
   				.labels()
   				.enabled(true)
-  				.rotation(-30)
   				.format('${%Value}{groupsSeparator:\\,} mln');
 
   			chart.animation(true);
@@ -238,7 +237,7 @@
   			chart.legend(true);
 
   			/* enable the value stacking mode
-                            on the default primary value scale*/
+                              on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series

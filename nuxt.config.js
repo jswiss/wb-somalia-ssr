@@ -1,7 +1,4 @@
 const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
-const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   /*
@@ -21,13 +18,17 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   env: {
-    CHART_KEY: process.env.CHART_KEY,
+    CHART_KEY: '80outrage-432962df-89451e8b',
+    GA: 'GA=UA-99055406-1',
   },
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#4189DD', height: '10px' },
-  modules: ['@nuxtjs/bulma', '@nuxtjs/axios'],
+  modules: ['@nuxtjs/bulma', '@nuxtjs/axios', '@nuxtjs/google-analytics'],
+  'google-analytics': {
+    id: process.env.GA,
+  },
   // css
   css: ['bulma/bulma.sass', '~/assets/css/main.css'],
   plugins: [
@@ -52,16 +53,6 @@ module.exports = {
       new webpack.IgnorePlugin(/^\.\/geodata$/, /anychart$/),
       new webpack.IgnorePlugin(/^\.\/locales$/, /anychart$/),
       new webpack.IgnorePlugin(/^\.\/themes$/, /anychart$/),
-      // new BundleAnalyzerPlugin(),
-      // new CompressionPlugin({
-      //   asset: '[path].gz[query]',
-      //   algorithm: 'gzip',
-      //   test: /\.js$|\.css$|\.html$|\.js.map$/,
-      //   include: /\.js$|\.css$|\.html$|\.js.map$/,
-      //   threshold: 1000,
-      //   minRatio: 0.8,
-      //   // deleteOriginalAssets: true,
-      // }),
     ],
     postcss: {
       plugins: {
