@@ -238,7 +238,7 @@
   			chart.legend(true);
 
   			/* enable the value stacking mode
-                          on the default primary value scale*/
+                            on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -287,7 +287,7 @@
   			chart.title('Economic Growth: Key Implementers');
   			chart.container('pie-chart');
   			chart.animation(true);
-  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
+  			chart.tooltip().format('${%Value}{groupsSeparator:\\,} mln');
 
   			chart.draw();
   		},

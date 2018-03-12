@@ -263,7 +263,7 @@
   			var seriesData_4 = dataSet.mapAs({ x: 0, value: 4 });
 
   			/* enable the value stacking mode
-                                          on the default primary value scale*/
+                                            on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -329,7 +329,7 @@
   			);
   			chart.container('pie-chart');
   			chart.animation(true);
-  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
+  			chart.tooltip().format('${%Value}{groupsSeparator:\\,} mln');
 
   			chart.draw();
   		},
@@ -347,7 +347,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-                                          on the default primary value scale*/
+                                            on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
