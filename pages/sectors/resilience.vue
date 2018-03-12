@@ -5,23 +5,27 @@
       <h4 class="subtitle is-5">{{ subTitle }}</h4>
       <div class="columns">
         <div class="column is-1"></div>
-        <div class="column is-5 is-mobile">
+        <div class="column is-10 is-mobile">
+          <div id="bar-chart"></div>
+        </div>
+        <div class="column is-1"></div>
+      </div>
+      <div class="columns">
+        <div class="column is-1"></div>
+        <div class="column is-4 is-mobile">
           <div id="pie-chart" class="column"></div>
         </div>
         <div class="column is-1"></div>
-        <div class="column is-5 is-mobile">
-          <div id="bar-chart"></div>
+        <div class="column is-4 is-mobile">
+          <div id="stack-chart" class="column"></div>
         </div>
       </div>
       <div class="columns">
         <div class="column is-1"></div>
-        <div class="column is-5 is-mobile">
+        <div class="column is-10 is-mobile">
           <div id="country-stack"></div>
         </div>
         <div class="column is-1"></div>
-        <div class="column is-5">
-          <div id="stack-chart"></div>
-        </div>
       </div>
       <div class="columns">
         <div class="column is-2"></div>
@@ -245,7 +249,7 @@
   				.xAxis()
   				.labels()
   				// .rotation(-60)
-  				.fontSize(8.5);
+  				.fontSize(10);
   			// enabling stagger mode
   			chart.xAxis().staggerMode(true);
   			// adjusting settings for stagger mode
@@ -271,7 +275,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-                  on the default primary value scale*/
+                    on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -354,7 +358,7 @@
   			var seriesData_6 = dataSet.mapAs({ x: 0, value: 6 });
 
   			/* enable the value stacking mode
-                  on the default primary value scale*/
+                    on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			// create column series
@@ -419,12 +423,12 @@
   			chart
   				.xAxis()
   				.labels()
-  				// .rotation(-60)
-  				.fontSize(8.5);
+  				.rotation(-60)
+  				.fontSize(10);
   			// enabling stagger mode
-  			chart.xAxis().staggerMode(true);
+  			// chart.xAxis().staggerMode(true);
   			// adjusting settings for stagger mode
-  			chart.xAxis().staggerLines(2);
+  			// chart.xAxis().staggerLines(2);
 
   			chart
   				.yAxis()
@@ -441,7 +445,7 @@
   			chart.title('Key Implementers of Reslience Projects');
   			chart.container('pie-chart');
   			chart.animation(true);
-  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,} mln');
+  			chart.tooltip().format('${%Value}{groupsSeparator:\\,} mln');
 
   			chart.draw();
   		},
@@ -457,10 +461,9 @@
 
 <style scoped>
   /* make sure div#id has a size defined, otherwise nothing will render */
-
   #bar-chart {
   	width: 100%;
-  	height: 100%;
+  	height: 400px;
   	margin: 0;
   	padding: 0;
   }
@@ -468,6 +471,7 @@
   #stack-chart,
   #country-stack {
   	height: 370px;
+  	width: 100%;
   }
   .bold-row {
   	font-weight: bold;
@@ -476,4 +480,5 @@
   	overflow: auto;
   }
 </style>
+
 
