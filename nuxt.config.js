@@ -19,7 +19,6 @@ module.exports = {
   },
   env: {
     CHART_KEY: '80outrage-432962df-89451e8b',
-    GA: 'GA=UA-99055406-1',
   },
   /*
   ** Customize the progress bar color
@@ -27,7 +26,7 @@ module.exports = {
   loading: { color: '#4189DD', height: '10px' },
   modules: ['@nuxtjs/bulma', '@nuxtjs/axios', '@nuxtjs/google-analytics'],
   'google-analytics': {
-    id: process.env.GA,
+    id: 'GA = UA - 99055406 - 1',
   },
   // css
   css: ['bulma/bulma.sass', '~/assets/css/main.css'],

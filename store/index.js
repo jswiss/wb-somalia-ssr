@@ -327,4 +327,7 @@ export const mutations = {
       },
     ];
   },
+  SET_PROJECT(state, data) {
+    state.project = data;
+  },
 };
