@@ -24,14 +24,12 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#4189DD', height: '10px' },
-  modules: ['@nuxtjs/bulma', '@nuxtjs/axios', '@nuxtjs/google-analytics'],
-  'google-analytics': {
-    id: 'GA = UA - 99055406 - 1',
-  },
+  modules: ['@nuxtjs/bulma', '@nuxtjs/axios'],
   // css
   css: ['bulma/bulma.sass', '~/assets/css/main.css'],
   plugins: [
     // { src: '~/plugins/vue-bulma-tables-2', ssr: false },
+    { src: '~/plugins/ga', ssr: false },
     { src: '~/plugins/vue-tables-2', ssr: false },
     { src: '~/plugins/vuexPersistedState', ssr: false },
     { src: '~/plugins/anychart', ssr: false },
