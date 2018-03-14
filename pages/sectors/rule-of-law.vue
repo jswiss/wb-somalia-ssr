@@ -244,7 +244,7 @@
   			var chart = anychart.column();
 
   			/* enable the value stacking mode
-                      on the default primary value scale*/
+                        on the default primary value scale*/
   			chart.yScale().stackMode('value');
 
   			chart.legend(true);
@@ -275,6 +275,8 @@
 
   			// set the chart title
   			chart.title('Rule of Law: Project Disbursements by Location');
+
+  			chart.animation(true);
 
   			// set the container id
   			chart.container('country-stack');
