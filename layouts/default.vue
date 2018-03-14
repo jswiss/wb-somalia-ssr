@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav-bar/>
+    <nav-bar class="nav"/>
     <nuxt/>
     <footer-menu/>
   </div>
@@ -35,5 +35,8 @@
   *:after {
   	box-sizing: border-box;
   	margin: 0;
+  }
+  .nav {
+  	margin-bottom: 5%;
   }
 </style>

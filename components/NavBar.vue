@@ -65,13 +65,13 @@
   	text-indent: -10px;
   }
 
-  .nav {
+  nav {
   	position: fixed !important;
   	top: 0;
   	left: 0;
   	right: 0;
   	z-index: 1030;
-  	margin-bottom: 40px;
+  	margin-bottom: 10%;
   }
 
   .report {

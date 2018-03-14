@@ -1,10 +1,10 @@
  <!--home page-->
 <template>
-  <div id="topmost" class="columns is-gapless is-mobile">
-    <div class="column is-3">
+  <div id="topmost" class="columns">
+    <div class="column is-3 is-mobile">
       <home-text></home-text>
     </div>
-    <div class="column">
+    <div class="column is-mobile">
       <flows-overview/>
     </div>
   </div>

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <nav-bar/>
+    <nav-bar class="nav"/>
     <div class="columns">
-      <div class="column is-2">
+      <div class="column is-2 is-mobile">
         <sectors-menu/>
       </div>
-      <div class="column is-10">
+      <div class="column is-10 is-mobile">
         <nuxt/>
       </div>
     </div>

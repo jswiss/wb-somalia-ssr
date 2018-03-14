@@ -1,9 +1,9 @@
 <template>
   <div id="sectors-menu">
-    <div class="columns is-mobile">
+    <div class="columns">
       <div class="outline">
         <nuxt-link class="nav-item" to="/sectors/inclusive-politics" >
-          <div id="chart-selector-1" class="column">
+          <div id="chart-selector-1" class="column is-mobile">
             <span>
               <img src="../static/icons/inclusive-politics.svg" alt="Inclusive Politics" class="sector-icon">
             </span>
@@ -15,7 +15,7 @@
       </div>
       <div class="outline">
         <nuxt-link class="nav-item" to="/sectors/rule-of-law" >
-          <div id="chart-selector-2" class="column">
+          <div id="chart-selector-2" class="column is-mobile">
             <img src="../static/icons/rule-of-law.svg" alt="Rule of Law" class="sector-icon">
             <h4 class="sidebar-title">
               Rule of
@@ -26,10 +26,10 @@
         </nuxt-link>
       </div>
     </div>
-    <div class="columns is-mobile">
+    <div class="columns">
       <div class="outline">
         <nuxt-link class="nav-item" to="/sectors/effective-efficient-institutions" >
-          <div id="chart-selector-3" class="column">
+          <div id="chart-selector-3" class="column is-mobile">
             <img src="../static/icons/institutions.svg" alt="Effective, Efficient Institutions" class="sector-icon">
             <h4 class="sidebar-title">
               Effective,
@@ -43,7 +43,7 @@
       </div>
         <div class="outline">
           <nuxt-link class="nav-item" to="/sectors/economic-growth">
-            <div id="chart-selector-4" class="column">
+            <div id="chart-selector-4" class="column is-mobile">
               <img src="../static/icons/economic-growth.svg" alt="Economic Growth" class="sector-icon">
               <h4 class="sidebar-title">
                 Economic
@@ -54,10 +54,10 @@
           </nuxt-link>
         </div>
     </div>
-    <div class="columns is-mobile">
+    <div class="columns">
       <div class="outline">
         <nuxt-link class="nav-item" to="/sectors/infrastructure" >
-          <div id="chart-selector-5" class="column">
+          <div id="chart-selector-5" class="column is-mobile">
             <img src="../static/icons/infrastructure.svg" alt="Infrastructure" class="sector-icon">
             <h4 class="sidebar-title">
               Infrastructure
@@ -67,7 +67,7 @@
       </div>
       <div class="outline">
         <nuxt-link class="nav-item" to="/sectors/social-and-human-development" >
-          <div id="chart-selector-6" class="column">
+          <div id="chart-selector-6" class="column is-mobile">
             <img src="../static/icons/social-development.svg" alt="Social and Human Development" class="sector-icon">
             <h4 class="sidebar-title">
               Social & Human
@@ -78,10 +78,10 @@
         </nuxt-link>
       </div>
     </div>
-    <div class="columns is-mobile">
+    <div class="columns">
       <div class="outline">
         <nuxt-link class="nav-item" to="/sectors/resilience" >
-          <div id="chart-selector-7" class="column">
+          <div id="chart-selector-7" class="column is-mobile">
             <img src="../static/icons/resilience.svg" alt="Resilience" class="sector-icon">
             <h4 class="sidebar-title">
               Resilience
@@ -91,7 +91,7 @@
       </div>
       <div class="outline">
         <nuxt-link class="nav-item" to="/sectors/gender-and-human-rights" >
-          <div id="chart-selector-8" class="column">
+          <div id="chart-selector-8" class="column is-mobile">
             <img src="../static/icons/gender-rights.svg" alt="Gender and Human Rights" class="sector-icon">
             <h4 class="sidebar-title">
               Gender &
