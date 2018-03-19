@@ -18,7 +18,7 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   env: {
-    CHART_KEY: '80outrage-432962df-89451e8b',
+    CHART_KEY: 'somaliaaidflows.so-6146d7cf-ae26922c',
   },
   /*
   ** Customize the progress bar color
