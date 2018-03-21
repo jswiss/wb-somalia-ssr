@@ -49,99 +49,99 @@
   </template>
 
   <script>
-  import { mapState } from 'vuex';
-  import TableTabs from '~/components/TableTabs';
+import { mapState } from 'vuex';
+import TableTabs from '~/components/TableTabs';
 
-  export default {
-  	name: 'envelopes',
-  	data() {
-  		return {
-  			pieData: [
-  				{
-  					x: 'WB MPF',
-  					value: 197.0,
-  					normal: { fill: this.$store.state.color.green },
-  				},
-  				{
-  					x: 'UN MPTF',
-  					value: 183.7,
-  					normal: { fill: this.$store.state.color.yellow },
-  				},
-  				{
-  					x: 'AfDB SIF',
-  					value: 20.2,
-  					normal: { fill: this.$store.state.color.tan },
-  				},
-  				{
-  					x: 'Aid channeled\n outside of\n SDRF Funds',
-  					value: 1531.2,
-  					normal: { fill: this.$store.state.color.blue },
-  				},
-  			],
-  			title: 'Filter by agency, contributions to MDTFs, or Category',
-  			columns: [
-  				'Agency',
-  				'Contributions to MDTFs',
-  				'Category',
-  				'2015',
-  				'2016',
-  				'2017',
-  				'2018',
-  				'Trends',
-  			],
-  			options: {
-  				options: {
-  					highlightMatches: true,
-  					filterByColumn: true,
-  					filterable: ['Agency', 'Contributions to MDTFs', 'Category'],
-  					storage: 'local',
-  				},
-  			},
-  		};
-  	},
-  	methods: {
-  		renderPie() {
-  			const chart = anychart.pie(this.pieData);
-  			chart.title(
-  				'Share of Development Aid Channeled through SDRF Funds, 2015-17'
-  			);
-  			chart.animation(true);
+export default {
+  name: 'envelopes',
+  data() {
+    return {
+      pieData: [
+        {
+          x: 'WB MPF',
+          value: 197.0,
+          normal: { fill: this.$store.state.color.green },
+        },
+        {
+          x: 'UN MPTF',
+          value: 183.7,
+          normal: { fill: this.$store.state.color.yellow },
+        },
+        {
+          x: 'AfDB SIF',
+          value: 20.2,
+          normal: { fill: this.$store.state.color.tan },
+        },
+        {
+          x: 'Aid channeled\n outside of\n SDRF Funds',
+          value: 1531.2,
+          normal: { fill: this.$store.state.color.blue },
+        },
+      ],
+      title: 'Filter by agency, contributions to MDTFs, or Category',
+      columns: [
+        'Agency',
+        'Contributions to MDTFs',
+        'Category',
+        '2015',
+        '2016',
+        '2017',
+        '2018',
+        'Trends',
+      ],
+      options: {
+        options: {
+          highlightMatches: true,
+          filterByColumn: true,
+          filterable: ['Agency', 'Contributions to MDTFs', 'Category'],
+          storage: 'local',
+        },
+      },
+    };
+  },
+  methods: {
+    renderPie() {
+      const chart = anychart.pie(this.pieData);
+      chart.title(
+        'Share of Development Aid Channeled through SDRF Funds, 2015-17'
+      );
+      chart.animation(true);
 
-  			chart
-  				.labels()
-  				.format('{%x}\n${%Value} mln')
-  				.position('outside');
+      chart
+        .labels()
+        .format('{%x}\n${%Value} mln')
+        .position('outside');
 
-  			chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
-  			chart.container('pie-chart');
-  			chart.draw();
-  		},
-  	},
-  	mounted() {
-  		this.renderPie();
-  	},
-  	components: {
-  		TableTabs,
-  	},
-  	computed: {
-  		...mapState({
-  			pools: state => state.pooledTable,
-  		}),
-  	},
-  };
+      chart.tooltip().format('{%x}: ${%Value}{groupsSeparator:\\,}');
+      chart.container('pie-chart');
+      chart.draw();
+    },
+  },
+  mounted() {
+    this.renderPie();
+  },
+  components: {
+    TableTabs,
+  },
+  computed: {
+    ...mapState({
+      pools: state => state.pooledTable,
+    }),
+  },
+};
 </script>
 
 <style scoped>
-  #table {
-  	overflow: auto;
-  }
-  .title,
-  #pie-chart {
-  	margin-top: 2%;
-  }
+#table {
+  overflow-x: auto;
+}
+.title,
+#pie-chart {
+  margin-top: 2%;
+}
 
-  #pie-chart {
-  	height: 800px;
-  	width: 100%;
-  }
+#pie-chart {
+  height: 800px;
+  width: 100%;
+}
 </style>

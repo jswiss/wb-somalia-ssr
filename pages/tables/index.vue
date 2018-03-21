@@ -63,72 +63,75 @@
   </template>
 
   <script>
-  import { mapState } from 'vuex';
-  import axios from 'axios';
-  import TableTabs from '~/components/TableTabs';
+import { mapState } from 'vuex';
+import axios from 'axios';
+import TableTabs from '~/components/TableTabs';
 
-  export default {
-  	name: 'projects',
-  	async asyncData({ query, error, store }) {
-  		if (store.state.pooledTable.length !== 0) return;
+export default {
+  name: 'projects',
+  async asyncData({ query, error, store }) {
+    if (store.state.pooledTable.length !== 0) return;
 
-  		let pooledRes = await axios.get('https://api.80pco.com/pooled');
-  		store.commit('SET_POOLED_TABLE', pooledRes.data);
+    let pooledRes = await axios.get('https://api.80pco.com/pooled');
+    store.commit('SET_POOLED_TABLE', pooledRes.data);
 
-  		return {
-  			pools: pooledRes.data,
-  		};
-  	},
-  	data() {
-  		return {
-  			title: 'Filter by title, objective, NDP pillar, or sector',
-  			columns: [
-  				'Project Title',
-  				'Locations',
-  				'Objective',
-  				'Start Date',
-  				'End Date',
-  				'NDP Pillar',
-  				'Primary Sector',
-  				'2016 Disbursements',
-  				'2017 Disbursements',
-  				'2018 Disbursements',
-  				'Total Project Value',
-  				'Trends',
-  			],
-  			options: {
-  				saveState: true,
-  				// columnsDropdown: true,
-  				highlightMatches: true,
-  				filterByColumn: true,
-  				storage: 'local',
-  				// dateColumns: ['Start Date', 'End Date'],
-  				filterable: [
-  					'Project Title',
-  					'Locations',
-  					'NDP Pillar',
-  					'Primary Sector',
-  					'Objective',
-  				],
-  			},
-  		};
-  	},
-  	components: {
-  		TableTabs,
-  	},
-  	computed: {
-  		...mapState({
-  			projects: state => state.projectsTable,
-  		}),
-  	},
-  };
+    return {
+      pools: pooledRes.data,
+    };
+  },
+  data() {
+    return {
+      title: 'Filter by title, objective, NDP pillar, or sector',
+      columns: [
+        'Project Title',
+        'Locations',
+        'Objective',
+        'Start Date',
+        'End Date',
+        'NDP Pillar',
+        'Primary Sector',
+        '2016 Disbursements',
+        '2017 Disbursements',
+        '2018 Disbursements',
+        'Total Project Value',
+        'Trends',
+      ],
+      options: {
+        saveState: true,
+        // columnsDropdown: true,
+        highlightMatches: true,
+        filterByColumn: true,
+        storage: 'local',
+        // dateColumns: ['Start Date', 'End Date'],
+        filterable: [
+          'Project Title',
+          'Locations',
+          'NDP Pillar',
+          'Primary Sector',
+          'Objective',
+        ],
+      },
+    };
+  },
+  components: {
+    TableTabs,
+  },
+  computed: {
+    ...mapState({
+      projects: state => state.projectsTable,
+    }),
+  },
+};
 </script>
 
 <style scoped>
-  .title {
-  	margin-top: 2%;
-  }
-  #download_button {
-  	font-size: 13px;
-  }
+.title {
+  margin-top: 2%;
+}
+#download_button {
+  font-size: 13px;
+}
+#table {
+  overflow-x: auto;
+}
 </style>
