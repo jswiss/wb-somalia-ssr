@@ -23,9 +23,7 @@ export default {
     FlowsOverview,
   },
   // refactor to mounted?
-  async fetch() {
-    await getAllProjects;
-  },
+  fetch: getAllProjects,
   computed: {
     ...mapState({
       projects: state => state.projectsTable,
